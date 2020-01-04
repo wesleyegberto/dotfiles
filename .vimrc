@@ -1,18 +1,49 @@
-" Wesley's VIM setup
-" Install the Plugin Manager
-" git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-" 
+" ########################################################
+" # Wesley's VIM setup
+" ########################################################
 " cp ~/.vimrc ~/.config/nvim/init.vim
-" Inspiration: https://github.com/nicknisi/dotfiles/blob/master/config/nvim/init.vim
+
+" My mappgings:
+" \st         " Show startify
+
+" C-p         " fuzzy finder (ctrlpvim/ctrlp.vim)
+
+" \t          " toggle nerdtree
+" F2          " toggle nerdtree
+" \y          " reveal file in nerdtree
+
+" C-\         " go previous window
+" C-h         " left window
+" C-j         " down window
+" C-k         " up window
+" C-l         " right window
+" :q<index>   " close window with index
+
+" C-n         " find word occurrences (like VSCode C-d)
+" %           " jump to matching () or {} or []
+
+" ########################################################
+" # Instructions
+" ########################################################
+
+" Install the Plugin Manager:
+" git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+" Install the plugins:
+" vim +PluginInstall +qall
+
 
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
+" ########################################################
+" # Plugin installations
+" ########################################################
+
 " Insert all Plugins inside this block
 call vundle#begin()
 
-" Package manager (use vim +PluginInstall +qall)
+" Package manager
 Plugin 'VundleVim/Vundle.vim'
 
 " tmux integration for vim
@@ -29,6 +60,14 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Hybrid between number (when editing) and relative number (when navigating)
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+
+" nicer status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" features: open file, switch between buffers, change current dir (we must define the mappings)
+" dependency: pip3 install --user pynvim
+" Plugin 'Shougo/denite.nvim'
 
 " jump to any location specified by two characters
 Plugin 'justinmk/vim-sneak'
@@ -65,7 +104,17 @@ Plugin 'mhinz/vim-startify'
 call vundle#end()
 
 
-filetype plugin indent on       " load file type plugins + indent
+
+" ########################################################
+" # General mappings
+" ########################################################
+
+let g:mapleader = "\\"          " leader key to \
+
+nmap <space> \                  " space to \
+xmap <space> \                  " space to \
+
+filetype plugin indent on       " load file type plugins + indent (nvim always on)
 syntax enable
 
 set t_Co=256                    " explicitly tell vim that the terminal supports 256 colors
@@ -73,18 +122,16 @@ set t_Co=256                    " explicitly tell vim that the terminal supports
 set nocompatible                " no compatibility with vi
 set encoding=utf-8
 
+
 set clipboard=unnamed           " copy to OS clipboard
 
 if has('mouse')                 " enable mouse if possible
   set mouse=a
 endif
 
-if has('shodcmd')
-  set shodcmd                     " display incomplete commands
-endif
-
-
 set number relativenumber       " show relative number of lines to the current line
+set noshowmode                  " airline will do the job
+set showcmd                     " display incomplete commands
 
 "" Whitespace
 set nowrap                      " don't wrap lines
@@ -107,7 +154,7 @@ set cursorline                  " display a marker on current line
 " colorscheme railscasts          " set colorscheme
 
 " Code folding settings
-set foldmethod=syntax           " fold based on indent
+set foldmethod=manual           " fold based on indent
 set foldlevelstart=99
 set foldnestmax=10              " deepest fold is 10 levels
 set nofoldenable                " don't fold by default
@@ -142,9 +189,25 @@ set signcolumn=yes                                  " always show signcolumns
 inoremap <silent><expr> <c-space> coc#refresh()     " Use <c-space> to trigger completion.
 
 
+
+" ########################################################
+" # Appearance
+" ########################################################
+
+" Appearence
+set background=dark
+" colorscheme one                 " atom one dark
+"   call one#highlight('vimTodo', '000000', 'ffec8b', 'none')
+
+
+
+" ########################################################
+" # Plugins configuration
+" ########################################################
+
 filetype plugin indent on
 
-" ----- jistr/vim-nerdtree-tabs ----- {{
+" ----- jistr/vim-nerdtree-tabs ----- {{{
   let g:nerdtree_tabs_open_on_console_startup = 1     " To have NERDTree always open on startup
 
   set switchbuf+=usetab,newtab
@@ -176,31 +239,52 @@ filetype plugin indent on
   \ 'Ignored'   : '☒',
   \ "Unknown"   : "?"
   \ }
-" }}
+" }}}
 
-" ----- justinmk/vim-sneak ----- {{
+" ----- Shougo/denite.nvim ----- {{{
+"  " Define mappings
+"  autocmd FileType denite call s:denite_my_settings()
+"  function! s:denite_my_settings() abort
+"    " nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+"    " nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
+"    " nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+"    " nnoremap <silent><buffer><expr> q denite#do_map('quit')
+"    " nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+"    " nnoremap <silent> <leader>p denite#do_map('open_filter_buffer')
+"    " nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+"  endfunction
+" }}}
+
+" ----- vim-airline/vim-airline ----- {{{
+  let g:airline#extensions#tabline#enabled = 1                          " automatically displays all buffers when there's only one tab open
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path formatter
+" }}}
+
+" ----- justinmk/vim-sneak ----- {{{
   let g:sneak#label = 1
-" }}
+" }}}
 
-" ----- machakann/vim-highlightedyank ----- {{
+" ----- machakann/vim-highlightedyank ----- {{{
   let g:highlightedyank_highlight_duration = 1000     " Highlight the content copied
-" }}
+" }}}
 
-" ----- jeffkreeftmeijer/vim-numbertoggle ----- {{
+" ----- jeffkreeftmeijer/vim-numbertoggle ----- {{{
   " hybrid mode (normal mode: relative, insert mode: absolute)
   :augroup numbertoggle
   :  autocmd!
   :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
   :augroup END
-" }}
+" }}}
 
-" ----- airblade/vim-gitgutter settings ----- {{
+" ----- airblade/vim-gitgutter settings ----- {{{
   " In vim-airline, only display "hunks" if the diff is non-zero
   let g:airline#extensions#hunks#non_zero_only = 1
-" }}
+" }}}
 
-" ----- Raimondi/delimitMate settings ----- {{
+" ----- Raimondi/delimitMate settings ----- {{{
   let delimitMate_expand_cr = 1
   augroup mydelimitMate
     au!
@@ -209,9 +293,9 @@ filetype plugin indent on
     au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
     au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
   augroup END
-" }}
+" }}}
 
-" ----- mhinz/vim-startify ----- {{
+" ----- mhinz/vim-startify ----- {{{
   " Don't change to directory when selecting a file
   let g:startify_files_number = 5
   let g:startify_change_to_dir = 0
@@ -241,4 +325,4 @@ filetype plugin indent on
 
   autocmd User Startified setlocal cursorline
   nmap <leader>st :Startify<cr>
-" }}
+" }}}

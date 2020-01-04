@@ -1,3 +1,5 @@
+# Install Apple Command Line Tools
+xcode-select --install
 
 if test ! "$( command -v brew )"; then
     echo "Installing homebrew"
