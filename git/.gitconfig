@@ -1,0 +1,38 @@
+[user]
+    name = Wesley Egberto
+[github]
+    user = wesleyegberto
+[alias]
+    # list all aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    # log graph
+    l = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+    # show what I did today
+    day = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
+
+    # tag aliases
+    # show the last tag
+    lt = describe --tags --abbrev=0
+
+    # order files by number of commits, ascending
+    # Written by Corey Haines
+    # Scriptified by Gary Bernhardt
+    # Show churn for a time range:
+    #   $ git churn --since='1 month ago'
+    churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
+
+    # 'diff grep'
+    dg = "!sh -c 'git ls-files -m | grep $1 | xargs git diff' -"
+
+    # 'checkout grep'
+    cg = "!sh -c 'git ls-files -m | grep $1 | xargs git checkout ' -"
+    # add grep
+    ag = "!sh -c 'git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all' -"
+[push]
+    # push will only do the current branch, not all branches
+    default = current
+[branch]
+    # set up 'git pull' to rebase instead of merge
+    autosetuprebase = always
