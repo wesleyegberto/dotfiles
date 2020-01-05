@@ -2,6 +2,9 @@
     name = Wesley Egberto
 [github]
     user = wesleyegberto
+[core]
+	editor = vim
+    excludesfile = '~/.gitignore_global'
 [alias]
     # list all aliases
     la = "!git config -l | grep alias | cut -c 7-"
