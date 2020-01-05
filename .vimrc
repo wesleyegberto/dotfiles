@@ -22,6 +22,7 @@
 " C-n         " find word occurrences (like VSCode C-d)
 " %           " jump to matching () or {} or []
 
+
 " ########################################################
 " # Instructions
 " ########################################################
@@ -29,12 +30,18 @@
 " Install the Plugin Manager:
 " git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 " Install the plugins:
-" vim +PluginInstall +qall
+" vim +PluginInstall +UpdateRemotePlugins +qall
 
+" Dependencies:
+" pip2 install --user pynvim
+" pip3 install --user pynvim
+" pip2 install --user neovim
+" pip3 install --user neovim
 
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " ########################################################
 " # Plugin installations
@@ -43,65 +50,122 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " Insert all Plugins inside this block
 call vundle#begin()
 
-" Package manager
-Plugin 'VundleVim/Vundle.vim'
+    " Package manager
+    Plugin 'VundleVim/Vundle.vim'
 
-" tmux integration for vim
-Plugin 'benmills/vimux'
+    " tmux integration for vim
+    Plugin 'benmills/vimux'
 
-" To navigate between open pages with ctrl and hjkl (C-h C-j C-k C-k)
-Plugin 'christoomey/vim-tmux-navigator'
+    " To navigate between open pages with ctrl and hjkl (C-h C-j C-k C-k)
+    Plugin 'christoomey/vim-tmux-navigator'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+    "display which keybindings is available
+    Plugin 'liuchengxu/vim-which-key'
 
-" Hybrid between number (when editing) and relative number (when navigating)
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'jistr/vim-nerdtree-tabs'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
+    Plugin 'ryanoasis/vim-devicons'
+    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" nicer status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+    " Hybrid between number (when editing) and relative number (when navigating)
+    Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
-" features: open file, switch between buffers, change current dir (we must define the mappings)
-" dependency: pip3 install --user pynvim
-" Plugin 'Shougo/denite.nvim'
+    " nicer status bar
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
 
-" jump to any location specified by two characters
-Plugin 'justinmk/vim-sneak'
+    " features: open file, switch between buffers, change current dir (we must define the mappings)
+    " Plugin 'Shougo/denite.nvim'
 
-Plugin 'machakann/vim-highlightedyank'
+    " jump to any location specified by two characters
+    Plugin 'justinmk/vim-sneak'
 
-" Show git info at line
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+    Plugin 'machakann/vim-highlightedyank'
 
-" Fuzzy find (like Sublime)
-Plugin 'ctrlpvim/ctrlp.vim'
+    " Show git info at line
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-fugitive'
 
-Plugin 'terryma/vim-multiple-cursors'
+    " Fuzzy find (like Sublime)
+    Plugin 'ctrlpvim/ctrlp.vim'
 
-" automatic closing of quotes, parenthesis, brackets, etc
-Plugin 'Raimondi/delimitMate'
+    Plugin 'terryma/vim-multiple-cursors'
 
-" mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens
-Plugin 'tpope/vim-surround'
+    " automatic closing of quotes, parenthesis, brackets, etc
+    Plugin 'Raimondi/delimitMate'
 
-" better terminal integration (substitute, search, and abbreviate multiple variants of a word)
-Plugin 'tpope/vim-abolish'
+    " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens
+    Plugin 'tpope/vim-surround'
 
-" enables repeating other supported plugins with the . command
-" Pluging 'tpope/vim-repeat'
+    " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
+    Plugin 'tpope/vim-abolish'
 
-" Intellisense JS engine
-" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+    " enables repeating other supported plugins with the . command
+    " Pluging 'tpope/vim-repeat'
 
-" Startify: Fancy startup screen for vim
-Plugin 'mhinz/vim-startify'
+    " intellisense
+    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+    Plugin 'artur-shaik/vim-javacomplete2'
+
+    Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
+    " Startify: Fancy startup screen for vim
+    Plugin 'mhinz/vim-startify'
 
 call vundle#end()
+
+
+
+" ########################################################
+" # General mappings
+" ########################################################
+
+" ----- liuchengxu/vim-which-key' ----- {{{
+  let g:which_key_map = {}
+
+  let g:which_key_map.s = { 'name' : '+startify' }
+  let g:which_key_map.s.t = [ '\\st', 'show startify' ]
+
+  let g:which_key_map.w = {
+      \ 'name' : '+windows' ,
+      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ 'q' : ['<C-W>q'     , 'quit-window']           ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ }
+
+  let g:which_key_map.l = {
+      \ 'name' : '+lsp',
+      \ 'f' : ['LanguageClient#textDocument_formatting()'        , 'formatting'],
+      \ 'h' : ['LanguageClient#textDocument_hover()'             , 'hover'],
+      \ 'r' : ['LanguageClient#textDocument_references()'        , 'references'],
+      \ 'R' : ['LanguageClient#textDocument_rename()'            , 'rename'],
+      \ 's' : ['LanguageClient#textDocument_documentSymbol()'    , 'document-symbol'],
+      \ 'S' : ['LanguageClient#workspace_symbol()'               , 'workspace-symbol'],
+      \ 'g' : {
+          \ 'name': '+goto',
+          \ 'd' : ['LanguageClient#textDocument_definition()'      , 'definition'],
+          \ 't' : ['LanguageClient#textDocument_typeDefinition()'  , 'type-definition'],
+          \ 'i' : ['LanguageClient#textDocument_implementation()'  , 'implementation'],
+          \ },
+      \ }
+" }}}
 
 
 
@@ -114,6 +178,11 @@ let g:mapleader = "\\"          " leader key to \
 nmap <space> \                  " space to \
 xmap <space> \                  " space to \
 
+" configure whick-key to display after leader key is pressed and not other key is pressed
+set timeoutlen=1000
+call which_key#register('\', "g:which_key_map")
+nnoremap <silent> <leader> :WhichKey '\'<CR>
+
 filetype plugin indent on       " load file type plugins + indent (nvim always on)
 syntax enable
 
@@ -121,7 +190,6 @@ set t_Co=256                    " explicitly tell vim that the terminal supports
 
 set nocompatible                " no compatibility with vi
 set encoding=utf-8
-
 
 set clipboard=unnamed           " copy to OS clipboard
 
@@ -174,7 +242,6 @@ set wildignore+=.git                                " ignore these extensions on
 " set inccommand=nosplit
 
 
-" ---- neoclide/coc.nvim -----
 set hidden                                          " if hidden is not set, TextEdit might fail.
 
 set nobackup                                        " Some servers have issues with backup files, see #649
@@ -185,8 +252,6 @@ set cmdheight=2                                     " Better display for message
 set updatetime=300                                  " You will have bad experience for diagnostic messages when it's default 4000.
 set shortmess+=c                                    " don't give |ins-completion-menu| messages.
 set signcolumn=yes                                  " always show signcolumns
-
-inoremap <silent><expr> <c-space> coc#refresh()     " Use <c-space> to trigger completion.
 
 
 
@@ -207,6 +272,35 @@ set background=dark
 
 filetype plugin indent on
 
+
+" ----- jistr/vim-nerdtree-tabs ----- {{{
+  let g:LanguageClient_serverCommands = {
+      \ 'java': ['java',
+          \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+          \ '-Dosgi.bundles.defaultStartLevel=4',
+          \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
+          \ '-Dlog.level=ALL',
+          \ '-noverify',
+          \ '-Dfile.encoding=UTF-8',
+          \ '-Xms1G',
+          \ '-jar',
+          \ expand('~/dev-tools/ide/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar'),
+          \ '-configuration',
+          \ expand('~/dev-tools/ide/jdt-language-server/config_mac'),
+          \ '-data',
+          \ getcwd()
+          \ ],
+      \ 'python': ['/usr/local/bin/pyls'],
+      \ }
+
+  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+  " or map each action separately
+  " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" }}}
+
+
 " ----- jistr/vim-nerdtree-tabs ----- {{{
   let g:nerdtree_tabs_open_on_console_startup = 1     " To have NERDTree always open on startup
 
@@ -220,8 +314,8 @@ filetype plugin indent on
   let NERDTreeDirArrowCollapsible = "\u00a0"          " make arrows invisible
   let NERDTreeNodeDelimiter = "\u263a"                " smiley face
 
-  map <F2> :NERDTreeToggle<CR>                        " F2 to toggle nerdtree
-  nmap <silent> <leader>t :NERDTreeTabsToggle<CR>     " Open/close NERDTree Tabs with \t
+  map <F2> :NERDTreeToggle<CR>                        " toggle NERDTree Tabs
+  nmap <silent> <leader>t :NERDTreeTabsToggle<CR>     " toggle NERDTree Tabs
   nmap <silent> <leader>y :NERDTreeFind<cr>           " reveal the current file in nerdtree
 
   let NERDTreeShowHidden=1
@@ -325,4 +419,71 @@ filetype plugin indent on
 
   autocmd User Startified setlocal cursorline
   nmap <leader>st :Startify<cr>
+" }}}
+
+" ----- artur-shaik/vim-javacomplete2 ----- {{{
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+  nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+  imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+
+
+" }}}
+
+" ----- neoclide/coc.nvim ----- {{{
+  inoremap <silent><expr> <c-space> coc#refresh()             " use <c-space> to trigger completion
+
+  " use <tab> for trigger completion and navigate to next complete item
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+
+  " Use tab for trigger completion with characters ahead and navigate.
+  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  " close preview window when completion is done.
+  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+  " use `[g` and `]g` to navigate diagnostics
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+  " remap keys for gotos
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  " use K to show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+  
+  nmap <leader>rn <Plug>(coc-rename)                          " remap for rename current word
+
+  " Remap for format selected region
+  xmap <leader>f  <Plug>(coc-format-selected)
+  nmap <leader>f  <Plug>(coc-format-selected)
+
+  " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+  xmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+  " Remap for do codeAction of current line
+  nmap <leader>ac  <Plug>(coc-codeaction)
+  " Fix autofix problem of current line
+  nmap <leader>qf  <Plug>(coc-fix-current)
+
 " }}}
