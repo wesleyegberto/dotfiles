@@ -146,7 +146,7 @@ call vundle#end()
       \ 'K' : ['resize -5'  , 'expand-window-up']      ,
       \ '=' : ['<C-W>='     , 'balance-window']        ,
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-aside']    ,
       \ '?' : ['Windows'    , 'fzf-window']            ,
       \ }
 
