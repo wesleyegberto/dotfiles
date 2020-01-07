@@ -178,6 +178,8 @@ let g:mapleader = "\\"          " leader key to \
 nmap <space> \                  " space to \
 xmap <space> \                  " space to \
 
+imap jj <Esc>                   " on insert mode, jj as Esc
+
 " configure whick-key to display after leader key is pressed and not other key is pressed
 set timeoutlen=1000
 call which_key#register('\', "g:which_key_map")
