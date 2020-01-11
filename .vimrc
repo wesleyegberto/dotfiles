@@ -71,7 +71,7 @@
 " \qf         " quick fix for current line
 
 " actions (after \a we can press a navigation command to select a block - like w or p)
-" \a          " if we have a selection otherwise we will need to provide a navigation command to select a block
+" \a          " if we have a selection otherwise we will need to provide a navigation command to select a block (like: `\aas` -> action for current sentence)
 " \ac         " action for current line
 " \aw         " action for current word
 
@@ -337,37 +337,37 @@ set background=dark
 
 
 " === jistr/vim-nerdtree-tabs === {{{
-  let g:nerdtree_tabs_open_on_console_startup = 1                       " To have NERDTree always open on startup
+let g:nerdtree_tabs_open_on_console_startup = 1                       " To have NERDTree always open on startup
 
-  set switchbuf+=usetab,newtab
-  set wrapscan
-  let g:WebDevIconsOS = 'Darwin'
-  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-  let g:DevIconsEnableFoldersOpenClose = 1
-  let g:DevIconsEnableFolderExtensionPatternMatching = 1
-  let NERDTreeDirArrowExpandable = "\u00a0"                             " make arrows invisible
-  let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arrows invisible
-  let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
+set switchbuf+=usetab,newtab
+set wrapscan
+let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+let NERDTreeDirArrowExpandable = "\u00a0"                             " make arrows invisible
+let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arrows invisible
+let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
 
-  map <F2> :NERDTreeToggle<CR>                                          " toggle NERDTree Tabs
-  nmap <silent> <leader>t :NERDTreeTabsToggle<CR>                       " toggle NERDTree Tabs
-  nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
+map <F2> :NERDTreeToggle<CR>                                          " toggle NERDTree Tabs
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>                       " toggle NERDTree Tabs
+nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
 
-  let NERDTreeShowHidden=1
-  let NERDTreeDirArrowExpandable = '▷'
-  let NERDTreeDirArrowCollapsible = '▼'
-  let g:NERDTreeIndicatorMapCustom = {
-  \ "Modified"  : "✹",
-  \ "Staged"    : "✚",
-  \ "Untracked" : "✭",
-  \ "Renamed"   : "➜",
-  \ "Unmerged"  : "═",
-  \ "Deleted"   : "✖",
-  \ "Dirty"     : "✗",
-  \ "Clean"     : "✔︎",
-  \ 'Ignored'   : '☒',
-  \ "Unknown"   : "?"
-  \ }
+let NERDTreeShowHidden=1
+let NERDTreeDirArrowExpandable = '▷'
+let NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeIndicatorMapCustom = {
+\ "Modified"  : "✹",
+\ "Staged"    : "✚",
+\ "Untracked" : "✭",
+\ "Renamed"   : "➜",
+\ "Unmerged"  : "═",
+\ "Deleted"   : "✖",
+\ "Dirty"     : "✗",
+\ "Clean"     : "✔︎",
+\ 'Ignored'   : '☒',
+\ "Unknown"   : "?"
+\ }
 " }}}
 
 " === Shougo/denite.nvim === {{{
@@ -385,75 +385,75 @@ set background=dark
 " }}}
 
 " === vim-airline/vim-airline === {{{
-  let g:airline#extensions#tabline#enabled = 1                          " automatically displays all buffers when there's only one tab open
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path formatter
+let g:airline#extensions#tabline#enabled = 1                          " automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path formatter
 " }}}
 
 " === justinmk/vim-sneak === {{{
-  let g:sneak#label = 1
+let g:sneak#label = 1
 " }}}
 
 " === machakann/vim-highlightedyank === {{{
-  let g:highlightedyank_highlight_duration = 1000                       " Highlight the content copied
+let g:highlightedyank_highlight_duration = 1000                       " Highlight the content copied
 " }}}
 
 " === jeffkreeftmeijer/vim-numbertoggle === {{{
-  " hybrid mode (normal mode: relative, insert mode: absolute)
-  :augroup numbertoggle
-  :  autocmd!
-  :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-  :augroup END
+" hybrid mode (normal mode: relative, insert mode: absolute)
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 " }}}
 
 " === airblade/vim-gitgutter settings === {{{
-  " In vim-airline, only display "hunks" if the diff is non-zero
-  let g:airline#extensions#hunks#non_zero_only = 1
+" In vim-airline, only display "hunks" if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only = 1
 " }}}
 
 " === Raimondi/delimitMate settings === {{{
-  let delimitMate_expand_cr = 1
-  augroup mydelimitMate
-    au!
-    au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
-    au FileType tex let b:delimitMate_quotes = ""
-    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-    au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-  augroup END
+let delimitMate_expand_cr = 1
+augroup mydelimitMate
+  au!
+  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+  au FileType tex let b:delimitMate_quotes = ""
+  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
 " }}}
 
 " === mhinz/vim-startify === {{{
-  " Don't change to directory when selecting a file
-  let g:startify_files_number = 5
-  let g:startify_change_to_dir = 0
-  let g:startify_custom_header = [ ]
-  let g:startify_relative_path = 1
-  let g:startify_use_env = 1
+" Don't change to directory when selecting a file
+let g:startify_files_number = 5
+let g:startify_change_to_dir = 0
+let g:startify_custom_header = [ ]
+let g:startify_relative_path = 1
+let g:startify_use_env = 1
 
-  " Custom startup list, only show MRU from current directory/project
-  let g:startify_lists = [
-  \  { 'type': 'dir',       'header': [ 'Files '. getcwd() ] },
-  \  { 'type': function('helpers#startify#listcommits'), 'header': [ 'Recent Commits' ] },
-  \  { 'type': 'sessions',  'header': [ 'Sessions' ]       },
-  \  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]      },
-  \  { 'type': 'commands',  'header': [ 'Commands' ]       },
+" Custom startup list, only show MRU from current directory/project
+let g:startify_lists = [
+    \  { 'type': 'dir',       'header': [ 'Files '. getcwd() ] },
+    \  { 'type': function('helpers#startify#listcommits'), 'header': [ 'Recent Commits' ] },
+    \  { 'type': 'sessions',  'header': [ 'Sessions' ]       },
+    \  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]      },
+    \  { 'type': 'commands',  'header': [ 'Commands' ]       },
   \ ]
 
-  let g:startify_commands = [
+let g:startify_commands = [
   \   { 'up': [ 'Update Plugins', ':PlugUpdate' ] },
   \   { 'ug': [ 'Upgrade Plugin Manager', ':PlugUpgrade' ] },
   \ ]
 
-  let g:startify_bookmarks = [
-      \ { 'c': '~/.config/nvim/init.vim' },
-      \ { 'g': '~/.gitconf"g' },
-      \ { 'z': '~/.zshrc' }
+let g:startify_bookmarks = [
+    \ { 'c': '~/.config/nvim/init.vim' },
+    \ { 'g': '~/.gitconf"g' },
+    \ { 'z': '~/.zshrc' }
   \ ]
 
-  autocmd User Startified setlocal cursorline
-  nmap <leader>st :Startify<cr>
+autocmd User Startified setlocal cursorline
+nmap <leader>st :Startify<cr>
 " }}}
 
 " === artur-shaik/vim-javacomplete2 === {{{
@@ -463,94 +463,127 @@ set background=dark
 "  imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 " }}}
 
+
 " === neoclide/coc.nvim === {{{
-  inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
 
-  " use <tab> for trigger completion and navigate to next complete item
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction
+" use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-  " Use tab for trigger completion with characters ahead and navigate.
-  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  " close preview window when completion is done.
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-  " use `[g` and `]g` to navigate diagnostics
-  nmap <silent> [g <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-  " remap keys for gotos
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
+" use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-  " use K to show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
+" remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
-  
-  nmap <leader>rn <Plug>(coc-rename)                                    " remap for rename current word
+" use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-  " Remap for format selected region
-  xmap <leader>f  <Plug>(coc-format-selected)
-  nmap <leader>f  <Plug>(coc-format-selected)
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
-  " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  function! s:cocActionsOpenFromSelected(type) abort
-    execute 'CocCommand actions.open ' . a:type
-  endfunction
-  xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-  nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-  " " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  " xmap <leader>a  <Plug>(coc-codeaction-selected)
-  " nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>rn <Plug>(coc-rename)                                    " remap for rename current word
 
-  " Remap for do codeAction of current line
-  nmap <leader>ac  <Plug>(coc-codeaction)
-  " Fix autofix problem of current line
-  nmap <leader>qf  <Plug>(coc-fix-current)
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " }}}
 
-" === autozimu/LanguageClient-neovim === {{{
-  let g:LanguageClient_serverCommands = {
-      \ 'java': ['java',
-          \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-          \ '-Dosgi.bundles.defaultStartLevel=4',
-          \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
-          \ '-Dlog.level=ALL',
-          \ '-noverify',
-          \ '-Dfile.encoding=UTF-8',
-          \ '-Xms1G',
-          \ '-jar',
-          \ expand('~/dev-tools/ide/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar'),
-          \ '-configuration',
-          \ expand('~/dev-tools/ide/jdt-language-server/config_mac'),
-          \ '-data',
-          \ getcwd()
-          \ ],
-      \ 'python': ['/usr/local/bin/pyls'],
-      \ }
 
-  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-  " or map each action separately
-  " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" === autozimu/LanguageClient-neovim === {{{
+let g:LanguageClient_serverCommands = {
+    \ 'java': ['java',
+        \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+        \ '-Dosgi.bundles.defaultStartLevel=4',
+        \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
+        \ '-Dlog.level=ALL',
+        \ '-noverify',
+        \ '-Dfile.encoding=UTF-8',
+        \ '-Xms1G',
+        \ '-jar',
+        \ expand('~/dev-tools/ide/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar'),
+        \ '-configuration',
+        \ expand('~/dev-tools/ide/jdt-language-server/config_mac'),
+        \ '-data',
+        \ getcwd()
+        \ ],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" or map each action separately
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}
