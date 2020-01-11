@@ -14,7 +14,7 @@
 " F2          " toggle nerdtree
 " \y          " reveal file in nerdtree
 
-"=== Windows ===
+" === Windows and Tabs ===
 " <C-w>s       " split current window horizontally (alternative :split)
 " <C-w>v       " rplit current window vertically (alternative :vsplit)
 " <C-w>q       " close current window
@@ -30,10 +30,17 @@
 " <C-l>        " right window
 " :q<index>    " close window with index
 
+" gt           " go to next tab
+" gT           " go to previous tab
+" #gt          " go to tab at index #
+
 
 " === Searching ===
 " C-p         " fuzzy finder (ctrlpvim/ctrlp.vim)
 " \<space>    " clear searching results
+" *           " find current word and jump next occurrence
+" [i          " show first occurrence of current word
+" [I          " show all occurrences of current word
 
 
 " === Navigation ===
@@ -41,6 +48,8 @@
 " %           " jump to matching () or {} or []
 " {           " go to previous empty line
 " }           " go to next empty line
+" [/          " go to start of first comment block /* */
+" ]/          " go to end of first comment block /* */
 
 " enclosing navigation (between [], (), {})
 " [%          " go to previous enclosing [ or ( or {
@@ -49,6 +58,8 @@
 " ]}          " go to enclosing }
 " [(          " go to enclosing (
 " ])          " go to enclosing )
+" [m          " go to start of previous body
+" ]m          " go to start of next body
 
 " git changes navigation
 " [c          " go to previous git change
@@ -74,6 +85,33 @@
 " \a          " if we have a selection otherwise we will need to provide a navigation command to select a block (like: `\aas` -> action for current sentence)
 " \ac         " action for current line
 " \aw         " action for current word
+
+
+" === tpope/vim-unimpaired ===
+" [<space>    " add blankline before current line
+" ]<space>    " add blankline after current line
+" [e          " move current line above
+" ]e          " move current line bellow
+" >p          " paste after linewise, increasing indent.
+" >P          " paste before linewise, increasing indent.
+" <p          " paste after linewise, decreasing indent.
+" <P          " paste before linewise, decreasing indent.
+" =p          " paste after linewise, reindenting.
+" =P          " paste linewise, reindenting.
+
+
+" === tpope/vim-surround ===
+" using { ( [ will wrap the content with a space between the {} () []
+" using `}`, `]`, `)` will wrap the content with no space
+" format: `cs<CHAR_TO_REPLACE><CONTENT_REPLACE><cr>`
+" Examples:
+" cs"'        " replace surrounding the " to '
+" ds"         " delete surrounding "
+" yss)        " wrap the line with ()
+" yss}        " wrap the line with {}
+" ysiw]       " wrap the current word (iw -> inner word) with ]
+
+
 
 
 " === liuchengxu/vim-which-key' === {{{
@@ -170,6 +208,7 @@ call vundle#begin()
     "display which keybindings is available
     Plugin 'liuchengxu/vim-which-key'
 
+    " nerdtree plugins, tabs and icons
     Plugin 'scrooloose/nerdtree'
     Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -186,9 +225,6 @@ call vundle#begin()
     " features: open file, switch between buffers, change current dir (we must define the mappings)
     " Plugin 'Shougo/denite.nvim'
 
-    " jump to any location specified by two characters
-    Plugin 'justinmk/vim-sneak'
-
     Plugin 'machakann/vim-highlightedyank'
 
     " Show git info at line
@@ -200,11 +236,17 @@ call vundle#begin()
 
     Plugin 'terryma/vim-multiple-cursors'
 
+    " plugin to facilitate navigation
+    Plugin 'tpope/vim-unimpaired'
+
     " automatic closing of quotes, parenthesis, brackets, etc
     Plugin 'Raimondi/delimitMate'
 
-    " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens
+    " mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
     Plugin 'tpope/vim-surround'
+
+    " autoclose and actions to insert spaces or new line between {}, (), []
+    Plugin 'jiangmiao/auto-pairs'
 
     " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
     Plugin 'tpope/vim-abolish'
@@ -292,7 +334,7 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are insensitive
 set smartcase                   " unless they contain at least one capital letter
 
-" Code folding settings
+" Code folding settings (use `zc`, `zo`, `zz`)
 set foldmethod=manual           " fold based on indent
 set nofoldenable                " don't fold by default
 set foldlevel=1
@@ -317,7 +359,6 @@ set wildignore+=.git                                " ignore these extensions on
 set updatetime=1000                                  " You will have bad experience for diagnostic messages when it's default 4000.
 set shortmess+=c                                    " don't give |ins-completion-menu| messages.
 set signcolumn=yes                                  " always show signcolumns
-
 
 
 " ########################################################
@@ -384,6 +425,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "  endfunction
 " }}}
 
+
 " === vim-airline/vim-airline === {{{
 let g:airline#extensions#tabline#enabled = 1                          " automatically displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#left_sep = ' '
@@ -391,13 +433,23 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path formatter
 " }}}
 
-" === justinmk/vim-sneak === {{{
-let g:sneak#label = 1
+
+" === airblade/vim-gitgutter settings === {{{
+" In vim-airline, only display "hunks" if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only = 1
 " }}}
+
+
+" === jiangmiao/auto-pairs === {{{
+" let g:AutoPairsMultilineClose = 0
+" let g:AutoPairsMapSpace = 0                                         " disable extra space between {}, (), [] when pressing <space>
+" }}}
+
 
 " === machakann/vim-highlightedyank === {{{
 let g:highlightedyank_highlight_duration = 1000                       " Highlight the content copied
 " }}}
+
 
 " === jeffkreeftmeijer/vim-numbertoggle === {{{
 " hybrid mode (normal mode: relative, insert mode: absolute)
@@ -408,10 +460,6 @@ let g:highlightedyank_highlight_duration = 1000                       " Highligh
 :augroup END
 " }}}
 
-" === airblade/vim-gitgutter settings === {{{
-" In vim-airline, only display "hunks" if the diff is non-zero
-let g:airline#extensions#hunks#non_zero_only = 1
-" }}}
 
 " === Raimondi/delimitMate settings === {{{
 let delimitMate_expand_cr = 1
@@ -423,6 +471,7 @@ augroup mydelimitMate
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 " }}}
+
 
 " === mhinz/vim-startify === {{{
 " Don't change to directory when selecting a file

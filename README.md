@@ -43,3 +43,6 @@ Using Microsoft Cascadia Code with ligatures at all my apps (iTerm2, VS Code, Ec
   * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions):
     * [coc-actions](https://github.com/iamcco/coc-actions)
     * [coc-java](https://github.com/neoclide/coc-java)
+    * Editors:
+      * [vim-surround](https://github.com/tpope/vim-surround)
+      * [vim-unipaired](https://github.com/tpope/vim-unimpaired)
