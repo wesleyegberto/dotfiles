@@ -378,7 +378,7 @@ set background=dark
 
 
 " === jistr/vim-nerdtree-tabs === {{{
-let g:nerdtree_tabs_open_on_console_startup = 1                       " To have NERDTree always open on startup
+let g:nerdtree_tabs_open_on_console_startup = 2                       " open only if we are openning a folder
 
 set switchbuf+=usetab,newtab
 set wrapscan
@@ -390,8 +390,8 @@ let NERDTreeDirArrowExpandable = "\u00a0"                             " make arr
 let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arrows invisible
 let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
 
-map <F2> :NERDTreeToggle<CR>                                          " toggle NERDTree Tabs
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>                       " toggle NERDTree Tabs
+map <F2> :NERDTreeMirrorToggle<CR>                                    " toggle NERDTree Tabs
+nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
 nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
 
 let NERDTreeShowHidden=1
