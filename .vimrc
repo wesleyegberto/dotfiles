@@ -88,10 +88,12 @@
 
 
 " === tpope/vim-unimpaired ===
-" [<space>    " add blankline before current line
-" ]<space>    " add blankline after current line
 " [e          " move current line above
 " ]e          " move current line bellow
+" <M-Up>      " move current line above
+" <M-Down>    " move current line bellow
+" [<Space>    " add blankline before current line
+" ]<Space>    " add blankline after current line
 " >p          " paste after linewise, increasing indent.
 " >P          " paste before linewise, increasing indent.
 " <p          " paste after linewise, decreasing indent.
@@ -227,9 +229,9 @@ call vundle#begin()
 
     Plugin 'machakann/vim-highlightedyank'
 
-    " Show git info at line
-    Plugin 'airblade/vim-gitgutter'
+    " Show git stuff and info at line
     Plugin 'tpope/vim-fugitive'
+    Plugin 'airblade/vim-gitgutter'
 
     " Fuzzy find (like Sublime)
     Plugin 'ctrlpvim/ctrlp.vim'
@@ -473,6 +475,12 @@ augroup END
 " }}}
 
 
+" === tpope/vim-unimpaired === {{{
+nmap <M-Up> <Plug>unimpairedMoveUp
+nmap <M-Down> <Plug>unimpairedMoveDown
+" }}}
+
+
 " === mhinz/vim-startify === {{{
 " Don't change to directory when selecting a file
 let g:startify_files_number = 5
@@ -504,6 +512,7 @@ let g:startify_bookmarks = [
 autocmd User Startified setlocal cursorline
 nmap <leader>st :Startify<cr>
 " }}}
+
 
 " === artur-shaik/vim-javacomplete2 === {{{
 "  autocmd FileType java setlocal omnifunc=javacomplete#Complete
