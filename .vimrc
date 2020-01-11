@@ -283,6 +283,10 @@ xmap <space> \                  " space to \
 
 imap jj <Esc>                   " on insert mode, jj as Esc
 
+nnoremap gt :bn<CR>
+nnoremap gT :bp<CR>
+nnoremap <silent> <M-Right> :bn<CR>
+nnoremap <silent> <M-Left> :bp<CR>
 
 nnoremap <leader><space> :nohlsearch<cr> " unhighlight the search result
 
