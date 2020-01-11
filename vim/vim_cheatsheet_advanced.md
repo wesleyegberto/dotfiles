@@ -115,6 +115,7 @@ e        jump to end of words (punctuation considered words)
 b        jump backward by words (punctuation considered words)
 0 (zero) start of line
 ^        first non-blank character of line
+_        first non-blank character of line
 $        end of line
 G        bottom of file
 gg       top of file
