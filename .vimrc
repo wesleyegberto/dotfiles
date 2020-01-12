@@ -541,6 +541,21 @@ nmap <leader>st :Startify<cr>
 " === neoclide/coc.nvim === {{{
 inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
 
+" colors
+hi Pmenu      ctermbg=Gray  guibg=Gray  ctermfg=Black guifg=Black
+hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black
+hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
+
+hi CocErrorHighlight    ctermfg=Red   guifg=#000000
+hi CocErrorSign         ctermfg=Red   guifg=#ff1100
+hi CocErrorVirtualText  ctermfg=Red   guifg=#ff1100
+hi CocErrorFloat        ctermfg=Black guifg=#000000
+hi CocErrorLine         ctermbg=DarkGray  guibg=#1C2117
+
+hi CocWarningHighlight  ctermfg=Yellow guifg=#ff922b
+hi CocWarningFloat      ctermfg=Yellow guifg=#ff922b
+" hi CocWarningLine       ctermfg=Yellow guifg=#ff922b
+
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
