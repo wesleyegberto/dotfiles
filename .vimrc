@@ -43,6 +43,7 @@
 
 
 " === Navigation ===
+" g;          " go to last edition position
 " %           " jump to matching () or {} or []
 " {           " go to previous paragraph
 " }           " go to next paragraph
@@ -308,8 +309,6 @@ set timeoutlen=500
 call which_key#register('\', "g:which_key_map")
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 
-" filetype plugin on            " load file type agnostic settings (format: ~/.config/nvim/after/java.vim)
-filetype plugin indent on       " load identation by file type
 syntax enable
 
 set t_Co=256                    " explicitly tell vim that the terminal supports 256 colors
@@ -338,9 +337,10 @@ set showcmd                     " display incomplete commands
 
 "" Whitespace and indentation
 set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
-set expandtab                   " use spaces, not tabs (optional)
-set backspace=indent,eol,start  " backspace through everything in insert mode
+set expandtab!                  " by default not expand tab
+set tabstop=4                   " a tab is two spaces (or set this to 4)
+set shiftwidth=4
+set softtabstop=4
 set nolazyredraw                " don't redraw while executing macros
 set smartindent
 
@@ -378,6 +378,19 @@ set wildignore+=.git                                " ignore these extensions on
 set updatetime=1000                                  " You will have bad experience for diagnostic messages when it's default 4000.
 set shortmess+=c                                    " don't give |ins-completion-menu| messages.
 set signcolumn=yes                                  " always show signcolumns
+
+
+
+" ########################################################
+" # Languages configuration
+" ########################################################
+" filetype plugin on            " load file type agnostic settings (format: ~/.config/nvim/after/java.vim)
+filetype plugin indent on       " load identation by file type
+
+autocmd Filetype java         setlocal expandtab! tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype python       setlocal expandtab  tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype javascript   setlocal expandtab  tabstop=2 shiftwidth=2 softtabstop=2
+
 
 
 " ########################################################
