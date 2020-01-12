@@ -11,7 +11,6 @@
 " \st         " Show startify
 
 " \t          " toggle nerdtree
-" F2          " toggle nerdtree
 " \y          " reveal file in nerdtree
 
 " === Windows and Tabs ===
@@ -45,8 +44,8 @@
 
 " === Navigation ===
 " %           " jump to matching () or {} or []
-" {           " go to previous empty line
-" }           " go to next empty line
+" {           " go to previous paragraph
+" }           " go to next paragraph
 " [/          " go to start of first comment block /* */
 " ]/          " go to end of first comment block /* */
 
@@ -77,23 +76,6 @@
 " ]g          " navigate to next diagnostic
 
 
-" === coc-vim keybindings ===
-" <C-Space>   " refresh autocomplete (INSERT MODE)
-" gd          " go to definition
-" gy          " go to type
-" gi          " go to implementation
-" gr          " find references
-" K           " show documentation
-" \rn         " rename var
-" \f          " format selection
-" \qf         " quick fix for current line
-
-" actions (after \a we can cursor motion to select a block - like w or p)
-" \a          " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\aas` -> action for current sentence)
-" \ac         " action for current line
-" \aw         " action for current word
-
-
 " === tpope/vim-unimpaired ===
 " [e          " move current line above
 " ]e          " move current line bellow
@@ -121,6 +103,26 @@
 " ysiw]       " wrap the current word (iw -> inner word) with ]
 
 
+" === coc-vim keybindings ===
+" <C-Space>   " refresh autocomplete (INSERT MODE)
+" gd          " go to definition
+" gy          " go to type
+" gi          " go to implementation
+" gr          " find references
+" K           " show documentation
+" \rn         " rename var
+" \f          " format selection
+" \qf         " quick fix for current line
+
+" actions (after \a we can cursor motion to select a block - like w or p)
+" \a          " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\aas` -> action for current sentence)
+" \ac         " action for current line
+" \aw         " action for current word
+
+" snippets
+" <C-l>       " cut the selected content to use inside a snippet (when used later)
+" <C-n>       " next item
+" <C-p>       " previous item
 
 
 " === liuchengxu/vim-which-key' === {{{
@@ -260,6 +262,10 @@ call vundle#begin()
     " Plugin 'Shougo/deoplete.nvim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
+    " snippets
+    Plugin 'honza/vim-snippets'
+    Plugin 'SirVer/ultisnips'
 
     " enables repeating other supported plugins with the . command
     " Plugin 'tpope/vim-repeat'
@@ -403,7 +409,6 @@ let NERDTreeDirArrowExpandable = "\u00a0"                             " make arr
 let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arrows invisible
 let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
 
-map <F2> :NERDTreeMirrorToggle<CR>                                    " toggle NERDTree Tabs
 nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
 nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
 
@@ -594,6 +599,7 @@ endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
+" Commented to use coc-action
 " " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -605,14 +611,11 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
@@ -624,9 +627,9 @@ nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
 " # coc-snippets
 " :CocList snippets
@@ -635,13 +638,10 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
-
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
-
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
-
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
@@ -661,7 +661,17 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
+" }}}
 
+
+" === SirVer/ultisnips === {{{
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 
@@ -689,5 +699,5 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " or map each action separately
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}

@@ -52,6 +52,8 @@ NeoVim Plugins:
       * [coc-snippets](https://github.com/neoclide/coc-snippets)
       * [coc-java](https://github.com/neoclide/coc-java)
   * [Language Client](https://github.com/autozimu/LanguageClient-neovim)
+  * [vim-snippets](https://github.com/honza/vim-snippets)
+  * [ultisnips](https://github.com/SirVer/ultisnips)
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
