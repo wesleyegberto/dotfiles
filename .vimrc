@@ -37,19 +37,26 @@
 
 " === Searching ===
 " C-p         " fuzzy finder (ctrlpvim/ctrlp.vim)
-" \<space>    " clear searching results
+" \<Space>    " clear searching results
 " *           " find current word and jump next occurrence
 " [i          " show first occurrence of current word
 " [I          " show all occurrences of current word
 
 
 " === Navigation ===
-" C-n         " find word occurrences (like VSCode C-d)
 " %           " jump to matching () or {} or []
 " {           " go to previous empty line
 " }           " go to next empty line
 " [/          " go to start of first comment block /* */
 " ]/          " go to end of first comment block /* */
+
+" # terryma/vim-multiple-cursors 
+" <M-n>         " start multicursor and directly select all matches
+" <C-n>         " start multicursor and add a virtual cursor + selection on the match
+" After <C-n>:
+" <C-n>         " add a new virtual cursor + selection on the next match
+" <C-x>         " skip the next match
+" <C-p>         " remove current virtual cursor + selection and go back on previous match
 
 " enclosing navigation (between [], (), {})
 " [%          " go to previous enclosing [ or ( or {
@@ -71,7 +78,7 @@
 
 
 " === coc-vim keybindings ===
-" C-<space>   " refresh autocomplete (INSERT MODE)
+" <C-Space>   " refresh autocomplete (INSERT MODE)
 " gd          " go to definition
 " gy          " go to type
 " gi          " go to implementation
@@ -81,8 +88,8 @@
 " \f          " format selection
 " \qf         " quick fix for current line
 
-" actions (after \a we can press a navigation command to select a block - like w or p)
-" \a          " if we have a selection otherwise we will need to provide a navigation command to select a block (like: `\aas` -> action for current sentence)
+" actions (after \a we can cursor motion to select a block - like w or p)
+" \a          " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\aas` -> action for current sentence)
 " \ac         " action for current line
 " \aw         " action for current word
 
@@ -185,6 +192,7 @@
 " on error: `:call coc#util#install()`
 " actions popup: `:CocInstall coc-actions`
 " java: `:CocInstall coc-java`
+" snippets: `:CocInstall coc-snippets`
 
 filetype off
 
@@ -197,14 +205,8 @@ set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Insert all Plugins inside this block
 call vundle#begin()
-
-    " Package manager
-    Plugin 'VundleVim/Vundle.vim'
-
-    " tmux integration for vim
+    " tmux integration and navigate between open pages with C-h C-j C-k C-k
     Plugin 'benmills/vimux'
-
-    " To navigate between open pages with ctrl and hjkl (C-h C-j C-k C-k)
     Plugin 'christoomey/vim-tmux-navigator'
 
     "display which keybindings is available
@@ -224,9 +226,6 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
 
-    " features: open file, switch between buffers, change current dir (we must define the mappings)
-    " Plugin 'Shougo/denite.nvim'
-
     Plugin 'machakann/vim-highlightedyank'
 
     " Show git stuff and info at line
@@ -236,6 +235,10 @@ call vundle#begin()
     " Fuzzy find (like Sublime)
     Plugin 'ctrlpvim/ctrlp.vim'
 
+    " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
+    Plugin 'tpope/vim-abolish'
+
+    " Sublime-like multiple cursor editor
     Plugin 'terryma/vim-multiple-cursors'
 
     " plugin to facilitate navigation
@@ -250,20 +253,16 @@ call vundle#begin()
     " autoclose and actions to insert spaces or new line between {}, (), []
     Plugin 'jiangmiao/auto-pairs'
 
-    " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
-    Plugin 'tpope/vim-abolish'
-
-    " enables repeating other supported plugins with the . command
-    " Plugin 'tpope/vim-repeat'
-
     " highlight trailing whitespaces
     Plugin 'ntpeters/vim-better-whitespace'
 
     " intellisense
+    " Plugin 'Shougo/deoplete.nvim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
-    " Plugin 'artur-shaik/vim-javacomplete2'
+    " enables repeating other supported plugins with the . command
+    " Plugin 'tpope/vim-repeat'
 
     " Startify: Fancy startup screen for vim
     Plugin 'mhinz/vim-startify'
@@ -281,18 +280,25 @@ let g:mapleader = "\\"          " leader key to \
 nmap <space> \                  " space to \
 xmap <space> \                  " space to \
 
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>a
+vmap <C-s> <Esc>:w<CR>
+
 imap jj <Esc>                   " on insert mode, jj as Esc
 
+" to allow navigate a line above and bellow correctly when word wrapping
+nmap k gk
+nmap j gj
+
+" tab navigation
 nnoremap gt :bn<CR>
 nnoremap gT :bp<CR>
 nnoremap <silent> <M-Right> :bn<CR>
 nnoremap <silent> <M-Left> :bp<CR>
 
-nnoremap <leader><space> :nohlsearch<cr> " unhighlight the search result
-
 
 " configure whick-key to display after leader key is pressed and not other key is pressed
-set timeoutlen=1000
+set timeoutlen=500
 call which_key#register('\', "g:which_key_map")
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 
@@ -339,6 +345,7 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are insensitive
 set smartcase                   " unless they contain at least one capital letter
+nnoremap <leader><space> :nohlsearch<cr> " unhighlight the search result
 
 " Code folding settings (use `zc`, `zo`, `zz`)
 set foldmethod=manual           " fold based on indent
@@ -620,6 +627,41 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+
+" # coc-snippets
+" :CocList snippets
+" :CocCommand snippets.editSnippets
+" :CocCommand snippets.openSnippetFiles
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+
 " }}}
 
 

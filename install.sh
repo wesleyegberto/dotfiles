@@ -27,4 +27,4 @@ then
   echo '{"dependencies":{}}'> package.json
 fi
 # Change extension names to the extensions you need
-npm install coc-actions coc-java coc-snippets --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm install coc-actions coc-snippets coc-java --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
