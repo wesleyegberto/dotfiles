@@ -77,4 +77,6 @@ Using Microsoft Cascadia Code with ligatures at all my apps (iTerm2, VS Code, Ec
 * [Oh-My-Zsh](https://ohmyz.sh/)
 * [Tmux](https://github.com/tmux/tmux)
 * [NeoVim](https://neovim.io/)
-* [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
+* Fonts:
+  * [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
+  * [Jetbrains Mono](https://www.jetbrains.com/lp/mono/)
