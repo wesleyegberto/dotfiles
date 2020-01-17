@@ -8,10 +8,21 @@
 " # Keybinding Mappgin
 " ########################################################
 
-" \st         " Show startify
+" \st          " Show startify
 
-" \t          " toggle nerdtree
-" \y          " reveal file in nerdtree
+" \t           " toggle nerdtree
+" \y           " reveal file in nerdtree
+
+" On NERDTree tab
+" m            " Show menu
+" t            " open the selected file in a new tab
+" i            " open the selected file in a horizontal split window
+" s            " open the selected file in a vertical split window
+" I            " toggle hidden files
+" m            " show the NERD Tree menu
+" R            " refresh the tree, useful if files change outside of Vim
+" ?            " toggle NERD Tree's quick help
+
 
 " === Windows and Tabs ===
 " <C-w>s       " split current window horizontally (alternative :split)
