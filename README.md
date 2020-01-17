@@ -2,6 +2,16 @@
 
 My scripts and dotfiles for Zsh, Git, NeoVim.
 
+## My Setup
+
+### Bash
+
+I'm using iTerm2 + Oh-My-Zsh + Tmux.
+
+### Fonts
+
+Using Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
+
 ## Instructions
 
 ### Git configuration
@@ -10,9 +20,18 @@ Copy the content of file `git/.gitconfig` to `~/.gitconfig`.
 
 ### Zsh
 
+Install Zsh following [this steps](https://ohmyz.sh/).
+`$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+Then install the plugin manager:
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"`
+
 Copy the content of file `.zshrc` to `~/.zshrc`.
 
 ### NeoVim
+
+Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+`brew install neovim`
 
 Install de Vim plugin manager: `git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim`.
 
@@ -22,6 +41,8 @@ Then install the plugins by running: `vim +PluginInstall +qall`.
 
 NeoVim Plugins:
 
+* Theme
+  * [dracule](https://github.com/dracula/vim)
 * Files
   * [nerdtree](https://github.com/scrooloose/nerdtree)
   * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
@@ -60,16 +81,6 @@ NeoVim Plugins:
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
   * [vim-repeat](https://github.com/tpope/vim-repeat)
-
-## Configs
-
-### Bash
-
-I'm using iTerm2 + Oh-My-Zsh + Tmux.
-
-### Fonts
-
-Using Microsoft Cascadia Code with ligatures at all my apps (iTerm2, VS Code, Eclipse, so on).
 
 ## Links
 

@@ -208,6 +208,8 @@ set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Insert all Plugins inside this block
 call vundle#begin()
+    Plugin 'dracula/vim', { 'name': 'dracula' }
+
     " tmux integration and navigate between open pages with C-h C-j C-k C-k
     Plugin 'benmills/vimux'
     Plugin 'christoomey/vim-tmux-navigator'
@@ -275,6 +277,23 @@ call vundle#begin()
     Plugin 'mhinz/vim-startify'
 
 call vundle#end()
+
+
+
+" ########################################################
+" # Appearance
+" ########################################################
+
+" Appearence
+set background=dark
+" colorscheme one                 " atom one dark
+"   call one#highlight('vimTodo', '000000', 'ffec8b', 'none')
+let g:dracula_colorterm = 0
+let g:dracula_italic = 0
+
+syntax on
+colorscheme dracula
+color dracula
 
 
 
@@ -390,17 +409,6 @@ filetype plugin indent on       " load identation by file type
 autocmd Filetype java         setlocal expandtab! tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype python       setlocal expandtab  tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype javascript   setlocal expandtab  tabstop=2 shiftwidth=2 softtabstop=2
-
-
-
-" ########################################################
-" # Appearance
-" ########################################################
-
-" Appearence
-set background=dark
-" colorscheme one                 " atom one dark
-"   call one#highlight('vimTodo', '000000', 'ffec8b', 'none')
 
 
 

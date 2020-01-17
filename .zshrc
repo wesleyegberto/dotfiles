@@ -18,6 +18,8 @@ export DOTFILES="~/.dotfiles"
 # Theme Configuration
 ########################################################
 
+# === Powerlevel9k ===
+
 # https://github.com/bhilburn/powerlevel9k#dir
 ZSH_THEME="powerlevel9k/powerlevel9k"
 #POWERLEVEL9K_MODE='awesome-patched'
@@ -88,10 +90,55 @@ POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
 
 #POWERLEVEL9K_HIDE_BRANCH_ICON=true
 
+
+# === Spaceship ===
+#ZSH_THEME="spaceship"
+#SPACESHIP_PROMPT_ORDER=(
+#  user          # Username section
+#  dir           # Current directory section
+#  host          # Hostname section
+#  git           # Git section (git_branch + git_status)
+#  exec_time     # Execution time
+#  line_sep      # Line break
+#  vi_mode       # Vi-mode indicator
+#  jobs          # Background jobs indicator
+#  exit_code     # Exit code section
+#  char          # Prompt character
+#)
+#SPACESHIP_USER_SHOW=always
+#SPACESHIP_PROMPT_ADD_NEWLINE=false
+#SPACESHIP_CHAR_SYMBOL="❯"
+#SPACESHIP_CHAR_SUFFIX=" "
+
+
+########################################################
+# Plugin Manager
+########################################################
+
 plugins=(osx git vi-mode tmux jsontools)
 
 source $ZSH/oh-my-zsh.sh
 #source "$DOTFILES/zsh/prompts/jobs_prompt.zsh"
+
+
+### Added by Zplugin's installer
+if [[ ! -d $HOME/.zplugin/bin ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing Zplugin…%f"
+    command mkdir -p $HOME/.zplugin
+    command git clone https://github.com/zdharma/zplugin $HOME/.zplugin/bin && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%F" || \
+        print -P "%F{160}▓▒░ The clone has failed.%F"
+fi
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin installer's chunk
+
+zplugin light zdharma/fast-syntax-highlighting
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions 
+
+
 
 ########################################################
 # Custom Functions
