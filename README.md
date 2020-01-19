@@ -82,6 +82,23 @@ NeoVim Plugins:
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
   * [vim-repeat](https://github.com/tpope/vim-repeat)
 
+### VSCode
+
+I'm using VSCode with Vim extension which has my favorites Vim plugins (like vim-surround, vim-airline, vim commentary).
+Using it I can use all the Vim power for editing and navigation.
+
+#### Steps:
+
+* Install VSCode;
+* Install Vim extension;
+* Optional: copy my settings.
+
+I've exploring some configuration and key bindings to allow me to use the same keybindings that I'm using on NeoVim (like navigate between panes, motion, leader key and so on).
+Here are my configs:
+
+* [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`),
+* [VSCode Keybindings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-keybindingsmac-json): keybindings to navigate between panes, double `j` on insert mode
+
 ## Links
 
 * [iTerm2](https://iterm2.com/)

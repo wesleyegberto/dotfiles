@@ -18,3 +18,5 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 brew install neovim
 
 brew install httpie
+
+npm install -g n
