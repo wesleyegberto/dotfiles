@@ -232,12 +232,10 @@ call vundle#begin()
     "display which keybindings is available
     Plugin 'liuchengxu/vim-which-key'
 
-    " nerdtree plugins, tabs and icons
+    " nerdtree and tabs
     Plugin 'scrooloose/nerdtree'
     Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'Xuyuanp/nerdtree-git-plugin'
-    Plugin 'ryanoasis/vim-devicons'
-    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     " Hybrid between number (when editing) and relative number (when navigating)
     Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -293,6 +291,9 @@ call vundle#begin()
     " Startify: Fancy startup screen for vim
     Plugin 'mhinz/vim-startify'
 
+    " devicons (should be loaded after the current plugins)
+    Plugin 'ryanoasis/vim-devicons'
+    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 call vundle#end()
 
 
@@ -439,52 +440,45 @@ autocmd Filetype javascript   setlocal expandtab  tabstop=2 shiftwidth=2 softtab
 " === jistr/vim-nerdtree-tabs === {{{
 let g:nerdtree_tabs_open_on_console_startup = 2                       " open only if we are openning a folder
 
-set switchbuf=usetab,newtab
-set wrapscan
-let g:WebDevIconsOS = 'Darwin'
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:DevIconsEnableFolderExtensionPatternMatching = 1
-let NERDTreeDirArrowExpandable = "\u00a0"                             " make arrows invisible
-let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arrows invisible
-let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
 nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
 nmap <silent> <leader>T :NERDTreeTabsClose<CR>                        " toggle NERDTree Tabs
 nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
 
+set switchbuf=usetab,newtab
+set wrapscan
+
+let g:WebDevIconsOS = 'Darwin'                                        " https://github.com/ryanoasis/vim-devicons/pull/135
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+let g:NERDTreeLimitedSyntax = 1                                       " avoid lag
+let g:webdevicons_enable_ctrlp = 1
+let g:webdevicons_enable_airline_statusline = 1
+
+let NERDTreeDirArrowExpandable = "\u00a0"                             " make arrows invisible
+let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arrows invisible
+let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
+
 let NERDTreeShowHidden=1
 let NERDTreeDirArrowExpandable = '▷'
 let NERDTreeDirArrowCollapsible = '▼'
 let g:NERDTreeIndicatorMapCustom = {
-\ "Modified"  : "✹",
-\ "Staged"    : "✚",
-\ "Untracked" : "✭",
-\ "Renamed"   : "➜",
-\ "Unmerged"  : "═",
-\ "Deleted"   : "✖",
-\ "Dirty"     : "✗",
-\ "Clean"     : "✔︎",
-\ 'Ignored'   : '☒',
-\ "Unknown"   : "?"
-\ }
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+  \ }
 
-" If more than one window and previous buffer was NERDTree, go back to it.
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-" }}}
-
-" === Shougo/denite.nvim === {{{
-"  " Define mappings
-"  autocmd FileType denite call s:denite_my_settings()
-"  function! s:denite_my_settings() abort
-"    " nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-"    " nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
-"    " nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
-"    " nnoremap <silent><buffer><expr> q denite#do_map('quit')
-"    " nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
-"    " nnoremap <silent> <leader>p denite#do_map('open_filter_buffer')
-"    " nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
-"  endfunction
+let g:nerdtree_tabs_autoclose = 0
 " }}}
 
 
@@ -587,7 +581,7 @@ let g:startify_commands = [
 
 let g:startify_bookmarks = [
     \ { 'c': '~/.config/nvim/init.vim' },
-    \ { 'g': '~/.gitconf"g' },
+    \ { 'g': '~/.gitconfig' },
     \ { 'z': '~/.zshrc' }
   \ ]
 
