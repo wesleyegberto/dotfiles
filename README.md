@@ -50,23 +50,24 @@ NeoVim Plugins:
   * [vim-devicons](https://github.com/ryanoasis/vim-devicons)
   * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
   * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
+  * [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
 * Visualization
-  * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
-  * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
   * [vim-airline](https://github.com/vim-airline/vim-airline)
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+  * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
+  * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
   * Git
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
     * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 * Navigation:
   * [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
-  * [vim-abolish](https://github.com/tpope/vim-abolish)
 * Editing:
   * [Sublime-like multiple cursor edit](terryma/vim-multiple-cursors)
   * [vim-surround](https://github.com/tpope/vim-surround)
   * [delimitMate](https://github.com/Raimondi/delimitMate)
   * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
   * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
+  * [vim-abolish](https://github.com/tpope/vim-abolish)
   * [coc-nvim](https://github.com/neoclide/coc.nvim)
     * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions):
       * [coc-actions](https://github.com/iamcco/coc-actions)

@@ -43,10 +43,13 @@
 " gt           " go to next tab
 " gT           " go to previous tab
 " #gt          " go to tab at index #
+" gb           " go to next buffer
+" gB           " go to previous buffer
 
 
 " === Searching ===
 " C-p         " fuzzy finder (ctrlpvim/ctrlp.vim)
+" \b          " display all buffers to select (hjkl to navigate, <C-s> :sv, <C-v> :vs)
 " \<Space>    " clear searching results
 " *           " find current word and jump next occurrence
 " [i          " show first occurrence of current word
@@ -138,54 +141,54 @@
 
 
 " === liuchengxu/vim-which-key' === {{{
-  let g:which_key_map = {}
+    let g:which_key_map = {}
 
-  let g:which_key_map.s = { 'name' : '+startify' }
-  let g:which_key_map.s.t = [ '\\st', 'show startify' ]
+    let g:which_key_map.s = { 'name' : '+startify' }
+    let g:which_key_map.s.t = [ '\\st', 'show startify' ]
 
-  let g:which_key_map.w = {
-      \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
-      \ 'q' : ['<C-W>q'     , 'quit-window']           ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-aside']    ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ }
+    let g:which_key_map.w = {
+        \ 'name' : '+windows' ,
+        \ 'w' : ['<C-W>w'     , 'other-window']          ,
+        \ 'q' : ['<C-W>q'     , 'quit-window']           ,
+        \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+        \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+        \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+        \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+        \ 'h' : ['<C-W>h'     , 'window-left']           ,
+        \ 'j' : ['<C-W>j'     , 'window-below']          ,
+        \ 'l' : ['<C-W>l'     , 'window-right']          ,
+        \ 'k' : ['<C-W>k'     , 'window-up']             ,
+        \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+        \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+        \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+        \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+        \ '=' : ['<C-W>='     , 'balance-window']        ,
+        \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+        \ 'v' : ['<C-W>v'     , 'split-window-aside']    ,
+        \ '?' : ['Windows'    , 'fzf-window']            ,
+        \ }
 
-  let g:which_key_map.l = {
-      \ 'name' : '+lsp',
-      \ 'f' : ['LanguageClient#textDocument_formatting()'           , 'formatting'],
-      \ 'h' : ['LanguageClient#textDocument_hover()'                , 'hover'],
-      \ 'r' : ['LanguageClient#textDocument_references()'           , 'references'],
-      \ 'R' : ['LanguageClient#textDocument_rename()'               , 'rename'],
-      \ 's' : ['LanguageClient#textDocument_documentSymbol()'       , 'document-symbol'],
-      \ 'S' : ['LanguageClient#workspace_symbol()'                  , 'workspace-symbol'],
-      \ 'g' : {
-          \ 'name': '+goto',
-          \ 'd' : ['LanguageClient#textDocument_definition()'       , 'definition'],
-          \ 't' : ['LanguageClient#textDocument_typeDefinition()'   , 'type-definition'],
-          \ 'i' : ['LanguageClient#textDocument_implementation()'   , 'implementation'],
-          \ },
-      \ }
-  
-  let g:which_key_map.a = {
-      \ 'name': 'Coc-Nvim Actions',
-      \ 'a'  : ['coc-codeaction-selected'                           , 'action-current-selection'],
-      \ 'ac' : ['coc-codeaction'                                    , 'action-current-line'],
-      \ }
+    let g:which_key_map.l = {
+        \ 'name' : '+lsp',
+        \ 'f' : ['LanguageClient#textDocument_formatting()'           , 'formatting'],
+        \ 'h' : ['LanguageClient#textDocument_hover()'                , 'hover'],
+        \ 'r' : ['LanguageClient#textDocument_references()'           , 'references'],
+        \ 'R' : ['LanguageClient#textDocument_rename()'               , 'rename'],
+        \ 's' : ['LanguageClient#textDocument_documentSymbol()'       , 'document-symbol'],
+        \ 'S' : ['LanguageClient#workspace_symbol()'                  , 'workspace-symbol'],
+        \ 'g' : {
+            \ 'name': '+goto',
+            \ 'd' : ['LanguageClient#textDocument_definition()'       , 'definition'],
+            \ 't' : ['LanguageClient#textDocument_typeDefinition()'   , 'type-definition'],
+            \ 'i' : ['LanguageClient#textDocument_implementation()'   , 'implementation'],
+            \ },
+        \ }
+
+    let g:which_key_map.a = {
+        \ 'name': 'Coc-Nvim Actions',
+        \ 'a'  : ['coc-codeaction-selected'                           , 'action-current-selection'],
+        \ 'ac' : ['coc-codeaction'                                    , 'action-current-line'],
+        \ }
 " }}}
 
 
@@ -238,6 +241,11 @@ call vundle#begin()
     " Hybrid between number (when editing) and relative number (when navigating)
     Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
+    " fuzzy find (like Sublime)
+    Plugin 'ctrlpvim/ctrlp.vim'
+
+    Plugin 'jeetsukumaran/vim-buffergator'
+
     " nicer status bar
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
@@ -247,9 +255,6 @@ call vundle#begin()
     " Show git stuff and info at line
     Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
-
-    " Fuzzy find (like Sublime)
-    Plugin 'ctrlpvim/ctrlp.vim'
 
     " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
     Plugin 'tpope/vim-abolish'
@@ -328,8 +333,10 @@ nmap k gk
 nmap j gj
 
 " tab navigation
-nnoremap gt :bn<CR>
-nnoremap gT :bp<CR>
+"nnoremap gt :bn<CR>
+"nnoremap gT :bp<CR>
+nnoremap gb :bnext<CR>
+nnoremap gB :bprev<CR>
 nnoremap <silent> <M-Right> :bn<CR>
 nnoremap <silent> <M-Left> :bp<CR>
 
@@ -431,7 +438,7 @@ autocmd Filetype javascript   setlocal expandtab  tabstop=2 shiftwidth=2 softtab
 " === jistr/vim-nerdtree-tabs === {{{
 let g:nerdtree_tabs_open_on_console_startup = 2                       " open only if we are openning a folder
 
-set switchbuf+=usetab,newtab
+set switchbuf=usetab,newtab
 set wrapscan
 let g:WebDevIconsOS = 'Darwin'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -459,6 +466,9 @@ let g:NERDTreeIndicatorMapCustom = {
 \ 'Ignored'   : '☒',
 \ "Unknown"   : "?"
 \ }
+
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 " }}}
 
 " === Shougo/denite.nvim === {{{
@@ -480,11 +490,27 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:airline#extensions#tabline#enabled = 1                          " automatically displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+let g:airline#extensions#tabline#fnamemod = ':t'                      " Show just the filename
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path formatter
 " }}}
 
 
-" === airblade/vim-gitgutter settings === {{{
+" === ctrlpvim/ctrlp.vim === {{{
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+" }}}
+
+
+" === jeetsukumaran/vim-buffergator === {{{
+let g:buffergator_viewport_split_policy = 'R'                         " Use the right side of the screen
+" }}}
+
+
+" === airblade/vim-gitgutter === {{{
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
 " }}}

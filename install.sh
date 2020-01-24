@@ -2,6 +2,8 @@
 set -o nounset    # error when referencing undefined variable
 set -o errexit    # exit when command fails
 
+ln -s $(pwd) ~/.dotfiles
+
 # Script to install my files
 echo 'Installing .vimrc'
 
