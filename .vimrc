@@ -223,7 +223,9 @@ set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Insert all Plugins inside this block
 call vundle#begin()
-    Plugin 'dracula/vim', { 'name': 'dracula' }
+    " Plugin 'hzchirs/vim-material'
+    Plugin 'kaicataldo/material.vim'
+    " Plugin 'dracula/vim', { 'name': 'dracula' }
 
     " tmux integration and navigate between open pages with C-h C-j C-k C-k
     Plugin 'benmills/vimux'
@@ -244,10 +246,6 @@ call vundle#begin()
     Plugin 'ctrlpvim/ctrlp.vim'
 
     Plugin 'jeetsukumaran/vim-buffergator'
-
-    " nicer status bar
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
 
     Plugin 'machakann/vim-highlightedyank'
 
@@ -291,6 +289,11 @@ call vundle#begin()
     " Startify: Fancy startup screen for vim
     Plugin 'mhinz/vim-startify'
 
+    " nicer status bar
+    Plugin 'bling/vim-bufferline'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+
     " devicons (should be loaded after the current plugins)
     Plugin 'ryanoasis/vim-devicons'
     Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -302,17 +305,29 @@ call vundle#end()
 " # Appearance
 " ########################################################
 
+syntax on
+
+if (has('termguicolors'))
+  set termguicolors
+endif
+
 " Appearence
 set background=dark
-" colorscheme one                 " atom one dark
-"   call one#highlight('vimTodo', '000000', 'ffec8b', 'none')
-let g:dracula_colorterm = 0
-let g:dracula_italic = 0
+let g:airline_theme='dark'
 
-syntax on
-colorscheme dracula
-color dracula
+" Palenight
+" let g:material_style='palenight'
+" let g:airline_theme='material'
+" colorscheme vim-material
 
+let g:material_theme_style = 'palenight'
+let g:material_terminal_italics = 1
+colorscheme material
+
+" let g:dracula_colorterm = 0
+" let g:dracula_italic = 0
+" colorscheme dracula
+" color dracula
 
 
 " ########################################################
