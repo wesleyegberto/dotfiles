@@ -27,6 +27,7 @@
 " === Windows and Tabs ===
 " <C-w>s       " split current window horizontally (alternative :split)
 " <C-w>v       " rplit current window vertically (alternative :vsplit)
+" <C-w>c       " close current window
 " <C-w>q       " close current window
 " <C-w>w       " Jump to the next window
 " <C-w>#<      " Shrink/resize current window from the right by # (default 1) 
@@ -43,8 +44,8 @@
 " gt           " go to next tab
 " gT           " go to previous tab
 " #gt          " go to tab at index #
-" gb           " go to next buffer
-" gB           " go to previous buffer
+" gb or ]b     " go to next buffer
+" gB or [b     " go to previous buffer
 
 
 " === Searching ===
@@ -332,7 +333,7 @@ imap jj <Esc>                   " on insert mode, jj as Esc
 nmap k gk
 nmap j gj
 
-" tab navigation
+" tabs and buffers navigation
 "nnoremap gt :bn<CR>
 "nnoremap gT :bp<CR>
 nnoremap gb :bnext<CR>
@@ -449,6 +450,7 @@ let NERDTreeDirArrowCollapsible = "\u00a0"                            " make arr
 let NERDTreeNodeDelimiter = "\u263a"                                  " smiley face
 
 nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
+nmap <silent> <leader>T :NERDTreeTabsClose<CR>                        " toggle NERDTree Tabs
 nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
 
 let NERDTreeShowHidden=1
@@ -506,7 +508,13 @@ let g:ctrlp_custom_ignore = {
 
 
 " === jeetsukumaran/vim-buffergator === {{{
-let g:buffergator_viewport_split_policy = 'R'                         " Use the right side of the screen
+let g:buffergator_viewport_split_policy = 'B'                         " Use the right side of the screen
+
+let g:buffergator_suppress_keymaps = 1
+let g:buffergator_suppress_mru_switching_keymaps = 1
+
+nmap <leader>b :BuffergatorToggle<CR>
+nmap <leader>B :BuffergatorTabsToggle<CR>
 " }}}
 
 
