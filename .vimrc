@@ -30,8 +30,8 @@
 " <C-w>c       " close current window
 " <C-w>q       " close current window
 " <C-w>w       " Jump to the next window
-" <C-w>#<      " Shrink/resize current window from the right by # (default 1) 
-" <C-w>#>      " Increase/resize current window to the right by # (default 1) 
+" <C-w>#<      " Shrink/resize current window from the right by # (default 1)
+" <C-w>#>      " Increase/resize current window to the right by # (default 1)
 " <C-w><ARROW> " Jump to window left/right/top/bottom (arrow keys) to the current
 
 " <C-\>        " go previous window
@@ -49,7 +49,7 @@
 
 
 " === Searching ===
-" C-p         " fuzzy finder (ctrlpvim/ctrlp.vim)
+" C-p         " fuzzy finder
 " \b          " display all buffers to select (hjkl to navigate, <C-s> :sv, <C-v> :vs)
 " \<Space>    " clear searching results
 " *           " find current word and jump next occurrence
@@ -65,7 +65,7 @@
 " [/          " go to start of first comment block /* */
 " ]/          " go to end of first comment block /* */
 
-" # terryma/vim-multiple-cursors 
+" # terryma/vim-multiple-cursors
 " <M-n>         " start multicursor and directly select all matches
 " <C-n>         " start multicursor and add a virtual cursor + selection on the match
 " After <C-n>:
@@ -243,7 +243,8 @@ call vundle#begin()
     Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
     " fuzzy find (like Sublime)
-    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'junegunn/fzf', { 'do': './install --bin' }
+    Plugin 'junegunn/fzf.vim'
 
     Plugin 'jeetsukumaran/vim-buffergator'
 
@@ -507,12 +508,10 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path for
 " }}}
 
 
-" === ctrlpvim/ctrlp.vim === {{{
-" Setup some default ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
+" === junegunn/fzf.vim === {{{
+let g:fzf_buffers_jump = 1                                            " [Buffers] Jump to the existing window if possible
+
+nmap <silent> <C-p> :FZF<CR>
 " }}}
 
 
