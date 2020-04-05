@@ -56,6 +56,7 @@ NeoVim Plugins:
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
   * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
   * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
+  * [vim-rainbow](frazrepo/vim-rainbow)
   * Git
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
     * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
@@ -64,6 +65,7 @@ NeoVim Plugins:
 * Editing:
   * [Sublime-like multiple cursor edit](terryma/vim-multiple-cursors)
   * [vim-surround](https://github.com/tpope/vim-surround)
+  * [vim-sandwitch](https://github.com/machakann/vim-sandwich) - to be used
   * [delimitMate](https://github.com/Raimondi/delimitMate)
   * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
   * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)

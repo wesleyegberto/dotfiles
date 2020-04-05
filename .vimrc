@@ -275,12 +275,15 @@ call vundle#begin()
     " highlight trailing whitespaces
     Plugin 'ntpeters/vim-better-whitespace'
 
+    " colorful pair of brackets
+    Plugin 'frazrepo/vim-rainbow'
+
     " intellisense
     " Plugin 'Shougo/deoplete.nvim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
-    " snippets
+    " snippets (plugin and collection of snippets)
     Plugin 'honza/vim-snippets'
     Plugin 'SirVer/ultisnips'
 
