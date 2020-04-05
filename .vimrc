@@ -262,6 +262,7 @@ call vundle#begin()
 
     " plugin to facilitate navigation
     Plugin 'tpope/vim-unimpaired'
+    Plugin 'easymotion/vim-easymotion'
 
     " automatic closing of quotes, parenthesis, brackets, etc
     Plugin 'Raimondi/delimitMate'
