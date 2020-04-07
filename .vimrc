@@ -51,6 +51,7 @@
 " === Searching ===
 " C-p         " fuzzy finder
 " \b          " display all buffers to select (hjkl to navigate, <C-s> :sv, <C-v> :vs)
+" \B           " list the tabs for selection
 " \<Space>    " clear searching results
 " *           " find current word and jump next occurrence
 " [i          " show first occurrence of current word
@@ -119,21 +120,23 @@
 " ysiw]       " wrap the current word (iw -> inner word) with ]
 
 
-" === coc-vim keybindings ===
+" === coc-vim and omnisharp-vim keybindings ===
 " <C-Space>   " refresh autocomplete (INSERT MODE)
+" \qf         " quick fix for current line
 " gd          " go to definition
-" gy          " go to type
 " gi          " go to implementation
 " gr          " find references
-" K           " show documentation
 " \rn         " rename var
-" \f          " format selection
-" \qf         " quick fix for current line
+
+" === coc-vim keybindings ===
+" gy          " go to type
+" \cd         " show documentation
+" \cf         " format selection
 
 " actions (after \a we can cursor motion to select a block - like w or p)
-" \a          " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\aas` -> action for current sentence)
-" \ac         " action for current line
-" \aw         " action for current word
+" \ca          " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\aas` -> action for current sentence)
+" \cac         " action for current line
+" \caw         " action for current word
 
 " snippets
 " <C-l>       " cut the selected content to use inside a snippet (when used later)
@@ -280,9 +283,15 @@ call vundle#begin()
     Plugin 'frazrepo/vim-rainbow'
 
     " intellisense
-    " Plugin 'Shougo/deoplete.nvim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+    Plugin 'vim-syntastic/syntastic'
+
+    " code checker for Java
     Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
+    " code checker for C#
+    Plugin 'OmniSharp/omnisharp-vim'
+    Plugin 'nickspoons/vim-sharpenup'
 
     " snippets (plugin and collection of snippets)
     Plugin 'honza/vim-snippets'
@@ -434,8 +443,8 @@ set wildignore+=.git                                " ignore these extensions on
 " set inccommand=nosplit
 
 
-set updatetime=1000                                  " You will have bad experience for diagnostic messages when it's default 4000.
-set shortmess+=c                                    " don't give |ins-completion-menu| messages.
+set updatetime=1000                                 " You will have bad experience for diagnostic messages when it's default 4000
+set shortmess+=c                                    " don't give |ins-completion-menu| messages
 set signcolumn=yes                                  " always show signcolumns
 
 
@@ -449,6 +458,7 @@ filetype plugin indent on       " load identation by file type
 autocmd Filetype java         setlocal expandtab! tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype python       setlocal expandtab  tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype javascript   setlocal expandtab  tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype cs           setlocal expandtab! tabstop=4 shiftwidth=4 softtabstop=4
 
 
 
@@ -666,7 +676,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>cd :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -682,15 +692,15 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)                                    " remap for rename current word
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>cf  <Plug>(coc-format-selected)
+nmap <leader>cf  <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
 endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+xmap <silent> <leader>ca :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>ca :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
 " Commented to use coc-action
 " " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -698,7 +708,7 @@ nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<C
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>cac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -765,6 +775,92 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+" }}}
+
+
+" === vim-syntastic/syntastic === {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cs_checkers = ['code_checker']
+" }}}
+
+
+" === OmniSharp/omnisharp-vim === {{{
+let g:sharpenup_map_prefix = '\c'
+
+let g:OmniSharp_selector_ui = 'fzf'
+
+let g:OmniSharp_highlight_types = 3
+let g:sharpenup_create_mappings = 0
+
+" Don't autoselect first omnicomplete option, show options even if there is only
+" one (so the preview documentation is accessible). Remove 'preview' if you
+" don't want to see any documentation whatsoever.
+set completeopt=longest,menuone,preview
+
+" Fetch full documentation during omnicomplete requests (:OmniSharpDocumentation command)
+let g:omnicomplete_fetch_full_documentation = 1
+
+" Enable snippet completion
+let g:OmniSharp_want_snippet=1
+
+augroup omnisharp_commands
+    autocmd!
+
+    " Show type information automatically when the cursor stops moving.
+    " Note that the type is echoed to the Vim command line, and will overwrite
+    " any other messages in this space including e.g. ALE linting messages.
+    autocmd CursorHold *.cs OmniSharpTypeLookup
+
+    " The following commands are contextual, based on the cursor position.
+    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> gi :OmniSharpFindImplementations<CR>
+    autocmd FileType cs nnoremap <buffer> gr :OmniSharpFindUsages<CR>
+
+    autocmd FileType cs nnoremap <buffer> <Leader>cfs :OmniSharpFindSymbol<CR>
+
+    " Finds members in the current buffer
+    autocmd FileType cs nnoremap <buffer> <Leader>cfm :OmniSharpFindMembers<CR>
+
+    autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>dc :OmniSharpDocumentation<CR>
+
+    autocmd FileType cs nnoremap <buffer> <Leader>cpd <Plug>(omnisharp_preview_definition)
+    autocmd FileType cs nnoremap <buffer> <Leader>cpi <Plug>(omnisharp_preview_implementations)
+
+    autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
+    autocmd FileType cs inoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
+
+    autocmd FileType cs nnoremap <buffer> <Leader>qf :OmniSharpFixUsings<CR>
+
+    " Rename with dialog
+    autocmd FileType cs nnoremap <leader>crn :OmniSharpRename<CR>
+    autocmd FileType cs nnoremap <F2> :OmniSharpRename<CR>
+
+    " Find all code errors/warnings for the current solution and populate the quickfix window
+    autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
+
+    autocmd FileType cs nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
+augroup END
+
+" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
+autocmd FileType cs nnoremap <Leader>ca :OmniSharpGetCodeActions<CR>
+autocmd FileType cs nnoremap <Leader>cac :OmniSharpGetCodeActions<CR>
+
+" Run code actions with text selected in visual mode to extract method
+autocmd FileType cs xnoremap <leader>ca :call OmniSharp#GetCodeActions('visual')<CR>
+
+" Start the omnisharp server for the current solution
+autocmd FileType cs nnoremap <Leader>css :OmniSharpStartServer<CR>
+autocmd FileType cs nnoremap <Leader>csr :OmniSharpRestartServer<CR>
+autocmd FileType cs nnoremap <Leader>csp :OmniSharpStopServer<CR>
 " }}}
 
 
