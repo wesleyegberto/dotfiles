@@ -41,9 +41,14 @@ Then install the plugins by running: `vim +PluginInstall +qall`.
 
 NeoVim Plugins:
 
-* Theme
-  * [dracule](https://github.com/dracula/vim)
-* Files
+* Theme:
+  * [Dracula](https://github.com/dracula/vim)
+  * [Material](https://github.com/kaicataldo/material.vim)
+  * [Molokai](https://github.com/fmoralesc/molokayo)
+  * [OneDark](https://github.com/joshdick/onedark.vim)
+  * [NeoDark](https://github.com/KeitaNakamura/neodark.vim)
+  * [Purify](https://github.com/kyoz/purify)
+* Files:
   * [nerdtree](https://github.com/scrooloose/nerdtree)
   * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
   * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
@@ -51,39 +56,49 @@ NeoVim Plugins:
   * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
   * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
   * [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
-* Visualization
+* Visualization:
   * [vim-airline](https://github.com/vim-airline/vim-airline)
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
   * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
   * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
   * [vim-rainbow](frazrepo/vim-rainbow)
-  * Git
+  * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
+  * Git:
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
     * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+  * Syntax:
+    * [vim-polyglot](https://github.com/sheerun/vim-polyglot) - to be used
 * Navigation:
   * [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
 * Editing:
   * [Sublime-like multiple cursor edit](terryma/vim-multiple-cursors)
-  * [vim-surround](https://github.com/tpope/vim-surround)
   * [vim-sandwitch](https://github.com/machakann/vim-sandwich) - to be used
-  * [delimitMate](https://github.com/Raimondi/delimitMate)
+  * [vim-surround](https://github.com/tpope/vim-surround)
   * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
-  * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
   * [vim-abolish](https://github.com/tpope/vim-abolish)
+* Intellisense
   * [coc-nvim](https://github.com/neoclide/coc.nvim)
-    * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions):
+    * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions) activated:
       * [coc-actions](https://github.com/iamcco/coc-actions)
       * [coc-snippets](https://github.com/neoclide/coc-snippets)
       * [coc-java](https://github.com/neoclide/coc-java)
-  * [Language Client](https://github.com/autozimu/LanguageClient-neovim)
-  * [vim-snippets](https://github.com/honza/vim-snippets)
+      * [coc-omnisharp](https://github.com/coc-extensions/coc-omnisharp)
+* Snippets
   * [ultisnips](https://github.com/SirVer/ultisnips)
+  * [vim-snippets](https://github.com/honza/vim-snippets)
+* Code Checker
+  * [vim-syntastic](https://github.com/vim-syntastic/syntastic)
+  * Java:
+    * [Language Client](https://github.com/autozimu/LanguageClient-neovim)
+  * C#:
+    * [Omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)
+    * [vim-sharpenup](htttp://github.com/nickspoons/vim-sharpenup)
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
-  * [vim-repeat](https://github.com/tpope/vim-repeat)
+  * [vim-repeat](https://github.com/tpope/vim-repeat) (not used)
 
 ### VSCode
 

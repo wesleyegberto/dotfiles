@@ -100,12 +100,14 @@
 " <M-Down>    " move current line bellow
 " [<Space>    " add blankline before current line
 " ]<Space>    " add blankline after current line
-" >p          " paste after linewise, increasing indent.
-" >P          " paste before linewise, increasing indent.
-" <p          " paste after linewise, decreasing indent.
-" <P          " paste before linewise, decreasing indent.
-" =p          " paste after linewise, reindenting.
-" =P          " paste linewise, reindenting.
+" >p          " paste after linewise, increasing indent
+" >P          " paste before linewise, increasing indent
+" <p          " paste after linewise, decreasing indent
+" <P          " paste before linewise, decreasing indent
+" =p          " paste after linewise, reindenting
+" =P          " paste linewise, reindenting
+" [f          " go to the file preceding the current one
+" ]f          " go to the file succeeding the current one
 
 
 " === tpope/vim-surround ===
@@ -125,17 +127,20 @@
 " \qf         " quick fix for current line
 " gd          " go to definition
 " gi          " go to implementation
+" gD          " peek definition
+" gI          " peek implementation
 " gr          " find references
-" \rn         " rename var
+" \crn         " rename var
 
 " === coc-vim keybindings ===
 " gy          " go to type
 " \cd         " show documentation
-" \cf         " format selection
+" \cf         " format buffer
+" \csf        " format selection
 
 " actions (after \a we can cursor motion to select a block - like w or p)
-" \ca          " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\aas` -> action for current sentence)
-" \cac         " action for current line
+" \cas         " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\cas` -> action for current sentence)
+" \cal         " action for current line
 " \caw         " action for current word
 
 " snippets
@@ -226,10 +231,7 @@ set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Insert all Plugins inside this block
 call vundle#begin()
-    " Plugin 'hzchirs/vim-material'
-    Plugin 'kaicataldo/material.vim'
-    " Plugin 'dracula/vim', { 'name': 'dracula' }
-
+    
     " tmux integration and navigate between open pages with C-h C-j C-k C-k
     Plugin 'benmills/vimux'
     Plugin 'christoomey/vim-tmux-navigator'
@@ -267,9 +269,6 @@ call vundle#begin()
     Plugin 'tpope/vim-unimpaired'
     Plugin 'easymotion/vim-easymotion'
 
-    " automatic closing of quotes, parenthesis, brackets, etc
-    Plugin 'Raimondi/delimitMate'
-
     " mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
     Plugin 'tpope/vim-surround'
 
@@ -291,14 +290,11 @@ call vundle#begin()
 
     " code checker for C#
     Plugin 'OmniSharp/omnisharp-vim'
-    Plugin 'nickspoons/vim-sharpenup'
+    " Plugin 'nickspoons/vim-sharpenup'
 
     " snippets (plugin and collection of snippets)
     Plugin 'honza/vim-snippets'
     Plugin 'SirVer/ultisnips'
-
-    " enables repeating other supported plugins with the . command
-    " Plugin 'tpope/vim-repeat'
 
     " Startify: Fancy startup screen for vim
     Plugin 'mhinz/vim-startify'
@@ -307,6 +303,14 @@ call vundle#begin()
     Plugin 'bling/vim-bufferline'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
+
+    " colorscheme
+    " Plugin 'dracula/vim', { 'name': 'dracula' }
+    " Plugin 'fmoralesc/molokayo'
+    " Plugin 'joshdick/onedark.vim'
+    " Plugin 'kyoz/purify', { 'rtp': 'vim' }
+    " Plugin 'kaicataldo/material.vim'
+    Plugin 'KeitaNakamura/neodark.vim'
 
     " devicons (should be loaded after the current plugins)
     Plugin 'ryanoasis/vim-devicons'
@@ -329,20 +333,22 @@ endif
 set background=dark
 let g:airline_theme='dark'
 
-" Palenight
-" let g:material_style='palenight'
-" let g:airline_theme='material'
-" colorscheme vim-material
-
-let g:material_theme_style = 'palenight'
-let g:material_terminal_italics = 1
-colorscheme material
+" let g:material_theme_style = 'palenight'
+" let g:material_terminal_italics = 1
+" colorscheme material
 
 " let g:dracula_colorterm = 0
 " let g:dracula_italic = 0
 " colorscheme dracula
 " color dracula
 
+" let g:airline_theme='onedark'
+" let g:onedark_terminal_italics = 1
+" colorscheme onedark
+
+let g:neodark#solid_vertsplit = 1
+" let g:neodark#use_256color = 1
+colorscheme neodark
 
 " ########################################################
 " # General mappings
@@ -350,18 +356,18 @@ colorscheme material
 
 let g:mapleader = "\\"          " leader key to \
 
-nmap <space> \                  " space to \
-xmap <space> \                  " space to \
+" nmap <space> \                  " space to \
+" xmap <space> \                  " space to \
 
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
 vmap <C-s> <Esc>:w<CR>
 
-imap jj <Esc>                   " on insert mode, jj as Esc
+imap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
 
 " to allow navigate a line above and bellow correctly when word wrapping
-nmap k gk
-nmap j gj
+nnoremap k gk
+nnoremap j gj
 
 " tabs and buffers navigation
 "nnoremap gt :bn<CR>
@@ -375,9 +381,7 @@ nnoremap <silent> <M-Left> :bp<CR>
 " configure whick-key to display after leader key is pressed and not other key is pressed
 set timeoutlen=500
 call which_key#register('\', "g:which_key_map")
-nnoremap <silent> <leader> :WhichKey '\'<CR>
-
-syntax enable
+nnoremap <silent> <Leader> :WhichKey '\'<CR>
 
 set t_Co=256                    " explicitly tell vim that the terminal supports 256 colors
 
@@ -419,7 +423,7 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are insensitive
 set smartcase                   " unless they contain at least one capital letter
-nnoremap <leader><space> :nohlsearch<cr> " unhighlight the search result
+nnoremap <Leader><space> :nohlsearch<CR> " unhighlight the search result
 
 " Code folding settings (use `zc`, `zo`, `zz`)
 set foldmethod=manual           " fold based on indent
@@ -468,14 +472,17 @@ autocmd Filetype cs           setlocal expandtab! tabstop=4 shiftwidth=4 softtab
 
 
 " === jistr/vim-nerdtree-tabs === {{{
-let g:nerdtree_tabs_open_on_console_startup = 2                       " open only if we are openning a folder
+" let g:nerdtree_tabs_open_on_console_startup = 2                       " open only if we are openning a folder
+let g:nerdtree_tabs_open_on_console_startup = 0
+let g:nerdtree_tabs_startup_cd = 0
+let g:nerdtree_tabs_focus_on_files = 1
 
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
-nmap <silent> <leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
-nmap <silent> <leader>T :NERDTreeTabsClose<CR>                        " toggle NERDTree Tabs
-nmap <silent> <leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
+nmap <silent> <Leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
+nmap <silent> <Leader>T :NERDTreeTabsClose<CR>                        " toggle NERDTree Tabs
+nmap <silent> <Leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
 
 set switchbuf=usetab,newtab
 set wrapscan
@@ -535,8 +542,8 @@ let g:buffergator_viewport_split_policy = 'B'                         " Use the 
 let g:buffergator_suppress_keymaps = 1
 let g:buffergator_suppress_mru_switching_keymaps = 1
 
-nmap <leader>b :BuffergatorToggle<CR>
-nmap <leader>B :BuffergatorTabsToggle<CR>
+nmap <Leader>b :BuffergatorToggle<CR>
+nmap <Leader>B :BuffergatorTabsToggle<CR>
 " }}}
 
 
@@ -556,6 +563,10 @@ let g:airline#extensions#hunks#non_zero_only = 1
 let g:highlightedyank_highlight_duration = 1000                       " Highlight the content copied
 " }}}
 
+" === ntpeters/vim-better-whitespace === {{{
+let g:strip_whitespace_on_save = 1
+" }}}
+
 
 " === jeffkreeftmeijer/vim-numbertoggle === {{{
 " hybrid mode (normal mode: relative, insert mode: absolute)
@@ -564,18 +575,6 @@ let g:highlightedyank_highlight_duration = 1000                       " Highligh
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
-" }}}
-
-
-" === Raimondi/delimitMate settings === {{{
-let delimitMate_expand_cr = 1
-augroup mydelimitMate
-  au!
-  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
-  au FileType tex let b:delimitMate_quotes = ""
-  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-augroup END
 " }}}
 
 
@@ -614,7 +613,7 @@ let g:startify_bookmarks = [
   \ ]
 
 autocmd User Startified setlocal cursorline
-nmap <leader>st :Startify<cr>
+nmap <Leader>st :Startify<cr>
 " }}}
 
 
@@ -627,6 +626,8 @@ nmap <leader>st :Startify<cr>
 
 
 " === neoclide/coc.nvim === {{{
+let g:coc_global_extensions = [ 'coc-actions', 'coc-java', 'coc-omnisharp' ]
+
 inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
 
 " colors
@@ -644,125 +645,128 @@ hi CocWarningHighlight  ctermfg=Yellow guifg=#ff922b
 hi CocWarningFloat      ctermfg=Yellow guifg=#ff922b
 " hi CocWarningLine       ctermfg=Yellow guifg=#ff922b
 
-" use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+augroup coc_commands
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " use <tab> for trigger completion and navigate to next complete item
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+    endfunction
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " Use tab for trigger completion with characters ahead and navigate.
+    " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+    " Coc only does snippet and additional edit on confirm.
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+    " close preview window when completion is done.
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+    " use `[g` and `]g` to navigate diagnostics
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" use K to show documentation in preview window
-nnoremap <silent> <leader>cd :call <SID>show_documentation()<CR>
+    " remap keys for gotos
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gr <Plug>(coc-references)
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+    " use K to show documentation in preview window
+    nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      else
+        call CocAction('doHover')
+      endif
+    endfunction
 
-nmap <leader>rn <Plug>(coc-rename)                                    " remap for rename current word
+    " Highlight symbol under cursor on CursorHold
+    autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for format selected region
-xmap <leader>cf  <Plug>(coc-format-selected)
-nmap <leader>cf  <Plug>(coc-format-selected)
+    nmap <Leader>crn <Plug>(coc-rename)                                    " remap for rename current word
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <silent> <leader>ca :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>ca :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
+    function! s:cocActionsOpenFromSelected(type) abort
+      execute 'CocCommand actions.open ' . a:type
+    endfunction
 
-" Commented to use coc-action
-" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
+    " Remap for do codeAction of current line
+    nmap <Leader>cal  :CocCommand actions.open<CR>
+    " code action for the selected content
+    xnoremap <Leader>cal :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    " code action with motion
+    nnoremap <Leader>ca :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-" Remap for do codeAction of current line
-nmap <leader>cac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+    " Fix autofix problem of current line
+    nmap <Leader>qf  <Plug>(coc-fix-current)
 
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+    " Use `:Format` to format current buffer
+    command! -nargs=0 Format :call CocAction('format')
+    " Use `:Fold` to fold current buffer
+    command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+    " use `:OR` for organize import of current buffer
+    command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+    " Remap for format selected region
+    nmap <Leader>cf :call CocAction('format')<CR>
+    xmap <Leader>csf <Plug>(coc-format-selected)
+    nmap <Leader>csf <Plug>(coc-format-selected)
 
-" # coc-snippets
-" :CocList snippets
-" :CocCommand snippets.editSnippets
-" :CocCommand snippets.openSnippetFiles
+    " Show all diagnostics
+    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    " Manage extensions
+    nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    " Show commands
+    nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+    " Find symbol of current document
+    nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+    " Search workspace symbols
+    nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+    " Do default action for next item.
+    " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+    " Do default action for previous item.
+    " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+    " # coc-snippets
+    " :CocList snippets
+    " :CocCommand snippets.editSnippets
+    " :CocCommand snippets.openSnippetFiles
 
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+    " Use <C-l> for trigger snippet expand.
+    imap <C-l> <Plug>(coc-snippets-expand)
+    " Use <C-j> for select text for visual placeholder of snippet.
+    vmap <C-j> <Plug>(coc-snippets-select)
+    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+    let g:coc_snippet_next = '<c-j>'
+    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+    let g:coc_snippet_prev = '<c-k>'
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    " Use <C-j> for both expand and jump (make expand higher priority.)
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? coc#_select_confirm() :
+          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
 
-let g:coc_snippet_next = '<tab>'
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    let g:coc_snippet_next = '<tab>'
+
+augroup END
 
 " }}}
 
@@ -811,8 +815,9 @@ let g:omnicomplete_fetch_full_documentation = 1
 " Enable snippet completion
 let g:OmniSharp_want_snippet=1
 
-augroup omnisharp_commands
-    autocmd!
+augroup csharp_commands
+
+autocmd!
 
     " Show type information automatically when the cursor stops moving.
     " Note that the type is echoed to the Vim command line, and will overwrite
@@ -822,6 +827,8 @@ augroup omnisharp_commands
     " The following commands are contextual, based on the cursor position.
     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
     autocmd FileType cs nnoremap <buffer> gi :OmniSharpFindImplementations<CR>
+    autocmd FileType cs nnoremap <buffer> gD :OmniSharpPreviewDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> gI :OmniSharpPreviewImplementation<CR>
     autocmd FileType cs nnoremap <buffer> gr :OmniSharpFindUsages<CR>
 
     autocmd FileType cs nnoremap <buffer> <Leader>cfs :OmniSharpFindSymbol<CR>
@@ -829,38 +836,34 @@ augroup omnisharp_commands
     " Finds members in the current buffer
     autocmd FileType cs nnoremap <buffer> <Leader>cfm :OmniSharpFindMembers<CR>
 
-    autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>dc :OmniSharpDocumentation<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>gt :OmniSharpTypeLookup<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>cod :OmniSharpDocumentation<CR>
 
-    autocmd FileType cs nnoremap <buffer> <Leader>cpd <Plug>(omnisharp_preview_definition)
-    autocmd FileType cs nnoremap <buffer> <Leader>cpi <Plug>(omnisharp_preview_implementations)
-
-    autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
     autocmd FileType cs inoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
 
-    autocmd FileType cs nnoremap <buffer> <Leader>qf :OmniSharpFixUsings<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>coqf :OmniSharpFixUsings<CR>
 
     " Rename with dialog
-    autocmd FileType cs nnoremap <leader>crn :OmniSharpRename<CR>
+    autocmd FileType cs nnoremap <Leader>corn :OmniSharpRename<CR>
     autocmd FileType cs nnoremap <F2> :OmniSharpRename<CR>
 
     " Find all code errors/warnings for the current solution and populate the quickfix window
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 
     autocmd FileType cs nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
+
+    " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
+    autocmd FileType cs nnoremap <Leader>cal :OmniSharpGetCodeActions<CR>
+
+    " Run code actions with text selected in visual mode to extract method
+    autocmd FileType cs xnoremap <Leader>cal :call OmniSharp#GetCodeActions('visual')<CR>
+
+    " Start the omnisharp server for the current solution
+    autocmd FileType cs nnoremap <Leader>css :OmniSharpStartServer<CR>
+    autocmd FileType cs nnoremap <Leader>csr :OmniSharpRestartServer<CR>
+    autocmd FileType cs nnoremap <Leader>csp :OmniSharpStopServer<CR>
+
 augroup END
-
-" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
-autocmd FileType cs nnoremap <Leader>ca :OmniSharpGetCodeActions<CR>
-autocmd FileType cs nnoremap <Leader>cac :OmniSharpGetCodeActions<CR>
-
-" Run code actions with text selected in visual mode to extract method
-autocmd FileType cs xnoremap <leader>ca :call OmniSharp#GetCodeActions('visual')<CR>
-
-" Start the omnisharp server for the current solution
-autocmd FileType cs nnoremap <Leader>css :OmniSharpStartServer<CR>
-autocmd FileType cs nnoremap <Leader>csr :OmniSharpRestartServer<CR>
-autocmd FileType cs nnoremap <Leader>csp :OmniSharpStopServer<CR>
 " }}}
 
 
