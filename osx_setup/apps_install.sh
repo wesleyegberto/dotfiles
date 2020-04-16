@@ -9,6 +9,8 @@ fi
 # install brew dependencies from Brewfile
 brew bundle
 
+brew install fd fzf
+
 brew install git
 
 # Oh-My-Zsh

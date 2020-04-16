@@ -440,8 +440,11 @@ set showbreak=↪
 " Autocomplete menu
 set completeopt=menuone,longest,preview             " simple autocomplete for anything
 set wildmenu
+set wildoptions=pum                                 " display popup
+set pumblend=5                                      " transparence
 set wildmode=list:longest,full                      " autocomplete for paths and files
 set wildignore+=.git                                " ignore these extensions on autocomplete
+set wildignore+=.class
 
 " Highlight the content to replace before doing it without spliting
 " set inccommand=nosplit
@@ -803,11 +806,6 @@ let g:OmniSharp_selector_ui = 'fzf'
 
 let g:OmniSharp_highlight_types = 3
 let g:sharpenup_create_mappings = 0
-
-" Don't autoselect first omnicomplete option, show options even if there is only
-" one (so the preview documentation is accessible). Remove 'preview' if you
-" don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
 
 " Fetch full documentation during omnicomplete requests (:OmniSharpDocumentation command)
 let g:omnicomplete_fetch_full_documentation = 1

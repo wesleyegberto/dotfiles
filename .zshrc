@@ -14,6 +14,7 @@ export ZSH="/Users/wesley/.oh-my-zsh"
 export TERM="xterm-256color"
 export DOTFILES="~/.dotfiles"
 
+
 ########################################################
 # Theme Configuration
 ########################################################
@@ -139,7 +140,6 @@ zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions 
 
 
-
 ########################################################
 # Custom Functions
 ########################################################
@@ -148,6 +148,9 @@ zplugin light zsh-users/zsh-completions
 # if [[ -d $DOTFILES/zsh/functions ]]; then
 #     for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
 # fi
+
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 
 ########################################################
