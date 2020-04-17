@@ -1,12 +1,18 @@
-" ########################################################
-" # Wesley's VIM setup
-" ########################################################
+" #########################################################################
+" # ____    __    ____  _______     _______. __       ___________    ____ #
+" # \   \  /  \  /   / |   ____|   /       ||  |     |   ____\   \  /   / #
+" #  \   \/    \/   /  |  |__     |   (----`|  |     |  |__   \   \/   /  #
+" #   \            /   |   __|     \   \    |  |     |   __|   \_    _/   #
+" #    \    /\    /    |  |____.----)   |   |  `----.|  |____    |  |     #
+" #     \__/  \__/     |_______|_______/    |_______||_______|   |__|     #
+" # VIM Setup                                                             #
+" #########################################################################
 " cp ~/.vimrc ~/.config/nvim/init.vim
 
 
-" ########################################################
+" #########################################################
 " # Keybinding Mappgin
-" ########################################################
+" #########################################################
 
 " \st          " Show startify
 
@@ -201,9 +207,9 @@
 " }}}
 
 
-" ########################################################
+" #########################################################
 " # Instructions
-" ########################################################
+" #########################################################
 
 " Install the Plugin Manager:
 " git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
@@ -225,9 +231,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
-" ########################################################
+" #########################################################
 " # Plugin installations
-" ########################################################
+" #########################################################
 
 " Insert all Plugins inside this block
 call vundle#begin()
@@ -319,9 +325,9 @@ call vundle#end()
 
 
 
-" ########################################################
+" #########################################################
 " # Appearance
-" ########################################################
+" #########################################################
 
 syntax on
 
@@ -350,9 +356,9 @@ let g:neodark#solid_vertsplit = 1
 " let g:neodark#use_256color = 1
 colorscheme neodark
 
-" ########################################################
+" #########################################################
 " # General mappings
-" ########################################################
+" #########################################################
 
 let g:mapleader = "\\"          " leader key to \
 
@@ -388,7 +394,7 @@ set t_Co=256                    " explicitly tell vim that the terminal supports
 set nocompatible                " no compatibility with vi
 set encoding=utf-8
 
-set hidden                      " if hidden is not set, TextEdit might fail.
+set hidden                      " to allow switch between buffers without save
 
 set nobackup                    " Some servers have issues with backup files, see #649
 set nowritebackup
@@ -440,11 +446,11 @@ set showbreak=↪
 " Autocomplete menu
 set completeopt=menuone,longest,preview             " simple autocomplete for anything
 set wildmenu
-set wildoptions=pum                                 " display popup
-set pumblend=5                                      " transparence
 set wildmode=list:longest,full                      " autocomplete for paths and files
 set wildignore+=.git                                " ignore these extensions on autocomplete
 set wildignore+=.class
+" set wildoptions=pum                                 " display popup
+" set pumblend=10                                     " transparence
 
 " Highlight the content to replace before doing it without spliting
 " set inccommand=nosplit
@@ -456,9 +462,9 @@ set signcolumn=yes                                  " always show signcolumns
 
 
 
-" ########################################################
+" #########################################################
 " # Languages configuration
-" ########################################################
+" #########################################################
 " filetype plugin on            " load file type agnostic settings (format: ~/.config/nvim/after/java.vim)
 filetype plugin indent on       " load identation by file type
 
@@ -469,9 +475,9 @@ autocmd Filetype cs           setlocal expandtab! tabstop=4 shiftwidth=4 softtab
 
 
 
-" ########################################################
+" #########################################################
 " # Plugins configuration
-" ########################################################
+" #########################################################
 
 
 " === jistr/vim-nerdtree-tabs === {{{
