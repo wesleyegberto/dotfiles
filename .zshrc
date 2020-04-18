@@ -203,6 +203,7 @@ alias ta='tmux attach'
 alias tls='tmux ls'
 alias tat="tmux attach -t $1"
 alias tns="tmux new-session -s $1"
+alias tks="tmux kill-session -t $1"
 
 
 # Kubernetes aliases

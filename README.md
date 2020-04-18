@@ -146,3 +146,4 @@ Here are my configs:
 * Fonts:
   * [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
   * [Jetbrains Mono](https://www.jetbrains.com/lp/mono/)
+* [Themes generator](https://themer.dev/)

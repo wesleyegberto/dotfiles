@@ -131,6 +131,7 @@
 " === coc-vim and omnisharp-vim keybindings ===
 " <C-Space>   " refresh autocomplete (INSERT MODE)
 " \qf         " quick fix for current line
+" \coqf       " quick fix for C#
 " gd          " go to definition
 " gi          " go to implementation
 " gD          " peek definition
@@ -145,9 +146,9 @@
 " \csf        " format selection
 
 " actions (after \a we can cursor motion to select a block - like w or p)
-" \cas         " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\cas` -> action for current sentence)
 " \cal         " action for current line
-" \caw         " action for current word
+" \cas         " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\cas` -> action for current sentence)
+" \casw        " action for current word
 
 " snippets
 " <C-l>       " cut the selected content to use inside a snippet (when used later)
