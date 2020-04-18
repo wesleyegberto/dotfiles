@@ -16,9 +16,17 @@ brew install git
 # Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Tmux
+brew install tmux
+
 # NeoVim
 brew install neovim
 
-brew install httpie
-
 npm install -g n
+
+# dev tools
+brew install httpie
+brew cask install qlstephen
+brew cask install quicklook-json
+brew cask install webpquicklook
+brew cask install qlimagesize

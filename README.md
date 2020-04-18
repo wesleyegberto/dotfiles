@@ -20,7 +20,7 @@
 ##########################################################
 ```
 
-My scripts and dotfiles for Zsh, Git, NeoVim.
+My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 
 ## My Setup
 
@@ -40,17 +40,24 @@ Copy the content of file `git/.gitconfig` to `~/.gitconfig`.
 
 ### Zsh
 
-Install Zsh following [this steps](https://ohmyz.sh/).
-`$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+Install Zsh following [this steps](https://ohmyz.sh/):
+`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 Then install the plugin manager:
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"`
 
 Copy the content of file `.zshrc` to `~/.zshrc`.
 
+### Tmux
+
+Install Tmux following [this steps](https://github.com/tmux/tmux/wiki/Installing):
+`brew install tmux`
+
+Copy the content of file `.tmux.conf` to `~/.tmux.conf`.
+
 ### NeoVim
 
-Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Installing-Neovim):
 `brew install neovim`
 
 Install de Vim plugin manager: `git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim`.
@@ -136,6 +143,11 @@ Here are my configs:
 
 * [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`),
 * [VSCode Keybindings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-keybindingsmac-json): keybindings to navigate between panes, double `j` on insert mode
+
+
+## TODO
+
+[ ] Export Eclipse configurations
 
 ## Links
 
