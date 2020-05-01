@@ -22,6 +22,8 @@ brew install tmux
 # NeoVim
 brew install neovim
 
+brew install jenv
+
 npm install -g n
 
 # dev tools

@@ -12,104 +12,114 @@
 export ZSH="/Users/wesley/.oh-my-zsh"
 
 export TERM="xterm-256color"
-export DOTFILES="~/.dotfiles"
+export DOTFILES=$(readlink ~/.dotfiles)
 
 
 ########################################################
 # Theme Configuration
 ########################################################
 
-# === Powerlevel9k ===
+# === # POWERLEVEL9K ===
 
-# https://github.com/bhilburn/powerlevel9k#dir
-ZSH_THEME="powerlevel9k/powerlevel9k"
-#POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_COLOR_SCHEME='dark'
-POWERLEVEL9K_STATUS_VERBOSE=false
+# https://github.com/bhilburn/# POWERLEVEL9K#dir
+# ZSH_THEME="# POWERLEVEL9K/# POWERLEVEL9K"
+
+## POWERLEVEL9K_MODE='awesome-patched'
+# POWERLEVEL9K_MODE='nerdfont-complete'
+# # POWERLEVEL9K_COLOR_SCHEME='dark'
+# POWERLEVEL9K_STATUS_VERBOSE=false
 
 # Start config Multiline
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ICON_LEFT=true
-#POWERLEVEL9K_NEWLINE_ICON="\uF09C"
-#POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL="\ue0b2"
-#POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL="\ue0b0"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2570\uF460%f "
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%F{blue}"$'\u2570\uf460'"%F{white}"
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON="%F{blue}"$'\u256D\u2500'"%F{white}"
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ICON_LEFT=true
+## POWERLEVEL9K_NEWLINE_ICON="\uF09C"
+## POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL="\ue0b2"
+## POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL="\ue0b0"
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2570\uF460%f "
+## POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%F{blue}"$'\u2570\uf460'"%F{white}"
+## POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON="%F{blue}"$'\u256D\u2500'"%F{white}"
 
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON="\ue0b0"
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON="\ue0b1"
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON="\ue0b0"
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON="\ue0b1"
 # End Multiline
 
 # Start config Singleline
-# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
+# # POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
 # End Singleline
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time vi_mode)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir dir_writable vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time vi_mode)
 
-POWERLEVEL9K_DIR_HOME_BACKGROUND='033'
-POWERLEVEL9K_DIR_HOME_FOREGROUND='black'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='033'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='black'
-POWERLEVEL9K_DIR_ETC_SUBFOLDER_BACKGROUND='033'
-POWERLEVEL9K_DIR_ETC_SUBFOLDER_FOREGROUND='black'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="white"
+# POWERLEVEL9K_DIR_HOME_BACKGROUND='033'
+# POWERLEVEL9K_DIR_HOME_FOREGROUND='black'
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='033'
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='black'
+# POWERLEVEL9K_DIR_ETC_SUBFOLDER_BACKGROUND='033'
+# POWERLEVEL9K_DIR_ETC_SUBFOLDER_FOREGROUND='black'
+# POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
+# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
+# POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="white"
 
 
-POWERLEVEL9K_TIME_BACKGROUND="black"
-POWERLEVEL9K_TIME_FOREGROUND="white"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+# POWERLEVEL9K_TIME_BACKGROUND="black"
+# POWERLEVEL9K_TIME_FOREGROUND="white"
+# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
-POWERLEVEL9K_VCS_GIT_ICON=''
+# POWERLEVEL9K_VCS_GIT_ICON=''
 
 # SourceCodePro+Powerline+Awesome
-#POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
-#POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
-#POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
-#POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
-#POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+## POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
+## POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
+## POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
+## POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
+## POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 
 # Nerd font
-#POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
-POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf421'
-POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf00d'
-POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\uf0ab '
-POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\uf0aa '
+## POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
+# POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf421'
+# POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf00d'
+# POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\uf0ab '
+# POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\uf0aa '
 
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='cyan'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='green'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
+# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='cyan'
+# POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
+# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='green'
+# POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
+# POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
+# POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
 
-#POWERLEVEL9K_HIDE_BRANCH_ICON=true
+## POWERLEVEL9K_HIDE_BRANCH_ICON=true
 
 
 # === Spaceship ===
-#ZSH_THEME="spaceship"
-#SPACESHIP_PROMPT_ORDER=(
-#  user          # Username section
-#  dir           # Current directory section
-#  host          # Hostname section
-#  git           # Git section (git_branch + git_status)
-#  exec_time     # Execution time
-#  line_sep      # Line break
-#  vi_mode       # Vi-mode indicator
-#  jobs          # Background jobs indicator
-#  exit_code     # Exit code section
-#  char          # Prompt character
-#)
-#SPACESHIP_USER_SHOW=always
-#SPACESHIP_PROMPT_ADD_NEWLINE=false
-#SPACESHIP_CHAR_SYMBOL="❯"
-#SPACESHIP_CHAR_SUFFIX=" "
+ZSH_THEME="spaceship"
+
+source "$DOTFILES/zsh/functions/spaceship_watson.sh"
+
+SPACESHIP_PROMPT_ORDER=(
+  time
+  user          # Username section
+  host          # Hostname section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  exec_time     # Execution time
+  watson
+  line_sep      # Line break
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  node
+  char          # Prompt character
+)
+SPACESHIP_USER_SHOW=always
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_HOST_PREFIX="@:("
+SPACESHIP_HOST_SUFFIX=") "
+SPACESHIP_CHAR_SYMBOL=">"
+SPACESHIP_CHAR_SUFFIX=" "
+
 
 
 ########################################################
@@ -137,7 +147,7 @@ autoload -Uz _zplugin
 
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-completions 
+zplugin light zsh-users/zsh-completions
 
 
 ########################################################
@@ -170,6 +180,9 @@ alias here='ofd' # Open current dir with finder
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+# Time tracker (https://tailordev.github.io/Watson/)
+alias track="watson"
 
 # Git aliases
 alias g="git"

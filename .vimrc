@@ -32,13 +32,18 @@
 
 " === Windows and Tabs ===
 " <C-w>s       " split current window horizontally (alternative :split)
-" <C-w>v       " rplit current window vertically (alternative :vsplit)
+" <Leader>ws   " split current window horizontally (alternative :split)
+" <C-w>v       " split current window vertically (alternative :vsplit)
+" <Leader>wv   " split current window vertically (alternative :vsplit)
 " <C-w>c       " close current window
+" <Leader>wd   " close current window
 " <C-w>q       " close current window
 " <C-w>w       " Jump to the next window
 " <C-w>#<      " Shrink/resize current window from the right by # (default 1)
 " <C-w>#>      " Increase/resize current window to the right by # (default 1)
 " <C-w><ARROW> " Jump to window left/right/top/bottom (arrow keys) to the current
+" <Leader>wth  " flip split window from vertical to horizontal
+" <Leader>wtk  " flip split window from horizontal to vertical
 
 " <C-\>        " go previous window
 " <C-h>        " left window
@@ -181,6 +186,8 @@
         \ '=' : ['<C-W>='     , 'balance-window']        ,
         \ 's' : ['<C-W>s'     , 'split-window-below']    ,
         \ 'v' : ['<C-W>v'     , 'split-window-aside']    ,
+        \ 'th' : ['<C-W>th'   , 'flip-split-window']     ,
+        \ 'tk' : ['<C-W>th'   , 'flip-split-window']     ,
         \ '?' : ['Windows'    , 'fzf-window']            ,
         \ }
 
@@ -238,7 +245,7 @@ set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Insert all Plugins inside this block
 call vundle#begin()
-    
+
     " tmux integration and navigate between open pages with C-h C-j C-k C-k
     Plugin 'benmills/vimux'
     Plugin 'christoomey/vim-tmux-navigator'
@@ -251,12 +258,12 @@ call vundle#begin()
     Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-    " Hybrid between number (when editing) and relative number (when navigating)
-    Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
     " fuzzy find (like Sublime)
     Plugin 'junegunn/fzf', { 'do': './install --bin' }
     Plugin 'junegunn/fzf.vim'
+
+    " Hybrid between number (when editing) and relative number (when navigating)
+    Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
     Plugin 'jeetsukumaran/vim-buffergator'
 
@@ -351,8 +358,8 @@ let g:airline_theme='dark'
 
 " let g:airline_theme='onedark'
 " let g:onedark_terminal_italics = 1
-" colorscheme onedark
 
+" colorscheme onedark
 let g:neodark#solid_vertsplit = 1
 " let g:neodark#use_256color = 1
 colorscheme neodark
@@ -371,6 +378,12 @@ imap <C-s> <Esc>:w<CR>a
 vmap <C-s> <Esc>:w<CR>
 
 imap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
+
+nmap <Leader>wth <C-w>t<C-w>H   " flip vertical split to horizontal
+nmap <Leader>wtk <C-t>t<C-w>K   " flip horizontal split to vertical
+
+nmap <C-w>th <C-w>t<C-w>H       " flip vertical split to horizontal
+nmap <C-w>tk <C-t>t<C-w>K       " flip horizontal split to vertical
 
 " to allow navigate a line above and bellow correctly when word wrapping
 nnoremap k gk
@@ -457,7 +470,7 @@ set wildignore+=.class
 " set inccommand=nosplit
 
 
-set updatetime=1000                                 " You will have bad experience for diagnostic messages when it's default 4000
+set updatetime=300                                  " You will have bad experience for diagnostic messages when it's default 4000
 set shortmess+=c                                    " don't give |ins-completion-menu| messages
 set signcolumn=yes                                  " always show signcolumns
 
