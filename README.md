@@ -24,21 +24,24 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 
 ## My Setup
 
-### Bash
-
-I'm using iTerm2 + Oh-My-Zsh + Tmux.
-
-### Fonts
-
-Using Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
+* Bash: I'm using iTerm2 + Oh-My-Zsh + Tmux.
+* Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
 
 ## Instructions
 
-### Git configuration
+First install Xcode: `xcode-select --install`
+
+The folder `macosx_setup` contains the scripts to set the mac OS defaults and install the apps and tools.
+
+`sh ./macosx_setup/macos_setup_script.sh`
+
+### Manual Installation
+
+#### Git configuration
 
 Copy the content of file `git/.gitconfig` to `~/.gitconfig`.
 
-### Zsh
+#### Zsh
 
 Install Zsh following [this steps](https://ohmyz.sh/):
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
@@ -48,14 +51,14 @@ Then install the plugin manager:
 
 Copy the content of file `.zshrc` to `~/.zshrc`.
 
-### Tmux
+#### Tmux
 
 Install Tmux following [this steps](https://github.com/tmux/tmux/wiki/Installing):
 `brew install tmux`
 
 Copy the content of file `.tmux.conf` to `~/.tmux.conf`.
 
-### NeoVim
+#### NeoVim
 
 Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Installing-Neovim):
 `brew install neovim`
@@ -65,6 +68,10 @@ Install de Vim plugin manager: `git clone https://github.com/VundleVim/Vundle.vi
 Copy the content of file `.vimrc` to `~/.config/nvim/init.vim`.
 
 Then install the plugins by running: `vim +PluginInstall +qall`.
+
+## Tools Configuration
+
+### NeoVim
 
 NeoVim Plugins:
 
@@ -127,9 +134,9 @@ NeoVim Plugins:
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
   * [vim-repeat](https://github.com/tpope/vim-repeat) (not used)
 
-### VSCode
+### VS Code
 
-I'm using VSCode with Vim extension which has my favorites Vim plugins (like vim-surround, vim-airline, vim commentary).
+I'm using VSCode with Vim extension which has my favorites Vim plugins (like vim-surround, vim-airline).
 Using it I can use all the Vim power for editing and navigation.
 
 #### Steps:
@@ -144,10 +151,9 @@ Here are my configs:
 * [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`),
 * [VSCode Keybindings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-keybindingsmac-json): keybindings to navigate between panes, double `j` on insert mode
 
-
 ## TODO
 
-[ ] Export Eclipse configurations
+[X] Export Eclipse configurations
 
 ## Links
 
@@ -159,3 +165,4 @@ Here are my configs:
   * [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
   * [Jetbrains Mono](https://www.jetbrains.com/lp/mono/)
 * [Themes generator](https://themer.dev/)
+* [macOS setup inspiration](https://github.com/mathiasbynens/dotfiles)

@@ -1,0 +1,35 @@
+#Sat Apr 25 17:34:18 BRT 2020
+\!/=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.argumentPrefixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.argumentSuffixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldPrefixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.fieldSuffixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.localPrefixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.localSuffixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFieldPrefixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFieldSuffixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFinalFieldPrefixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFinalFieldSuffixes=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform=11
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance=11
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.release=enabled
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source=11
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.exception.name=e
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.formatterprofiles.version=18
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.gettersetter.use.is=true
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.ignorelowercasenames=true
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.importorder=java;javax;org;com;
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.ondemandthreshold=99
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.overrideannotation=true
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.staticondemandthreshold=99
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+/instance/org.eclipse.ui.workbench/org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\n<org.eclipse.ui.commands>\n<activeKeyConfiguration keyConfigurationId\="kg.totality.core.insert_mode"/>\n<keyBinding contextId\="org.eclipse.ant.ui.AntEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F3"/>\n<keyBinding commandId\="org.eclipse.wst.jsdt.ui.navigate.java.open.structure" contextId\="org.eclipse.wst.jsdt.ui.javaEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding contextId\="org.eclipse.wst.jsdt.ui.javaEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+F3"/>\n<keyBinding commandId\="org.eclipse.wst.sse.ui.open.file.from.source" contextId\="org.eclipse.wst.sse.ui.structuredTextEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+SHIFT+["/>\n<keyBinding commandId\="org.eclipse.jdt.ui.navigate.java.open.structure" contextId\="org.eclipse.jdt.ui.javaEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding commandId\="org.eclipse.wst.jsdt.ui.edit.text.java.open.editor" contextId\="org.eclipse.wst.jsdt.ui.javascriptViewScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding contextId\="org.eclipse.wst.jsdt.ui.javascriptViewScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F3"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+["/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.open.hyperlink" contextId\="org.eclipse.ui.genericeditor.genericEditorContext" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding commandId\="org.eclipse.jdt.ui.edit.text.java.open.editor" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding commandId\="org.eclipse.ui.window.splitEditor" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+\\">\n<parameter id\="Splitter.isHorizontal" value\="false"/>\n</keyBinding>\n<keyBinding contextId\="org.eclipse.ui.genericeditor.genericEditorContext" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F3"/>\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F3"/>\n<keyBinding contextId\="org.eclipse.wst.sse.ui.structuredTextEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F3"/>\n<keyBinding commandId\="org.eclipse.ant.ui.open.declaration.command" contextId\="org.eclipse.ant.ui.AntEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+B"/>\n<keyBinding contextId\="org.eclipse.jdt.ui.javaEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="COMMAND+F3"/>\n<keyBinding commandId\="org.eclipse.ui.navigate.backwardHistory" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+O"/>\n</org.eclipse.ui.commands>
+/instance/org.eclipse.ui/KEY_CONFIGURATION_ID=kg.totality.core.insert_mode
+@org.eclipse.jdt.core=3.21.0.v20200304-1404
+@org.eclipse.jdt.ui=3.21.0.v20200226-1531
+@org.eclipse.ui=3.116.0.v20200203-1308
+@org.eclipse.ui.workbench=3.118.0.v20200222-0719
+file_export_version=3.0

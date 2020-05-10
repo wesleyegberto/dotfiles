@@ -20,9 +20,10 @@ export DOTFILES=$(readlink ~/.dotfiles)
 ########################################################
 
 # === # POWERLEVEL9K ===
+# https://github.com/Powerlevel9k/powerlevel9k
+# https://github.com/romkatv/powerlevel10k
 
-# https://github.com/bhilburn/# POWERLEVEL9K#dir
-# ZSH_THEME="# POWERLEVEL9K/# POWERLEVEL9K"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 ## POWERLEVEL9K_MODE='awesome-patched'
 # POWERLEVEL9K_MODE='nerdfont-complete'
@@ -94,23 +95,28 @@ export DOTFILES=$(readlink ~/.dotfiles)
 
 
 # === Spaceship ===
+# https://github.com/denysdovhan/spaceship-prompt
+
 ZSH_THEME="spaceship"
 
 source "$DOTFILES/zsh/functions/spaceship_watson.sh"
+source "$DOTFILES/zsh/functions/spaceship_langs.sh"
 
 SPACESHIP_PROMPT_ORDER=(
-  time
+  time          # Time stampts section
   user          # Username section
   host          # Hostname section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   exec_time     # Execution time
+  java
+  nodejs
+  # node
   watson
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
-  node
   char          # Prompt character
 )
 SPACESHIP_USER_SHOW=always
@@ -118,8 +124,11 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_HOST_PREFIX="@:("
 SPACESHIP_HOST_SUFFIX=") "
 SPACESHIP_CHAR_SYMBOL=">"
-SPACESHIP_CHAR_SUFFIX=" "
+SPACESHIP_CHAR_SUFFIX=" λ "
 
+SPACESHIP_NODE_PREFIX="⬢ "
+SPACESHIP_NODE_SUFFIX=" "
+SPACESHIP_NODE_SYMBOL=""
 
 
 ########################################################
@@ -175,6 +184,8 @@ alias svim='nvim -u ~/.SpaceVim/vimrc'
 # Lazy
 alias ..='cd ..'
 alias cd..='cd ..'
+alias cls="clear"
+alias :q='exit'
 alias grep='grep --color=auto'
 alias here='ofd' # Open current dir with finder
 
@@ -183,6 +194,15 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Time tracker (https://tailordev.github.io/Watson/)
 alias track="watson"
+
+# Tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat="tmux attach -t $1"
+alias tns="tmux new-session -s $1"
+alias tks="tmux kill-session -t $1"
+alias ide="tmux new-session -s ide"
+
 
 # Git aliases
 alias g="git"
@@ -211,20 +231,13 @@ alias glt='git log --reverse --no-merges --branches=* --date=local --after="yest
 alias gchurn="git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g;"
 
 
-# Tmux aliases
-alias ta='tmux attach'
-alias tls='tmux ls'
-alias tat="tmux attach -t $1"
-alias tns="tmux new-session -s $1"
-alias tks="tmux kill-session -t $1"
-
-
 # Kubernetes aliases
 alias k="kubectl"
 alias kproject='gcloud info --format="value(config.project)"'
 alias kcontext="kubectl config get-contexts"
 alias ksetcontext="kubectl config use-context $1"
 alias kgpa="kubectl get po --all-namespaces"
+alias kpod="kubectl get po"
 alias kgpg="kubectl get po | grep $1"
 alias kdesc="kubectl describe $1"
 alias kgrep="k get pod,svc -o wide | grep $1"

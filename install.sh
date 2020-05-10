@@ -2,32 +2,36 @@
 set -o nounset    # error when referencing undefined variable
 set -o errexit    # exit when command fails
 
-echo 'Copying .dotfiles'
+echo "Copying .dotfiles"
 ln -s $(pwd) ~/.dotfiles/
 
-# Script to install my files
-echo 'Copying .vimrc'
+echo "Copying .gitconfig"
+[ -f ~/.gitconfig ] && cp ~/.gitconfig ~/.gitconfig_backup
+ln -s `pwd`/git/.gitconfig ~/.gitconfig
+ln -s `pwd`/git/.gitignore_global ~/.gitignore_global
+
+echo "Copying .zshrc"
+[ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc_backup
+ln -s `pwd`/.zshrc ~/.zshrc
+
+echo "Copying .tmux.conf"
+[ -f ~/.tmux.conf ] && cp ~/.tmux.conf ~/.tmux.conf_backup
+ln -s `pwd`/.tmux.conf ~/.tmux.conf
+
+echo "Copying .vimrc"
 [ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc_backup
 [ -f ~/.config/nvim/init.vim ] && cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim_backup
 ln -s `pwd`/.vimrc ~/.vimrc
 ln -s `pwd`/.vimrc ~/.config/nvim/init.vim
 
-echo 'Copying .tmux.conf'
-[ -f ~/.tmux.conf ] && cp ~/.tmux.conf ~/.tmux.conf
-ln -s `pwd`/.tmux.conf ~/.tmux.conf
+echo "Cloning Vundle.vim"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-echo 'Installing coc-vim'
-# for neovim
-mkdir -p ~/.local/share/nvim/site/pack/coc/start
-cd ~/.local/share/nvim/site/pack/coc/start
-curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
-
-# Install extensions
-mkdir -p ~/.config/coc/extensions
-cd ~/.config/coc/extensions
-if [ ! -f package.json ]
-then
-  echo '{"dependencies":{}}'> package.json
+if [ $(uname -s) = "Darwin" ]; then
+  sh ./osx_setup/apps_install.sh
 fi
-# Change extension names to the extensions you need
-npm install coc-actions coc-snippets coc-java --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+
+if test "$( command -v nvim )"; then
+  echo "Installing Vim plugins"
+  vim +PluginInstall +qall
+fi

@@ -245,6 +245,7 @@ set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Insert all Plugins inside this block
 call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
 
     " tmux integration and navigate between open pages with C-h C-j C-k C-k
     Plugin 'benmills/vimux'
