@@ -9,7 +9,7 @@ ln -s $(pwd) ~/.dotfiles/
 
 echo "Copying .gitconfig"
 [ -f ~/.gitconfig ] && cp ~/.gitconfig ~/.gitconfig_backup
-ln -s $DOTFILES/.gitconfig ~/.gitconfig
+cp $DOTFILES/.gitconfig ~/.gitconfig
 ln -s $DOTFILES/.gitignore_global ~/.gitignore_global
 
 echo "Copying .zshrc"

@@ -54,6 +54,7 @@ brew cask install dash
 brew cask install docker-toolbox
 
 echo "\\n\\n=== Installing langs tools ==="
+brew install shellcheck
 brew install node
 brew install jenv
 npm install -g n
