@@ -9,158 +9,6 @@
 " #########################################################################
 " cp ~/.vimrc ~/.config/nvim/init.vim
 
-
-" #########################################################
-" # Keybinding Mappgin
-" #########################################################
-
-" \st          " Show startify
-
-" \t           " toggle nerdtree
-" \y           " reveal file in nerdtree
-
-" On NERDTree tab
-" m            " Show menu
-" t            " open the selected file in a new tab
-" i            " open the selected file in a horizontal split window
-" s            " open the selected file in a vertical split window
-" I            " toggle hidden files
-" m            " show the NERD Tree menu
-" R            " refresh the tree, useful if files change outside of Vim
-" ?            " toggle NERD Tree's quick help
-
-
-" === Windows and Tabs ===
-" <C-w>s       " split current window horizontally (alternative :split)
-" <Leader>ws   " split current window horizontally (alternative :split)
-" <C-w>v       " split current window vertically (alternative :vsplit)
-" <Leader>wv   " split current window vertically (alternative :vsplit)
-" <C-w>c       " close current window
-" <Leader>wd   " close current window
-" <C-w>q       " close current window
-" <C-w>w       " Jump to the next window
-" <C-w>#<      " Shrink/resize current window from the right by # (default 1)
-" <C-w>#>      " Increase/resize current window to the right by # (default 1)
-" <C-w><ARROW> " Jump to window left/right/top/bottom (arrow keys) to the current
-" <Leader>wth  " flip split window from vertical to horizontal
-" <Leader>wtk  " flip split window from horizontal to vertical
-
-" <C-\>        " go previous window
-" <C-h>        " left window
-" <C-j>        " down window
-" <C-k>        " up window
-" <C-l>        " right window
-" :q<index>    " close window with index
-
-" gt           " go to next tab
-" gT           " go to previous tab
-" #gt          " go to tab at index #
-" gb or ]b     " go to next buffer
-" gB or [b     " go to previous buffer
-
-
-" === Searching ===
-" C-p         " fuzzy finder
-" \b          " display all buffers to select (hjkl to navigate, <C-s> :sv, <C-v> :vs)
-" \B           " list the tabs for selection
-" \<Space>    " clear searching results
-" *           " find current word and jump next occurrence
-" [i          " show first occurrence of current word
-" [I          " show all occurrences of current word
-
-
-" === Navigation ===
-" g;          " go to last edition position
-" %           " jump to matching () or {} or []
-" {           " go to previous paragraph
-" }           " go to next paragraph
-" [/          " go to start of first comment block /* */
-" ]/          " go to end of first comment block /* */
-
-" # terryma/vim-multiple-cursors
-" <M-n>         " start multicursor and directly select all matches
-" <C-n>         " start multicursor and add a virtual cursor + selection on the match
-" After <C-n>:
-" <C-n>         " add a new virtual cursor + selection on the next match
-" <C-x>         " skip the next match
-" <C-p>         " remove current virtual cursor + selection and go back on previous match
-
-" enclosing navigation (between [], (), {})
-" [%          " go to previous enclosing [ or ( or {
-" ]%          " go to next enclosing ] or ) or }
-" [{          " go to enclosing {
-" ]}          " go to enclosing }
-" [(          " go to enclosing (
-" ])          " go to enclosing )
-" [m          " go to start of previous body
-" ]m          " go to start of next body
-
-" git changes navigation
-" [c          " go to previous git change
-" ]c          " go to next git change
-
-" diagnostic navigation
-" [g          " navigate to previous diagnostic
-" ]g          " navigate to next diagnostic
-
-
-" === tpope/vim-unimpaired ===
-" [e          " move current line above
-" ]e          " move current line bellow
-" <M-Up>      " move current line above
-" <M-Down>    " move current line bellow
-" [<Space>    " add blankline before current line
-" ]<Space>    " add blankline after current line
-" >p          " paste after linewise, increasing indent
-" >P          " paste before linewise, increasing indent
-" <p          " paste after linewise, decreasing indent
-" <P          " paste before linewise, decreasing indent
-" =p          " paste after linewise, reindenting
-" =P          " paste linewise, reindenting
-" [f          " go to the file preceding the current one
-" ]f          " go to the file succeeding the current one
-
-
-" === tpope/vim-surround ===
-" using { ( [ will wrap the content with a space between the {} () []
-" using `}`, `]`, `)` will wrap the content with no space
-" format: `cs<CHAR_TO_REPLACE><CONTENT_REPLACE><cr>`
-" Examples:
-" cs"'        " replace surrounding the " to '
-" ds"         " delete surrounding "
-" yss)        " wrap the line with ()
-" yss}        " wrap the line with {}
-" ysiw]       " wrap the current word (iw -> inner word) with ]
-
-
-" === coc-vim and omnisharp-vim keybindings ===
-" <C-Space>   " refresh autocomplete (INSERT MODE)
-" \qf         " quick fix for current line
-" \coqf       " quick fix for C#
-" gd          " go to definition
-" gi          " go to implementation
-" gD          " peek definition
-" gI          " peek implementation
-" gr          " find references
-" \crn         " rename var
-
-" === coc-vim keybindings ===
-" gy          " go to type
-" \cd         " show documentation
-" \cf         " format buffer
-" \csf        " format selection
-
-" actions (after \a we can cursor motion to select a block - like w or p)
-" \cal         " action for current line
-" \cas         " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\cas` -> action for current sentence)
-" \casw        " action for current word
-
-" snippets
-" <C-l>       " cut the selected content to use inside a snippet (when used later)
-" <C-n>       " next item
-" <C-p>       " previous item
-
-
 " === liuchengxu/vim-which-key' === {{{
     let g:which_key_map = {}
 
@@ -234,6 +82,7 @@
 " java: `:CocInstall coc-java`
 " snippets: `:CocInstall coc-snippets`
 
+" required by vundle
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -325,7 +174,8 @@ call vundle#begin()
     " Plugin 'joshdick/onedark.vim'
     " Plugin 'kyoz/purify', { 'rtp': 'vim' }
     " Plugin 'kaicataldo/material.vim'
-    Plugin 'KeitaNakamura/neodark.vim'
+    " Plugin 'KeitaNakamura/neodark.vim'
+    Plugin 'morhetz/gruvbox'
 
     " devicons (should be loaded after the current plugins)
     Plugin 'ryanoasis/vim-devicons'
@@ -340,9 +190,9 @@ call vundle#end()
 
 syntax on
 
-if (has('termguicolors'))
+"if (has('termguicolors'))
   set termguicolors
-endif
+"endif
 
 " Appearence
 set background=dark
@@ -363,13 +213,16 @@ let g:airline_theme='dark'
 " colorscheme onedark
 let g:neodark#solid_vertsplit = 1
 " let g:neodark#use_256color = 1
-colorscheme neodark
+" colorscheme neodark
+
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " #########################################################
 " # General mappings
 " #########################################################
 
-let g:mapleader = "\\"          " leader key to \
+let g:mapleader = "\\"            " leader key to \
 
 " nmap <space> \                  " space to \
 " xmap <space> \                  " space to \
@@ -455,7 +308,7 @@ set foldnestmax=10              " deepest fold is 10 levels
 
 " Toggle invisible characters
 set list
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
 " Autocomplete menu
@@ -504,6 +357,7 @@ let g:nerdtree_tabs_focus_on_files = 1
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
+" nmap <silent> <Leader>t :NERDTreeToggle<CR>                           " toggle NERDTree Tabs
 nmap <silent> <Leader>t :NERDTreeMirrorToggle<CR>                     " toggle NERDTree Tabs
 nmap <silent> <Leader>T :NERDTreeTabsClose<CR>                        " toggle NERDTree Tabs
 nmap <silent> <Leader>y :NERDTreeFind<cr>                             " reveal the current file in nerdtree
@@ -554,9 +408,30 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'   " path for
 
 
 " === junegunn/fzf.vim === {{{
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 let g:fzf_buffers_jump = 1                                            " [Buffers] Jump to the existing window if possible
+nnoremap <silent> <C-p> :call FZFOpen(':Files')<CR>
 
-nmap <silent> <C-p> :FZF<CR>
+" autocmd FileType nerdtree let t:nerdtree_winnr = bufwinnr('%')
+" autocmd BufWinEnter * call PreventBuffersInNERDTree()
+" function! PreventBuffersInNERDTree()
+"   if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree'
+"     \ && exists('t:nerdtree_winnr') && bufwinnr('%') == t:nerdtree_winnr
+"     \ && &buftype == '' && !exists('g:launching_fzf')
+"     let bufnum = bufnr('%')
+"     close
+"     exe 'b ' . bufnum
+"     NERDTree
+"   endif
+"   if exists('g:launching_fzf') | unlet g:launching_fzf | endif
+" endfunction
+
+" nmap <silent> <C-p> :FZF<CR>
 " }}}
 
 
@@ -702,7 +577,8 @@ augroup coc_commands
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gr <Plug>(coc-references)
 
-    " use K to show documentation in preview window
+    " use `gh` to show documentation in preview window
+    nnoremap <silent> gh :call <SID>show_documentation()<CR>
     nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
@@ -856,6 +732,8 @@ autocmd!
     autocmd FileType cs nnoremap <buffer> <Leader>cfm :OmniSharpFindMembers<CR>
 
     autocmd FileType cs nnoremap <buffer> <Leader>gt :OmniSharpTypeLookup<CR>
+
+    autocmd FileType cs nnoremap <buffer> gh :OmniSharpDocumentation<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>cod :OmniSharpDocumentation<CR>
 
     autocmd FileType cs inoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
@@ -887,6 +765,7 @@ augroup END
 
 
 " === autozimu/LanguageClient-neovim === {{{
+" Download the JDT LS: https://download.eclipse.org/jdtls/snapshots
 let g:LanguageClient_serverCommands = {
     \ 'java': ['java',
         \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -897,9 +776,9 @@ let g:LanguageClient_serverCommands = {
         \ '-Dfile.encoding=UTF-8',
         \ '-Xms1G',
         \ '-jar',
-        \ expand('~/dev-tools/ide/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar'),
+        \ expand('~/dev-tools/ide/jdt-language-server/jdt-language-server-0.56.0-202005131320/plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar'),
         \ '-configuration',
-        \ expand('~/dev-tools/ide/jdt-language-server/config_mac'),
+        \ expand('~/dev-tools/ide/jdt-language-server/jdt-language-server-0.56.0-202005131320/config_mac'),
         \ '-data',
         \ getcwd()
         \ ],

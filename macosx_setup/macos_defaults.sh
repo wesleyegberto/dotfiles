@@ -1,3 +1,5 @@
+# Ref: Mac Tips, Tricks & Shortcuts in easy steps, 2nd Edition
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -43,9 +45,9 @@ defaults write -g KeyRepeat -int 0
 echo "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-echo "Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 30
+echo "Set a blazingly fast keyboard repeat rate (lower equals faster)"
+defaults write NSGlobalDomain KeyRepeat -int 7
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
 echo "Enable full keyboard access for all controls"
 # (e.g. enable Tab in modal dialogs)
@@ -134,9 +136,9 @@ echo "Show item info to the right of the icons on the desktop"
 /usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
 
 echo "Enable snap-to-grid for icons on the desktop and in other icon views"
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy name" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy name" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" ~/Library/Preferences/com.apple.finder.plist
 
 
 echo "\\n\\n=== Dock options ==="

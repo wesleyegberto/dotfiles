@@ -9,7 +9,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/wesley/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export TERM="xterm-256color"
 export DOTFILES=$(readlink ~/.dotfiles)
@@ -112,7 +112,7 @@ SPACESHIP_PROMPT_ORDER=(
   java
   nodejs
   # node
-  watson
+  # watson
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator

@@ -39,7 +39,7 @@ The folder `macosx_setup` contains the scripts to set the mac OS defaults and in
 
 #### Git configuration
 
-Copy the content of file `git/.gitconfig` to `~/.gitconfig`.
+Copy the content of file `.gitconfig` to `~/.gitconfig`.
 
 #### Zsh
 
@@ -69,6 +69,15 @@ Copy the content of file `.vimrc` to `~/.config/nvim/init.vim`.
 
 Then install the plugins by running: `vim +PluginInstall +qall`.
 
+Dependencies:
+* FZF: `brew install fd fzf`
+* Coc-vim:
+
+```
+pip2 install --user pynvim
+pip3 install --user pynvim
+```
+
 ## Tools Configuration
 
 ### NeoVim
@@ -82,21 +91,25 @@ NeoVim Plugins:
   * [OneDark](https://github.com/joshdick/onedark.vim)
   * [NeoDark](https://github.com/KeitaNakamura/neodark.vim)
   * [Purify](https://github.com/kyoz/purify)
-* Files:
+  * [Gruvbox](https://github.com/morhetz/gruvbox)
+* Folder exploration:
   * [nerdtree](https://github.com/scrooloose/nerdtree)
   * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
   * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
   * [vim-devicons](https://github.com/ryanoasis/vim-devicons)
   * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+* Files search:
   * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
+  * [FZF](https://github.com/junegunn/fzf)
+  * [FZF-Vim](https://github.com/junegunn/fzf.vim)
   * [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
 * Visualization:
   * [vim-airline](https://github.com/vim-airline/vim-airline)
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
   * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
   * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
-  * [vim-rainbow](frazrepo/vim-rainbow)
   * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
+  * [vim-rainbow](frazrepo/vim-rainbow)
   * Git:
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
     * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
@@ -104,12 +117,13 @@ NeoVim Plugins:
     * [vim-polyglot](https://github.com/sheerun/vim-polyglot) - to be used
 * Navigation:
   * [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
+  * [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 * Editing:
   * [Sublime-like multiple cursor edit](terryma/vim-multiple-cursors)
   * [vim-sandwitch](https://github.com/machakann/vim-sandwich) - to be used
   * [vim-surround](https://github.com/tpope/vim-surround)
-  * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
   * [vim-abolish](https://github.com/tpope/vim-abolish)
+  * [auto-pairs](https://github.com/jiangmiao/auto-pairs) - removed
 * Intellisense
   * [coc-nvim](https://github.com/neoclide/coc.nvim)
     * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions) activated:
@@ -118,21 +132,19 @@ NeoVim Plugins:
       * [coc-java](https://github.com/neoclide/coc-java)
       * [coc-omnisharp](https://github.com/coc-extensions/coc-omnisharp)
 * Snippets
-  * [ultisnips](https://github.com/SirVer/ultisnips)
   * [vim-snippets](https://github.com/honza/vim-snippets)
+  * [ultisnips](https://github.com/SirVer/ultisnips)
 * Code Checker
   * [vim-syntastic](https://github.com/vim-syntastic/syntastic)
   * Java:
     * [Language Client](https://github.com/autozimu/LanguageClient-neovim)
   * C#:
     * [Omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)
-    * [vim-sharpenup](htttp://github.com/nickspoons/vim-sharpenup)
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
-  * [vim-repeat](https://github.com/tpope/vim-repeat) (not used)
 
 ### VS Code
 
