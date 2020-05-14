@@ -16,27 +16,28 @@
     let g:which_key_map.s.t = [ '\\st', 'show startify' ]
 
     let g:which_key_map.w = {
-        \ 'name' : '+windows' ,
-        \ 'w' : ['<C-W>w'     , 'other-window']          ,
-        \ 'q' : ['<C-W>q'     , 'quit-window']           ,
-        \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-        \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-        \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-        \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-        \ 'h' : ['<C-W>h'     , 'window-left']           ,
-        \ 'j' : ['<C-W>j'     , 'window-below']          ,
-        \ 'l' : ['<C-W>l'     , 'window-right']          ,
-        \ 'k' : ['<C-W>k'     , 'window-up']             ,
-        \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-        \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-        \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-        \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-        \ '=' : ['<C-W>='     , 'balance-window']        ,
-        \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-        \ 'v' : ['<C-W>v'     , 'split-window-aside']    ,
-        \ 'th' : ['<C-W>th'   , 'flip-split-window']     ,
-        \ 'tk' : ['<C-W>th'   , 'flip-split-window']     ,
-        \ '?' : ['Windows'    , 'fzf-window']            ,
+        \ 'name' : '+windows'      ,
+        \ 'w'    : ['<C-w>w'       , 'other-window']          ,
+        \ 'q'    : ['<C-w>q'       , 'quit-window']           ,
+        \ 'd'    : ['<C-w>q'       , 'quit-window']           ,
+        \ '-'    : ['<C-w>s'       , 'split-window-below']    ,
+        \ '|'    : ['<C-w>v'       , 'split-window-right']    ,
+        \ '2'    : ['<C-w>v'       , 'layout-double-columns'] ,
+        \ 'h'    : ['<C-w>h'       , 'window-left']           ,
+        \ 'j'    : ['<C-w>j'       , 'window-below']          ,
+        \ 'l'    : ['<C-w>l'       , 'window-right']          ,
+        \ 'k'    : ['<C-w>k'       , 'window-up']             ,
+        \ 'H'    : ['<C-w>5<'      , 'expand-window-left']    ,
+        \ 'J'    : ['resize -5'    , 'expand-window-below']   ,
+        \ 'L'    : ['<C-w>5>'      , 'expand-window-right']   ,
+        \ 'K'    : ['resize +5'    , 'expand-window-up']      ,
+        \ '='    : ['<C-w>='       , 'balance-window']        ,
+        \ 's'    : ['<C-w>s'       , 'split-window-below']    ,
+        \ 'v'    : ['<C-w>v'       , 'split-window-aside']    ,
+        \ 'x'    : ['<C-w>x'       , 'flip-windows']          ,
+        \ 'th'   : ['<C-w>t<C-w>H' , 'flip-horiz-to-vert']    ,
+        \ 'tk'   : ['<C-w>t<C-w>K' , 'flip-vert-to-horiz']    ,
+        \ '?'    : ['Windows'      , 'fzf-window']            ,
         \ }
 
     let g:which_key_map.l = {
@@ -53,12 +54,6 @@
             \ 't' : ['LanguageClient#textDocument_typeDefinition()'   , 'type-definition'],
             \ 'i' : ['LanguageClient#textDocument_implementation()'   , 'implementation'],
             \ },
-        \ }
-
-    let g:which_key_map.a = {
-        \ 'name': 'Coc-Nvim Actions',
-        \ 'a'  : ['coc-codeaction-selected'                           , 'action-current-selection'],
-        \ 'ac' : ['coc-codeaction'                                    , 'action-current-line'],
         \ }
 " }}}
 
@@ -211,7 +206,7 @@ let g:airline_theme='dark'
 " let g:onedark_terminal_italics = 1
 
 " colorscheme onedark
-let g:neodark#solid_vertsplit = 1
+" let g:neodark#solid_vertsplit = 1
 " let g:neodark#use_256color = 1
 " colorscheme neodark
 
@@ -233,11 +228,11 @@ vmap <C-s> <Esc>:w<CR>
 
 imap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
 
-nmap <Leader>wth <C-w>t<C-w>H   " flip vertical split to horizontal
-nmap <Leader>wtk <C-t>t<C-w>K   " flip horizontal split to vertical
+nnoremap <Leader>wth <C-w>t<C-w>H   " flip vertical split to horizontal
+nnoremap <Leader>wtk <C-t>t<C-w>K   " flip horizontal split to vertical
 
-nmap <C-w>th <C-w>t<C-w>H       " flip vertical split to horizontal
-nmap <C-w>tk <C-t>t<C-w>K       " flip horizontal split to vertical
+nnoremap <C-w>th <C-w>t<C-w>H       " flip vertical split to horizontal
+nnoremap <C-w>tk <C-t>t<C-w>K       " flip horizontal split to vertical
 
 " to allow navigate a line above and bellow correctly when word wrapping
 nnoremap k gk
@@ -506,7 +501,7 @@ let g:startify_commands = [
   \ ]
 
 let g:startify_bookmarks = [
-    \ { 'c': '~/.config/nvim/init.vim' },
+    \ { 'v': '~/.config/nvim/init.vim' },
     \ { 'g': '~/.gitconfig' },
     \ { 'z': '~/.zshrc' }
   \ ]
@@ -534,17 +529,23 @@ hi Pmenu      ctermbg=Gray  guibg=Gray  ctermfg=Black guifg=Black
 hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black
 hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
 
-hi CocErrorHighlight    ctermfg=Red   guifg=#000000
+" color for gruvbox
+hi CocErrorHighlight    ctermfg=Red   guifg=#ff3333
+hi CocErrorLine         ctermbg=DarkGray  guibg=#200000
+" color for others
+" hi CocErrorHighlight    ctermfg=Red   guifg=#000000
+" hi CocErrorLine         ctermbg=DarkGray  guibg=#1C2117
+
 hi CocErrorSign         ctermfg=Red   guifg=#ff1100
 hi CocErrorVirtualText  ctermfg=Red   guifg=#ff1100
 hi CocErrorFloat        ctermfg=Black guifg=#000000
-hi CocErrorLine         ctermbg=DarkGray  guibg=#1C2117
 
 hi CocWarningHighlight  ctermfg=Yellow guifg=#ff922b
 hi CocWarningFloat      ctermfg=Yellow guifg=#ff922b
 " hi CocWarningLine       ctermfg=Yellow guifg=#ff922b
 
 augroup coc_commands
+autocmd!
 
     " use <tab> for trigger completion and navigate to next complete item
     function! s:check_back_space() abort
@@ -572,14 +573,14 @@ augroup coc_commands
     nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
     " remap keys for gotos
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gr <Plug>(coc-references)
+    autocmd FileType java nmap <silent> gd <Plug>(coc-definition)
+    autocmd FileType java nmap <silent> gi <Plug>(coc-implementation)
+    autocmd FileType java nmap <silent> gy <Plug>(coc-type-definition)
+    autocmd FileType java nmap <silent> gr <Plug>(coc-references)
 
     " use `gh` to show documentation in preview window
-    nnoremap <silent> gh :call <SID>show_documentation()<CR>
-    nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
+    autocmd FileType java nnoremap <silent> gh :call <SID>show_documentation()<CR>
+    autocmd FileType java nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)
@@ -592,22 +593,24 @@ augroup coc_commands
     " Highlight symbol under cursor on CursorHold
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    nmap <Leader>crn <Plug>(coc-rename)                                    " remap for rename current word
+    " remap for rename current word
+    autocmd FileType java nmap <Leader>crn <Plug>(coc-rename)
 
-    " Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
+    " Remap for do codeAction of selected region, ex: `<Leader>camap` for current paragraph
     function! s:cocActionsOpenFromSelected(type) abort
       execute 'CocCommand actions.open ' . a:type
     endfunction
 
     " Remap for do codeAction of current line
-    nmap <Leader>cal  :CocCommand actions.open<CR>
+    autocmd FileType java nmap <Leader>cal :CocCommand actions.open<CR>
     " code action for the selected content
-    xnoremap <Leader>cal :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    autocmd FileType java xnoremap <Leader>cas :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     " code action with motion
-    nnoremap <Leader>ca :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+    autocmd FileType java nnoremap <Leader>cam :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
     " Fix autofix problem of current line
-    nmap <Leader>qf  <Plug>(coc-fix-current)
+    autocmd FileType java nmap <Leader>qf  <Plug>(coc-fix-current)
+    autocmd FileType java nmap <Leader>cqf  <Plug>(coc-fix-current)
 
     " Use `:Format` to format current buffer
     command! -nargs=0 Format :call CocAction('format')
@@ -617,24 +620,21 @@ augroup coc_commands
     command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
     " Remap for format selected region
-    nmap <Leader>cf :call CocAction('format')<CR>
-    xmap <Leader>csf <Plug>(coc-format-selected)
-    nmap <Leader>csf <Plug>(coc-format-selected)
+    autocmd FileType java nmap <Leader>cf :call CocAction('format')<CR>
+    autocmd FileType java xmap <Leader>csf <Plug>(coc-format-selected)
+    autocmd FileType java nmap <Leader>csf <Plug>(coc-format-selected)
+
+    " Find symbol of current document
+    autocmd FileType java nnoremap <Leader>cfm  :<C-u>CocList outline<cr>
 
     " Show all diagnostics
-    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    autocmd FileType java nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
     " Manage extensions
-    nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    autocmd FileType java nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     " Show commands
-    nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-    " Find symbol of current document
-    nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+    autocmd FileType java nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
     " Search workspace symbols
-    nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-    " Do default action for next item.
-    " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-    " Do default action for previous item.
-    " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+    autocmd FileType java nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 
     " # coc-snippets
     " :CocList snippets
@@ -643,15 +643,13 @@ augroup coc_commands
 
     " Use <C-l> for trigger snippet expand.
     imap <C-l> <Plug>(coc-snippets-expand)
+
     " Use <C-j> for select text for visual placeholder of snippet.
     vmap <C-j> <Plug>(coc-snippets-select)
-    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-    let g:coc_snippet_next = '<c-j>'
-    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-    let g:coc_snippet_prev = '<c-k>'
 
-    " Use <C-j> for both expand and jump (make expand higher priority.)
-    imap <C-j> <Plug>(coc-snippets-expand-jump)
+    " Navigation between snippet placeholder
+    let g:coc_snippet_next = '<c-n>'
+    let g:coc_snippet_prev = '<c-p>'
 
     inoremap <silent><expr> <TAB>
           \ pumvisible() ? coc#_select_confirm() :
@@ -663,9 +661,6 @@ augroup coc_commands
       let col = col('.') - 1
       return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
-
-    let g:coc_snippet_next = '<tab>'
-
 augroup END
 
 " }}}
@@ -697,12 +692,12 @@ let g:syntastic_cs_checkers = ['code_checker']
 
 
 " === OmniSharp/omnisharp-vim === {{{
-let g:sharpenup_map_prefix = '\c'
+"let g:sharpenup_map_prefix = '\c'
+" let g:sharpenup_create_mappings = 0
 
 let g:OmniSharp_selector_ui = 'fzf'
 
 let g:OmniSharp_highlight_types = 3
-let g:sharpenup_create_mappings = 0
 
 " Fetch full documentation during omnicomplete requests (:OmniSharpDocumentation command)
 let g:omnicomplete_fetch_full_documentation = 1
@@ -731,14 +726,12 @@ autocmd!
     " Finds members in the current buffer
     autocmd FileType cs nnoremap <buffer> <Leader>cfm :OmniSharpFindMembers<CR>
 
-    autocmd FileType cs nnoremap <buffer> <Leader>gt :OmniSharpTypeLookup<CR>
-
     autocmd FileType cs nnoremap <buffer> gh :OmniSharpDocumentation<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>cod :OmniSharpDocumentation<CR>
 
     autocmd FileType cs inoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
 
-    autocmd FileType cs nnoremap <buffer> <Leader>coqf :OmniSharpFixUsings<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>cqf :OmniSharpFixUsings<CR>
 
     " Rename with dialog
     autocmd FileType cs nnoremap <Leader>corn :OmniSharpRename<CR>
@@ -751,7 +744,6 @@ autocmd!
 
     " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
     autocmd FileType cs nnoremap <Leader>cal :OmniSharpGetCodeActions<CR>
-
     " Run code actions with text selected in visual mode to extract method
     autocmd FileType cs xnoremap <Leader>cal :call OmniSharp#GetCodeActions('visual')<CR>
 
