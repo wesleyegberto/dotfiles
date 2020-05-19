@@ -99,7 +99,7 @@ export DOTFILES=$(readlink ~/.dotfiles)
 
 ZSH_THEME="spaceship"
 
-source "$DOTFILES/zsh/functions/spaceship_watson.sh"
+# source "$DOTFILES/zsh/functions/spaceship_watson.sh"
 source "$DOTFILES/zsh/functions/spaceship_langs.sh"
 
 SPACESHIP_PROMPT_ORDER=(
@@ -216,11 +216,11 @@ alias gck="git checkout $1"
 alias gdf="git diff --color | diff-so-fancy"
 alias gdfh="git diff --color HEAD^ HEAD | diff-so-fancy"
 # diff grep
-alias gdg='git ls-files -m | grep $1 | xargs git diff --color | diff-so-fancy'
-alias gdv='git difftool -y -t vimdiff'
+alias gdg="git ls-files -m | grep $1 | xargs git diff --color | diff-so-fancy"
+alias gdv="git difftool -y -t vimdiff"
 
 # 'checkout grep'
-alias gcg='git ls-files -m | grep $1 | xargs git checkout'
+alias gcg="git ls-files -m | grep $1 | xargs git checkout"
 # add grep
 alias gag="git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all"
 
@@ -237,7 +237,8 @@ alias kproject='gcloud info --format="value(config.project)"'
 alias kcontext="kubectl config get-contexts"
 alias ksetcontext="kubectl config use-context $1"
 alias kgpa="kubectl get po --all-namespaces"
-alias kpod="kubectl get po"
+alias kgpo="kubectl get po"
+alias kgsvc="kubectl get po"
 alias kgpg="kubectl get po | grep $1"
 alias kdesc="kubectl describe $1"
 alias kgrep="k get pod,svc -o wide | grep $1"
@@ -256,3 +257,10 @@ alias kscaledown="k scale --replicas=0 deploy $1"
 alias kpodimg="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort"
 alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep $1"
 alias kpoddel="k get pods | grep $1 | awk '{print $1}' | xargs kubectl delete pod"
+
+# Dev tools
+# Facebook's Infer: Java static analyzer (https://fbinfer.com/docs/getting-started)
+# infer run -- javac Hello.java
+
+# MS's C# static analyzer (https://github.com/microsoft/CSharpCodeAnalyzer)
+

@@ -69,7 +69,8 @@ Copy the content of file `.vimrc` to `~/.config/nvim/init.vim`.
 
 Then install the plugins by running: `vim +PluginInstall +qall`.
 
-Dependencies:
+##### Dependencies
+
 * FZF: `brew install fd fzf`
 * Coc-vim:
 
@@ -78,12 +79,18 @@ pip2 install --user pynvim
 pip3 install --user pynvim
 ```
 
+* C#: open a `.cs` file and execute command `:OmniSharpInstall`
+
 ## Tools Configuration
 
 ### NeoVim
 
+My [key binding](./key_bindings.md).
+
 NeoVim Plugins:
 
+* Plugin management:
+  * [Vundle](https://github.com/VundleVim/Vundle.vim)
 * Theme:
   * [Dracula](https://github.com/dracula/vim)
   * [Material](https://github.com/kaicataldo/material.vim)
@@ -92,38 +99,36 @@ NeoVim Plugins:
   * [NeoDark](https://github.com/KeitaNakamura/neodark.vim)
   * [Purify](https://github.com/kyoz/purify)
   * [Gruvbox](https://github.com/morhetz/gruvbox)
-* Folder exploration:
+* Folder explorer:
   * [nerdtree](https://github.com/scrooloose/nerdtree)
   * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
   * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
   * [vim-devicons](https://github.com/ryanoasis/vim-devicons)
   * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
-* Files search:
-  * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
-  * [FZF](https://github.com/junegunn/fzf)
-  * [FZF-Vim](https://github.com/junegunn/fzf.vim)
-  * [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
+* Search:
+  * Files
+    * [FZF](https://github.com/junegunn/fzf)
+    * [FZF-Vim](https://github.com/junegunn/fzf.vim)
+  * Buffer
+    * [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
 * Visualization:
   * [vim-airline](https://github.com/vim-airline/vim-airline)
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
   * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
   * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
-  * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
   * [vim-rainbow](frazrepo/vim-rainbow)
   * Git:
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
     * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-  * Syntax:
-    * [vim-polyglot](https://github.com/sheerun/vim-polyglot) - to be used
 * Navigation:
   * [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
   * [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 * Editing:
   * [Sublime-like multiple cursor edit](terryma/vim-multiple-cursors)
-  * [vim-sandwitch](https://github.com/machakann/vim-sandwich) - to be used
   * [vim-surround](https://github.com/tpope/vim-surround)
   * [vim-abolish](https://github.com/tpope/vim-abolish)
-  * [auto-pairs](https://github.com/jiangmiao/auto-pairs) - removed
+  * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+  * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
 * Intellisense
   * [coc-nvim](https://github.com/neoclide/coc.nvim)
     * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions) activated:
@@ -136,8 +141,6 @@ NeoVim Plugins:
   * [ultisnips](https://github.com/SirVer/ultisnips)
 * Code Checker
   * [vim-syntastic](https://github.com/vim-syntastic/syntastic)
-  * Java:
-    * [Language Client](https://github.com/autozimu/LanguageClient-neovim)
   * C#:
     * [Omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)
 * Misc:
@@ -145,6 +148,19 @@ NeoVim Plugins:
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+
+To be tested:
+
+* Editing: [vim-sandwitch](https://github.com/machakann/vim-sandwich)
+* Syntax: [vim-polyglot](https://github.com/sheerun/vim-polyglot)
+* Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)
+
+Removed:
+
+* Visualization: [vim-bufferline](https://github.com/bling/vim-bufferline)
+* File search: [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
+* Code checker for Java: [Language Client](https://github.com/autozimu/LanguageClient-neovim)
+* Omnisharp-vim default mappings: [vim-sharpenup](https://github.com/nickspoons/vim-sharpenup)
 
 ### VS Code
 

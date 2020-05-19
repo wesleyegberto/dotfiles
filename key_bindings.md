@@ -126,8 +126,10 @@ After `<C-n>`:
 ##### Diagnostic navigation
 
 ```
-[g               " navigate to previous diagnostic
-]g               " navigate to next diagnostic
+[g               " navigate to previous diagnostic (coc-vim)
+]g               " navigate to next diagnostic (coc-vim)
+[l               " navigate to previous diagnostic (syntastic)
+]l               " navigate to next diagnostic (syntastic)
 ```
 
 ##### Vim-Unimpaired

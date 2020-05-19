@@ -12,8 +12,15 @@
 " === liuchengxu/vim-which-key' === {{{
     let g:which_key_map = {}
 
-    let g:which_key_map.s = { 'name' : '+startify' }
-    let g:which_key_map.s.t = [ '\\st', 'show startify' ]
+    let g:which_key_map.s = {
+        \ 'name'  : '+syntastic',
+        \ 't'     : [':SyntasticToggleMode',  'Toggle mode between active/passive checker'],
+        \ 'b'     : [':SyntasticCheck',       'run checker'],
+        \ 'o'     : [':lopen',                'show error messages'],
+        \ 'c'     : [':lclose',               'hide error messages'],
+        \ 'n'     : [':lnext',                'go to next error'],
+        \ 'p'     : [':lprevious',            'go to previous error'],
+        \ }
 
     let g:which_key_map.w = {
         \ 'name' : '+windows'      ,
@@ -40,21 +47,6 @@
         \ '?'    : ['Windows'      , 'fzf-window']            ,
         \ }
 
-    let g:which_key_map.l = {
-        \ 'name' : '+lsp',
-        \ 'f' : ['LanguageClient#textDocument_formatting()'           , 'formatting'],
-        \ 'h' : ['LanguageClient#textDocument_hover()'                , 'hover'],
-        \ 'r' : ['LanguageClient#textDocument_references()'           , 'references'],
-        \ 'R' : ['LanguageClient#textDocument_rename()'               , 'rename'],
-        \ 's' : ['LanguageClient#textDocument_documentSymbol()'       , 'document-symbol'],
-        \ 'S' : ['LanguageClient#workspace_symbol()'                  , 'workspace-symbol'],
-        \ 'g' : {
-            \ 'name': '+goto',
-            \ 'd' : ['LanguageClient#textDocument_definition()'       , 'definition'],
-            \ 't' : ['LanguageClient#textDocument_typeDefinition()'   , 'type-definition'],
-            \ 'i' : ['LanguageClient#textDocument_implementation()'   , 'implementation'],
-            \ },
-        \ }
 " }}}
 
 
@@ -81,7 +73,6 @@
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " #########################################################
 " # Plugin installations
@@ -95,7 +86,7 @@ call vundle#begin()
     Plugin 'benmills/vimux'
     Plugin 'christoomey/vim-tmux-navigator'
 
-    "display which keybindings is available
+    " display which keybindings is available
     Plugin 'liuchengxu/vim-which-key'
 
     " nerdtree and tabs
@@ -107,16 +98,20 @@ call vundle#begin()
     Plugin 'junegunn/fzf', { 'do': './install --bin' }
     Plugin 'junegunn/fzf.vim'
 
+    Plugin 'jeetsukumaran/vim-buffergator'
+
     " Hybrid between number (when editing) and relative number (when navigating)
     Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
-    Plugin 'jeetsukumaran/vim-buffergator'
 
     Plugin 'machakann/vim-highlightedyank'
 
     " Show git stuff and info at line
     Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
+
+    " nicer status bar
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
 
     " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
     Plugin 'tpope/vim-abolish'
@@ -144,12 +139,8 @@ call vundle#begin()
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     Plugin 'vim-syntastic/syntastic'
 
-    " code checker for Java
-    Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
     " code checker for C#
     Plugin 'OmniSharp/omnisharp-vim'
-    " Plugin 'nickspoons/vim-sharpenup'
 
     " snippets (plugin and collection of snippets)
     Plugin 'honza/vim-snippets'
@@ -157,11 +148,6 @@ call vundle#begin()
 
     " Startify: Fancy startup screen for vim
     Plugin 'mhinz/vim-startify'
-
-    " nicer status bar
-    Plugin 'bling/vim-bufferline'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
 
     " colorscheme
     " Plugin 'dracula/vim', { 'name': 'dracula' }
@@ -185,9 +171,7 @@ call vundle#end()
 
 syntax on
 
-"if (has('termguicolors'))
-  set termguicolors
-"endif
+set termguicolors
 
 " Appearence
 set background=dark
@@ -683,10 +667,22 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+ let g:syntastic_loc_list_height = 5              " height
+let g:syntastic_auto_loc_list = 1                 " open errors when any
+" check on open may slow down
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_error_symbol = "\u2716"
+let g:syntastic_warning_symbol = "\u26A0"
+
+let g:syntastic_quiet_messages = {
+  \ "!level":  "errors",
+  \ "type":    "style",
+  \ "regex":   '\m.*encoding US-ASCII$',
+  \ "file:p":  ['\m^/usr/include/', '\m\c\.h$'] }
+
+let g:syntastic_java_checkers = ['checkstyle', 'javac']
 let g:syntastic_cs_checkers = ['code_checker']
 " }}}
 
@@ -695,6 +691,7 @@ let g:syntastic_cs_checkers = ['code_checker']
 "let g:sharpenup_map_prefix = '\c'
 " let g:sharpenup_create_mappings = 0
 
+let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf'
 
 let g:OmniSharp_highlight_types = 3
@@ -753,33 +750,4 @@ autocmd!
     autocmd FileType cs nnoremap <Leader>csp :OmniSharpStopServer<CR>
 
 augroup END
-" }}}
-
-
-" === autozimu/LanguageClient-neovim === {{{
-" Download the JDT LS: https://download.eclipse.org/jdtls/snapshots
-let g:LanguageClient_serverCommands = {
-    \ 'java': ['java',
-        \ '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        \ '-Dosgi.bundles.defaultStartLevel=4',
-        \ '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        \ '-Dlog.level=ALL',
-        \ '-noverify',
-        \ '-Dfile.encoding=UTF-8',
-        \ '-Xms1G',
-        \ '-jar',
-        \ expand('~/dev-tools/ide/jdt-language-server/jdt-language-server-0.56.0-202005131320/plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar'),
-        \ '-configuration',
-        \ expand('~/dev-tools/ide/jdt-language-server/jdt-language-server-0.56.0-202005131320/config_mac'),
-        \ '-data',
-        \ getcwd()
-        \ ],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" or map each action separately
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}
