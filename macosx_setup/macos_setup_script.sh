@@ -23,12 +23,15 @@ brew bundle
 brew install cask
 brew install htop
 
-brew install tree fd fzf
 brew install unrar wget
+brew install tree fd fzf
+brew install the_silver_searcher
+brew install ripgrep
 
 brew cask install alfred
 
 brew install git
+brew install lazygit
 
 brew cask install iterm2
 
@@ -52,12 +55,14 @@ brew cask install qlimagesize
 
 brew cask install dash
 brew cask install docker-toolbox
+brew install lazydocker
 
 echo "\\n\\n=== Installing langs tools ==="
 brew install shellcheck
 brew install node
 brew install jenv
 npm install -g n
+brew install jesseduffield/lazynpm/lazynpm
 
 echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript csvtojson diff-so-fancy

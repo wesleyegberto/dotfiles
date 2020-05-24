@@ -99,18 +99,11 @@ NeoVim Plugins:
   * [NeoDark](https://github.com/KeitaNakamura/neodark.vim)
   * [Purify](https://github.com/kyoz/purify)
   * [Gruvbox](https://github.com/morhetz/gruvbox)
-* Folder explorer:
-  * [nerdtree](https://github.com/scrooloose/nerdtree)
-  * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
-  * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+* Icons:
   * [vim-devicons](https://github.com/ryanoasis/vim-devicons)
-  * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
-* Search:
-  * Files
-    * [FZF](https://github.com/junegunn/fzf)
-    * [FZF-Vim](https://github.com/junegunn/fzf.vim)
-  * Buffer
-    * [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
+* Search (files, buffers, tabs, tags, marks):
+  * [FZF](https://github.com/junegunn/fzf)
+  * [FZF-Vim](https://github.com/junegunn/fzf.vim)
 * Visualization:
   * [vim-airline](https://github.com/vim-airline/vim-airline)
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
@@ -129,10 +122,12 @@ NeoVim Plugins:
   * [vim-abolish](https://github.com/tpope/vim-abolish)
   * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
   * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
+  * [vim-commentary](https://github.com/tpope/vim-commentary)
 * Intellisense
   * [coc-nvim](https://github.com/neoclide/coc.nvim)
     * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions) activated:
       * [coc-actions](https://github.com/iamcco/coc-actions)
+      * [coc-explorer](https://github.com/weirongxu/coc-explorer)
       * [coc-snippets](https://github.com/neoclide/coc-snippets)
       * [coc-java](https://github.com/neoclide/coc-java)
       * [coc-omnisharp](https://github.com/coc-extensions/coc-omnisharp)
@@ -146,6 +141,7 @@ NeoVim Plugins:
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
+  * [vim-floaterm](voldikss/vim-floaterm)
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
@@ -157,8 +153,13 @@ To be tested:
 
 Removed:
 
+* File explorer (using coc-explorer):
+  * [nerdtree](https://github.com/scrooloose/nerdtree)
+  * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
+  * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+  * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
 * Visualization: [vim-bufferline](https://github.com/bling/vim-bufferline)
-* File search: [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
+* Buffer finder: [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
 * Code checker for Java: [Language Client](https://github.com/autozimu/LanguageClient-neovim)
 * Omnisharp-vim default mappings: [vim-sharpenup](https://github.com/nickspoons/vim-sharpenup)
 
