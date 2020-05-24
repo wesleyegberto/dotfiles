@@ -18,15 +18,24 @@
 " Install the plugins:
 " `vim +PluginInstall +UpdateRemotePlugins +qall`
 
-" Dependencies:
-" `pip2 install --user pynvim`
-" `pip3 install --user pynvim`
-
 " Actions for Coc-Vim
 " on error: `:call coc#util#install()`
 " actions popup: `:CocInstall coc-actions`
+" explorer: `:CocInstall coc-explorer`
+" snippets: `:CocInstall coc-snippets`
 " java: `:CocInstall coc-java`
 " snippets: `:CocInstall coc-snippets`
+
+" * FZF:
+"   * `brew install fd fzf the_silver_searcher ripgrep`
+" * Floaterm:
+"   * lazygit
+"   * lazydocker
+"   * lazynpm
+" * Pylint:
+"  * `pip2 install --user pynvim`
+"  * `pip3 install --user pynvim`
+" * C#: open a `.cs` file and execute command `:OmniSharpInstall`
 
 " required by vundle
 filetype off

@@ -71,13 +71,15 @@ Then install the plugins by running: `vim +PluginInstall +qall`.
 
 ##### Dependencies
 
-* FZF: `brew install fd fzf`
-* Coc-vim:
-
-```
-pip2 install --user pynvim
-pip3 install --user pynvim
-```
+* FZF:
+  * `brew install fd fzf the_silver_searcher ripgrep`
+* Floaterm:
+  * lazygit
+  * lazydocker
+  * lazynpm
+* Pylint:
+  * `pip2 install --user pynvim`
+  * `pip3 install --user pynvim`
 
 * C#: open a `.cs` file and execute command `:OmniSharpInstall`
 
