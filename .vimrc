@@ -18,20 +18,21 @@
 " Install the plugins:
 " `vim +PluginInstall +UpdateRemotePlugins +qall`
 
-" Actions for Coc-Vim
-" on error: `:call coc#util#install()`
-" actions popup: `:CocInstall coc-actions`
-" explorer: `:CocInstall coc-explorer`
-" snippets: `:CocInstall coc-snippets`
-" java: `:CocInstall coc-java`
-" snippets: `:CocInstall coc-snippets`
-
 " * FZF:
 "   * `brew install fd fzf the_silver_searcher ripgrep`
 " * Floaterm:
 "   * lazygit
 "   * lazydocker
 "   * lazynpm
+
+" Actions for Coc-Vim
+" * on error: `:call coc#util#install()`
+" * actions popup: `:CocInstall coc-actions`
+" * explorer: `:CocInstall coc-explorer`
+" * snippets: `:CocInstall coc-snippets`
+" * java: `:CocInstall coc-java`
+" * snippets: `:CocInstall coc-snippets`
+
 " * Pylint:
 "  * `pip2 install --user pynvim`
 "  * `pip3 install --user pynvim`
@@ -160,6 +161,12 @@ let g:gruvbox_italic=1
 colorscheme gruvbox
 
 
+" popup colors
+hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White
+hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black
+hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
+
+
 " #########################################################
 " # General settings
 " #########################################################
@@ -234,6 +241,7 @@ set wildignore+=.class
 set updatetime=300                                  " You will have bad experience for diagnostic messages when it's default 4000
 set shortmess+=c                                    " don't give |ins-completion-menu| messages
 set signcolumn=yes                                  " always show signcolumns
+
 
 source $HOME/.config/nvim/keys/mappings.vim
 

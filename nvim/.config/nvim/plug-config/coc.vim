@@ -1,63 +1,65 @@
 " === neoclide/coc.nvim === {{{
 let g:coc_global_extensions = [ 'coc-explorer', 'coc-actions', 'coc-snippets', 'coc-java', 'coc-omnisharp' ]
 
-" Explorer
-let g:coc_explorer_global_presets = {
-  \   '.vim': {
-  \      'root-uri': '~/.vim',
-  \   },
-  \   'floating': {
-  \      'position': 'floating',
-  \   },
-  \   'floatingLeftside': {
-  \      'position': 'floating',
-  \      'floating-position': 'left-center',
-  \      'floating-width': 50,
-  \   },
-  \   'floatingRightside': {
-  \      'position': 'floating',
-  \      'floating-position': 'left-center',
-  \      'floating-width': 50,
-  \   },
-  \   'simplify': {
-  \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-  \   }
-  \ }
-
 " List all presets
 nmap <Leader>el :CocList explPresets
 
-" === coc-explorer ===
-:nmap <Leader>e :CocCommand explorer<CR>
-" Use preset argument to open it
-nmap <Leader>E :CocCommand explorer --preset floating<CR>
-nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
+augroup coc_explorer
+  autocmd!
+  autocmd VimEnter * sil! au! FileExplorer *
+  autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
 
+  " Explorer
+  let g:coc_explorer_global_presets = {
+    \   '.vim': {
+    \      'root-uri': '~/.vim',
+    \   },
+    \   'floating': {
+    \      'position': 'floating',
+    \   },
+    \   'floatingLeftside': {
+    \      'position': 'floating',
+    \      'floating-position': 'left-center',
+    \      'floating-width': 50,
+    \   },
+    \   'floatingRightside': {
+    \      'position': 'floating',
+    \      'floating-position': 'left-center',
+    \      'floating-width': 50,
+    \   },
+    \   'simplify': {
+    \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+    \   }
+    \ }
 
-inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
+  " === coc-explorer ===
+  nmap <Leader>e :CocCommand explorer<CR>
+  " Use preset argument to open it
+  nmap <Leader>E :CocCommand explorer --preset floating<CR>
+  nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
 
-" colors
-hi Pmenu      ctermbg=Gray  guibg=Gray  ctermfg=Black guifg=Black
-hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black
-hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
+augroup END
 
 " color for gruvbox
 hi CocErrorHighlight    ctermfg=Red   guifg=#ff3333
 hi CocErrorLine         ctermbg=DarkGray  guibg=#200000
-" color for others
+
+" color for others themes
 " hi CocErrorHighlight    ctermfg=Red   guifg=#000000
 " hi CocErrorLine         ctermbg=DarkGray  guibg=#1C2117
 
 hi CocErrorSign         ctermfg=Red   guifg=#ff1100
 hi CocErrorVirtualText  ctermfg=Red   guifg=#ff1100
-hi CocErrorFloat        ctermfg=Black guifg=#000000
+hi CocErrorFloat        ctermfg=Red guifg=#ff3838
 
 hi CocWarningHighlight  ctermfg=Yellow guifg=#ff922b
 hi CocWarningFloat      ctermfg=Yellow guifg=#ff922b
 " hi CocWarningLine       ctermfg=Yellow guifg=#ff922b
 
+
 augroup coc_commands
 autocmd!
+    inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
 
     " use <tab> for trigger completion and navigate to next complete item
     function! s:check_back_space() abort
