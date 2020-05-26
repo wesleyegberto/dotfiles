@@ -19,8 +19,8 @@
     "J": ["toggleSelection", "nodeNext"],
     "K": ["toggleSelection", "nodePrev"],
 
-    "gl": "expandRecursive",
-    "gh": "collapseRecursive",
+    "gl": "expand:recursive",
+    "gh": "collapse:recursive",
     "<2-LeftMouse>": [
       "expandable?",
       ["expanded?", "collapse", "expand"],
@@ -42,7 +42,6 @@
     "x": "cutFile",
     "p": "pasteFile",
     "d": "delete",
-    "D": "deleteForever",
 
     "a": "addFile",
     "A": "addDirectory",
@@ -63,8 +62,8 @@
     "gf": "gotoSource:file",
     "gb": "gotoSource:buffer",
 
-    "[d": "diagnosticPrev",
-    "]d": "diagnosticNext",
+    "[g": "diagnosticPrev",
+    "]g": "diagnosticNext",
 
     "[c": "gitPrev",
     "]c": "gitNext",

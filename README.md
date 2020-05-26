@@ -87,7 +87,7 @@ Then install the plugins by running: `vim +PluginInstall +qall`.
 
 ### NeoVim
 
-My [key binding](./key_bindings.md).
+My [key bindings](./key_bindings.md).
 
 NeoVim Plugins:
 

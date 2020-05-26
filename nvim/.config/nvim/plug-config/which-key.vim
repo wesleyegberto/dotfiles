@@ -11,11 +11,6 @@ highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeyDesc      Operator
 
-
-let g:which_key_map['b'] = [ ':BuffergatorTabsToggle'     , 'List buffers']
-let g:which_key_map['B'] = [ ':BuffergatorTabsToggle'     , 'List tabs']
-
-
 let g:which_key_map.w = {
   \ 'name' : '+windows'      ,
   \ 'w'    : ['<C-w>w'       , 'other-window']          ,

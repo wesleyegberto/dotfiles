@@ -6,24 +6,56 @@ My Vim key bindings.
 \st              " Show startify
 ```
 
-##### Nerdtree
+##### Folder Explorer
 
 ```
-\t               " toggle nerdtree
-\y               " reveal file in nerdtree
+\e               " toggle coc-explorer
+\E               " show coc-explorer in floating mode
+\ev              " show coc-explorer with .vim folder
+q                " quit
 ```
 
-On NERDTree tab:
+Item action
 
 ```
-m                " Show menu
-t                " open the selected file in a new tab
-i                " open the selected file in a horizontal split window
+a                " addFile
+A                " addDirectory
+r                " rename
+c                " copyFile
+x                " cutFile
+p                " pasteFile
+d                " delete
+y                " copyFilepath
+Y                " copyFilename
+R                " refresh
+
+h                " collapse folder
+gh               " collapse recursive
+l                " expand folder
+gl               " expand recursive
+o                " toggle collapsed/expanded
+<CR>             " expand folder or open file
+e                " open the selected file
 s                " open the selected file in a vertical split window
-I                " toggle hidden files
-m                " show the NERD Tree menu
-R                " refresh the tree, useful if files change outside of Vim
-?                " toggle NERD Tree's quick help
+v                " open the selected file in a horizontal split window
+e                " open the selected file in a new tab
+.                " toggleHidden
+X                " open item using system defaults
+```
+
+Navigation:
+
+```
+f                " search
+F                " searchRecursive
+gf               " gotoSource:file
+gb               " gotoSource:buffer
+[d               " diagnosticPrev
+]d               " diagnosticNext
+[c               " gitPrev
+]c               " gitNext
+<<               " gitStage
+>>               " gitUnstage
 ```
 
 ##### Windows and Tabs
@@ -67,11 +99,26 @@ gB or [b         " go to previous buffer
 ##### Searching
 
 ```
-C-p              " fuzzy finder using FZF
-\b               " display all buffers to select (hjkl to navigate, <C-s> :sv, <C-v> :vs)
-\B               " list the tabs for selection
-\<Space>         " clear searching results
+C-p              " finder using FZF
+\ff              " find file
+\fb              " find buffer
+\fr              " find file with content
+\ft              " find tag
+\fm              " find mark
+```
+
+In FZF result use:
+
+```
+C-t              " open new tab
+C-x              " open in a vertical split window
+C-v              " open in a horizontal split window
+```
+
+```
 *                " find current word and jump next occurrence
+#                " jump previous occurrence
+<Space><Space>   " clear searching results
 [i               " show first occurrence of current word
 [I               " show all occurrences of current word
 ```
