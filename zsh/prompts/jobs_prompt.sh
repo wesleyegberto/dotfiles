@@ -1,4 +1,4 @@
- indicate a job (for example, vim) has been backgrounded
+# indicate a job (for example, vim) has been backgrounded
 # If there is a job in the background, display a ✱
 suspended_jobs() {
     local sj
