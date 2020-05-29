@@ -63,9 +63,12 @@ alias k="kubectl"
 alias kproject='gcloud info --format="value(config.project)"'
 alias kcontext="kubectl config get-contexts"
 alias ksetcontext="kubectl config use-context $1"
+
 alias kgpa="kubectl get po --all-namespaces"
 alias kgpo="kubectl get po"
 alias kgsvc="kubectl get svc"
+alias kdpo="kubectl delete po $1"
+
 alias kgpg="kubectl get po | grep $1"
 alias kdesc="kubectl describe $1"
 alias kgrep="k get pod,svc -o wide | grep $1"

@@ -28,6 +28,7 @@
     "Green Component" : 0.99607843137254903
   },
   "Right Option Key Sends" : 0,
+  "Show Status Bar" : false,
   "Character Encoding" : 4,
   "Selection Color" : {
     "Red Component" : 0.66635610954836011,
@@ -47,7 +48,7 @@
   "Sync Title" : false,
   "Disable Window Resizing" : true,
   "Description" : "Default",
-  "Close Sessions On End" : true,
+  "Close Sessions On End" : 1,
   "Jobs to Ignore" : [
     "rlogin",
     "ssh",
@@ -57,6 +58,112 @@
   "Non-ASCII Ligatures" : true,
   "Scrollback Lines" : 0,
   "Draw Powerline Glyphs" : true,
+  "Status Bar Layout" : {
+    "components" : [
+      {
+        "class" : "iTermStatusBarComposerComponent",
+        "configuration" : {
+          "knobs" : {
+            "base: priority" : 5
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      },
+      {
+        "class" : "iTermStatusBarWorkingDirectoryComponent",
+        "configuration" : {
+          "knobs" : {
+            "path" : "path",
+            "base: priority" : 5,
+            "base: compression resistance" : 1,
+            "minwidth" : 0,
+            "maxwidth" : 1.7976931348623157e+308
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      },
+      {
+        "class" : "iTermStatusBarGitComponent",
+        "configuration" : {
+          "knobs" : {
+            "iTermStatusBarGitComponentPollingIntervalKey" : 2,
+            "base: priority" : 5,
+            "base: compression resistance" : 1,
+            "minwidth" : 0,
+            "maxwidth" : 1.7976931348623157e+308
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      },
+      {
+        "class" : "iTermStatusBarJobComponent",
+        "configuration" : {
+          "knobs" : {
+            "base: priority" : 5,
+            "minwidth" : 0,
+            "base: compression resistance" : 1,
+            "maxwidth" : 1.7976931348623157e+308
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      },
+      {
+        "class" : "iTermStatusBarCPUUtilizationComponent",
+        "configuration" : {
+          "knobs" : {
+            "base: priority" : 5,
+            "base: compression resistance" : 1
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      },
+      {
+        "class" : "iTermStatusBarMemoryUtilizationComponent",
+        "configuration" : {
+          "knobs" : {
+            "base: priority" : 5,
+            "base: compression resistance" : 1
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      },
+      {
+        "class" : "iTermStatusBarNetworkUtilizationComponent",
+        "configuration" : {
+          "knobs" : {
+            "base: priority" : 5,
+            "base: compression resistance" : 1
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 0
+          }
+        }
+      }
+    ],
+    "advanced configuration" : {
+      "font" : ".AppleSystemUIFont 12",
+      "algorithm" : 0
+    }
+  },
   "Flashing Bell" : false,
   "Cursor Guide Color" : {
     "Red Component" : 0.70213186740875244,
@@ -68,13 +175,6 @@
   "BM Growl" : true,
   "AWDS Window Directory" : "",
   "Icon" : 1,
-  "Ansi 3 Color" : {
-    "Green Component" : 0.81672251224517822,
-    "Red Component" : 0.99627053737640381,
-    "Blue Component" : 0.19727933406829834
-  },
-  "Use Non-ASCII Font" : true,
-  "Shortcut" : "",
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -82,6 +182,13 @@
     "Alpha Component" : 1,
     "Green Component" : 0.35916060209274292
   },
+  "Ansi 3 Color" : {
+    "Green Component" : 0.81672251224517822,
+    "Red Component" : 0.99627053737640381,
+    "Blue Component" : 0.19727933406829834
+  },
+  "Shortcut" : "",
+  "Use Non-ASCII Font" : true,
   "Background Image Location" : "",
   "Bold Color" : {
     "Red Component" : 0.16078431372549021,
@@ -94,7 +201,7 @@
   "Unlimited Scrollback" : true,
   "Custom Command" : "No",
   "AWDS Tab Option" : "Recycle",
-  "Title Components" : 4,
+  "Title Components" : 6,
   "Keyboard Map" : {
     "0xf700-0x260000" : {
       "Action" : 10,
@@ -139,6 +246,10 @@
     "0xf701-0x280000" : {
       "Action" : 11,
       "Text" : "0x1b 0x1b 0x5b 0x42"
+    },
+    "0x6c-0x100000" : {
+      "Action" : 12,
+      "Text" : "cls\\n"
     },
     "0x38-0x40000" : {
       "Action" : 11,
@@ -285,6 +396,7 @@
     "Blue Component" : 0.99898606538772583
   },
   "Window Type" : 0,
+  "Allow Title Reporting" : true,
   "Use Bright Bold" : true,
   "Cursor Text Color" : {
     "Green Component" : 0,
@@ -337,8 +449,8 @@
   },
   "AWDS Pane Directory" : "",
   "Blur" : true,
-  "Vertical Spacing" : 1,
   "Normal Font" : "CascadiaCode 14",
+  "Vertical Spacing" : 1,
   "Ansi 7 Color" : {
     "Green Component" : 0.99997437000274658,
     "Red Component" : 1,
@@ -362,7 +474,7 @@
     "Red Component" : 0.34860008955001831,
     "Blue Component" : 0.82062870264053345
   },
-  "Transparency" : 0.039332170050761422,
+  "Transparency" : 0,
   "Initial Text" : "",
   "Background Color" : {
     "Red Component" : 0,
@@ -372,9 +484,9 @@
     "Green Component" : 0
   },
   "Screen" : -2,
-  "Initial Use Transparency" : true,
+  "Initial Use Transparency" : false,
   "AWDS Window Option" : "No",
-  "Non Ascii Font" : "SauceCodeProNerdFontComplete-Regular 12",
+  "Non Ascii Font" : "CaskaydiaCoveNerdFontComplete-Regular 12",
   "Ansi 13 Color" : {
     "Green Component" : 0.40164706110954285,
     "Red Component" : 0.9887651801109314,
@@ -383,7 +495,7 @@
   "Columns" : 160,
   "Unicode Normalization" : 0,
   "Visual Bell" : true,
-  "ASCII Ligatures" : true,
+  "Custom Directory" : "Advanced",
   "Thin Strokes" : 3,
-  "Custom Directory" : "Advanced"
+  "ASCII Ligatures" : true
 }
