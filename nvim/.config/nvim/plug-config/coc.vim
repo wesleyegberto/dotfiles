@@ -1,11 +1,22 @@
 " === neoclide/coc.nvim === {{{
-let g:coc_global_extensions = [ 'coc-explorer', 'coc-actions', 'coc-snippets', 'coc-java', 'coc-omnisharp' ]
+let g:coc_global_extensions = [ 'coc-explorer', 'coc-actions', 'coc-snippets', 'coc-java', 'coc-omnisharp', 'coc-tsserver' ]
+
+" # coc-snippets
+" :CocList snippets
+" :CocCommand snippets.editSnippets
+" :CocCommand snippets.openSnippetFiles
+
+" # CocCommand for Java
+" Update Java JDT.LS: `java.updateLanguageServer`
+" Update project config: `java.projectConfiguration.update`
+" Clean workspace: `java.clean.workspace`
 
 " List all presets
 nmap <Leader>el :CocList explPresets
 
 augroup coc_explorer
   autocmd!
+
   autocmd VimEnter * sil! au! FileExplorer *
   autocmd BufEnter * let d = expand('%') | if isdirectory(d) | bd | exe 'CocCommand explorer ' . d | endif
 
@@ -59,6 +70,7 @@ hi CocWarningFloat      ctermfg=Yellow guifg=#ff922b
 
 augroup coc_commands
 autocmd!
+
     inoremap <silent><expr> <c-space> coc#refresh()                       " use <c-space> to trigger completion
 
     " use <tab> for trigger completion and navigate to next complete item
@@ -87,14 +99,14 @@ autocmd!
     nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
     " remap keys for gotos
-    autocmd FileType java nmap <silent> gd <Plug>(coc-definition)
-    autocmd FileType java nmap <silent> gi <Plug>(coc-implementation)
-    autocmd FileType java nmap <silent> gy <Plug>(coc-type-definition)
-    autocmd FileType java nmap <silent> gr <Plug>(coc-references)
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gr <Plug>(coc-references)
 
     " use `gh` to show documentation in preview window
-    autocmd FileType java nnoremap <silent> gh :call <SID>show_documentation()<CR>
-    autocmd FileType java nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
+    nnoremap <silent> gh :call <SID>show_documentation()<CR>
+    nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)
@@ -107,25 +119,31 @@ autocmd!
     " Highlight symbol under cursor on CursorHold
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
+
+    " Code actions
+    " Remap for do codeAction of current line
+    nnoremap <Leader>cal :CocCommand actions.open<CR>
+    " code action for the selected content
+    xnoremap <Leader>cas :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    " code action with motion
+    nnoremap <Leader>cam :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+    " Fix autofix problem of current line
+    nnoremap <Leader>qf  <Plug>(coc-fix-current)
+    nnoremap <Leader>cqf  <Plug>(coc-fix-current)
+
+
+    " Refactoring
     " remap for rename current word
-    autocmd FileType java nmap <Leader>crn <Plug>(coc-rename)
+    nmap <Leader>crn <Plug>(coc-rename)
 
     " Remap for do codeAction of selected region, ex: `<Leader>camap` for current paragraph
     function! s:cocActionsOpenFromSelected(type) abort
       execute 'CocCommand actions.open ' . a:type
     endfunction
 
-    " Remap for do codeAction of current line
-    autocmd FileType java nmap <Leader>cal :CocCommand actions.open<CR>
-    " code action for the selected content
-    autocmd FileType java xnoremap <Leader>cas :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-    " code action with motion
-    autocmd FileType java nnoremap <Leader>cam :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-    " Fix autofix problem of current line
-    autocmd FileType java nmap <Leader>qf  <Plug>(coc-fix-current)
-    autocmd FileType java nmap <Leader>cqf  <Plug>(coc-fix-current)
-
+    " Source
     " Use `:Format` to format current buffer
     command! -nargs=0 Format :call CocAction('format')
     " Use `:Fold` to fold current buffer
@@ -133,34 +151,22 @@ autocmd!
     " use `:OR` for organize import of current buffer
     command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+    " Find symbol/member of current document
+    nnoremap <Leader>cfm  :<C-u>CocList outline<cr>
+
     " Remap for format selected region
-    autocmd FileType java nmap <Leader>cf :call CocAction('format')<CR>
-    autocmd FileType java xmap <Leader>csf <Plug>(coc-format-selected)
-    autocmd FileType java nmap <Leader>csf <Plug>(coc-format-selected)
+    nnoremap <Leader>cf :call CocAction('format')<CR>
+    xnoremap <Leader>csf <Plug>(coc-format-selected)
+    nnoremap <Leader>csf <Plug>(coc-format-selected)
 
-    " Find symbol of current document
-    autocmd FileType java nnoremap <Leader>cfm  :<C-u>CocList outline<cr>
 
-    " Show all diagnostics
-    autocmd FileType java nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-    " Manage extensions
-    autocmd FileType java nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-    " Show commands
-    autocmd FileType java nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-    " Search workspace symbols
-    autocmd FileType java nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-
-    " # coc-snippets
-    " :CocList snippets
-    " :CocCommand snippets.editSnippets
-    " :CocCommand snippets.openSnippetFiles
-
+    " Snippets
     " Navigation between snippet placeholder
     let g:coc_snippet_next = '<c-n>'
     let g:coc_snippet_prev = '<c-p>'
 
     " Use <C-j> for both expand and jump (make expand higher priority.)
-    imap <C-j> <Plug>(coc-snippets-expand-jump)
+    inoremap <C-j> <Plug>(coc-snippets-expand-jump)
 
     inoremap <silent><expr> <TAB>
           \ pumvisible() ? coc#_select_confirm() :
@@ -173,6 +179,15 @@ autocmd!
       return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
 
+
+    " Show all diagnostics
+    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    " Manage extensions
+    nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    " Show commands
+    nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+    " Search workspace symbols
+    nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 augroup END
 
 " }}}

@@ -12,7 +12,6 @@ let g:omnicomplete_fetch_full_documentation = 1
 let g:OmniSharp_want_snippet=1
 
 augroup csharp_commands
-
 autocmd!
 
     " Show type information automatically when the cursor stops moving.

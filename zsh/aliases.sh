@@ -18,16 +18,22 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Time tracker (https://tailordev.github.io/Watson/)
 alias track="watson"
 
+# Tmux funtions
+# `tcd` : start a tmux session using current dirname as session name
+# `tm` : find a tmux session using FZF
+# `tm name` : attach to an existing session <name> or creates a new one
+# `tc` : choose a tmux session or creates a new one
+# `tfp` : find a Tmux pane
+
 # Tmux aliases
 alias td="tmux has-session -t default & tmux attach -t default || tmux new-session -s default"
 alias ide="tmux new-session -s ide"
-alias tcd='sh $DOTFILES/zsh/prompts/tmux_cur_dir.sh'
-alias tc='sh $DOTFILES/zsh/prompts/tmux_sessions_prompt.sh'
 
 alias tls='tmux ls'
 alias tat="tmux attach -t $1"
 alias tns="tmux new-session -s $1"
 alias tks="tmux kill-session -t $1"
+alias tkf="tmuxkillfzf"
 alias tksv="tmux kill-server"
 
 
@@ -72,7 +78,7 @@ alias kdpo="kubectl delete po $1"
 alias kgpg="kubectl get po | grep $1"
 alias kdesc="kubectl describe $1"
 alias kgrep="k get pod,svc -o wide | grep $1"
-alias klogs="k get pod | grep $1 | awk '{print $1}' | xargs kubectl logs"
+alias klogs="k logs --all-namespaces $1"
 alias kport="kubectl port-forward $1" # kport <pod_name> <my_port>:<pod_port>
 
 alias krollstatus="kubectl rollout status deployments $1"

@@ -16,6 +16,8 @@ export EDITOR="vim"
 export TERM="xterm-256color"
 export DOTFILES=$(readlink ~/.dotfiles)
 
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # start tmux on startup
 # if [ -z $TMUX ]
@@ -33,8 +35,8 @@ export DOTFILES=$(readlink ~/.dotfiles)
 
 ZSH_THEME="spaceship"
 
-# source "$DOTFILES/zsh/functions/spaceship_watson.sh"
-source "$DOTFILES/zsh/functions/spaceship_langs.sh"
+# source "$DOTFILES/zsh/prompts/spaceship_watson.sh"
+source "$DOTFILES/zsh/prompts/spaceship_langs.sh"
 
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
@@ -102,9 +104,9 @@ zplugin light zsh-users/zsh-completions
 #     for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
 # fi
 
-# Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f'
+source "$DOTFILES/zsh/functions/tmux_helpers.sh"
 
+export PATH=$PATH:$DOTFILES/zsh/bin
 
 ########################################################
 # Aliases

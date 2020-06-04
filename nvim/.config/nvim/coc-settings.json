@@ -1,5 +1,10 @@
 {
-	"coc.preferences.timeout": 500,
+  "coc.preferences.timeout": 500,
+
+  // Coc-TsServer
+  "tsserver.npm": "/usr/local/bin/npm",
+
+  // Coc-Explorer
   "explorer.quitOnOpen": false,
   "explorer.previewAction.onHover": false,
 	"explorer.keyMappings": {

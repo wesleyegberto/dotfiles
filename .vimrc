@@ -102,6 +102,8 @@ call vundle#begin()
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     Plugin 'vim-syntastic/syntastic'
 
+    Plugin 'sheerun/vim-polyglot'
+
     " code checker for C#
     Plugin 'OmniSharp/omnisharp-vim'
 
