@@ -24,6 +24,7 @@ echo "Copying .vimrc"
 [ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc_backup
 [ -f ~/.config/nvim/init.vim ] && cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim_backup
 ln -s $DOTFILES/nvim/.config/nvim/keys ~/.config/nvim/keys
+ln -s $DOTFILES/nvim/.config/nvim/ftplugin ~/.config/nvim/ftplugin
 ln -s $DOTFILES/nvim/.config/nvim/plug-config ~/.config/nvim/plug-config
 ln -s $DOTFILES/nvim/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -s $DOTFILES/.vimrc ~/.vimrc

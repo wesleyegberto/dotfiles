@@ -105,8 +105,8 @@ autocmd!
     nmap <silent> gr <Plug>(coc-references)
 
     " use `gh` to show documentation in preview window
-    nnoremap <silent> gh :call <SID>show_documentation()<CR>
-    nnoremap <silent> <Leader>cd :call <SID>show_documentation()<CR>
+    nmap <silent> gh :call <SID>show_documentation()<CR>
+    nmap <silent> <Leader>cd :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)
@@ -129,8 +129,9 @@ autocmd!
     nnoremap <Leader>cam :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
     " Fix autofix problem of current line
-    nnoremap <Leader>qf  <Plug>(coc-fix-current)
-    nnoremap <Leader>cqf  <Plug>(coc-fix-current)
+    autocmd FileType java nmap <Leader>cqf <Plug>(coc-fix-current)
+
+    autocmd FileType typescript nmap <Leader>cqf :CocCommand tsserver.executeAutoFix<CR>
 
 
     " Refactoring

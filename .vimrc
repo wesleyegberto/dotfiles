@@ -252,13 +252,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 " # Languages configuration
 " #########################################################
 
-" filetype plugin on            " load file type agnostic settings (format: ~/.config/nvim/after/java.vim)
 filetype plugin indent on       " load identation by file type
-
-autocmd Filetype java         setlocal expandtab! tabstop=4 shiftwidth=4 softtabstop=4
-autocmd Filetype python       setlocal expandtab  tabstop=4 shiftwidth=4 softtabstop=4
-autocmd Filetype javascript   setlocal expandtab  tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype cs           setlocal expandtab! tabstop=4 shiftwidth=4 softtabstop=4
 
 
 " #########################################################

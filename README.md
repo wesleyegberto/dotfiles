@@ -27,6 +27,10 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 * Bash: I'm using iTerm2 + Oh-My-Zsh + Tmux.
 * Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
 
+Key bindings:
+
+* [NeoVim](./key_bindings.md)
+
 ## Instructions
 
 First install Xcode: `xcode-select --install`
@@ -86,8 +90,6 @@ Then install the plugins by running: `vim +PluginInstall +qall`.
 ## Tools Configuration
 
 ### NeoVim
-
-My [key bindings](./key_bindings.md).
 
 NeoVim Plugins:
 

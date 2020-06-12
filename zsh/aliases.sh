@@ -50,12 +50,15 @@ alias gdf="git diff --color | diff-so-fancy"
 alias gdfh="git diff --color HEAD^ HEAD | diff-so-fancy"
 # diff grep
 alias gdg="git ls-files -m | grep $1 | xargs git diff --color | diff-so-fancy"
+alias gdfz="git ls-files -m | fzf | xargs git diff --color | diff-so-fancy"
 alias gdv="git difftool -y -t vimdiff"
 
 # 'checkout grep'
 alias gcg="git ls-files -m | grep $1 | xargs git checkout"
+alias gcf="git ls-files -m | fzf | xargs git checkout"
 # add grep
 alias gag="git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all"
+alias gaf="git ls-files -m -o --exclude-standard | fzf | xargs git add --all"
 
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 # show what I did today
