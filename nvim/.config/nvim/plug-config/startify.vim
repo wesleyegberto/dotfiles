@@ -34,8 +34,8 @@ let g:startify_commands = [
 
 let g:startify_bookmarks = [
   \ { 'v': '~/.config/nvim/init.vim' },
-  \ { 'g': '~/.gitconfig' },
-  \ { 'z': '~/.zshrc' }
+  \ { 'z': '~/.zshrc' },
+  \ { 'g': '~/.gitconfig' }
   \ ]
 
 autocmd User Startified setlocal cursorline

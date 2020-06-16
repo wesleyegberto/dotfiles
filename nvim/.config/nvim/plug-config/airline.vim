@@ -1,4 +1,6 @@
 " === vim-airline/vim-airline ===
+let g:airline_extensions = [ 'branch', 'tabline' ]
+let g:airline_highlighting_cache = 1
 
 let g:airline#extensions#tabline#enabled = 1                          " automatically displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#left_sep = ' '

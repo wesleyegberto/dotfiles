@@ -64,11 +64,16 @@ Windows manipulation:
 ```
 <C-w>s           " split current window horizontally (alternative :split)
 <Leader>ws       " split current window horizontally (alternative :split)
+
 <C-w>v           " split current window vertically (alternative :vsplit)
 <Leader>wv       " split current window vertically (alternative :vsplit)
+
+<Leader>wd       " close current buffer
+
+<Leader>wc       " close current window
 <C-w>c           " close current window
-<Leader>wd       " close current window
 <C-w>q           " close current window
+
 <C-w>#<          " Shrink/resize current window from the right by # (default 1)
 <C-w>#>          " Increase/resize current window to the right by # (default 1)
 <Leader>wth      " flip split window from vertical to horizontal

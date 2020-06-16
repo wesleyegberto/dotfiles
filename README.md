@@ -154,6 +154,8 @@ To be tested:
 * Editing: [vim-sandwitch](https://github.com/machakann/vim-sandwich)
 * Syntax: [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)
+* Wintabs: [vim-wintabs](https://github.com/zefei/vim-wintabs)
+* Vim-Buffet: [bagrat/vim-buffet](https://github.com/bagrat/vim-buffet)
 
 Removed:
 

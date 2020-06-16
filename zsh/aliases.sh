@@ -73,21 +73,22 @@ alias kproject='gcloud info --format="value(config.project)"'
 alias kcontext="kubectl config get-contexts"
 alias ksetcontext="kubectl config use-context $1"
 
-alias kgpa="kubectl get po --all-namespaces"
+alias kgpoan="kubectl get po --all-namespaces"
 alias kgpo="kubectl get po"
 alias kgsvc="kubectl get svc"
 alias kdpo="kubectl delete po $1"
 
-alias kgpg="kubectl get po | grep $1"
 alias kdesc="kubectl describe $1"
-alias kgrep="k get pod,svc -o wide | grep $1"
-alias klogs="k logs --all-namespaces $1"
+alias kgpog="kubectl get po | grep $1"
+alias kgrep="kubectl get pod,svc -o wide | grep $1"
+alias klogsf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl logs"
+alias klogs="kubectl logs --all-namespaces $1"
 alias kport="kubectl port-forward $1" # kport <pod_name> <my_port>:<pod_port>
 
 alias krollstatus="kubectl rollout status deployments $1"
 alias krollback="kubectl rollout undo deployments $1"
 
-alias knodersc="kubectl get nodes --no-headers | awk '{print $1}' | xargs -I {} sh -c 'echo {}; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo'"
+alias knodersc="kubectl get nodes --no-headers | awk '{print \$1}' | xargs -I {} sh -c 'echo {}; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo'"
 alias kpodrsc="kubectl get po --all-namespaces -o=jsonpath=\"{range .items[*]}{.metadata.namespace}:{.metadata.name}{'\n'}{range .spec.containers[*]}  {.name} - {.resources.requests.cpu} - 	{.resources.requests.memory}{'\n'}{end}{'\n'}{end}\""
 
 alias kscaleup="k scale --replicas=1 deploy $1"
