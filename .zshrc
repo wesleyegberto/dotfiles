@@ -66,6 +66,8 @@ SPACESHIP_NODE_PREFIX="⬢ "
 SPACESHIP_NODE_SUFFIX=" "
 SPACESHIP_NODE_SYMBOL=""
 
+# source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
 
 ########################################################
 # Plugin Manager

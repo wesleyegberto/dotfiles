@@ -12,7 +12,7 @@ let g:coc_global_extensions = [ 'coc-explorer', 'coc-actions', 'coc-snippets', '
 " Clean workspace: `java.clean.workspace`
 
 " List all presets
-nmap <Leader>el :CocList explPresets
+" nmap <Leader>el :CocList explPresets<CR>
 
 augroup coc_explorer
   autocmd!
@@ -50,6 +50,7 @@ augroup coc_explorer
   nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
 
 augroup END
+
 
 " color for gruvbox
 hi CocErrorHighlight    ctermfg=Red   guifg=#ff3333
@@ -120,7 +121,13 @@ autocmd!
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-    " Code actions
+    " Remap for do codeAction of selected region, ex: `<Leader>camap` for current paragraph
+    function! s:cocActionsOpenFromSelected(type) abort
+      execute 'CocCommand actions.open ' . a:type
+    endfunction
+
+
+    " === Code actions ===
     " Remap for do codeAction of current line
     nnoremap <Leader>cal :CocCommand actions.open<CR>
     " code action for the selected content
@@ -134,17 +141,12 @@ autocmd!
     autocmd FileType typescript nmap <Leader>cqf :CocCommand tsserver.executeAutoFix<CR>
 
 
-    " Refactoring
+    " === Refactoring ===
     " remap for rename current word
     nmap <Leader>crn <Plug>(coc-rename)
 
-    " Remap for do codeAction of selected region, ex: `<Leader>camap` for current paragraph
-    function! s:cocActionsOpenFromSelected(type) abort
-      execute 'CocCommand actions.open ' . a:type
-    endfunction
 
-
-    " Source
+    " === Source code ===
     " Use `:Format` to format current buffer
     command! -nargs=0 Format :call CocAction('format')
     " Use `:Fold` to fold current buffer
@@ -161,7 +163,7 @@ autocmd!
     nnoremap <Leader>csf <Plug>(coc-format-selected)
 
 
-    " Snippets
+    " === Snippets ===
     " Navigation between snippet placeholder
     let g:coc_snippet_next = '<c-n>'
     let g:coc_snippet_prev = '<c-p>'

@@ -156,6 +156,7 @@ To be tested:
 * Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Wintabs: [vim-wintabs](https://github.com/zefei/vim-wintabs)
 * Vim-Buffet: [bagrat/vim-buffet](https://github.com/bagrat/vim-buffet)
+* Dashboard-nvim: [hardcoreplayers/dashboard-nvim](https://github.com/hardcoreplayers/dashboard-nvim)
 
 Removed:
 
