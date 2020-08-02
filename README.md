@@ -26,6 +26,7 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 
 * Bash: I'm using iTerm2 + Oh-My-Zsh + Tmux.
 * Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
+* Windows manager: [Amethyst](https://ianyh.com/amethyst/).
 
 Key bindings:
 
@@ -151,6 +152,7 @@ NeoVim Plugins:
 
 To be tested:
 
+* Coc-Fzf: [antoinemadec/coc-fzf](https://github.com/antoinemadec/coc-fzf)
 * Editing: [vim-sandwitch](https://github.com/machakann/vim-sandwich)
 * Syntax: [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)

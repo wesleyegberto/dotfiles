@@ -106,5 +106,9 @@ cd fonts || exit
 ./install.sh
 cd ..
 
+
+brew cask install amethyst
+
+
 echo "\\n\\n=== Cleaning up ==="
 brew cask cleanup

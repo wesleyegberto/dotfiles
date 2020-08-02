@@ -100,6 +100,7 @@ call vundle#begin()
 
     " intellisense
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+    Plugin 'antoinemadec/coc-fzf'
     Plugin 'vim-syntastic/syntastic'
 
     Plugin 'sheerun/vim-polyglot'
@@ -231,7 +232,7 @@ set foldnestmax=10              " deepest fold is 10 levels
 
 " Toggle invisible characters
 set list
-set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮
+set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.
 set showbreak=↪
 
 " Autocomplete menu
