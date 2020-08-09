@@ -129,7 +129,7 @@ autocmd!
 
     " === Code actions ===
     " Remap for do codeAction of current line
-    nnoremap <Leader>cal :CocCommand actions.open<CR>
+    nnoremap <Leader>cal 0v$:CocCommand actions.open<CR>
     " code action for the selected content
     xnoremap <Leader>cas :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
     " code action with motion
@@ -138,7 +138,7 @@ autocmd!
     " Fix autofix problem of current line
     autocmd FileType java nmap <Leader>cqf <Plug>(coc-fix-current)
 
-    autocmd FileType typescript nmap <Leader>cqf :CocCommand tsserver.executeAutoFix<CR>
+    autocmd FileType typescript nmap <Leader>cqf :CocCommand tsserver.executeAutofix<CR>
 
 
     " === Refactoring ===
@@ -183,7 +183,7 @@ autocmd!
     endfunction
 
 
-    " nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    " nnoremap <silent> <space>a  :<C-u>CocList actions<cr>
     " nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
     " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     " nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
