@@ -33,9 +33,9 @@ brew cask install alfred
 brew install git
 brew install lazygit
 
+echo "\\n\\n === iTerm2 & Oh-My-Zsh & Tmux ==="
 brew cask install iterm2
 
-echo "\\n\\n === Oh-My-Zsh ==="
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 

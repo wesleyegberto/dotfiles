@@ -36,21 +36,29 @@
     # show the last tag
     lt = describe --tags --abbrev=0
 
+    # diff aliases
+    dff = "!sh -c 'git diff --color | diff-so-fancy' -"
+    dfh = "!sh -c 'git diff --color HEAD^ HEAD | diff-so-fancy' -"
+    dg = "!sh -c 'git ls-files -m | grep $1 | xargs git diff | diff-so-fancy' -"
+    df = "!sh -c 'git ls-files -m | fzf | xargs git diff | diff-so-fancy' -"
+    dv = "!sh -c 'git difftool -y -t vimdiff' -"
+
+    # checkout aliases
+    cg = "!sh -c 'git ls-files -m | grep $1 | xargs git checkout ' -"
+    cf = "!sh -c 'git ls-files -m | fzf | xargs git checkout ' -"
+
+    # add grep
+    ag = "!sh -c 'git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all' -"
+
+    # add FZF
+    af = "!sh -c 'git ls-files -m -o --exclude-standard | FZF | xargs git add --all' -"
+
     # order files by number of commits, ascending
     # Written by Corey Haines
     # Scriptified by Gary Bernhardt
     # Show churn for a time range:
     #   $ git churn --since='1 month ago'
     churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
-
-    # 'diff grep'
-    dg = "!sh -c 'git ls-files -m | grep $1 | xargs git diff' -"
-
-    # 'checkout grep'
-    cg = "!sh -c 'git ls-files -m | grep $1 | xargs git checkout ' -"
-
-    # add grep
-    ag = "!sh -c 'git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all' -"
 [push]
     # push will only do the current branch, not all branches
     default = current

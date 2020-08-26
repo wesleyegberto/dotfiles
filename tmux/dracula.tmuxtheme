@@ -29,7 +29,9 @@ set -g status-bg "${gray}"
 set -g status-left-bg "${dark_gray}"
 set -g status-left-fg "${white}"
 set -g status-left-length 40
-set -g status-left "#[fg=${dark_gray},bg=${green},bold] #S #[fg=${green},bg=${white},nobold]#[fg=${gray},bg=${white}] #(whoami) #[fg=${white},bg=${dark_purple}]#[fg=${white},bg=${dark_purple}] #I:#P #[fg=${dark_purple},bg=${gray},nobold]"
+set -g @prefix_highlight_fg 'white' # default is 'colour231'
+set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
+set -g status-left "#[fg=${dark_gray},bg=${green},bold] #S #[fg=${green},bg=${white},nobold]#[fg=${gray},bg=${white}] #(whoami) #[fg=${white},bg=${dark_purple}]#[fg=${white},bg=${dark_purple}] #I:#P #{prefix_highlight} #[fg=${dark_purple},bg=${gray},nobold]"
 
 # Right side of status bar
 set -g status-right-bg "${dark_gray}"

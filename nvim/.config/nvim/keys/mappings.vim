@@ -13,11 +13,8 @@ vmap <C-s> <Esc>:w<CR>
 
 imap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
 
-nnoremap <Leader>wth <C-w>t<C-w>H   " flip vertical split to horizontal
-nnoremap <Leader>wtk <C-t>t<C-w>K   " flip horizontal split to vertical
-
-nnoremap <C-w>th <C-w>t<C-w>H       " flip vertical split to horizontal
-nnoremap <C-w>tk <C-t>t<C-w>K       " flip horizontal split to vertical
+nnoremap <silent> <Leader>wfv <C-w>t<C-w>H   " flip vertical split to vertical
+nnoremap <silent> <Leader>wfh <C-w>t<C-w>K   " flip horizontal split to horizontal
 
 " to allow navigate a line above and bellow correctly when word wrapping
 nnoremap k gk

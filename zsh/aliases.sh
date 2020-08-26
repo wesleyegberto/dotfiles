@@ -14,16 +14,10 @@ alias here='ofd' # Open current dir with finder
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+alias cleanup_nodemodules='tree -dfi -P "./*node_modules$" --matchdirs | grep -e /node_modules$ | xargs rm -rf'
 
 # Time tracker (https://tailordev.github.io/Watson/)
 alias track="watson"
-
-# Tmux funtions
-# `tcd` : start a tmux session using current dirname as session name
-# `tm` : find a tmux session using FZF
-# `tm name` : attach to an existing session <name> or creates a new one
-# `tc` : choose a tmux session or creates a new one
-# `tfp` : find a Tmux pane
 
 # Tmux aliases
 alias td="tmux has-session -t default & tmux attach -t default || tmux new-session -s default"
@@ -44,27 +38,7 @@ alias gsa="git status -uall"
 alias gl="git pull"
 alias glr="git pull --rebase"
 alias gp="git push"
-alias gck="git checkout $1"
-
-alias gdf="git diff --color | diff-so-fancy"
-alias gdfh="git diff --color HEAD^ HEAD | diff-so-fancy"
-# diff grep
-alias gdg="git ls-files -m | grep $1 | xargs git diff --color | diff-so-fancy"
-alias gdfz="git ls-files -m | fzf | xargs git diff --color | diff-so-fancy"
-alias gdv="git difftool -y -t vimdiff"
-
-# 'checkout grep'
-alias gcg="git ls-files -m | grep $1 | xargs git checkout"
-alias gcf="git ls-files -m | fzf | xargs git checkout"
-# add grep
-alias gag="git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all"
-alias gaf="git ls-files -m -o --exclude-standard | fzf | xargs git add --all"
-
-alias glg="git log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-# show what I did today
-alias glt='git log --reverse --no-merges --branches=* --date=local --after="yesterday 11:59PM" --author="`git config --get user.name`"'
-# show most changed files
-alias gchurn="git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g;"
+alias gdf="g dff"
 
 
 # Kubernetes aliases

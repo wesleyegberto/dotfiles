@@ -28,8 +28,9 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 * Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
 * Windows manager: [Amethyst](https://ianyh.com/amethyst/).
 
-Key bindings:
+Aliases & Key bindings:
 
+* [Terminal aliases](./aliases.md)
 * [NeoVim](./key_bindings.md)
 
 ## Instructions

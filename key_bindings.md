@@ -1,6 +1,4 @@
-# Key Binding Mapping
-
-My Vim key bindings.
+# Vim Key Binding Mapping
 
 ```
 \st              " Show startify
@@ -12,7 +10,6 @@ My Vim key bindings.
 \e               " toggle coc-explorer
 \E               " show coc-explorer in floating mode
 \ev              " show coc-explorer with .vim folder
-q                " quit
 ```
 
 Item action
@@ -76,8 +73,8 @@ Windows manipulation:
 
 <C-w>#<          " Shrink/resize current window from the right by # (default 1)
 <C-w>#>          " Increase/resize current window to the right by # (default 1)
-<Leader>wth      " flip split window from vertical to horizontal
-<Leader>wtk      " flip split window from horizontal to vertical
+<Leader>wfh      " flip split window from vertical to horizontal
+<Leader>wfv      " flip split window from horizontal to vertical
 ```
 
 Navigation between windows:
@@ -85,10 +82,10 @@ Navigation between windows:
 <C-w>w           " Jump to the next window
 <C-w><ARROW>     " Jump to window left/right/top/bottom (arrow keys) to the current
 <C-\>            " go previous window
-<C-h>            " left window
-<C-j>            " down window
-<C-k>            " up window
-<C-l>            " right window
+<C-h>            " jump to left window
+<C-j>            " jump to down window
+<C-k>            " jump to up window
+<C-l>            " jump to right window
 :q<index>        " close window with index
 ```
 
@@ -116,8 +113,8 @@ In FZF result use:
 
 ```
 C-t              " open new tab
-C-x              " open in a vertical split window
-C-v              " open in a horizontal split window
+C-s              " open in a horizontal split window
+C-v              " open in a vertical split window
 ```
 
 ```
@@ -217,41 +214,62 @@ yss}             " wrap the line with {}
 ysiw]            " wrap the current word (iw -> inner word) with ]
 ```
 
-##### Coc-Vim and Omnisharp-Vim
+##### Coc-Vim
 
 ```
 <C-Space>        " refresh autocomplete (INSERT MODE)
-\qf              " quick fix for current line
-\coqf            " quick fix for C#
 gd               " go to definition
 gi               " go to implementation
 gD               " peek definition
 gI               " peek implementation
-gr               " find references
-\crn             " rename var
-```
-
-##### Coc-Vim
-
-```
 gy               " go to type
-\cd              " show documentation
+gr               " find references
 gh               " show documentation
+\cd              " show documentation
+\cfm             " find members
+```
+
+```
 \cf              " format buffer
 \csf             " format selection
+\crn             " rename var
 ```
 
 Actions (after \a we can cursor motion to select a block - like w or p)
 
 ```
+\cqf             " quick fix
 \cal             " action for current line
 \cas             " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\cas` -> action for current sentence)
-\casw            " action for current word
+\cam#            " action for a cursor motion (like: `\cams` -> action for current sentence)
+```
+
+```
+<space>a       	 " CocFzfList actions
+<space>g       	 " CocFzfList diagnostics
+<space>G       	 " CocFzfList diagnostics --current-buf
+<space>c       	 " CocFzfList commands
+<space>e       	 " CocFzfList extensions
+<space>l       	 " CocFzfList location
+<space>o       	 " CocFzfList outline
+<space>s       	 " CocFzfList symbols
+<space>p       	 " CocFzfListResume
+```
+
+##### Omnisharp.vim
+
+```
+\clc             " code check
+\cls             " server start
+\clr             " server restart
+\clp             " server stop
 ```
 
 ##### Snippets
 
 ```
+\cfs             " find symbols
+
 <C-l>            " cut the selected content to use inside a snippet (when used later)
 <C-n>            " next item
 <C-p>            " previous item

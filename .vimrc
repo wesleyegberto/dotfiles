@@ -128,6 +128,8 @@ call vundle#begin()
 
     " devicons (should be loaded after the current plugins)
     Plugin 'ryanoasis/vim-devicons'
+
+    " Plugin 'ThePrimeagen/vim-apm'
 call vundle#end()
 
 

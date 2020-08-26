@@ -39,22 +39,22 @@ autocmd!
     autocmd FileType cs nnoremap <buffer> <Leader>cqf :OmniSharpFixUsings<CR>
 
     " Rename with dialog
-    autocmd FileType cs nnoremap <Leader>corn :OmniSharpRename<CR>
+    autocmd FileType cs nnoremap <Leader>crn :OmniSharpRename<CR>
     autocmd FileType cs nnoremap <F2> :OmniSharpRename<CR>
-
-    " Find all code errors/warnings for the current solution and populate the quickfix window
-    autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 
     autocmd FileType cs nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 
     " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
     autocmd FileType cs nnoremap <Leader>cal :OmniSharpGetCodeActions<CR>
     " Run code actions with text selected in visual mode to extract method
-    autocmd FileType cs xnoremap <Leader>cal :call OmniSharp#GetCodeActions('visual')<CR>
+    autocmd FileType cs xnoremap <Leader>cas :call OmniSharp#GetCodeActions('visual')<CR>
+
+    " Find all code errors/warnings for the current solution and populate the quickfix window
+    autocmd FileType cs nnoremap <buffer> <Leader>clc :OmniSharpGlobalCodeCheck<CR>
 
     " Start the omnisharp server for the current solution
-    autocmd FileType cs nnoremap <Leader>css :OmniSharpStartServer<CR>
-    autocmd FileType cs nnoremap <Leader>csr :OmniSharpRestartServer<CR>
-    autocmd FileType cs nnoremap <Leader>csp :OmniSharpStopServer<CR>
+    autocmd FileType cs nnoremap <Leader>cls :OmniSharpStartServer<CR>
+    autocmd FileType cs nnoremap <Leader>clr :OmniSharpRestartServer<CR>
+    autocmd FileType cs nnoremap <Leader>clp :OmniSharpStopServer<CR>
 
 augroup END
