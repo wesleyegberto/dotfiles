@@ -32,6 +32,7 @@
 " * snippets: `:CocInstall coc-snippets`
 " * java: `:CocInstall coc-java`
 " * snippets: `:CocInstall coc-snippets`
+" * tsserver: `:CocInstall coc-tsserver`
 
 " * Pylint:
 "  * `pip2 install --user pynvim`

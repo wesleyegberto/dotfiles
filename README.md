@@ -115,7 +115,7 @@ NeoVim Plugins:
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
   * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
   * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
-  * [vim-rainbow](frazrepo/vim-rainbow)
+  * [vim-rainbow](https://github.com/frazrepo/vim-rainbow)
   * Git:
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
     * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
@@ -123,7 +123,7 @@ NeoVim Plugins:
   * [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
   * [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 * Editing:
-  * [Sublime-like multiple cursor edit](terryma/vim-multiple-cursors)
+  * [Sublime-like multiple cursor edit](https://github.com/terryma/vim-multiple-cursors)
   * [vim-surround](https://github.com/tpope/vim-surround)
   * [vim-abolish](https://github.com/tpope/vim-abolish)
   * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
@@ -137,6 +137,8 @@ NeoVim Plugins:
       * [coc-snippets](https://github.com/neoclide/coc-snippets)
       * [coc-java](https://github.com/neoclide/coc-java)
       * [coc-omnisharp](https://github.com/coc-extensions/coc-omnisharp)
+      * [coc-tsserver](https://github.com/neoclide/coc-tsserver)
+  * [antoinemadec/coc-fzf](https://github.com/antoinemadec/coc-fzf)
 * Snippets
   * [vim-snippets](https://github.com/honza/vim-snippets)
   * [ultisnips](https://github.com/SirVer/ultisnips)
@@ -147,13 +149,12 @@ NeoVim Plugins:
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
-  * [vim-floaterm](voldikss/vim-floaterm)
+  * [vim-floaterm](https://github.com/voldikss/vim-floaterm)
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
 To be tested:
 
-* Coc-Fzf: [antoinemadec/coc-fzf](https://github.com/antoinemadec/coc-fzf)
 * Editing: [vim-sandwitch](https://github.com/machakann/vim-sandwich)
 * Syntax: [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)
@@ -187,8 +188,8 @@ Using it I can use all the Vim power for editing and navigation.
 I've exploring some configuration and key bindings to allow me to use the same keybindings that I'm using on NeoVim (like navigate between panes, motion, leader key and so on).
 Here are my configs:
 
-* [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`),
-* [VSCode Keybindings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-keybindingsmac-json): keybindings to navigate between panes, double `j` on insert mode
+* [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`).
+* [VSCode Keybindings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-keybindingsmac-json): keybindings to navigate between panes, double `j` on insert mode, go to definition and implementation, so on.
 
 ## TODO
 
