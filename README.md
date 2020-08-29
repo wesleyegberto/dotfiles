@@ -83,10 +83,10 @@ Then install the plugins by running: `vim +PluginInstall +qall`.
   * lazygit
   * lazydocker
   * lazynpm
-* Pylint:
+* Python deps and Pylint:
   * `pip2 install --user pynvim`
   * `pip3 install --user pynvim`
-
+  * `pip3 install neovim-remote`
 * C#: open a `.cs` file and execute command `:OmniSharpInstall`
 
 ## Tools Configuration
