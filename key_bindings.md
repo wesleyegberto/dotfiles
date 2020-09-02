@@ -89,13 +89,19 @@ Navigation between windows:
 :q<index>        " close window with index
 ```
 
-Navigation between tabs:
+Navigation between buffers and tabs:
 ```
 gt               " go to next tab
 gT               " go to previous tab
 #gt              " go to tab at index #
 gb or ]b         " go to next buffer
 gB or [b         " go to previous buffer
+\bp              " go to next buffer
+\bn              " go to previous buffer
+\bf              " go to first buffer
+\bl              " go to last buffer
+\bd              " delete current buffer
+\bk              " wipeout current buffer (delete with marks and so on)
 ```
 
 ##### Searching
@@ -135,7 +141,21 @@ g.               " go to next edition position
 }                " go to next paragraph
 [/               " go to start of first comment block /* */
 ]/               " go to end of first comment block /* */
+
+H                " mapped to ^
+L                " mapped to $
 ```
+
+##### Navigation in Insert and Command Mode
+```
+<C-h>            " Left
+<C-j>            " Down
+<C-k>            " Up
+<C-l>            " Right
+<C-a>            " Start of the line
+<C-e>            " End of the line
+```
+
 
 ##### terryma/vim-multiple-cursors
 
@@ -245,15 +265,15 @@ Actions (after \a we can cursor motion to select a block - like w or p)
 ```
 
 ```
-<space>a       	 " CocFzfList actions
-<space>g       	 " CocFzfList diagnostics
-<space>G       	 " CocFzfList diagnostics --current-buf
-<space>c       	 " CocFzfList commands
-<space>e       	 " CocFzfList extensions
-<space>l       	 " CocFzfList location
-<space>o       	 " CocFzfList outline
-<space>s       	 " CocFzfList symbols
-<space>p       	 " CocFzfListResume
+<space>a            " CocFzfList actions
+<space>g            " CocFzfList diagnostics
+<space>G            " CocFzfList diagnostics --current-buf
+<space>c            " CocFzfList commands
+<space>e            " CocFzfList extensions
+<space>l            " CocFzfList location
+<space>o            " CocFzfList outline
+<space>s            " CocFzfList symbols
+<space>p            " CocFzfListResume
 ```
 
 ##### Omnisharp.vim
