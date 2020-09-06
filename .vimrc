@@ -63,9 +63,6 @@ call vundle#begin()
     Plugin 'junegunn/fzf', { 'do': './install --bin' }
     Plugin 'junegunn/fzf.vim'
 
-    " Hybrid between number (when editing) and relative number (when navigating)
-    Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
     Plugin 'machakann/vim-highlightedyank'
 
     " Show git stuff and info at line
@@ -312,9 +309,9 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " === jeffkreeftmeijer/vim-numbertoggle === {{{
 " hybrid mode (normal mode: relative, insert mode: absolute)
 :augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 :augroup END
 " }}}
 

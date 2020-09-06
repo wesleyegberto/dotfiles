@@ -49,7 +49,9 @@ Copy the content of file `.gitconfig` to `~/.gitconfig`.
 
 #### Zsh
 
-Install Zsh following [this steps](https://ohmyz.sh/):
+Install Zsh: `brew install zsh`
+
+Install Oh-My-Zsh following [this steps](https://ohmyz.sh/):
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 Then install the plugin manager:
