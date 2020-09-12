@@ -70,8 +70,7 @@ call vundle#begin()
     Plugin 'airblade/vim-gitgutter'
 
     " nicer status bar
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'glepnir/spaceline.vim'
 
     " better terminal integration (substitute, search, and abbreviate multiple variants of a word)
     Plugin 'tpope/vim-abolish'
@@ -98,8 +97,8 @@ call vundle#begin()
 
     " intellisense
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-    Plugin 'antoinemadec/coc-fzf'
-    Plugin 'vim-syntastic/syntastic'
+    Plugin 'antoinemadec/coc-fzf', {'branch': 'release'}
+    " Plugin 'vim-syntastic/syntastic'
 
     Plugin 'sheerun/vim-polyglot'
 
@@ -126,8 +125,6 @@ call vundle#begin()
 
     " devicons (should be loaded after the current plugins)
     Plugin 'ryanoasis/vim-devicons'
-
-    " Plugin 'ThePrimeagen/vim-apm'
 call vundle#end()
 
 
@@ -139,9 +136,6 @@ syntax on
 
 set termguicolors
 
-" Appearence
-let g:airline_theme='dark'
-
 " let g:material_theme_style = 'palenight'
 " let g:material_terminal_italics = 1
 " colorscheme material
@@ -150,9 +144,6 @@ let g:airline_theme='dark'
 " let g:dracula_italic = 0
 " colorscheme dracula
 " color dracula
-
-" let g:airline_theme='onedark'
-" let g:onedark_terminal_italics = 1
 
 " colorscheme onedark
 " let g:neodark#solid_vertsplit = 1
@@ -295,15 +286,9 @@ filetype plugin indent on       " load identation by file type
 
 source $HOME/.config/nvim/plug-config/which-key.vim
 source $HOME/.config/nvim/plug-config/startify.vim
-source $HOME/.config/nvim/plug-config/airline.vim
+source $HOME/.config/nvim/plug-config/statusbar.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
-
-
-" === airblade/vim-gitgutter === {{{
-" In vim-airline, only display "hunks" if the diff is non-zero
-let g:airline#extensions#hunks#non_zero_only = 1
-" }}}
 
 
 " === jeffkreeftmeijer/vim-numbertoggle === {{{
@@ -356,5 +341,5 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 source $HOME/.config/nvim/plug-config/coc.vim
-source $HOME/.config/nvim/plug-config/syntastic.vim
 source $HOME/.config/nvim/plug-config/omnisharp.vim
+" source $HOME/.config/nvim/plug-config/syntastic.vim

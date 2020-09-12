@@ -113,8 +113,7 @@ NeoVim Plugins:
   * [FZF](https://github.com/junegunn/fzf)
   * [FZF-Vim](https://github.com/junegunn/fzf.vim)
 * Visualization:
-  * [vim-airline](https://github.com/vim-airline/vim-airline)
-  * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+  * [spaceline.vim](https://github.com/glepnir/spaceline.vim)
   * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
   * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
   * [vim-rainbow](https://github.com/frazrepo/vim-rainbow)
@@ -148,6 +147,7 @@ NeoVim Plugins:
   * [vim-syntastic](https://github.com/vim-syntastic/syntastic)
   * C#:
     * [Omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)
+  * [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
   * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
@@ -158,10 +158,7 @@ NeoVim Plugins:
 To be tested:
 
 * Editing: [vim-sandwitch](https://github.com/machakann/vim-sandwich)
-* Syntax: [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)
-* Wintabs: [vim-wintabs](https://github.com/zefei/vim-wintabs)
-* Vim-Buffet: [bagrat/vim-buffet](https://github.com/bagrat/vim-buffet)
 * Dashboard-nvim: [hardcoreplayers/dashboard-nvim](https://github.com/hardcoreplayers/dashboard-nvim)
 
 Removed:
@@ -171,7 +168,10 @@ Removed:
   * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
   * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
   * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
-* Visualization: [vim-bufferline](https://github.com/bling/vim-bufferline)
+* Visualization:
+  * [vim-airline](https://github.com/vim-airline/vim-airline)
+  * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+  * [vim-bufferline](https://github.com/bling/vim-bufferline)
 * Buffer finder: [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
 * Code checker for Java: [Language Client](https://github.com/autozimu/LanguageClient-neovim)
 * Omnisharp-vim default mappings: [vim-sharpenup](https://github.com/nickspoons/vim-sharpenup)

@@ -12,7 +12,7 @@ highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeyDesc      Operator
 
 let g:which_key_map.w = {
-  \ 'name' : '+windows'      ,
+  \ 'name' : '+windows',
   \ 'w'    : ['<C-w>w'       , 'other-window']          ,
   \ 'q'    : ['<C-w>q'       , 'quit window']           ,
   \ 'c'    : ['<C-w>q'       , 'quit window']           ,
@@ -39,7 +39,7 @@ let g:which_key_map.w = {
 
 
 let g:which_key_map.s = {
-  \ 'name' : '+search' ,
+  \ 'name' : '+search',
   \ '/' : [':History/'     , 'history'],
   \ ';' : [':Commands'     , 'commands'],
   \ 'b' : [':BLines'       , 'current buffer'],
@@ -63,13 +63,30 @@ let g:which_key_map.s = {
   \ 'w' : [':Windows'      , 'search windows'],
   \ 'y' : [':Filetypes'    , 'file types'],
   \ 'z' : [':FZF'          , 'FZF'],
-\ }
+  \ }
+
+
+
+let g:which_key_map.g = {
+  \ 'name' : '+git',
+  \ 'f' : [':Gfetch'       , 'fetch'],
+  \ 'l' : [':Gpull'        , 'pull'],
+  \ 'r' : [':Grebase'      , 'rebase'],
+  \ 's' : [':Gstatus'      , 'status'],
+  \ 'm' : [':GFiles?'      , 'modified files'],
+  \ 'c' : [':Gcommit'      , 'commit'],
+  \ 'p' : [':Gpush'        , 'push'],
+  \ 'g' : [':Glog'         , 'log'],
+  \ 'b' : [':Gblame'       , 'blame'],
+  \ 'v' : [':Gvdiffsplit'  , 'diff vsplit'],
+  \ 'h' : [':Ghdiffsplit'  , 'diff split'],
+  \ }
 
 
 " === mhinz/vim-startify === {{{
 
 let g:which_key_map.S = {
-  \ 'name' : '+startify'    ,
+  \ 'name' : '+startify',
   \ 'S'    : [ ':Startify'  , 'start screen' ],
   \ 's'    : [ ':SSave'     , 'save sessions' ],
   \ 'l'    : [ ':SLoad'     , 'load sessions' ],
@@ -82,7 +99,7 @@ let g:which_key_map.S = {
 " === junegunn/fzf.vim === {{{
 
 let g:which_key_map.f = {
-  \ 'name' : '+FZF'    ,
+  \ 'name' : '+FZF',
   \ 'f'    : [ ':Files'     , 'Find file' ],
   \ 'b'    : [ ':Buffers'   , 'Find buffer' ],
   \ 'r'    : [ ':Rg'        , 'Find file with ripgrep' ],
@@ -96,7 +113,7 @@ let g:which_key_map.f = {
 " === fvoldikss/vim-floatermloatterm === {{{
 
 let g:which_key_map.t = {
-  \ 'name' : '+terminal' ,
+  \ 'name' : '+terminal',
   \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
   \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
   \ 'g' : [':FloatermNew lazygit'                           , 'git'],

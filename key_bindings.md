@@ -147,6 +147,7 @@ L                " mapped to $
 ```
 
 ##### Navigation in Insert and Command Mode
+
 ```
 <C-h>            " Left
 <C-j>            " Down
@@ -156,6 +157,22 @@ L                " mapped to $
 <C-e>            " End of the line
 ```
 
+##### Git
+
+```
+\gf              " fetch
+\gl              " pull
+\gr              " rebase
+\gs              " status
+\gm              " modified files
+\gc              " commit
+\gp              " push
+\gg              " log
+\gb              " blame
+\gv              " diff vertical split
+\gh              " diff horizontal split
+
+```
 
 ##### terryma/vim-multiple-cursors
 
