@@ -207,4 +207,5 @@ Here are my configs:
   * [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
   * [Jetbrains Mono](https://www.jetbrains.com/lp/mono/)
 * [Themes generator](https://themer.dev/)
+* [iTerm Colorschemes](https://iterm2colorschemes.com/)
 * [macOS setup inspiration](https://github.com/mathiasbynens/dotfiles)

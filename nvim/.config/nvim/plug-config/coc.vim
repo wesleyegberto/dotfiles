@@ -107,7 +107,7 @@ autocmd!
 
     " use `gh` to show documentation in preview window
     nmap <silent> gh :call <SID>show_documentation()<CR>
-    nmap <silent> <Leader>cd :call <SID>show_documentation()<CR>
+    nmap <silent> <Leader>ck :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)

@@ -1,5 +1,6 @@
 " === OmniSharp/omnisharp-vim ===
 
+" async LSP
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf'
 
@@ -32,9 +33,10 @@ autocmd!
     autocmd FileType cs nnoremap <buffer> <Leader>cfm :OmniSharpFindMembers<CR>
 
     autocmd FileType cs nnoremap <buffer> gh :OmniSharpDocumentation<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>cod :OmniSharpDocumentation<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>ck :OmniSharpDocumentation<CR>
 
     autocmd FileType cs inoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
+    autocmd FileType cs inoremap <buffer> <Leader>ch :OmniSharpSignatureHelp<CR>
 
     autocmd FileType cs nnoremap <buffer> <Leader>cqf :OmniSharpFixUsings<CR>
 

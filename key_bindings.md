@@ -1,4 +1,63 @@
-# Vim Key Binding Mapping
+# Tmux Key Bindings
+
+Help: `<Leader>?`
+
+## Session
+
+```
+<Leader>$           " rename session
+<Leader>s           " choose session
+<Leader>d           " detach from session
+
+<Leader>)           " next session
+<Leader>(           " previous session
+<Leader>L           " go to last active session
+```
+
+## Window
+
+```
+<Leader>c           " create new window
+<Leader>,           " rename window
+<Leader>w           " choose window
+
+<Leader>n           " next window
+<Leader>p           " previous window
+<Leader>#           " jump to #-th window
+<Leader>l           " go to last active window
+
+<Leader>X           " kill window
+```
+
+## Panes
+
+```
+<Leader>|           " split pane vertically
+<Leader>-           " split pane horizontally
+<Leader>;           " go to last active pane
+<Leader>o           " go to next pane
+
+<Leader>{           " move current pane to left
+<Leader>}           " move current pane to right
+<Leader> C-<Arrow>  " resize pane
+<Leader>< + Arrow>  " resize pane
+
+<Leader>q           " shot pane numbers
+<Leader>q <number>  " select pane by number
+<Leader><Space>     " toggle between pane layouts
+
+<Leader>+           " zoom pane
+<Leader>!           " convert pane to a new window
+<Leader>x           " close current pane
+```
+
+## Misc
+
+```
+<Leader>[           " Use VI keys in buffer
+```
+
+# Vim Key Bindings
 
 ```
 \st              " Show startify
