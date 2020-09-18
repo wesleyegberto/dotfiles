@@ -321,7 +321,7 @@ gI               " peek implementation
 gy               " go to type
 gr               " find references
 gh               " show documentation
-\cd              " show documentation
+\ck              " show documentation
 \cfm             " find members
 ```
 
