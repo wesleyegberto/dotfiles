@@ -234,6 +234,8 @@ set showbreak=↪
 
 " Autocomplete menu
 set completeopt=menuone,longest,preview             " simple autocomplete for anything
+" Set desired preview window height for viewing documentation.
+set previewheight=5
 set wildmenu
 set wildmode=list:longest,full                      " autocomplete for paths and files
 " ignore these extensions on autocomplete

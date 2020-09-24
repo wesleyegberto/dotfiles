@@ -220,13 +220,13 @@ L                " mapped to $
 
 ```
 \gf              " fetch
-\gl              " pull
+\gp              " pull
 \gr              " rebase
 \gs              " status
 \gm              " modified files
 \gc              " commit
-\gp              " push
-\gg              " log
+\gP              " push
+\gl              " log
 \gb              " blame
 \gv              " diff vertical split
 \gh              " diff horizontal split

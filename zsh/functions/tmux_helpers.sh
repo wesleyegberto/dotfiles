@@ -40,7 +40,7 @@ tmuxkillfzf () {
 
 
 # ftpane - switch pane (@george-b)
-# In tmux.conf: bind-key 0 run "tmux split-window -l 12 'bash -ci ftpane'"
+# In tmux.conf: bind-key 0 run "tmux split-window -l 12 'bash -ci tsp'"
 tsp() {
     local panes current_window current_pane target target_window target_pane
     panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
