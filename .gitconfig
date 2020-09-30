@@ -10,6 +10,7 @@
     ci = commit
     br = branch
     st = status -s
+    fa = fetch --all
 
     lg = log --decorate --graph --pretty=format:\"%Cgreen%h%Creset %s %Cblue(%an)%Creset\"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
