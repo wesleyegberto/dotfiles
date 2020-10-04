@@ -195,15 +195,34 @@ C-v              " open in a vertical split window
 ```
 g;               " go to last edition position
 g.               " go to next edition position
+
+`^               " last position of cursor in insert mode
+`.               " last change in current buffer
+`<               " to beginning of last visual selection
+`>               " to end of last visual selection
+`[               " go to the beginning of last changed or yanked txt
+`]               " go to the end of last changed or yanked txt
+
 %                " jump to matching () or {} or []
 {                " go to previous paragraph
 }                " go to next paragraph
 [/               " go to start of first comment block /* */
 ]/               " go to end of first comment block /* */
 
+[m               " go to start of previous body
+]m               " go to start of next body
+[M               " go to end of previous body
+]M               " go to end of next body
+
 H                " mapped to ^
 L                " mapped to $
-```
+
+[%               " go to previous enclosing [ or ( or {
+]%               " go to next enclosing ] or ) or }
+[{               " go to enclosing {
+]}               " go to enclosing }
+[(               " go to enclosing (
+])               " go to enclosing )
 
 ##### Navigation in Insert and Command Mode
 
@@ -248,18 +267,6 @@ After `<C-n>`:
 <C-p>            " remove current virtual cursor + selection and go back on previous match
 ```
 
-##### Enclosing navigation (between [], (), {})
-
-```
-[%               " go to previous enclosing [ or ( or {
-]%               " go to next enclosing ] or ) or }
-[{               " go to enclosing {
-]}               " go to enclosing }
-[(               " go to enclosing (
-])               " go to enclosing )
-[m               " go to start of previous body
-]m               " go to start of next body
-```
 
 ##### Git changes navigation
 
