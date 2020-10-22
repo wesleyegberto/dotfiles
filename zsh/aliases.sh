@@ -43,14 +43,13 @@ alias gdf="g dff"
 
 # Kubernetes aliases
 alias k="kubectl"
-alias kproject='gcloud info --format="value(config.project)"'
-alias kcontext="kubectl config get-contexts"
-alias ksetcontext="kubectl config use-context $1"
+alias kgproj='gcloud info --format="value(config.project)"'
+alias kgctx="kubectl config get-contexts"
+alias ksctx="kubectl config use-context $1"
 
 alias kgpoan="kubectl get po --all-namespaces"
 alias kgpo="kubectl get po"
 alias kgsvc="kubectl get svc"
-alias kdpo="kubectl delete po $1"
 
 alias kdesc="kubectl describe $1"
 alias kgpog="kubectl get po | grep $1"
@@ -70,4 +69,8 @@ alias kscaledown="k scale --replicas=0 deploy $1"
 
 alias kpodimg="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort"
 alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep $1"
-alias kpoddel="k get pods | grep $1 | awk '{print $1}' | xargs kubectl delete pod"
+alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep $1"
+
+alias kdpo="kubectl delete po $1"
+alias kdpo="k get pods | grep $1 | awk '{print $1}' | xargs kubectl delete pod"
+alias kdpof="k get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"

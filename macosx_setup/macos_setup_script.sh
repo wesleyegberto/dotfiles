@@ -20,13 +20,10 @@ fi
 # install brew dependencies from Brewfile
 brew bundle
 
-brew install cask
-brew install htop
+brew install cask htop
 
-brew install unrar wget
-brew install tree fd fzf
-brew install the_silver_searcher
-brew install ripgrep
+brew install unrar wget tree
+brew install fd fzf the_silver_searcher ripgrep
 
 brew cask install alfred
 
@@ -45,7 +42,7 @@ echo "\\n\\n === Neovim ==="
 brew install neovim # NeoVim
 
 # dev utils
-brew install httpie
+brew install httpie jq
 brew cask install qlstephen # open everything as plaintext without warning
 brew cask install quicklook-csv
 brew cask install quicklook-json
@@ -78,9 +75,10 @@ brew cask install spotify
 
 echo "\\n\\n=== Installing Neovim providers ==="
 pip install --upgrade pip
-pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 npm install -g neovim
+
+git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 
 echo "\\n\\n=== Installing coc-vim ==="
 # for neovim

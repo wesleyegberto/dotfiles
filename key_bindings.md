@@ -153,8 +153,11 @@ Navigation between buffers and tabs:
 gt               " go to next tab
 gT               " go to previous tab
 #gt              " go to tab at index #
+
 gb or ]b         " go to next buffer
 gB or [b         " go to previous buffer
+C-^              " go to last buffer
+
 \bp              " go to next buffer
 \bn              " go to previous buffer
 \bf              " go to first buffer
