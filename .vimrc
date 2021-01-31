@@ -185,11 +185,12 @@ set nowritebackup
 
 set cmdheight=2                 " better display for messages
 
-if has('unnamedplus')
-  set clipboard=unnamedplus,unnamed
-else
-  set clipboard+=unnamed
-endif
+" if has('unnamedplus')
+"   set clipboard=unnamedplus,unnamed
+" else
+"   set clipboard+=unnamed
+" endif
+set clipboard+=unnamed
 
 set mouse=a                     " enable mouse if possible
 
@@ -247,6 +248,15 @@ set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 " Highlight the content to replace before doing it without spliting
 " set inccommand=nosplit
 
+" Note that neovim does not support `popuphidden` or `popup` yet:
+" https://github.com/neovim/neovim/issues/10996
+if has('patch-8.1.1880')
+  set completeopt=longest,menuone,popuphidden
+  " Highlight the completion documentation popup background/foreground the same as
+  " the completion menu itself, for better readability with highlighted
+  " documentation.
+  set completepopup=highlight:Pmenu,border:off
+endif
 
 set updatetime=1000                                 " You will have bad experience for diagnostic messages when it's default 4000
 set shortmess+=c                                    " don't give |ins-completion-menu| messages

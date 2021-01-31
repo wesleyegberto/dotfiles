@@ -47,8 +47,6 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time     # Execution time
   java
   nodejs
-  # node
-  # watson
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
@@ -107,6 +105,8 @@ zplugin light zsh-users/zsh-completions
 # fi
 
 source "$DOTFILES/zsh/functions/tmux_helpers.sh"
+source "$DOTFILES/zsh/functions/springboot_helpers.sh"
+source "$DOTFILES/zsh/functions/traffic_generator.sh"
 
 export PATH=$PATH:$DOTFILES/zsh/bin
 
