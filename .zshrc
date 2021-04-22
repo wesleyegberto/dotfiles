@@ -16,6 +16,8 @@ export EDITOR="vim"
 export TERM="xterm-256color"
 export DOTFILES=$(readlink ~/.dotfiles)
 
+export HISTTIMEFORMAT='%F | %T '
+
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 

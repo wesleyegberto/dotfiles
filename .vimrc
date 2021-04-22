@@ -217,7 +217,7 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are insensitive
 set smartcase                   " unless they contain at least one capital letter
-nnoremap <Space><Space> :nohlsearch<CR> " unhighlight the search result
+nnoremap <Esc><Esc> :nohlsearch<CR> " unhighlight the search result
 
 " Code folding settings (use `zc`, `zo`, `zz`)
 set foldmethod=manual           " fold based on indent

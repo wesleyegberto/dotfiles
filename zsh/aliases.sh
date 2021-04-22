@@ -10,7 +10,9 @@ alias cd..='cd ..'
 alias cls="clear"
 alias :q='exit'
 alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
 alias here='ofd' # Open current dir with finder
+alias count="wc -l"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
@@ -57,6 +59,7 @@ alias kgrep="kubectl get pod,svc -o wide | grep $1"
 alias klogsf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl logs"
 alias klogs="kubectl logs --all-namespaces $1"
 alias kport="kubectl port-forward $1" # kport <pod_name> <my_port>:<pod_port>
+alias kshf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl exec -it $1 sh"
 
 alias krollstatus="kubectl rollout status deployments $1"
 alias krollback="kubectl rollout undo deployments $1"
@@ -69,8 +72,7 @@ alias kscaledown="k scale --replicas=0 deploy $1"
 
 alias kpodimg="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort"
 alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep $1"
-alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep $1"
 
-alias kdpo="kubectl delete po $1"
-alias kdpo="k get pods | grep $1 | awk '{print $1}' | xargs kubectl delete pod"
+alias kdpod="kubectl delete po $1"
+alias kdpo="k get pods | grep $1 | awk '{print \$1}' | xargs kubectl delete pod"
 alias kdpof="k get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"
