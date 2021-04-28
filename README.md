@@ -209,3 +209,5 @@ Here are my configs:
 * [Themes generator](https://themer.dev/)
 * [iTerm Colorschemes](https://iterm2colorschemes.com/)
 * [macOS setup inspiration](https://github.com/mathiasbynens/dotfiles)
+* Tutorials:
+  * [Write init.lua](https://oroques.dev/notes/neovim-init/)
