@@ -172,18 +172,18 @@ hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
 " # General settings
 " #########################################################
 
-set t_Co=256                    " explicitly tell vim that the terminal supports 256 colors
-set ttyfast                     " faster redrawing
+set t_Co=256                                                 " explicitly tell vim that the terminal supports 256 colors
+set ttyfast                                                  " faster redrawing
 
-set nocompatible                " no compatibility with vi
+set nocompatible                                             " no compatibility with vi
 set encoding=utf-8
 
-set hidden                      " to allow switch between buffers without save
+set hidden                                                   " to allow switch between buffers without save
 
-set nobackup                    " some servers have issues with backup files, see #649
+set nobackup                                                 " some servers have issues with backup files, see #649
 set nowritebackup
 
-set cmdheight=2                 " better display for messages
+set cmdheight=2                                              " better display for messages
 
 " if has('unnamedplus')
 "   set clipboard=unnamedplus,unnamed
@@ -192,42 +192,41 @@ set cmdheight=2                 " better display for messages
 " endif
 set clipboard+=unnamed
 
-set mouse=a                     " enable mouse if possible
+set mouse=a                                                  " enable mouse if possible
 
-set ls=2                        " always show status bar
-set number relativenumber       " show relative number of lines to the current line
-set cursorline                  " display a marker on current line
-set noshowmode                  " airline will do the job
-set showcmd                     " display incomplete commands
-set showmatch                   " show matching brackets/parentthesis
+set ls=2                                                     " always show status bar
+set number relativenumber                                    " show relative number of lines to the current line
+set cursorline                                               " display a marker on current line
+set noshowmode                                               " airline will do the job
+set showcmd                                                  " display incomplete commands
+set showmatch                                                " show matching brackets/parentthesis
 
 "" Whitespace and indentation
-set nowrap                      " don't wrap lines
-set expandtab!                  " by default not expand tab
-set tabstop=4                   " a tab is two spaces (or set this to 4)
+set nowrap                                                   " don't wrap lines
+set expandtab!                                               " by default not expand tab
+set tabstop=4                                                " a tab is two spaces (or set this to 4)
 set shiftwidth=4
 set softtabstop=4
-set nolazyredraw                " don't redraw while executing macros
+set lazyredraw                                               " don't redraw while executing macros
 set smartindent
 
-set backspace=indent,eol,start  " allow backspace over everything in isert mode
+set backspace=indent,eol,start                               " allow backspace over everything in isert mode
 
 " Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are insensitive
-set smartcase                   " unless they contain at least one capital letter
+set hlsearch                                                 " highlight matches
+set incsearch                                                " incremental searching
+set ignorecase                                               " searches are insensitive
+set smartcase                                                " unless they contain at least one capital letter
 " unhighlight the search result
 nnoremap <silent> <Esc><Esc> :nohl<CR>
 
 " Code folding settings (use `zc`, `zo`, `zz`)
-set foldmethod=manual           " fold based on indent
-set nofoldenable                " don't fold by default
+set nofoldenable                                             " don't fold by default
+set foldmethod=marker
+set foldmarker={,}
 set foldlevel=1
 set foldlevelstart=99
-set foldmarker={,}
-set foldmethod=marker
-set foldnestmax=10              " deepest fold is 10 levels
+set foldnestmax=10                                           " deepest fold is 10 levels
 
 " Toggle invisible characters
 set list
@@ -235,16 +234,15 @@ set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.
 set showbreak=↪
 
 " Autocomplete menu
-set completeopt=menuone,longest,preview             " simple autocomplete for anything
-" Set desired preview window height for viewing documentation.
-set previewheight=5
+set completeopt=menuone,longest,preview                      " simple autocomplete for anything
+set previewheight=5                                          " preview window height for viewing documentation
 set wildmenu
-set wildmode=list:longest,full                      " autocomplete for paths and files
+set wildmode=list:longest,full                               " autocomplete for paths and files
+set wildoptions=pum,tagfile                                  " display popup
+" set pumblend=0                                             " transparence
 " ignore these extensions on autocomplete
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip,.git
-set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
-" set wildoptions=pum                                 " display popup
-" set pumblend=10                                     " transparence
+set wildignore+=*/tmp/*,*.o,*.obj,*.so
 
 " Highlight the content to replace before doing it without spliting
 " set inccommand=nosplit
@@ -259,9 +257,9 @@ if has('patch-8.1.1880')
   set completepopup=highlight:Pmenu,border:off
 endif
 
-set updatetime=1000                                 " You will have bad experience for diagnostic messages when it's default 4000
-set shortmess+=c                                    " don't give |ins-completion-menu| messages
-set signcolumn=yes                                  " always show signcolumns
+set updatetime=1000                                          " You will have bad experience for diagnostic messages when it's default 4000
+set shortmess+=c                                             " don't give |ins-completion-menu| messages
+set signcolumn=yes                                           " always show signcolumns
 
 
 if $TERM_PROGRAM =~# 'iTerm'
@@ -290,7 +288,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 " # Languages configuration
 " #########################################################
 
-filetype plugin indent on       " load identation by file type
+filetype plugin indent on                                    " load identation by file type
 
 
 " #########################################################
@@ -315,13 +313,13 @@ source $HOME/.config/nvim/plug-config/fzf.vim
 
 
 " === machakann/vim-highlightedyank === {{{
-let g:highlightedyank_highlight_duration = 1000                       " Highlight the content copied
+let g:highlightedyank_highlight_duration = 1000              " Highlight the content copied
 " }}}
 
 
 " === jiangmiao/auto-pairs === {{{
 " let g:AutoPairsMultilineClose = 0
-" let g:AutoPairsMapSpace = 0                                         " disable extra space between {}, (), [] when pressing <space>
+" let g:AutoPairsMapSpace = 0                                " disable extra space between {}, (), [] when pressing <space>
 " }}}
 
 
