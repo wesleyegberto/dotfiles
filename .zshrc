@@ -107,6 +107,7 @@ zplugin light zsh-users/zsh-completions
 # fi
 
 source "$DOTFILES/zsh/functions/tmux_helpers.sh"
+source "$DOTFILES/zsh/functions/aws_helpers.sh"
 source "$DOTFILES/zsh/functions/springboot_helpers.sh"
 source "$DOTFILES/zsh/functions/traffic_generator.sh"
 

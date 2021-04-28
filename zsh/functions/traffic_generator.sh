@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # usage: `generate_traffic http://httpbin.org/get 10`
-function generate_traffic() {
+generate_traffic() {
     local URL=$1
     local MAX_CONCURRENCY=$2
     local SLEEP_TIME=$3
@@ -20,7 +20,8 @@ function generate_traffic() {
         echo "Concurrency: $END"
         for i in $(seq $END)
         do
-            curl $URL &
+            echo "Requesting $i"
+            curl "$URL" &
         done
         sleep $SLEEP_TIME
     done
