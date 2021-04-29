@@ -218,7 +218,7 @@ set incsearch                                                " incremental searc
 set ignorecase                                               " searches are insensitive
 set smartcase                                                " unless they contain at least one capital letter
 " unhighlight the search result
-nnoremap <silent> <Esc><Esc> :nohl<CR>
+nnoremap <silent> <Leader><Esc> :nohl<CR>
 
 " Code folding settings (use `zc`, `zo`, `zz`)
 set nofoldenable                                             " don't fold by default
