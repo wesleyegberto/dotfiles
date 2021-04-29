@@ -10,12 +10,10 @@
 -- cp ~/init.lua ~/.config/nvim/init.lua
 
 require('options')
+require('keybindings')
+
 
 local u = require('utils')
-
-
-
-
 
 
 -- #########################################################

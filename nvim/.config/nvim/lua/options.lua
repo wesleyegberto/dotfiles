@@ -1,7 +1,17 @@
+-- #########################################################
+-- # Appearance
+-- #########################################################
+
 --- popup colors
 vim.cmd('hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White')
 vim.cmd('hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black')
 vim.cmd('hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White')
+
+vim.cmd('syntax on')
+
+-- vim.cmd('colorscheme plain')
+vim.o.background = 'dark'
+
 
 -- #########################################################
 -- # General settings
@@ -24,7 +34,7 @@ vim.o.ls = 2                                                 -- always show stat
 vim.wo.number = true
 vim.wo.relativenumber = true                                 -- show relative number of lines to the current line
 vim.o.cursorline = true                                      -- display a marker on current line
-vim.o.showmode = false                                       -- airline will do the job
+-- vim.o.showmode = false                                       -- airline will do the job
 vim.o.showcmd = true                                         -- display incomplete commands
 vim.o.showmatch = true                                       -- show matching brackets/parentthesis
 
@@ -66,7 +76,7 @@ vim.o.wildmode = 'list:longest,full'                         -- autocomplete for
 vim.o.wildoptions = 'pum,tagfile'                            -- display popup
 -- vim.o.pumblend = 0                                        -- transparence
 -- ignore these extensions on autocomplete
-vim.o.wildignore = vim.o.wildignore .. '*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip,.git'
+vim.o.wildignore = vim.o.wildignore .. '*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip,.git,.DS_Store'
 vim.o.wildignore = vim.o.wildignore .. '*/tmp/*,*.o,*.obj,*.so'
 
 -- Highlight the content to replace before doing it without spliting
@@ -75,3 +85,5 @@ vim.o.wildignore = vim.o.wildignore .. '*/tmp/*,*.o,*.obj,*.so'
 vim.o.updatetime = 1000                                      -- You will have bad experience for diagnostic messages when it's default 4000
 vim.o.shortmess = vim.o.shortmess .. 'c'                     -- don't give |ins-completion-menu| messages
 vim.o.signcolumn = 'yes'                                     -- always show signcolumns
+
+vim.cmd('filetype plugin indent on')
