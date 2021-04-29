@@ -17,8 +17,6 @@ nnoremap <silent> <Leader>wfv <C-w>t<C-w>H   " flip vertical split to vertical
 nnoremap <silent> <Leader>wfh <C-w>t<C-w>K   " flip horizontal split to horizontal
 
 " tabs and buffers navigation
-"nnoremap gt :bn<CR>
-"nnoremap gT :bp<CR>
 nnoremap gb :bnext<CR>
 nnoremap gB :bprev<CR>
 nnoremap <silent> <M-Right> :bn<CR>
