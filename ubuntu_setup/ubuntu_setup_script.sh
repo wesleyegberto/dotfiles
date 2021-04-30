@@ -65,6 +65,7 @@ apt-get install neovim # NeoVim
 
 # Install HTTPie
 apt-get install httpie
+apt-get install jo
 
 # apt-get install unity-tweak-tool
 # apt-get install ubuntu-tweak

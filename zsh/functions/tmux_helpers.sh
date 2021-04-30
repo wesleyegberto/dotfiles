@@ -23,6 +23,20 @@ tfd() {
     tmux new-session -s $(ls $1 | fzf)
 }
 
+# Open a given folder in Tmux and use its name as session name
+# Usage: `tmf <PATH>`
+tmf() {
+    local _folder
+    local _sessionName
+    if [ $1 ]; then
+        _folder=$1
+    else
+        _folder=$PWD
+    fi
+    _sessionName=$(basename "$_folder")
+    tmux new-session -s "$_sessionName" -n "$_sessionName" -d "cd $_folder; zsh"
+    tmux attach-session -t "$_sessionName"
+}
 
 # Kill a Tmux session using FZF
 tmuxkillfzf () {
