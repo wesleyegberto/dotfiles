@@ -115,9 +115,10 @@ zplugin light zsh-users/zsh-completions
 
 source "$DOTFILES/zsh/functions/finders.sh"
 source "$DOTFILES/zsh/functions/tmux_helpers.sh"
-source "$DOTFILES/zsh/functions/aws_helpers.sh"
+source "$DOTFILES/zsh/functions/projects.sh"
 source "$DOTFILES/zsh/functions/springboot_helpers.sh"
 source "$DOTFILES/zsh/functions/traffic_generator.sh"
+source "$DOTFILES/zsh/functions/aws_helpers.sh"
 
 export PATH=$PATH:$DOTFILES/zsh/bin
 
