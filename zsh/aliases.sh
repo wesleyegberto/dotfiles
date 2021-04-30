@@ -5,10 +5,16 @@ alias vim="nvim"
 alias v="nvim"
 
 # Lazy
-alias ..='cd ..'
 alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
+alias cdf='cd ~/.dotfiles'
+
 alias cls="clear"
 alias :q='exit'
+
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias here='ofd' # Open current dir with finder
@@ -35,12 +41,19 @@ alias tksv="tmux kill-server"
 
 # Git aliases
 alias g="git"
+alias ungit="find . -name '.git' -exec rm -rf {} \;" # Remove git from a project
 alias gst="git status"
 alias gsa="git status -uall"
 alias gl="git pull"
 alias glr="git pull --rebase"
+alias gsp='git pull --rebase --autostash' # Git stash, pull and apply stash
 alias gp="git push"
 alias gdf="g dff"
+
+
+# Utiltiy Aliases
+alias cpu='top -o cpu'   # CPU
+alias mem='top -o rsize' # Memory
 
 
 # Kubernetes aliases

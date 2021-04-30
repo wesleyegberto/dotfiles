@@ -19,7 +19,14 @@ export DOTFILES=$(readlink ~/.dotfiles)
 export HISTTIMEFORMAT='%F | %T '
 
 # Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f'
+# Bindins:
+# ctrl-y: copy
+# ctrl-s: open in VSCode
+# ctrl-v: open in Vim
+# ctrl-o: open with preview
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008' --prompt='∼ ' --pointer='▶' --marker='✓' --bind '?:toggle-preview' --bind 'ctrl-a:select-all' --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)' --bind 'ctrl-v:execute(echo {+} | xargs -o vim)' --bind 'ctrl-s:execute(echo {+} | xargs -o code)' --bind 'ctrl-t:execute(echo {+} | xargs -o tmux)' --bind 'ctrl-o:execute(open {+})'"
+export FZF_PREVIEW_WINDOW="([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '.git' --exclude 'node_modules' --exclude '.build'"
 
 # start tmux on startup
 # if [ -z $TMUX ]
@@ -106,6 +113,7 @@ zplugin light zsh-users/zsh-completions
 #     for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
 # fi
 
+source "$DOTFILES/zsh/functions/finders.sh"
 source "$DOTFILES/zsh/functions/tmux_helpers.sh"
 source "$DOTFILES/zsh/functions/aws_helpers.sh"
 source "$DOTFILES/zsh/functions/springboot_helpers.sh"

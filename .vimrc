@@ -238,7 +238,7 @@ set completeopt=menuone,longest,preview                      " simple autocomple
 set previewheight=5                                          " preview window height for viewing documentation
 set wildmenu
 set wildmode=list:longest,full                               " autocomplete for paths and files
-set wildoptions=pum,tagfile                                  " display popup
+" set wildoptions=pum,tagfile                                  " display popup
 " set pumblend=0                                             " transparence
 " ignore these extensions on autocomplete
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip,.git

@@ -20,7 +20,7 @@ fi
 # install brew dependencies from Brewfile
 brew bundle
 
-brew install cask htop
+brew install cask htop vtop
 
 brew install unrar wget tree
 brew install fd fzf the_silver_searcher ripgrep
@@ -42,7 +42,7 @@ echo "\\n\\n === Neovim ==="
 brew install neovim # NeoVim
 
 # dev utils
-brew install httpie jq
+brew install httpie jq jo dasel fx rq
 brew cask install qlstephen # open everything as plaintext without warning
 brew cask install quicklook-csv
 brew cask install quicklook-json
@@ -62,7 +62,8 @@ npm install -g n
 brew install jesseduffield/lazynpm/lazynpm
 
 echo "\\n\\n=== Installing NPM packages ==="
-npm install -g typescript csvtojson diff-so-fancy
+npm install -g typescript
+npm install -g vtop csvtojson diff-so-fancy
 
 echo "\\n\\n=== Installing editors: Sublime-Text, VS Code ==="
 brew cask install sublime-text3
