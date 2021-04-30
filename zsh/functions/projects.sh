@@ -14,7 +14,7 @@ run() {
     elif [ -f package.json ]; then # Node project
         cat package.json | jq '.scripts | to_entries | .[] | " \(.key) -> \(.value) "' | fzf | awk '{print $2}' | xargs npm run
 
-    elif [ -f $(ls | grep -E ".*\.sln$|.*\.csproj$") ]; then # .Net project
+    elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
         dotnet watch run
 
     else
