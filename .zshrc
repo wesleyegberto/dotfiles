@@ -119,6 +119,7 @@ source "$DOTFILES/zsh/functions/projects.sh"
 source "$DOTFILES/zsh/functions/springboot_helpers.sh"
 source "$DOTFILES/zsh/functions/traffic_generator.sh"
 source "$DOTFILES/zsh/functions/aws_helpers.sh"
+source "$DOTFILES/zsh/functions/docker.sh"
 
 export PATH=$PATH:$DOTFILES/zsh/bin
 

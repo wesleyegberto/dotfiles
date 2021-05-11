@@ -42,6 +42,7 @@ echo "\\n\\n === Dev Utils ==="
 brew install git
 
 brew cask install dash
+npm install -g tldr
 
 brew install autojump
 brew install httpie

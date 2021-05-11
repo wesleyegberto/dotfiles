@@ -19,6 +19,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias here='ofd' # Open current dir with finder
 alias count="wc -l"
+alias forgot="tldr"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"

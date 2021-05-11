@@ -97,7 +97,8 @@ snap install spotify
 # apt-get install gnome-session
 
 npm install -g diff-so-fancy
-npm install --global fkill-cli
+npm install -g tldr
+npm install -g fkill-cli
 
 
 echo "\\n\\n=== Installing langs tools ==="
