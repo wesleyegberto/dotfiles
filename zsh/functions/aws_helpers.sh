@@ -20,39 +20,12 @@ awsFindLogStream() {
         jq '.logStreams[] | {logStreamName: .logStreamName, creationTime: (.creationTime / 1000 | todate), firstEventTimestamp: (.firstEventTimestamp / 1000 | todate), arn: .arn}'
 }
 
-awsStreamLog() {
-    aws logs get-log-events --log-group-name "/aws/lambda/$1" --log-stream-name "$2"
-}
-
 awsLogStreamFzf() {
     aws logs describe-log-streams --log-group-name "$1" \
         | jq '.logStreams[] | "\(.creationTime / 1000 | todate) -> \(.firstEventTimestamp / 1000 | todate) - \(.logStreamName) - \(.storedBytes) bytes"' \
         | sort -r \
         | fzf \
         | awk '{print $5}'
-}
-
-awsFzfLog() {
-    local groupName
-    local logStream
-    local logs
-    groupName=$(awsFindGroupName "$1" | sed 's|"||g')
-    if [ -z "$groupName" ]; then
-        echo "Log group not found"
-        return
-    fi
-    echo "logGroup: $groupName"
-
-    logStream=$(awsLogStreamFzf "$groupName")
-    if [ -z "$logStream" ]; then
-        echo "Log stream not found"
-        return
-    fi
-
-    logs=$(aws logs get-log-events --log-group-name "$groupName" --log-stream-name "$logStream" \
-        | jq '.events[].message' \
-        | sed 's/"//g')
-    echo -e "$logs"
 }
 
 awsLambdaLog() {
@@ -66,10 +39,11 @@ awsLambdaLog() {
         echo "Log stream not found"
         return
     fi
+    echo "logStream: $logStream"
 
     logs=$(aws logs get-log-events --log-group-name "$groupName" --log-stream-name "$logStream" \
         | jq '.events[].message' \
-        | sed 's/"//g')
+        | sed 's/^"//g;s/"$//g')
     echo -e "$logs"
 }
 
@@ -81,7 +55,7 @@ awsLambdaEventOff() {
     local lambdaName
     local eventUuid
     lambdaName=$1
-    eventUuid=$(aws lambda list-event-source-mappings --function-name "$lambdaName" | jq '.EventSourceMappings[].UUID' | sed 's/"//g')
+    eventUuid=$(aws lambda list-event-source-mappings --function-name "$lambdaName" | jq '.EventSourceMappings[].UUID' | sed 's/^"//g;s/"$//g')
     echo "Lambda $lambdaName - Disabling $eventUuid"
     aws lambda update-event-source-mapping --function-name "$lambdaName" --uuid "$eventUuid" --no-enabled
 }
@@ -90,7 +64,7 @@ awsLambdaEventOn() {
     local lambdaName
     local eventUuid
     lambdaName=$1
-    eventUuid=$(aws lambda list-event-source-mappings --function-name "$lambdaName" | jq '.EventSourceMappings[].UUID' | sed 's/"//g')
+    eventUuid=$(aws lambda list-event-source-mappings --function-name "$lambdaName" | jq '.EventSourceMappings[].UUID' | sed 's/^"//g;s/"$//g')
     echo "Lambda $lambdaName - Enabling $eventUuid"
     aws lambda update-event-source-mapping --function-name "$lambdaName" --uuid "$eventUuid" --enabled
 }
@@ -109,7 +83,14 @@ awsSqsGetMsg() {
 
 awsSqsReadMsg() {
     local queueUrl
-    queueUrl=$(aws sqs list-queues | jq '.QueueUrls[]' | fzf -q "$1" | sed 's/"//g')
+    queueUrl=$(aws sqs list-queues | jq '.QueueUrls[]' | fzf -q "$1" | sed 's/^"//g;s/"$//g')
     echo "Reading $queueUrl"
     awsSqsGetMsg "$queueUrl"
+}
+
+awsSqsSendMsg() {
+    local queueUrl
+    queueUrl=$(aws sqs list-queues | jq '.QueueUrls[]' | fzf -q "$2" | sed 's/^"//g;s/"$//g')
+    echo "Sending '$1' to $queueUrl"
+    aws sqs send-message --queue-url "$queueUrl" --message-body "'$1'" | jq
 }

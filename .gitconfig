@@ -3,7 +3,7 @@
 [github]
     user = wesleyegberto
 [core]
-	editor = vim
+    editor = vim
     excludesfile = '~/.gitignore_global'
 [alias]
     co = checkout
@@ -67,8 +67,27 @@
     # set up 'git pull' to rebase instead of merge
     autosetuprebase = always
 [color]
-  ui = auto
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+    ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

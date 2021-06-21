@@ -55,8 +55,8 @@ autocmd!
     autocmd FileType cs nnoremap <buffer> <Leader>clc :OmniSharpGlobalCodeCheck<CR>
 
     " Start the omnisharp server for the current solution
-    autocmd FileType cs nnoremap <Leader>cls :OmniSharpStartServer<CR>
-    autocmd FileType cs nnoremap <Leader>clr :OmniSharpRestartServer<CR>
-    autocmd FileType cs nnoremap <Leader>clp :OmniSharpStopServer<CR>
+    autocmd FileType cs nnoremap <Leader>clss :OmniSharpStartServer<CR>
+    autocmd FileType cs nnoremap <Leader>clsr :OmniSharpRestartServer<CR>
+    autocmd FileType cs nnoremap <Leader>clsp :OmniSharpStopServer<CR>
 
 augroup END
