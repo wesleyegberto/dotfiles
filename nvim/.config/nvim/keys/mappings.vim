@@ -2,10 +2,7 @@
 " # General mappings
 " #########################################################
 
-let g:mapleader = " "            " leader key to \
-
-" nmap <space> \                  " space to \
-" xmap <space> \                  " space to \
+let g:mapleader = " "            " leader key
 
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a

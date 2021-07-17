@@ -22,16 +22,3 @@ hi Floaterm guibg=black
 hi FloatermBorder guibg=none guifg=cyan
 
 
-let g:which_key_map.t = {
-  \ 'name' : '+terminal' ,
-  \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
-  \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-  \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-  \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
-  \ 'j' : [':FloatermNew java'                              , 'jshell'],
-  \ 'h' : [':FloatermNew htop'                              , 'htop'],
-  \ 'n' : [':FloatermNew node'                              , 'node'],
-  \ 'N' : [':FloatermNew lazynpm'                           , 'npm'],
-  \ 'p' : [':FloatermNew python'                            , 'python'],
-  \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-  \ }

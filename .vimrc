@@ -63,8 +63,6 @@ call vundle#begin()
     Plugin 'junegunn/fzf', { 'do': './install --bin' }
     Plugin 'junegunn/fzf.vim'
 
-    Plugin 'machakann/vim-highlightedyank'
-
     " Show git stuff and info at line
     Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
@@ -312,14 +310,11 @@ source $HOME/.config/nvim/plug-config/fzf.vim
 " }}}
 
 
-" === machakann/vim-highlightedyank === {{{
-let g:highlightedyank_highlight_duration = 1000              " Highlight the content copied
-" }}}
-
-
-" === jiangmiao/auto-pairs === {{{
-" let g:AutoPairsMultilineClose = 0
-" let g:AutoPairsMapSpace = 0                                " disable extra space between {}, (), [] when pressing <space>
+" ===  builtin highlight yanked content === {{{
+:augroup textyankpost
+  autocmd!
+  autocmd au TextYankPost * lua vim.highlight.on_yank {on_visual = false}
+:augroup END
 " }}}
 
 
