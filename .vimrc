@@ -96,7 +96,6 @@ call vundle#begin()
     " intellisense
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     Plugin 'antoinemadec/coc-fzf', {'branch': 'release'}
-    " Plugin 'vim-syntastic/syntastic'
 
     Plugin 'sheerun/vim-polyglot'
 

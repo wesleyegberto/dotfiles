@@ -99,6 +99,7 @@ NeoVim Plugins:
 
 * Plugin management:
   * [Vundle](https://github.com/VundleVim/Vundle.vim)
+  * [Paq for Neovim 0.5+](https://github.com/savq/paq-nvim)
 * Theme:
   * [Dracula](https://github.com/dracula/vim)
   * [Material](https://github.com/kaicataldo/material.vim)
@@ -112,10 +113,10 @@ NeoVim Plugins:
 * Search (files, buffers, tabs, tags, marks):
   * [FZF](https://github.com/junegunn/fzf)
   * [FZF-Vim](https://github.com/junegunn/fzf.vim)
+  * Neovim 0.5+
+    * [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 * Visualization:
   * [spaceline.vim](https://github.com/glepnir/spaceline.vim)
-  * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
-  * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
   * [vim-rainbow](https://github.com/frazrepo/vim-rainbow)
   * Git:
     * [vim-fugitive](https://github.com/tpope/vim-fugitive)
@@ -126,10 +127,10 @@ NeoVim Plugins:
 * Editing:
   * [Sublime-like multiple cursor edit](https://github.com/terryma/vim-multiple-cursors)
   * [vim-surround](https://github.com/tpope/vim-surround)
-  * [vim-abolish](https://github.com/tpope/vim-abolish)
   * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
   * [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
   * [vim-commentary](https://github.com/tpope/vim-commentary)
+  * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (Neovim 0.5+)
 * Intellisense
   * [coc-nvim](https://github.com/neoclide/coc.nvim)
     * Coc [Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions) activated:
@@ -140,6 +141,7 @@ NeoVim Plugins:
       * [coc-omnisharp](https://github.com/coc-extensions/coc-omnisharp)
       * [coc-tsserver](https://github.com/neoclide/coc-tsserver)
   * [antoinemadec/coc-fzf](https://github.com/antoinemadec/coc-fzf)
+  * [neovim/nvim-lspconfig](neovim/nvim-lspconfig) (Neovim 0.5+)
 * Snippets
   * [vim-snippets](https://github.com/honza/vim-snippets)
   * [ultisnips](https://github.com/SirVer/ultisnips)
@@ -150,7 +152,7 @@ NeoVim Plugins:
   * [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * Misc:
   * [vim-startify](https://github.com/mhinz/vim-startify)
-  * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
+  * [Which-Key for Neovim 0.5+](https://github.com/liuchengxu/folke/which-key.nvim)
   * [vim-floaterm](https://github.com/voldikss/vim-floaterm)
   * [vimux](https://github.com/benmills/vimux)
   * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
@@ -172,9 +174,15 @@ Removed:
   * [vim-airline](https://github.com/vim-airline/vim-airline)
   * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
   * [vim-bufferline](https://github.com/bling/vim-bufferline)
+  * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
+  * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
 * Buffer finder: [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
+* Editing:
+  * [vim-abolish](https://github.com/tpope/vim-abolish)
 * Code checker for Java: [Language Client](https://github.com/autozimu/LanguageClient-neovim)
 * Omnisharp-vim default mappings: [vim-sharpenup](https://github.com/nickspoons/vim-sharpenup)
+* Misc:
+  * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
 
 ### VS Code
 
