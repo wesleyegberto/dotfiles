@@ -1,23 +1,27 @@
 -- #########################################################
 -- # Appearance
 -- #########################################################
+vim.cmd('syntax on')
+
+vim.g.gruvbox_italic = 1
+vim.g.gruvbox_contrast_dark = 'hard'
+vim.g.gruvbox_invert_selection = '0'
+
+-- vim.cmd('colorscheme plain')
+vim.o.background = 'dark'
+vim.cmd('colorscheme gruvbox')
 
 --- popup colors
 vim.cmd('hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White')
 vim.cmd('hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black')
 vim.cmd('hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White')
 
-vim.cmd('syntax on')
-
--- vim.cmd('colorscheme plain')
-vim.o.background = 'dark'
-
 
 -- #########################################################
 -- # General settings
 -- #########################################################
 
-vim.o.t_Co = '256'                                           -- explicitly tell vim that the terminal supports 256 colors
+-- vim.o.t_Co = '256'                                           -- explicitly tell vim that the terminal supports 256 colors
 vim.o.ttyfast = true                                         -- faster redrawing
 
 vim.o.encoding = 'utf-8'
@@ -27,7 +31,7 @@ vim.o.hidden = true                                          -- to allow switch 
 
 vim.o.cmdheight=2                                            -- better display for messages
 
-vim.o.clipboard = vim.o.clipboard .. 'unnamed'
+-- vim.o.clipboard = vim.o.clipboard .. 'unnamed'
 vim.o.mouse = 'a'                                            -- enable mouse if possible
 
 vim.o.ls = 2                                                 -- always show status bar
@@ -65,7 +69,7 @@ vim.wo.foldnestmax = 10                                      -- deepest fold is 
 
 -- Toggle invisible characters
 vim.wo.list = true
-vim.o.listchars = 'tab:→\\ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.'
+vim.o.listchars = [[tab:→ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.]]
 vim.o.showbreak = '↪'
 
 -- Autocomplete menu
@@ -87,3 +91,4 @@ vim.o.shortmess = vim.o.shortmess .. 'c'                     -- don't give |ins-
 vim.o.signcolumn = 'yes'                                     -- always show signcolumns
 
 vim.cmd('filetype plugin indent on')
+

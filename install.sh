@@ -21,14 +21,20 @@ echo "Copying .tmux.conf"
 ln -s $DOTFILES/.tmux.conf ~/.tmux.conf
 
 echo "Copying .vimrc"
-[ -f ~/.vimrc ] && cp ~/.vimrc ~/.vimrc_backup
-[ -f ~/.config/nvim/init.vim ] && cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim_backup
-ln -s $DOTFILES/nvim/.config/nvim/keys ~/.config/nvim/keys
+[ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc_backup
+[ -f ~/.config/nvim/init.vim ] && mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim_backup
+
 ln -s $DOTFILES/nvim/.config/nvim/ftplugin ~/.config/nvim/ftplugin
+# Neovim without Lua
+ln -s $DOTFILES/nvim/.config/nvim/keys ~/.config/nvim/keys
 ln -s $DOTFILES/nvim/.config/nvim/plug-config ~/.config/nvim/plug-config
 ln -s $DOTFILES/nvim/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -s $DOTFILES/.vimrc ~/.vimrc
 ln -s $DOTFILES/.vimrc ~/.config/nvim/init.vim
+
+# Neovim configured with Lua
+ln -s $DOTFILES/nvim/.config/nvim/lua ~/.config/nvim/lua
+ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
 
 echo "Cloning Vundle.vim"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

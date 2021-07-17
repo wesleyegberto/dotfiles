@@ -13,4 +13,9 @@ function M.create_augroup(name, autocmds)
     cmd('augroup END')
 end
 
+function M.dump(...)
+    local objects = vim.tbl_map(vim.inspect, {...})
+    print(unpack(objects))
+end
+
 return M

@@ -92,3 +92,25 @@ map('c', '<C-e>', '<End>', options)
 --   map('n', '<M-H>', ':vertical resize -5<CR>', silentOptions)
 --   map('n', '<M-L>', ':vertical resize +5<CR>', silentOptions)
 -- endif
+
+
+
+-- #########################################################
+-- # Plugins configuration
+-- #########################################################
+
+-- === tpope/vim-commentary === {{{
+map('n', '<Leader>C', ':Commentary<CR>', options)
+map('v', '<Leader>C', ':Commentary<CR>', options)
+-- }}}
+
+
+-- === tpope/vim-unimpaired === {{{
+map('n', '<M-Up>', '<Plug>unimpairedMoveUp', options)
+map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
+-- }}}
+
+
+-- === junegunn/fzf === {{{
+map('n', '<C-p>', ':FZF<CR>', silentOptions)
+-- }}}

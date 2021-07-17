@@ -210,4 +210,5 @@ Here are my configs:
 * [iTerm Colorschemes](https://iterm2colorschemes.com/)
 * [macOS setup inspiration](https://github.com/mathiasbynens/dotfiles)
 * Tutorials:
+  * [Configure Neovim using Lua](https://icyphox.sh/blog/nvim-lua/)
   * [Write init.lua](https://oroques.dev/notes/neovim-init/)

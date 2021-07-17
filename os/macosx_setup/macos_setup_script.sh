@@ -36,6 +36,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc
 brew install tmux # Tmux
 
 echo "\\n\\n === Neovim ==="
+brew install --HEAD luajit
 brew install neovim # NeoVim
 
 echo "\\n\\n === Dev Utils ==="
@@ -94,6 +95,9 @@ echo "\\n\\n=== Installing coc-vim ==="
 mkdir -p ~/.local/share/nvim/site/pack/coc/start
 cd ~/.local/share/nvim/site/pack/coc/start
 curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
+
+# Neovim with Lua
+git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
 
 # Install extensions
 mkdir -p ~/.config/coc/extensions
