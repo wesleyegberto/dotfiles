@@ -27,9 +27,6 @@ brew install fd fzf the_silver_searcher ripgrep
 
 brew cask install alfred
 
-brew install git
-brew install lazygit
-
 echo "\\n\\n === iTerm2 & Oh-My-Zsh & Tmux ==="
 brew cask install iterm2
 
@@ -41,29 +38,40 @@ brew install tmux # Tmux
 echo "\\n\\n === Neovim ==="
 brew install neovim # NeoVim
 
-# dev utils
-brew install httpie jq jo dasel fx rq
-brew cask install qlstephen # open everything as plaintext without warning
-brew cask install quicklook-csv
-brew cask install quicklook-json
-brew cask install qlmarkdown
-brew cask install webpquicklook
-brew cask install qlimagesize
+echo "\\n\\n === Dev Utils ==="
+brew install git
+brew install git-delta # git diff
 
 brew cask install dash
+npm install -g tldr
+
+brew install autojump
+brew install httpie
+brew cask install quicklook-json jq jo fx rq # JSON tools
+brew cask install quicklook-csv xsv # CSV tools
+brew cask install dasel # update JSON, YAML, TOML, XML, CSV files
+brew cask install qlstephen # open everything as plaintext without warning
+brew cask install qlmarkdown webpquicklook qlimagesize
+brew install choose-rust # to use instead of `awk '{print $1}` -> `choose 0`
+brew install sd # to use instead of `sed s/before/after/g` -> `sd 'before' 'after'`
+brew install procs # modern `ps`
+brew install bench
+
 brew cask install docker-toolbox
+brew install lazygit
 brew install lazydocker
+brew install jesseduffield/lazynpm/lazynpm
 
 echo "\\n\\n=== Installing langs tools ==="
 brew install shellcheck
 brew install node
 brew install jenv
 npm install -g n
-brew install jesseduffield/lazynpm/lazynpm
 
 echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript
-npm install -g vtop csvtojson diff-so-fancy
+npm install -g gtop vtop csvtojson # diff-so-fancy removed to use `delta`
+npm install --global fkill-cli
 
 echo "\\n\\n=== Installing editors: Sublime-Text, VS Code ==="
 brew cask install sublime-text3

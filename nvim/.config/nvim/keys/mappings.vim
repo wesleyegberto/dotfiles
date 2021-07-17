@@ -2,7 +2,7 @@
 " # General mappings
 " #########################################################
 
-let g:mapleader = "\\"            " leader key to \
+let g:mapleader = " "            " leader key to \
 
 " nmap <space> \                  " space to \
 " xmap <space> \                  " space to \

@@ -65,7 +65,7 @@ apt-get install neovim # NeoVim
 
 # Install HTTPie
 apt-get install httpie
-apt-get install jo
+apt-get install jo # JSON tools
 
 # apt-get install unity-tweak-tool
 # apt-get install ubuntu-tweak
@@ -96,18 +96,9 @@ snap install spotify
 
 # apt-get install gnome-session
 
-# snap install gitkraken
-# snap install minikube
-# snap install helm
-# snap install gitter-desktop
-# snap install winds
-# snap install insomnia
-# snap install telegram-desktop
-# snap install quake-shareware
-# snap install corsixth
-# snap install tmnationsforever
-
-# npm install -g diff-so-fancy
+npm install -g diff-so-fancy
+npm install -g tldr
+npm install -g fkill-cli
 
 
 echo "\\n\\n=== Installing langs tools ==="

@@ -123,15 +123,15 @@ autocmd!
 
     " Remap for do codeAction of selected region, ex: `<Leader>camap` for current paragraph
     function! s:cocActionsOpenFromSelected(type) abort
-      execute 'CocCommand actions.open ' . a:type
+      execute 'CocAction ' . a:type
     endfunction
 
 
     " === Code actions ===
     " Remap for do codeAction of current line
-    nnoremap <Leader>cal 0v$:CocCommand actions.open<CR>
+    nnoremap <Leader>cal 0v$:CocAction<CR>
     " code action for the selected content
-    xnoremap <Leader>cas :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    xnoremap <Leader>cas :<C-u>execute 'CocAction ' . visualmode()<CR>
     " code action with motion
     nnoremap <Leader>cam :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
@@ -195,15 +195,15 @@ autocmd!
 
     let g:coc_fzf_opts = ['--layout=reverse', '--info=inline']
 
-    nnoremap <silent> <space>a       :<C-u>CocFzfList actions<CR>
-    nnoremap <silent> <space>g       :<C-u>CocFzfList diagnostics<CR>
-    nnoremap <silent> <space>G       :<C-u>CocFzfList diagnostics --current-buf<CR>
-    nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
-    nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-    nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
-    nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-    nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
-    nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+    nnoremap <silent> <Leader>la       :<C-u>CocFzfList actions<CR>
+    nnoremap <silent> <Leader>lg       :<C-u>CocFzfList diagnostics<CR>
+    nnoremap <silent> <Leader>lG       :<C-u>CocFzfList diagnostics --current-buf<CR>
+    nnoremap <silent> <Leader>lc       :<C-u>CocFzfList commands<CR>
+    nnoremap <silent> <Leader>le       :<C-u>CocFzfList extensions<CR>
+    nnoremap <silent> <Leader>ll       :<C-u>CocFzfList location<CR>
+    nnoremap <silent> <Leader>lo       :<C-u>CocFzfList outline<CR>
+    nnoremap <silent> <Leader>ls       :<C-u>CocFzfList symbols<CR>
+    nnoremap <silent> <Leader>lp       :<C-u>CocFzfListResume<CR>
 
     " }}}
 
