@@ -49,7 +49,7 @@ alias gl="git pull"
 alias glr="git pull --rebase"
 alias gsp='git pull --rebase --autostash' # Git stash, pull and apply stash
 alias gp="git push"
-alias gdf="g dff"
+alias gdf="g d"
 
 
 # Utiltiy Aliases

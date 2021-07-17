@@ -123,15 +123,15 @@ autocmd!
 
     " Remap for do codeAction of selected region, ex: `<Leader>camap` for current paragraph
     function! s:cocActionsOpenFromSelected(type) abort
-      execute 'CocCommand actions.open ' . a:type
+      execute 'CocAction ' . a:type
     endfunction
 
 
     " === Code actions ===
     " Remap for do codeAction of current line
-    nnoremap <Leader>cal 0v$:CocCommand actions.open<CR>
+    nnoremap <Leader>cal 0v$:CocAction<CR>
     " code action for the selected content
-    xnoremap <Leader>cas :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    xnoremap <Leader>cas :<C-u>execute 'CocAction ' . visualmode()<CR>
     " code action with motion
     nnoremap <Leader>cam :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 

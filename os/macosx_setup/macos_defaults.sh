@@ -112,9 +112,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 echo "Disabling file extension editing warning"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-echo "Column view by default"
+echo "List view by default"
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`, `Nlsv`
-defaults write com.apple.Finder FXPreferredViewStyle clmv
+defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 echo "Keeping folders on top of file views"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
