@@ -113,17 +113,19 @@ let g:which_key_map.f = {
 " === fvoldikss/vim-floatermloatterm === {{{
 
 let g:which_key_map.t = {
-  \ 'name' : '+terminal',
-  \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
+  \ 'name' : '+terminal' ,
+  \ ';' : [':FloatermNew --wintype=popup --height=10'       , 'terminal'],
+  \ 't' : [':FloatermToggle'                                , 'toggle'],
   \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
   \ 'g' : [':FloatermNew lazygit'                           , 'git'],
   \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
   \ 'j' : [':FloatermNew java'                              , 'jshell'],
   \ 'n' : [':FloatermNew node'                              , 'node'],
+  \ 'N' : [':FloatermNew lazynpm'                           , 'lazynpm'],
   \ 'p' : [':FloatermNew python'                            , 'python'],
-  \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-  \ 't' : [':FloatermToggle'                                , 'toggle'],
+  \ 'h' : [':FloatermNew htop'                              , 'htop'],
   \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
+  \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
   \ }
 
 " }}}

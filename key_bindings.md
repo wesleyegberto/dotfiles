@@ -226,6 +226,7 @@ L                " mapped to $
 ]}               " go to enclosing }
 [(               " go to enclosing (
 ])               " go to enclosing )
+```
 
 ##### Navigation in Insert and Command Mode
 
