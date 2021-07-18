@@ -71,11 +71,25 @@ Copy the content of file `.tmux.conf` to `~/.tmux.conf`.
 Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Installing-Neovim):
 `brew install neovim`
 
-Install de Vim plugin manager: `git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim`.
+**Neovim 0.4**
+
+Install Vim plugin manager:
+
+`git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim`.
 
 Copy the content of file `.vimrc` to `~/.config/nvim/init.vim`.
 
 Then install the plugins by running: `vim +PluginInstall +qall`.
+
+**Neovim 0.5+ with Lua**
+
+Install Paq plugin manager:
+
+`git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim`
+
+Copy the content of file `init.lua` to `~/.config/nvim/init.lua`.
+
+Then install the plugins by running: `vim +PaqInstall +qall`.
 
 ##### Dependencies
 

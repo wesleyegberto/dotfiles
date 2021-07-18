@@ -96,7 +96,7 @@ mkdir -p ~/.local/share/nvim/site/pack/coc/start
 cd ~/.local/share/nvim/site/pack/coc/start
 curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
 
-# Neovim with Lua
+# Neovim 0.5+
 git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
 
 # Install extensions

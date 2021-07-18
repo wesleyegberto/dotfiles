@@ -66,6 +66,13 @@ paq {'voldikss/vim-floaterm'}
 
 paq {'mhinz/vim-startify'}
 
+-- lsp
+-- paq {'mfussenegger/nvim-jdtls'} -- java
+paq {'OmniSharp/omnisharp-vim'} -- csharp
+
+paq {'neovim/nvim-lspconfig'}
+paq {'kabouzeid/nvim-lspinstall'}
+
 -- colorscheme
 paq {'morhetz/gruvbox'}
 paq {'ryanoasis/vim-devicons'}
@@ -87,7 +94,6 @@ require('plugins/floaterm')
 require('plugins/whichkey')
 require('plugins/startify')
 require('plugins/lsp')
-
 
 
 -- #########################################################
