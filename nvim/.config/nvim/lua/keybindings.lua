@@ -114,3 +114,11 @@ map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
 -- === junegunn/fzf === {{{
 map('n', '<C-p>', ':FZF<CR>', silentOptions)
 -- }}}
+
+
+-- === kyazdani42/nvim-tree.lua === {{{
+map('n', '<Leader>e', ':NvimTreeToggle<CR>', silentOptions)
+-- }}}
+
+
+

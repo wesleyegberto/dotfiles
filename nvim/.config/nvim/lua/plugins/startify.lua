@@ -32,4 +32,6 @@ vim.g.startify_commands = {
   { up = { 'Update Plugins' , ':PaqUpdate' } },
   { cl = { 'Clean Plugins'  , ':PaqClean' } },
 }
+
 vim.cmd('autocmd User Startified setlocal cursorline')
+

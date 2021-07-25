@@ -21,6 +21,8 @@ vim.cmd('hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White')
 -- # General settings
 -- #########################################################
 
+vim.cmd('set termguicolors')
+
 -- vim.o.t_Co = '256'                                           -- explicitly tell vim that the terminal supports 256 colors
 vim.o.ttyfast = true                                         -- faster redrawing
 
@@ -31,6 +33,7 @@ vim.o.hidden = true                                          -- to allow switch 
 
 vim.o.cmdheight=2                                            -- better display for messages
 
+vim.cmd('set clipboard+=unnamed')
 -- vim.o.clipboard = vim.o.clipboard .. 'unnamed'
 vim.o.mouse = 'a'                                            -- enable mouse if possible
 

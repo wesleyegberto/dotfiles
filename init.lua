@@ -61,6 +61,7 @@ paq {'ojroques/nvim-lspfuzzy'}
 paq {'nvim-lua/popup.nvim'}
 paq {'nvim-lua/plenary.nvim'}
 paq {'nvim-telescope/telescope.nvim'}
+paq {'nvim-telescope/telescope-frecency.nvim'}
 
 paq {'voldikss/vim-floaterm'}
 
@@ -77,6 +78,9 @@ paq {'kabouzeid/nvim-lspinstall'}
 paq {'morhetz/gruvbox'}
 paq {'ryanoasis/vim-devicons'}
 
+paq {'kyazdani42/nvim-web-devicons'}
+paq {'kyazdani42/nvim-tree.lua'}
+
 
 -- #########################################################
 -- # General settings
@@ -90,6 +94,7 @@ require('keybindings')
 -- # Plugins configuration
 -- #########################################################
 
+require('plugins/nvim-tree')
 require('plugins/floaterm')
 require('plugins/whichkey')
 require('plugins/startify')
@@ -97,7 +102,7 @@ require('plugins/lsp')
 
 
 -- #########################################################
--- # Plugins configuration
+-- # Custom configuration
 -- #########################################################
 
 -- builtin highlight yanked content
