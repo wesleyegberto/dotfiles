@@ -104,11 +104,13 @@ wk.register({
 wk.register({
   f = {
     name = 'Telescope',
-    ['f'] = { ':Telescope find_files<CR>', 'Find file' },
-    ['b'] = { ':Telescope buffers<CR>'   , 'Find buffers' },
-    ['r'] = { ':Telescope live_grep<CR>' , 'Find ripgrep' },
-    ['m'] = { ':Telescope marks<CR>'     , 'Find marks' },
-    ['t'] = { ':Telescope help_tags<CR>' , 'Find tags' }
+    ['f'] = { ':Telescope find_files<CR>'                 , 'Find file' },
+    ['b'] = { ':Telescope buffers<CR>'                    , 'Find buffers' },
+    ['r'] = { ':Telescope live_grep<CR>'                  , 'Find ripgrep' },
+    ['m'] = { ':Telescope marks<CR>'                      , 'Find marks' },
+    ['t'] = { ':Telescope tags<CR>'                       , 'Find tags' },
+    ['h'] = { ':Telescope help_tags<CR>'                  , 'Find help' },
+    ['S'] = { ':Telescope session-lens search_session<CR>', 'Find sessions' }
   },
 }, { prefix = "<leader>" })
 

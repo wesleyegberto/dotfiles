@@ -4,14 +4,17 @@
 
 let g:mapleader = " "            " leader key
 
+" save buffer
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
 vmap <C-s> <Esc>:w<CR>
 
-imap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
+inoremap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
 
-nnoremap <silent> <Leader>wfv <C-w>t<C-w>H   " flip vertical split to vertical
-nnoremap <silent> <Leader>wfh <C-w>t<C-w>K   " flip horizontal split to horizontal
+nmap <Leader><Esc> :nohlsearch<CR>
+
+nnoremap <silent> <Leader>wfv <C-w>t<C-w>H   " change vertical split to horizontal
+nnoremap <silent> <Leader>wfh <C-w>t<C-w>K   " change horizontal split to vertical
 
 " tabs and buffers navigation
 nnoremap gb :bnext<CR>
@@ -34,8 +37,30 @@ nnoremap H ^
 " move to the end of line
 nnoremap L $
 
+nnoremap Y y$
+
 " redo
 nnoremap U <C-r>
+
+" when searching next/previous word, put it on center and unfold if needed
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" when joining lines, keep the cursor in location before the join
+nnoremap J mzJ`z
+
+" register with C-g to allow undo break points (instead of whole thing)
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+inoremap { {<C-g>u
+inoremap } }<C-g>u
+inoremap ( (<C-g>u
+inoremap ) )<C-g>u
+
+" insert lines jumps to jumplist (to be accessed with C-o)
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " insert mode shortcut
 inoremap <C-h> <Left>

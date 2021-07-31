@@ -11,6 +11,7 @@ vim.g.mapleader = ' '
 options = { noremap = true }
 silentOptions = { noremap = true, silent=true }
 
+-- save buffer
 map('n', '<C-s>', ':w<CR>', options)
 map('i', '<C-s>', '<Esc>:w<CR>a', options)
 map('v', '<C-s>', '<Esc>:w<CR>', options)
@@ -19,9 +20,11 @@ map('i', 'jj', '<Esc>', options)
 
 map('n', '<Leader><Esc>', ':nohlsearch<CR>', options)
 
-map('n', '<Leader>wfv', '<C-w>t<C-w>H', silentOptions) -- flip vertical split to vertical
-map('n', '<Leader>wfh', '<C-w>t<C-w>K', silentOptions) -- flip horizontal split to horizontal
+-- flip
+map('n', '<Leader>wfv', '<C-w>t<C-w>H', silentOptions) -- change vertical split to horizontal
+map('n', '<Leader>wfh', '<C-w>t<C-w>K', silentOptions) -- change horizontal split to vertical
 
+-- buffers navigation
 map('n', 'gb', ':bnext<CR>', options)
 map('n', 'gB', ':bprev<CR>', options)
 map('n', '<M-Right>', ':bn<CR>', silentOptions)
@@ -33,7 +36,6 @@ map('n', '<Leader>bl', ':blast<CR>', silentOptions)
 map('n', '<Leader>bd', ':bd<CR>', silentOptions)
 map('n', '<Leader>bk', ':bw<CR>', silentOptions)
 
-
 -- to allow navigate a line above and bellow correctly when word wrapping
 map('n', 'k', 'gk', options)
 map('n', 'j', 'gj', options)
@@ -43,10 +45,32 @@ map('n', 'H', '^', options)
 -- move to the end of line
 map('n', 'L', '$', options)
 
+map('n', 'Y', 'y$', options)
+
 -- redo
 map('n', 'U', '<C-r>', options)
 
--- insert mode shortcut
+-- when searching next/previous word, put it on center and unfold if needed
+map('n', 'n', 'nzzzv', silentOptions)
+map('n', 'N', 'Nzzzv', silentOptions)
+-- when joining lines, keep the cursor in location before the join
+map('n', 'J', 'mzJ`z', silentOptions)
+
+-- register with C-g to allow undo break points (instead of whole thing)
+map('i', ',', ',<C-g>u', options)
+map('i', '.', '.<C-g>u', options)
+map('i', '!', '!<C-g>u', options)
+map('i', '?', '?<C-g>u', options)
+map('i', '{', '{<C-g>u', options)
+map('i', '}', '}<C-g>u', options)
+map('i', '(', '(<C-g>u', options)
+map('i', ')', ')<C-g>u', options)
+
+-- insert lines jumps to jumplist (to be accessed with C-o)
+map('n', '<expr> j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options)
+map('n', '<expr> k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', options)
+
+-- insert mode shortcut to move the cursor
 map('i', '<C-h>', '<Left>', options)
 map('i', '<C-j>', '<Down>', options)
 map('i', '<C-k>', '<Up>', options)
@@ -112,7 +136,7 @@ map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
 
 
 -- === junegunn/fzf === {{{
-map('n', '<C-p>', ':FZF<CR>', silentOptions)
+map('n', '<C-p>', ':Telescope find_files<CR>', silentOptions)
 -- }}}
 
 
