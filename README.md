@@ -24,14 +24,14 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 
 ## My Setup
 
-* Bash: I'm using iTerm2 + Oh-My-Zsh + Tmux.
+* Bash: I'm using Kitty + Oh-My-Zsh + Tmux.
 * Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
 * Windows manager: [Amethyst](https://ianyh.com/amethyst/).
 
-Aliases & Key bindings:
+Aliases & Key mappings:
 
 * [Terminal aliases](./aliases.md)
-* [NeoVim](./key_bindings.md)
+* [Key mappings](./key_mappings.md)
 
 ## Instructions
 
@@ -177,27 +177,6 @@ To be tested:
 * Python Jedi tool: [jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Dashboard-nvim: [hardcoreplayers/dashboard-nvim](https://github.com/hardcoreplayers/dashboard-nvim)
 
-Removed:
-
-* File explorer (using coc-explorer):
-  * [nerdtree](https://github.com/scrooloose/nerdtree)
-  * [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
-  * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
-  * [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
-* Visualization:
-  * [vim-airline](https://github.com/vim-airline/vim-airline)
-  * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-  * [vim-bufferline](https://github.com/bling/vim-bufferline)
-  * [vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle)
-  * [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank)
-* Buffer finder: [vim-buffergator](https://github.com/jeetsukumaran/vim-buffergator)
-* Editing:
-  * [vim-abolish](https://github.com/tpope/vim-abolish)
-* Code checker for Java: [Language Client](https://github.com/autozimu/LanguageClient-neovim)
-* Omnisharp-vim default mappings: [vim-sharpenup](https://github.com/nickspoons/vim-sharpenup)
-* Misc:
-  * [vim-which-key](https://github.com/liuchengxu/vim-which-key)
-
 ### VS Code
 
 I'm using VSCode with Vim extension which has my favorites Vim plugins (like vim-surround, vim-airline).
@@ -214,10 +193,6 @@ Here are my configs:
 
 * [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`).
 * [VSCode Keybindings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-keybindingsmac-json): keybindings to navigate between panes, double `j` on insert mode, go to definition and implementation, so on.
-
-## TODO
-
-[X] Export Eclipse configurations
 
 ## Links
 

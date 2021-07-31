@@ -82,7 +82,7 @@ wk.register({
     ['c'] = { ':Gcommit<CR>'      , 'commit' },
     ['P'] = { ':Gpush<CR>'        , 'push' },
     ['l'] = { ':Glog<CR>'         , 'log' },
-    ['b'] = { ':Git blame<CR>'       , 'blame' },
+    ['b'] = { ':Git blame<CR>'    , 'blame' },
     ['v'] = { ':Gvdiffsplit<CR>'  , 'diff vsplit' },
     ['h'] = { ':Ghdiffsplit<CR>'  , 'diff split' },
   },

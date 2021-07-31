@@ -108,9 +108,3 @@ else
   nnoremap <silent> <M-H> :vertical resize -5<CR>
   nnoremap <silent> <M-L> :vertical resize +5<CR>
 endif
-
-
-" configure whick-key to display after leader key is pressed and not other key is pressed
-set timeoutlen=500
-call which_key#register('\', "g:which_key_map")
-nnoremap <silent> <Leader> :WhichKey '\'<CR>

@@ -28,7 +28,6 @@ autocmd!
     autocmd FileType cs nnoremap <buffer> gr :OmniSharpFindUsages<CR>
 
     autocmd FileType cs nnoremap <buffer> <Leader>cfs :OmniSharpFindSymbol<CR>
-
     " Finds members in the current buffer
     autocmd FileType cs nnoremap <buffer> <Leader>cfm :OmniSharpFindMembers<CR>
 
@@ -50,6 +49,7 @@ autocmd!
     autocmd FileType cs nnoremap <Leader>cal :OmniSharpGetCodeActions<CR>
     " Run code actions with text selected in visual mode to extract method
     autocmd FileType cs xnoremap <Leader>cas :call OmniSharp#GetCodeActions('visual')<CR>
+    autocmd FileType cs vnoremap <Leader>cas :call OmniSharp#GetCodeActions('visual')<CR>
 
     " Find all code errors/warnings for the current solution and populate the quickfix window
     autocmd FileType cs nnoremap <buffer> <Leader>clc :OmniSharpGlobalCodeCheck<CR>

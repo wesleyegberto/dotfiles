@@ -13,7 +13,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export EDITOR="vim"
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
+export TERM="xterm-kitty"
+
 export DOTFILES=$(readlink ~/.dotfiles)
 
 export HISTTIMEFORMAT='%F | %T '

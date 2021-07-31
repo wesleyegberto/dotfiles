@@ -5,7 +5,7 @@ let g:fzf_buffers_jump = 1                                            " [Buffers
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
+  \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 " Enable per-command history.

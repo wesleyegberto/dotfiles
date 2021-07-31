@@ -1,8 +1,39 @@
-# Tmux Key Bindings
+# My Key Mappings
+
+## Kitty
+
+Leader key is `C-a`.
+
+```
+C-S-l             " cycle window layout
+
+<Leader>c           " create new tab
+<Leader>|           " create new window aside
+<Leader>-           " create new window aside
+
+<Leader>shift+.     " move window to right
+<Leader>shift+,     " move window to left
+
+<Leader>x           " close window
+<Leader>d           " close tab
+<Leader>,           " rename tab
+
+<Leader>#           " go to tab #
+
+<Leader>S-j         " resize window
+<Leader>S-k         " resize window
+<Leader>S-h         " resize window
+<Leader>S-l         " resize window
+
+```
+
+## Tmux
+
+Leader key is `C-b`.
 
 Help: `<Leader>?`
 
-## Session
+### Session
 
 ```
 <Leader>$           " rename session
@@ -14,7 +45,7 @@ Help: `<Leader>?`
 <Leader>L           " go to last active session
 ```
 
-## Window
+### Window
 
 ```
 <Leader>c           " create new window
@@ -29,7 +60,7 @@ Help: `<Leader>?`
 <Leader>X           " kill window
 ```
 
-## Panes
+### Panes
 
 ```
 <Leader>|           " split pane vertically
@@ -51,24 +82,24 @@ Help: `<Leader>?`
 <Leader>x           " close current pane
 ```
 
-## Misc
+### Misc
 
 ```
 <Leader>[           " Use VI keys in buffer
 ```
 
-# Vim Key Bindings
+## Vim
+
+Leader key is `<Space>`.
 
 ```
-\st              " Show startify
+<Leader>st              " Show startify
 ```
 
-##### Folder Explorer
+### Folder Explorer
 
 ```
-\e               " toggle coc-explorer
-\E               " show coc-explorer in floating mode
-\ev              " show coc-explorer with .vim folder
+<Leader>e               " toggle explorer
 ```
 
 Item action
@@ -114,7 +145,7 @@ gb               " gotoSource:buffer
 >>               " gitUnstage
 ```
 
-##### Windows and Tabs
+### Windows and Tabs
 
 Windows manipulation:
 ```
@@ -132,8 +163,15 @@ Windows manipulation:
 
 <C-w>#<          " Shrink/resize current window from the right by # (default 1)
 <C-w>#>          " Increase/resize current window to the right by # (default 1)
+
+<C-w>x           " flip windows
 <Leader>wfh      " flip split window from vertical to horizontal
 <Leader>wfv      " flip split window from horizontal to vertical
+
+<C-w>H           " move panel to left
+<C-w>L           " move panel to right
+<C-w>J           " move panel to down
+<C-w>K           " move panel to up
 ```
 
 Navigation between windows:
@@ -158,42 +196,52 @@ gb or ]b         " go to next buffer
 gB or [b         " go to previous buffer
 C-^              " go to last buffer
 
-\bp              " go to next buffer
-\bn              " go to previous buffer
-\bf              " go to first buffer
-\bl              " go to last buffer
-\bd              " delete current buffer
-\bk              " wipeout current buffer (delete with marks and so on)
+<Leader>bp       " go to next buffer
+<Leader>bn       " go to previous buffer
+<Leader>bf       " go to first buffer
+<Leader>bl       " go to last buffer
+<Leader>bd       " delete current buffer
+<Leader>bk       " wipeout current buffer (delete with marks and so on)
 ```
 
-##### Searching
+### Searching
+
+There are two tools to use with the following prefix:
+
+* Telescope: `<Leader>f`
+* FZF: `<Leader>F`
 
 ```
-C-p              " finder using FZF
-\ff              " find file
-\fb              " find buffer
-\fr              " find file with content
-\ft              " find tag
-\fm              " find mark
+C-p              " fuzzy finder with Telescope
+
+<Leader>ff       " find file
+<Leader>fb       " find buffer
+<Leader>fr       " find with ripgrep
+<Leader>ft       " find tag
+<Leader>fm       " find mark
+<Leader>fh       " find help tags
+<Leader>fS       " find sessions
 ```
 
-In FZF result use:
+In result use:
 
 ```
 C-t              " open new tab
-C-s              " open in a horizontal split window
+C-x              " open in a horizontal split window
 C-v              " open in a vertical split window
 ```
+
+Buffer content:
 
 ```
 *                " find current word and jump next occurrence
 #                " jump previous occurrence
-<Space><Space>   " clear searching results
+<Leader><Esc>    " clear searching results
 [i               " show first occurrence of current word
 [I               " show all occurrences of current word
 ```
 
-##### Navigation
+### Navigation
 
 ```
 g;               " go to last edition position
@@ -228,7 +276,7 @@ L                " mapped to $
 ])               " go to enclosing )
 ```
 
-##### Navigation in Insert and Command Mode
+### Navigation in Insert and Command Mode
 
 ```
 <C-h>            " Left
@@ -239,24 +287,23 @@ L                " mapped to $
 <C-e>            " End of the line
 ```
 
-##### Git
+### Git
 
 ```
-\gf              " fetch
-\gp              " pull
-\gr              " rebase
-\gs              " status
-\gm              " modified files
-\gc              " commit
-\gP              " push
-\gl              " log
-\gb              " blame
-\gv              " diff vertical split
-\gh              " diff horizontal split
-
+<Leader>gf       " fetch
+<Leader>gp       " pull
+<Leader>gr       " rebase
+<Leader>gs       " status
+<Leader>gm       " modified files
+<Leader>gc       " commit
+<Leader>gP       " push
+<Leader>gl       " log
+<Leader>gb       " blame
+<Leader>gv       " diff vertical split
+<Leader>gh       " diff horizontal split
 ```
 
-##### terryma/vim-multiple-cursors
+### terryma/vim-multiple-cursors
 
 ```
 <M-n>            " start multicursor and directly select all matches
@@ -272,14 +319,14 @@ After `<C-n>`:
 ```
 
 
-##### Git changes navigation
+### Git changes navigation
 
 ```
 [c               " go to previous git change
 ]c               " go to next git change
 ```
 
-##### Diagnostic navigation
+### Diagnostic navigation
 
 ```
 [g               " navigate to previous diagnostic (coc-vim)
@@ -288,7 +335,7 @@ After `<C-n>`:
 ]l               " navigate to next diagnostic (syntastic)
 ```
 
-##### Vim-Unimpaired
+### Vim-Unimpaired
 
 ```
 [e               " move current line above
@@ -307,12 +354,14 @@ After `<C-n>`:
 ]f               " go to the file succeeding the current one
 ```
 
-##### Vim-Surround
+### Vim-Surround
 
 Using `{`, `(` or `[` will wrap the content with a space between the `{}`, `()` or `[]`.
 Ysing `}`, `]`, `)` will wrap the content with no space.
 Format: `cs<CHAR_TO_REPLACE><CONTENT_REPLACE><cr>`
+
 Examples:
+
 ```
 cs"'             " replace surrounding the " to '
 ds"              " delete surrounding "
@@ -321,61 +370,54 @@ yss}             " wrap the line with {}
 ysiw]            " wrap the current word (iw -> inner word) with ]
 ```
 
-##### Coc-Vim
+### LSP
 
 ```
 <C-Space>        " refresh autocomplete (INSERT MODE)
+
 gd               " go to definition
-gi               " go to implementation
 gD               " peek definition
+gi               " go to implementation
 gI               " peek implementation
-gy               " go to type
+gt               " go to type definition
 gr               " find references
-gh               " show documentation
-\ck              " show documentation
-\cfm             " find members
+
+gh               " hover action
+<Leader>cd       " show line diagnostics
+
+<Leader>ch       " show documentation
+C-\              " show documentation (Insert Mode)
+
+<Leader>cfm      " find members
+<Leader>cfi      " find ingoing calls
+<Leader>cfo      " find outgoing calls
 ```
 
-```
-\cf              " format buffer
-\csf             " format selection
-\crn             " rename var
-```
-
-Actions (after \a we can cursor motion to select a block - like w or p)
+Actions:
 
 ```
-\cqf             " quick fix
-\cal             " action for current line
-\cas             " if we have a selection otherwise we will need to provide a cursor motion to select a block (like: `\cas` -> action for current sentence)
-\cam#            " action for a cursor motion (like: `\cams` -> action for current sentence)
+<Leader>cf       " format buffer (when Visual Mode, format the selecion)
+<Leader>crn      " rename var
+
+<Leader>cqf      " quick fix
+
+<Leader>cal      " action for current line
+<Leader>cas      " action for selected content in Visual Mode
 ```
 
-```
-<space>a            " CocFzfList actions
-<space>g            " CocFzfList diagnostics
-<space>G            " CocFzfList diagnostics --current-buf
-<space>c            " CocFzfList commands
-<space>e            " CocFzfList extensions
-<space>l            " CocFzfList location
-<space>o            " CocFzfList outline
-<space>s            " CocFzfList symbols
-<space>p            " CocFzfListResume
-```
-
-##### Omnisharp.vim
+### Omnisharp.vim
 
 ```
-\clc             " code check
-\cls             " server start
-\clr             " server restart
-\clp             " server stop
+<Leader>clc      " code check
+<Leader>cls      " server start
+<Leader>clr      " server restart
+<Leader>clp      " server stop
 ```
 
-##### Snippets
+### Snippets
 
 ```
-\cfs             " find symbols
+<Leader>cfs      " find symbols
 
 <C-l>            " cut the selected content to use inside a snippet (when used later)
 <C-n>            " next item

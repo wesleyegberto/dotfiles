@@ -8,8 +8,8 @@ local map = vim.api.nvim_set_keymap
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-options = { noremap = true }
-silentOptions = { noremap = true, silent=true }
+local options = { noremap = true }
+local silentOptions = { noremap = true, silent=true }
 
 -- save buffer
 map('n', '<C-s>', ':w<CR>', options)
@@ -67,8 +67,12 @@ map('i', '(', '(<C-g>u', options)
 map('i', ')', ')<C-g>u', options)
 
 -- insert lines jumps to jumplist (to be accessed with C-o)
-map('n', '<expr> j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options)
-map('n', '<expr> k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', options)
+-- map('n', '<expr> j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options)
+-- map('n', '<expr> k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', options)
+vim.cmd([[
+map('n', '<expr> j', '(v:count > 5 ? "m'" . v:count : "") . "j"', options)
+map('n', '<expr> k', '(v:count > 5 ? "m'" . v:count : "") . "k"', options)
+]])
 
 -- insert mode shortcut to move the cursor
 map('i', '<C-h>', '<Left>', options)
