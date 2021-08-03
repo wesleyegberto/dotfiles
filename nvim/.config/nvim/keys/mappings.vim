@@ -49,14 +49,16 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " register with C-g to allow undo break points (instead of whole thing)
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap ! !<C-g>u
-inoremap ? ?<C-g>u
-inoremap { {<C-g>u
-inoremap } }<C-g>u
-inoremap ( (<C-g>u
-inoremap ) )<C-g>u
+if !exists("g:vscode")
+  inoremap , ,<C-g>u
+  inoremap . .<C-g>u
+  inoremap ! !<C-g>u
+  inoremap ? ?<C-g>u
+  inoremap { {<C-g>u
+  inoremap } }<C-g>u
+  inoremap ( (<C-g>u
+  inoremap ) )<C-g>u
+endif
 
 " insert lines jumps to jumplist (to be accessed with C-o)
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
