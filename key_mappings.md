@@ -214,13 +214,18 @@ There are two tools to use with the following prefix:
 ```
 C-p              " fuzzy finder with Telescope
 
-<Leader>ff       " find file
 <Leader>fb       " find buffer
-<Leader>fr       " find with ripgrep
-<Leader>ft       " find tag
+<Leader>ff       " find file
+<Leader>fr       " find ripgrep
+
 <Leader>fm       " find mark
-<Leader>fh       " find help tags
+<Leader>ft       " find tag
+
+<Leader>fT       " find tmux sessions
 <Leader>fS       " find sessions
+<Leader>fP       " find projects
+
+<Leader>fh       " find help tags
 ```
 
 In result use:

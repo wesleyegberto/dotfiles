@@ -31,6 +31,6 @@ end
 
 local opts = {noremap = true, silent = true, expr = false}
 -- Code Refactoring mappings
-map("v", "<Leader>cre", [[ <Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], opts)
-map("v", "<Leader>crf", [[ <Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], opts)
-map("v", "<Leader>crt", [[ <Cmd>lua M.refactors()<CR>]], opts)
+map("v", "<Leader>cre", [[<Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], opts)
+map("v", "<Leader>crf", [[<Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], opts)
+map("v", "<Leader>crt", [[<Cmd>lua M.refactors()<CR>]], opts)

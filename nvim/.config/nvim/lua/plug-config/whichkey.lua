@@ -110,7 +110,10 @@ wk.register({
     ['m'] = { ':Telescope marks<CR>'                      , 'Find marks' },
     ['t'] = { ':Telescope tags<CR>'                       , 'Find tags' },
     ['h'] = { ':Telescope help_tags<CR>'                  , 'Find help' },
-    ['S'] = { ':Telescope session-lens search_session<CR>', 'Find sessions' }
+    ['s'] = { ':Telescope ultisnips<CR>'                  , 'Find snippets' },
+    ['T'] = { ':Telescope tmux sessions<CR>'              , 'Find tmux sessions' },
+    ['S'] = { ':Telescope session-lens search_session<CR>', 'Find sessions' },
+    ['P'] = { [[:lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>]], 'Find projects' }
   },
 }, { prefix = "<leader>" })
 
