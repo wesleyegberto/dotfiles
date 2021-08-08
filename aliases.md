@@ -21,11 +21,13 @@ ide             " create a session named `ide`
 ### Helper functions
 
 ```
+tc              " choose a tmux session or creates a new one
 tcd             " start a tmux session using current dirname as session name
-tfd $1          " start a tmux session using dirname from the a folder selected from given path $1
+
 tm              " find a tmux session using FZF
 tm $1           " attach to an existing session $1 or creates a new one
-tc              " choose a tmux session or creates a new one
+tfd $1          " start a tmux session using dirname from the a folder selected from given path $1
+
 tsp             " find a Tmux pane
 ```
 

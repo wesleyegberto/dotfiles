@@ -66,7 +66,8 @@ local on_attach = function(_, bufnr)
   map('n', '<Leader>cfi', '<cmd>lua vim.lsp.buf.ingoing_calls()<CR>', opts)
   map('n', '<Leader>cfo', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
 
-  map('n', '<Leader>cfm', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+  map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
+  map('n', '<Leader>cfm', ':Telescope lsp_document_symbols<CR>', opts)
   map('n', '<leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
@@ -81,6 +82,7 @@ local on_attach = function(_, bufnr)
   map('v', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
 end
 
 

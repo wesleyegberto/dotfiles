@@ -10,16 +10,8 @@ paq {'savq/paq-nvim', opt = true}
 paq {'nvim-lua/plenary.nvim'}
 paq {'nvim-lua/popup.nvim'}
 
--- tmux integration and navigate between open pages with C-h C-j C-k C-k
-paq {'benmills/vimux'}
-paq {'christoomey/vim-tmux-navigator'}
-
 -- display which keybindings is available
 paq {'folke/which-key.nvim'}
-
--- show git stuff and info at line
-paq {'tpope/vim-fugitive'}
-paq {'airblade/vim-gitgutter'}
 
 -- plugin to facilitate navigation
 paq {'tpope/vim-unimpaired'}
@@ -38,15 +30,17 @@ paq {'tpope/vim-commentary'}
 -- sublime-like multiple cursor editor
 paq {'terryma/vim-multiple-cursors'}
 
-paq {'junegunn/fzf', run = fn['fzf#install']}
-paq {'junegunn/fzf.vim'}
-paq {'ojroques/nvim-lspfuzzy'}
+-- show git stuff and info at line
+paq {'tpope/vim-fugitive'}
+paq {'airblade/vim-gitgutter'}
+
+-- tmux integration and navigate between open pages with C-h C-j C-k C-k
+paq {'benmills/vimux'}
+paq {'christoomey/vim-tmux-navigator'}
 
 paq {'voldikss/vim-floaterm'}
 
-paq {'mhinz/vim-startify'}
-
--- better syntax highlighter
+-- better syntax highlighter and more
 paq {'nvim-treesitter/nvim-treesitter'}
 
 -- plugin to facilitate the configuration for LSP
@@ -57,14 +51,17 @@ paq {'nvim-lua/completion-nvim'}
 -- paq {'mfussenegger/nvim-jdtls'} -- java
 paq {'OmniSharp/omnisharp-vim'} -- csharp
 
--- alternative to FZF
 paq {'nvim-telescope/telescope.nvim'}
-paq {'nvim-telescope/telescope-frecency.nvim'}
 paq {'fhill2/telescope-ultisnips.nvim'}
 paq {'ThePrimeagen/refactoring.nvim'}
 paq {'camgraff/telescope-tmux.nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
 
+paq {'junegunn/fzf', run = fn['fzf#install']}
+paq {'junegunn/fzf.vim'}
+paq {'ojroques/nvim-lspfuzzy'}
+
+-- snippet engine
 paq {'SirVer/ultisnips'}
 
 paq {'glepnir/galaxyline.nvim'}
@@ -73,8 +70,12 @@ paq {'glepnir/galaxyline.nvim'}
 paq {'morhetz/gruvbox'}
 paq {'ryanoasis/vim-devicons'}
 
+-- tree explorer
 paq {'kyazdani42/nvim-web-devicons'}
 paq {'kyazdani42/nvim-tree.lua'}
 
+paq {'mhinz/vim-startify'}
+
+-- session management
 paq {'rmagatti/auto-session'}
 paq {'rmagatti/session-lens'}

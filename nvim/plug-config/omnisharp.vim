@@ -14,7 +14,6 @@ let g:OmniSharp_want_snippet=1
 
 augroup csharp_commands
 autocmd!
-
     " Show type information automatically when the cursor stops moving.
     " Note that the type is echoed to the Vim command line, and will overwrite
     " any other messages in this space including e.g. ALE linting messages.
