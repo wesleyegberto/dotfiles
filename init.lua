@@ -78,6 +78,9 @@ paq {'OmniSharp/omnisharp-vim'} -- csharp
 paq {'neovim/nvim-lspconfig'}
 paq {'kabouzeid/nvim-lspinstall'}
 paq {'nvim-lua/completion-nvim'}
+paq {'ThePrimeagen/refactoring.nvim'}
+
+paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
 paq {'morhetz/gruvbox'}
@@ -104,10 +107,13 @@ require('keybindings')
 
 require('plugins/nvim-tree')
 require('plugins/floaterm')
-require('plugins/whichkey')
 require('plugins/startify')
 require('plugins/sessions')
+require('plugins/telescope')
 require('plugins/lsp')
+require('plugins/refactoring')
+require('plugins/galaxyline')
+require('plugins/whichkey')
 
 
 -- #########################################################
