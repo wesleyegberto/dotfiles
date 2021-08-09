@@ -1,17 +1,20 @@
-
-require('telescope').setup{
-  defaults = {
-    path_display = {
-    'shorten'
-    }
-  }
-}
-
-require('telescope').load_extension('ultisnips')
-
--- require'telescope'.load_extension('project')
+local actions = require('telescope.actions')
 
 require('telescope').setup {
+  defaults = {
+    prompt_prefix = ">",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    path_display = {
+      'shorten'
+    },
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    mappings = {
+      i = {
+        ["<Esc>"] = actions.close
+      }
+    }
+  },
   extensions = {
     project = {
       base_dirs = {
@@ -22,4 +25,6 @@ require('telescope').setup {
     }
   }
 }
+
+require('telescope').load_extension('ultisnips')
 
