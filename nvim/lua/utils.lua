@@ -18,4 +18,8 @@ function M.dump(...)
     print(unpack(objects))
 end
 
+function M.isempty(s)
+  return s == nil or s == ''
+end
+
 return M
