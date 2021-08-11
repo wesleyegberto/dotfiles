@@ -21,7 +21,7 @@ paq {'easymotion/vim-easymotion'}
 paq {'tpope/vim-surround'}
 
 -- autoclose and actions to insert spaces or new line between {}, (), []
-paq {'jiangmiao/auto-pairs'}
+paq {'windwp/nvim-autopairs'}
 
 -- highlight trailing whitespaces
 paq {'ntpeters/vim-better-whitespace'}
@@ -46,15 +46,17 @@ paq {'nvim-treesitter/nvim-treesitter'}
 -- plugin to facilitate the configuration for LSP
 paq {'neovim/nvim-lspconfig'}
 paq {'kabouzeid/nvim-lspinstall'}
+paq {'onsails/lspkind-nvim'}
 paq {'nvim-lua/completion-nvim'}
 
 -- paq {'mfussenegger/nvim-jdtls'} -- java
 paq {'OmniSharp/omnisharp-vim'} -- csharp
 
 paq {'nvim-telescope/telescope.nvim'}
+paq {'nvim-telescope/telescope-fzf-native.nvim'}
+paq {'camgraff/telescope-tmux.nvim'}
 paq {'fhill2/telescope-ultisnips.nvim'}
 paq {'ThePrimeagen/refactoring.nvim'}
-paq {'camgraff/telescope-tmux.nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
 
 paq {'junegunn/fzf', run = fn['fzf#install']}
@@ -63,11 +65,21 @@ paq {'ojroques/nvim-lspfuzzy'}
 
 -- snippet engine
 paq {'SirVer/ultisnips'}
+paq {'honza/vim-snippets'}
+paq {'rafamadriz/friendly-snippets'}
+paq {'hrsh7th/vim-vsnip'}
+paq {'hrsh7th/nvim-compe'}
 
 paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
 paq {'morhetz/gruvbox'}
+paq {'dracula/vim'}
+paq {'fmoralesc/molokayo'}
+paq {'joshdick/onedark.vim'}
+paq {'kyoz/purify'}
+paq {'kaicataldo/material.vim'}
+paq {'KeitaNakamura/neodark.vim'}
 paq {'ryanoasis/vim-devicons'}
 
 -- tree explorer

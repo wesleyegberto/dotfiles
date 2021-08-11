@@ -22,6 +22,104 @@ require'lspinstall'.post_install_hook = function ()
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
+local function init_lspkind()
+  require('lspkind').init({
+      -- enables text annotations
+      --
+      -- default: true
+      with_text = true,
+
+      -- default symbol map
+      -- can be either 'default' or
+      -- 'codicons' for codicon preset (requires vscode-codicons font installed)
+      --
+      -- default: 'default'
+      preset = 'codicons',
+
+      -- override preset symbols
+      --
+      -- default: {}
+      symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+      },
+  })
+end
+
+local function setup_complete_mappings()
+  local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  end
+
+  local check_back_space = function()
+      local col = vim.fn.col('.') - 1
+      return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+  end
+
+  -- Use (s-)tab to:
+  --- move to prev/next item in completion menuone
+  --- jump to prev/next snippet's placeholder
+  _G.tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+      return t "<C-n>"
+    elseif vim.fn['vsnip#available'](1) == 1 then
+      return t "<Plug>(vsnip-expand-or-jump)"
+    elseif check_back_space() then
+      return t "<Tab>"
+    else
+      return vim.fn['compe#complete']()
+    end
+  end
+  _G.s_tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+      return t "<C-p>"
+    elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+      return t "<Plug>(vsnip-jump-prev)"
+    else
+      -- If <S-Tab> is not working in your terminal, change it to <C-h>
+      return t "<S-Tab>"
+    end
+  end
+
+  vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+  vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+  vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+  vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+  vim.cmd [[
+    inoremap <silent><expr> <C-Space> compe#complete()
+    inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+    inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+    inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+    inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+  ]]
+
+  -- map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
+end
+
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -31,28 +129,11 @@ local on_attach = function(_, bufnr)
   -- Make the LSP client use FZF instead of the quickfix list
   lspfuzzy.setup {}
 
+  init_lspkind()
+
   vim.cmd [[
     autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
   ]]
-
-  -- Use <Tab> and <S-Tab> to navigate through popup menu
-  vim.cmd [[
-    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-    let g:completion_enable_auto_popup = 0
-    imap <C-Space> <Plug>(completion_smart_tab)
-    imap <tab> <Plug>(completion_smart_tab)
-    imap <s-tab> <Plug>(completion_smart_s_tab)
-
-    " use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-    " close preview window when completion is done.
-    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-  ]]
-
-  -- map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
   map('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -83,6 +164,8 @@ local on_attach = function(_, bufnr)
 
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
+
+  setup_complete_mappings()
 end
 
 

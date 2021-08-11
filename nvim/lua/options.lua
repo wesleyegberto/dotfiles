@@ -76,7 +76,8 @@ vim.o.listchars = [[tab:→ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.
 vim.o.showbreak = '↪'
 
 -- Autocomplete menu
-vim.o.completeopt = 'menuone,longest,preview'                -- simple autocomplete for anything
+-- vim.o.completeopt = 'menuone,longest,preview'                -- simple autocomplete for anything
+vim.o.completeopt = 'menuone,noselect'                -- simple autocomplete for anything
 vim.o.previewheight = 5                                      -- preview window height for viewing documentation
 vim.o.wildmenu = true                                        -- default true
 vim.o.wildmode = 'list:longest,full'                         -- autocomplete for paths and files

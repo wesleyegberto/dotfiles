@@ -39,6 +39,7 @@ require('plug-config/sessions')
 require('plug-config/telescope')
 require('plug-config/lsp')
 require('plug-config/refactoring')
+require('plug-config/nvim-compe')
 require('plug-config/galaxyline')
 require('plug-config/whichkey')
 

@@ -17,3 +17,6 @@ g.nvim_tree_bindings = {
   { key = "h", cb = tree_cb("close_node") },
   { key = "l", cb = tree_cb("edit") }
 }
+
+-- hide statusline when nvim tree is opened
+vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]

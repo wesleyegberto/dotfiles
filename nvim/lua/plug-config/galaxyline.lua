@@ -7,6 +7,7 @@ gl.short_line_list = {'LuaTree','vista','dbui'}
 
 local colors = {
   bg = '#282c34',
+  lightbg = '#4d5163',
   yellow = '#fabd2f',
   cyan = '#008080',
   darkblue = '#081633',
@@ -28,33 +29,44 @@ end
 
 gls.left[1] = {
   FirstElement = {
-    provider = function() return '▋' end,
-    highlight = {colors.blue,colors.yellow}
-  },
+    provider = function()
+        return "▋"
+    end,
+    highlight = {colors.blue, colors.blue}
+  }
 }
-
 gls.left[2] = {
   ViMode = {
     provider = function()
-      local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',v= 'VISUAL',V= 'VISUAL LINE', [''] = 'VISUAL BLOCK'}
-      return alias[vim.fn.mode()]
-    end,
-    separator = '',
-    separator_highlight = {colors.purple,function()
-      if not buffer_not_empty() then
-        return colors.purple
+      local alias = {
+        n = "NORMAL",
+        i = "INSERT",
+        c = "COMMAND",
+        V = "VISUAL",
+        [""] = "VISUAL",
+        v = "VISUAL",
+        R = "REPLACE"
+      }
+      local current_Mode = alias[vim.fn.mode()]
+
+      if current_Mode == nil then
+        return "  Terminal "
+      else
+        return "  " .. current_Mode .. " "
       end
-      return colors.darkblue
-    end},
-    highlight = {colors.darkblue,colors.purple,'bold'},
-  },
+    end,
+    separator = ' ',
+    separator_highlight = {colors.lightbg, colors.darkblue},
+    highlight = {colors.blue, colors.lightbg}
+  }
 }
 
-gls.left[3] ={
+-- file
+gls.left[3] = {
   FileIcon = {
     provider = 'FileIcon',
     condition = buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.darkblue},
+    highlight = {colors.grey, colors.darkblue},
   },
 }
 gls.left[4] = {
@@ -62,26 +74,30 @@ gls.left[4] = {
     provider = {'FileName','FileSize'},
     condition = buffer_not_empty,
     separator = '',
-    separator_highlight = {colors.purple,colors.darkblue},
-    highlight = {colors.magenta,colors.darkblue}
+    separator_highlight = {colors.lightbg, colors.darkblue},
+    highlight = {colors.grey, colors.darkblue}
   }
 }
 
+-- git branch
 gls.left[5] = {
   GitIcon = {
     provider = function() return '  ' end,
     condition = buffer_not_empty,
-    highlight = {colors.orange,colors.purple},
+    highlight = {colors.red,colors.lightbg},
   }
 }
 gls.left[6] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = buffer_not_empty,
-    highlight = {colors.grey,colors.purple},
+    separator = ' ',
+    separator_highlight = {colors.lightbg, colors.lightbg},
+    highlight = {colors.red, colors.lightbg},
   }
 }
 
+-- git status
 local checkwidth = function()
   local squeeze_width  = vim.fn.winwidth(0) / 2
   if squeeze_width > 40 then
@@ -89,13 +105,12 @@ local checkwidth = function()
   end
   return false
 end
-
 gls.left[7] = {
   DiffAdd = {
     provider = 'DiffAdd',
     condition = checkwidth,
     icon = ' ',
-    highlight = {colors.green,colors.purple},
+    highlight = {colors.green, colors.lightbg},
   }
 }
 gls.left[8] = {
@@ -103,7 +118,7 @@ gls.left[8] = {
     provider = 'DiffModified',
     condition = checkwidth,
     icon = ' ',
-    highlight = {colors.orange,colors.purple},
+    highlight = {colors.orange, colors.lightbg},
   }
 }
 gls.left[9] = {
@@ -111,69 +126,109 @@ gls.left[9] = {
     provider = 'DiffRemove',
     condition = checkwidth,
     icon = ' ',
-    highlight = {colors.red,colors.purple},
+    highlight = {colors.red, colors.lightbg},
   }
 }
 gls.left[10] = {
   LeftEnd = {
     provider = function() return '' end,
-    separator = '',
-    separator_highlight = {colors.purple,colors.bg},
-    highlight = {colors.purple,colors.purple}
+    separator = '',
+    separator_highlight = {colors.bg, colors.lightbg},
+    highlight = {colors.lightbg, colors.lightbg}
   }
 }
+
+-- LSP status
 gls.left[11] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
-    highlight = {colors.red,colors.bg}
+    highlight = {colors.red, colors.bg}
   }
 }
 gls.left[12] = {
-  Space = {
-    provider = function () return ' ' end
-  }
-}
-gls.left[13] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
-    highlight = {colors.blue,colors.bg},
+    highlight = {colors.orange, colors.bg},
   }
 }
 
--- right status
---
-gls.right[1]= {
+-- no content
+gls.left[13] = {
+  Space = {
+    provider = function() return ' ' end,
+    highlight = {colors.bg, colors.bg}
+  }
+}
+
+-- file format
+gls.right[1] = {
+  file_format_icon = {
+    provider = function()
+      return " "
+    end,
+    separator = "",
+    separator_highlight = {colors.red, colors.bg},
+    highlight = {colors.lightbg, colors.red}
+  }
+}
+gls.right[2] = {
   FileFormat = {
     provider = 'FileFormat',
-    separator = '',
-    separator_highlight = {colors.bg,colors.purple},
-    highlight = {colors.grey,colors.purple},
+    separator = ' ',
+    separator_highlight = {colors.lightbg, colors.lightbg},
+    highlight = {colors.red, colors.lightbg},
   }
 }
 
-gls.right[2] = {
-  LineInfo = {
-    provider = 'LineColumn',
-    separator = ' | ',
-    separator_highlight = {colors.darkblue,colors.purple},
-    highlight = {colors.grey,colors.purple},
-  },
-}
-
+-- cursor position
 gls.right[3] = {
-  PerCent = {
-    provider = 'LinePercent',
-    separator = '',
-    separator_highlight = {colors.darkblue,colors.purple},
-    highlight = {colors.grey,colors.darkblue},
+  position_icon = {
+    provider = function()
+      return " "
+    end,
+    separator = " ",
+    separator_highlight = {colors.green, colors.lightbg},
+    highlight = {colors.lightbg, colors.green}
   }
 }
 gls.right[4] = {
-  ScrollBar = {
-    provider = 'ScrollBar',
-    highlight = {colors.yellow,colors.purple},
+  LineInfo = {
+    provider = 'LineColumn',
+    separator = ' ',
+    separator_highlight = {colors.lightbg, colors.lightbg},
+    highlight = {colors.green, colors.lightbg},
+  },
+}
+
+-- percentage
+gls.right[5] = {
+  percentage_icon = {
+    provider = function()
+      return " "
+    end,
+    separator = "",
+    separator_highlight = {colors.blue, colors.lightbg},
+    highlight = {colors.lightbg, colors.blue}
+  }
+}
+gls.right[6] = {
+  line_percentage = {
+    -- provider = 'LinePercent',
+    provider = function()
+      local current_line = vim.fn.line(".")
+      local total_line = vim.fn.line("$")
+
+      if current_line == 1 then
+          return "  Top "
+      elseif current_line == vim.fn.line("$") then
+          return "  Bot "
+      end
+      local result, _ = math.modf((current_line / total_line) * 100)
+      return "  " .. result .. "% "
+    end,
+    highlight = {colors.blue, colors.lightbg}
   }
 }
 
