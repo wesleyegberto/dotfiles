@@ -4,7 +4,7 @@ local has_toggleterm = vim.api.nvim_eval('exists(":Floaterm")')
 local function run_floaterm(command, title)
   vim.api.nvim_command(
     string.format(
-      [[:FloatermNew --autoclose=1 --title='%s' %s]], command, title
+      [[:FloatermNew --autoclose=1 --title='%s' %s]], title, command
     )
   )
 end
@@ -28,12 +28,19 @@ local function run_vimterm(command, title)
 end
 
 local function run_action(option)
+  local command = option.action
+  if option.format_args ~= nil then
+    command = command .. option.format_args()
+  end
+
+  require'utils'.dump(command)
+
   if has_floaterm then
-    run_floaterm(option.action, option.text)
+    run_floaterm(command, option.text)
   elseif has_toggleterm then
-    run_toggleterm(option.action, option.text)
+    run_toggleterm(command, option.text)
   else
-    run_vimterm(option.action, option.text)
+    run_vimterm(command, option.text)
   end
 end
 

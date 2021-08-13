@@ -5,9 +5,11 @@ setlocal softtabstop=4
 
 source $HOME/.config/nvim/plug-config/omnisharp.vim
 
-lua require('telescope').load_extension('langtools')
-nnoremap <Leader>pm :Telescope langtools dotnet<CR>
-nnoremap <Leader>pc :Telescope langtools dotnet_clean<CR>
-nnoremap <Leader>pb :Telescope langtools dotnet_build<CR>
-nnoremap <Leader>pp :Telescope langtools dotnet_package<CR>
-nnoremap <Leader>pt :Telescope langtools dotnet_test<CR>
+" lua require('telescope').load_extension('langtools')
+lua require('telescope._extension.langtools').setup({ language = 'dotnet' })
+
+nnoremap <silent> <Leader>pm :Telescope langtools picker<CR>
+nnoremap <silent> <Leader>pc :Telescope langtools clean<CR>
+nnoremap <silent> <Leader>pb :Telescope langtools build<CR>
+nnoremap <silent> <Leader>pp :Telescope langtools package<CR>
+nnoremap <silent> <Leader>pt :Telescope langtools test<CR>

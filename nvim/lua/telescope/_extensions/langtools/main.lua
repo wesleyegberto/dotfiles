@@ -21,11 +21,10 @@ end
 
 local function setup(config)
   LangTools.config = config or defaultConf
+
   if utils.isempty(LangTools.config.language) then
     LangTools.config.language = 'none'
   end
-
-  -- utils.dump(LangTools.config)
 
   if LangTools.config.language == 'java' then
     copy_attr_to_module(maven_options)
@@ -33,6 +32,7 @@ local function setup(config)
     copy_attr_to_module(dotnet_options)
   end
 end
+
 return {
   setup = setup,
   exports = LangTools.exports
