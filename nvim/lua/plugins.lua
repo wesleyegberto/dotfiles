@@ -40,6 +40,8 @@ paq {'christoomey/vim-tmux-navigator'}
 
 paq {'voldikss/vim-floaterm'}
 
+paq {'matbme/JABS.nvim'}
+
 -- better syntax highlighter and more
 paq {'nvim-treesitter/nvim-treesitter'}
 
@@ -47,7 +49,6 @@ paq {'nvim-treesitter/nvim-treesitter'}
 paq {'neovim/nvim-lspconfig'}
 paq {'kabouzeid/nvim-lspinstall'}
 paq {'onsails/lspkind-nvim'}
-paq {'nvim-lua/completion-nvim'}
 
 -- paq {'mfussenegger/nvim-jdtls'} -- java
 paq {'OmniSharp/omnisharp-vim'} -- csharp
@@ -64,8 +65,6 @@ paq {'junegunn/fzf.vim'}
 paq {'ojroques/nvim-lspfuzzy'}
 
 -- snippet engine
-paq {'SirVer/ultisnips'}
-paq {'honza/vim-snippets'}
 paq {'rafamadriz/friendly-snippets'}
 paq {'hrsh7th/vim-vsnip'}
 paq {'hrsh7th/nvim-compe'}

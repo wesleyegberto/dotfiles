@@ -69,7 +69,7 @@ local function init_lspkind()
   })
 end
 
-local function setup_complete_mappings()
+local function setup_snippet()
   local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
   end
@@ -165,7 +165,7 @@ local on_attach = function(_, bufnr)
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
 
-  setup_complete_mappings()
+  setup_snippet()
 end
 
 

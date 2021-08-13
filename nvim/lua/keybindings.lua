@@ -139,14 +139,16 @@ map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
 -- }}}
 
 
--- === junegunn/fzf === {{{
+-- === nvim-lua/telescope === {{{
 map('n', '<C-p>', ':Telescope find_files<CR>', silentOptions)
+-- }}}
+
+
+-- === matbme/JABS.nvim === {{{
+map('n', '<C-b>', ':JABSOpen<CR>', silentOptions)
 -- }}}
 
 
 -- === kyazdani42/nvim-tree.lua === {{{
 map('n', '<Leader>e', ':NvimTreeToggle<CR>', silentOptions)
 -- }}}
-
-
-

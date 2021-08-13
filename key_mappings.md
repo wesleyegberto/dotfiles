@@ -106,7 +106,6 @@ Item action
 
 ```
 a                " addFile
-A                " addDirectory
 r                " rename
 c                " copyFile
 x                " cutFile
@@ -213,6 +212,7 @@ There are two tools to use with the following prefix:
 
 ```
 C-p              " fuzzy finder with Telescope
+C-b              " fuzzy finder for buffers
 
 <Leader>fb       " find buffer
 <Leader>ff       " find file
