@@ -85,7 +85,7 @@ paq {'ryanoasis/vim-devicons'}
 paq {'kyazdani42/nvim-web-devicons'}
 paq {'kyazdani42/nvim-tree.lua'}
 
-paq {'mhinz/vim-startify'}
+paq {'glepnir/dashboard-nvim'}
 
 -- session management
 paq {'rmagatti/auto-session'}
