@@ -58,10 +58,10 @@ autocmd!
     autocmd FileType cs nnoremap <Leader>clsr :OmniSharpRestartServer<CR>
     autocmd FileType cs nnoremap <Leader>clsp :OmniSharpStopServer<CR>
 
-    let g:which_key_map.l = {
-    \ 'name'  : '+OmniSharpServer',
-    \ 's'     : [':OmniSharpStartServer',   'start server'],
-    \ 'r'     : [':OmniSharpRestartServer', 'restart server'],
-    \ 'p'     : [':OmniSharpStopServer',    'stop server']
-    \ }
+    " let g:which_key_map.l = {
+    " \ 'name'  : '+OmniSharpServer',
+    " \ 's'     : [':OmniSharpStartServer',   'start server'],
+    " \ 'r'     : [':OmniSharpRestartServer', 'restart server'],
+    " \ 'p'     : [':OmniSharpStopServer',    'stop server']
+    " \ }
 augroup END
