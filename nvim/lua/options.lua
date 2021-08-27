@@ -34,7 +34,7 @@ hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
 -- # General settings
 -- #########################################################
 
-vim.cmd('set termguicolors')
+vim.o.termguicolors = true
 
 -- vim.o.t_Co = '256'                                           -- explicitly tell vim that the terminal supports 256 colors
 vim.o.ttyfast = true                                         -- faster redrawing
@@ -110,4 +110,6 @@ vim.o.signcolumn = 'yes'                                     -- always show sign
 
 vim.cmd [[
 filetype plugin indent on
+
+autocmd BufNewFile,BufRead *.cs set ft=cs
 ]]

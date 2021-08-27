@@ -11,7 +11,8 @@ vmap <C-s> <Esc>:w<CR>
 
 inoremap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
 
-nmap <Leader><Esc> :nohlsearch<CR>
+" unhighlight the search result
+nnoremap <silent> <Leader><Esc> :nohl<CR>
 
 nnoremap <silent> <Leader>wfv <C-w>t<C-w>H   " change vertical split to horizontal
 nnoremap <silent> <Leader>wfh <C-w>t<C-w>K   " change horizontal split to vertical
@@ -28,6 +29,9 @@ nnoremap <silent> <Leader>bl :blast<CR>
 nnoremap <silent> <Leader>bd :bd<CR>
 nnoremap <silent> <Leader>bk :bw<CR>
 
+" reselect either the last pasted or changed text
+noremap gV `[v`]
+
 " to allow navigate a line above and bellow correctly when word wrapping
 nnoremap k gk
 nnoremap j gj
@@ -42,6 +46,8 @@ nnoremap Y y$
 " redo
 nnoremap U <C-r>
 
+" keep the cursor position - don't move to next match
+nmap * *N
 " when searching next/previous word, put it on center and unfold if needed
 nnoremap n nzzzv
 nnoremap N Nzzzv

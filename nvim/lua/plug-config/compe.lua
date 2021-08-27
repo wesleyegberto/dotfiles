@@ -8,7 +8,7 @@ require'compe'.setup {
   preselect = 'disabled';
   throttle_time = 80;
   source_timeout = 200;
-  resolve_timeout = 800;
+  -- resolve_timeout = 800;
   incomplete_delay = 400;
   max_abbr_width = 100;
   max_kind_width = 100;
@@ -23,12 +23,12 @@ require'compe'.setup {
   };
 
   source = {
-    path = true;
+    path = true,
     buffer = {kind = "﬘", true},
     luasnip = {kind = "﬌", true},
-    nvim_lsp = true;
-    nvim_lua = true;
+    nvim_lsp = true,
+    nvim_lua = true,
     vsnip = {kind = "﬌", true},
-    ultisnips = true;
+    ultisnips = true,
   };
 }

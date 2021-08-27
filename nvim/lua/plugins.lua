@@ -16,12 +16,14 @@ paq {'folke/which-key.nvim'}
 -- plugin to facilitate navigation
 paq {'tpope/vim-unimpaired'}
 paq {'easymotion/vim-easymotion'}
+-- paq {'phaazon/hop.nvim'}
+
 
 -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
 paq {'tpope/vim-surround'}
-
 -- autoclose and actions to insert spaces or new line between {}, (), []
 paq {'windwp/nvim-autopairs'}
+paq {'wellle/targets.vim'}
 
 -- highlight trailing whitespaces
 paq {'ntpeters/vim-better-whitespace'}
@@ -68,22 +70,21 @@ paq {'ojroques/nvim-lspfuzzy'}
 paq {'rafamadriz/friendly-snippets'}
 paq {'hrsh7th/vim-vsnip'}
 paq {'hrsh7th/nvim-compe'}
+-- paq {'ms-jpq/coq_nvim'}
 
 paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
 paq {'morhetz/gruvbox'}
 paq {'dracula/vim'}
-paq {'fmoralesc/molokayo'}
 paq {'joshdick/onedark.vim'}
-paq {'kyoz/purify'}
 paq {'kaicataldo/material.vim'}
 paq {'KeitaNakamura/neodark.vim'}
 paq {'ryanoasis/vim-devicons'}
 
 -- tree explorer
-paq {'kyazdani42/nvim-web-devicons'}
 paq {'kyazdani42/nvim-tree.lua'}
+paq {'kyazdani42/nvim-web-devicons'}
 
 paq {'glepnir/dashboard-nvim'}
 

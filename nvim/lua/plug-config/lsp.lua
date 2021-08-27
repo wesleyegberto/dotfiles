@@ -6,16 +6,6 @@ local lspfuzzy = require'lspfuzzy'
 
 require'lspinstall'.setup()
 
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
-end
-
-setup_servers()
-
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
 require'lspinstall'.post_install_hook = function ()
   setup_servers() -- reload installed servers
@@ -25,14 +15,12 @@ end
 local function init_lspkind()
   require('lspkind').init({
       -- enables text annotations
-      --
       -- default: true
       with_text = true,
 
       -- default symbol map
       -- can be either 'default' or
       -- 'codicons' for codicon preset (requires vscode-codicons font installed)
-      --
       -- default: 'default'
       preset = 'codicons',
 
@@ -67,6 +55,48 @@ local function init_lspkind()
         TypeParameter = ""
       },
   })
+end
+
+local function setup_keymappings()
+  vim.cmd [[
+    augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
+        autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+  ]]
+
+  map('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+
+  map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  map('n', 'gD', "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", opts)
+  map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  map('n', 'gI', "<cmd>lua require'lsp.peek'.Peek('implementation')<CR>", opts)
+  map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
+  map('n', '<Leader>cfi', '<cmd>lua vim.lsp.buf.ingoing_calls()<CR>', opts)
+  map('n', '<Leader>cfo', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
+
+  map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
+  map('n', '<Leader>cfm', ':Telescope lsp_document_symbols<CR>', opts)
+  map('n', '<leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+
+  map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  map('i', '<C-\\>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+
+  map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+
+  map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  map('v', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+
+  map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
 end
 
 local function setup_snippet()
@@ -131,55 +161,16 @@ local on_attach = function(_, bufnr)
 
   init_lspkind()
 
-  vim.cmd [[
-    augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
-        autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-  ]]
-
-  map('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-
-  map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  map('n', 'gD', "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", opts)
-  map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  map('n', 'gI', "<cmd>lua require'lsp.peek'.Peek('implementation')<CR>", opts)
-  map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-
-  map('n', '<Leader>cfi', '<cmd>lua vim.lsp.buf.ingoing_calls()<CR>', opts)
-  map('n', '<Leader>cfo', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
-
-  map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
-  map('n', '<Leader>cfm', ':Telescope lsp_document_symbols<CR>', opts)
-  map('n', '<leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-
-  map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  map('i', '<C-\\>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-
-  map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-
-  map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  map('v', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-
-  map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
+  setup_keymappings()
 
   setup_snippet()
 end
-
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
-local servers = { 'typescript', 'java' }
+local servers = { 'typescript', 'java', 'python', 'csharp' }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

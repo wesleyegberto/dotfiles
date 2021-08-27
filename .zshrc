@@ -115,6 +115,7 @@ zplugin light zsh-users/zsh-completions
 #     for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
 # fi
 
+source "$DOTFILES/zsh/functions/utils.sh"
 source "$DOTFILES/zsh/functions/finders.sh"
 source "$DOTFILES/zsh/functions/tmux_helpers.sh"
 source "$DOTFILES/zsh/functions/projects.sh"

@@ -36,6 +36,9 @@ map('n', '<Leader>bl', ':blast<CR>', silentOptions)
 map('n', '<Leader>bd', ':bd<CR>', silentOptions)
 map('n', '<Leader>bk', ':bw<CR>', silentOptions)
 
+-- reselect either the last pasted or changed text
+map('n', 'gV', '`[v`]', options)
+
 -- to allow navigate a line above and bellow correctly when word wrapping
 map('n', 'k', 'gk', options)
 map('n', 'j', 'gj', options)
@@ -50,6 +53,8 @@ map('n', 'Y', 'y$', options)
 -- redo
 map('n', 'U', '<C-r>', options)
 
+-- keep the cursor position - don't move to next match
+map('n', '*', '*N', {})
 -- when searching next/previous word, put it on center and unfold if needed
 map('n', 'n', 'nzzzv', silentOptions)
 map('n', 'N', 'Nzzzv', silentOptions)
