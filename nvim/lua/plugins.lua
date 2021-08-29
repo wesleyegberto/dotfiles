@@ -15,8 +15,7 @@ paq {'folke/which-key.nvim'}
 
 -- plugin to facilitate navigation
 paq {'tpope/vim-unimpaired'}
-paq {'easymotion/vim-easymotion'}
--- paq {'phaazon/hop.nvim'}
+paq {'phaazon/hop.nvim'}
 
 
 -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
@@ -44,13 +43,14 @@ paq {'voldikss/vim-floaterm'}
 
 paq {'matbme/JABS.nvim'}
 
--- better syntax highlighter and more
-paq {'nvim-treesitter/nvim-treesitter'}
-
 -- plugin to facilitate the configuration for LSP
 paq {'neovim/nvim-lspconfig'}
 paq {'kabouzeid/nvim-lspinstall'}
 paq {'onsails/lspkind-nvim'}
+
+-- better syntax highlighter and more
+paq {'nvim-treesitter/nvim-treesitter'}
+paq {'ThePrimeagen/refactoring.nvim'}
 
 -- paq {'mfussenegger/nvim-jdtls'} -- java
 paq {'OmniSharp/omnisharp-vim'} -- csharp
@@ -59,7 +59,6 @@ paq {'nvim-telescope/telescope.nvim'}
 paq {'nvim-telescope/telescope-fzf-native.nvim'}
 paq {'camgraff/telescope-tmux.nvim'}
 paq {'fhill2/telescope-ultisnips.nvim'}
-paq {'ThePrimeagen/refactoring.nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
 
 paq {'junegunn/fzf', run = fn['fzf#install']}

@@ -32,6 +32,9 @@ require('keybindings')
 -- # Plugins configuration
 -- #########################################################
 
+-- others setup
+require('plug-config/others-setup')
+
 require('plug-config/nvim-tree')
 require('plug-config/floaterm')
 require('plug-config/telescope')

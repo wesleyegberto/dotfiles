@@ -157,3 +157,22 @@ map('n', '<C-b>', ':JABSOpen<CR>', silentOptions)
 -- === kyazdani42/nvim-tree.lua === {{{
 map('n', '<Leader>e', ':NvimTreeToggle<CR>', silentOptions)
 -- }}}
+
+
+-- -- === phaazon/hop.nvim === {{{
+map('n', '<Leader><Leader>?', ':HopWord<CR>', silentOptions)
+map('n', '<Leader><Leader>f', ':HopWordAC<CR>', silentOptions)
+map('n', '<Leader><Leader>F', ':HopWordBC<CR>', silentOptions)
+map('n', '<Leader><Leader>c', ':HopChar2AC<CR>', silentOptions)
+map('n', '<Leader><Leader>C', ':HopChar2BC<CR>', silentOptions)
+map('n', '<Leader><Leader>l', ':HopLine<CR>', silentOptions)
+map('n', '<Leader><Leader>j', ':HopLineStartAC<CR>', silentOptions)
+map('n', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
+
+-- map('v', '<Leader><Leader>f', ':HopWordAC<CR>', silentOptions)
+-- map('v', '<Leader><Leader>F', ':HopWordBC<CR>', silentOptions)
+-- map('v', '<Leader><Leader>c', ':HopChar2AC<CR>', silentOptions)
+-- map('v', '<Leader><Leader>C', ':HopChar2BC<CR>', silentOptions)
+-- map('v', '<Leader><Leader>j', ':HopLineStartAC<CR>', silentOptions)
+-- map('v', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
+-- -- }}}
