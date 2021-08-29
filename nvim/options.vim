@@ -149,3 +149,5 @@ endif
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
 endif
+
+filetype plugin indent on                                    " load identation by file type

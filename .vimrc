@@ -20,24 +20,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 
 source $HOME/.config/nvim/options.vim
-source $HOME/.config/nvim/keys/mappings.vim
-
-
-" #########################################################
-" # Languages configuration
-" #########################################################
-
-filetype plugin indent on                                    " load identation by file type
+source $HOME/.config/nvim/mappings.vim
 
 
 " #########################################################
 " # Plugins configuration
 " #########################################################
 
-source $HOME/.config/nvim/plug-config/which-key.vim
-source $HOME/.config/nvim/plug-config/startify.vim
-source $HOME/.config/nvim/plug-config/statusbar.vim
-source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 
 

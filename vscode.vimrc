@@ -1,3 +1,3 @@
 let g:vscode=1
 
-source $HOME/.config/nvim/keys/mappings.vim
+source $HOME/.config/nvim/mappings.vim
