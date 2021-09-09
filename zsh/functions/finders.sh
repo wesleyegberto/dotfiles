@@ -13,6 +13,16 @@ brainsearch() {
         xargs -I {} vim "{}"
 }
 
+# Show cheatsheet for commands
+# Usage: `cheat xargs`
+cheat() {
+    if [ ! "$#" -gt 0 ]; then
+        echo "Inform what you need to know";
+        return 1;
+    fi
+    curl https://cheat.sh/"$1"
+}
+
 # Find a file by name.
 # Usage: `ff <TERM>`
 ff() {
