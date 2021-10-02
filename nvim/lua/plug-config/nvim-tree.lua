@@ -1,12 +1,7 @@
 -- === kyazdani42/nvim-tree.lua ===
 
-local present, tree_c = pcall(require, "nvim-tree.config")
-if not present then
-   return
-end
-
 local g = vim.g
-local tree_cb = tree_c.nvim_tree_callback
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 require'nvim-web-devicons'.setup {
   default = true;
@@ -14,18 +9,10 @@ require'nvim-web-devicons'.setup {
 
 -- vim.cmd('highlight NvimTreeFolderIcon guibg=blue')
 
-g.nvim_tree_width = 40
 g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
 g.nvim_tree_gitignore = 1
-g.nvim_tree_follow = 1
-g.nvim_tree_lsp_diagnostics = 1
 g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_auto_ignore_ft = { "dashboard" } -- don't open tree on specific fiypes.
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_allow_resize = 1
-g.nvim_tree_disable_netrw = 1
-g.nvim_tree_hijack_netrw = 0
-g.nvim_tree_update_cwd = 1
 
 g.nvim_tree_show_icons = {
    git = 1,
@@ -61,7 +48,7 @@ g.nvim_tree_icons = {
    },
 }
 
-g.nvim_tree_bindings = {
+local list = {
   { key = { "<CR>", "o", "<2-LeftMouse>" }, cb = tree_cb "edit" },
   { key = { "<2-RightMouse>", "<C-]>" }, cb = tree_cb "cd" },
   { key = "v", cb = tree_cb "vsplit" },
@@ -97,6 +84,21 @@ g.nvim_tree_bindings = {
   { key = "-", cb = tree_cb "dir_up" },
   { key = "q", cb = tree_cb "close" },
   { key = "g?", cb = tree_cb "toggle_help" },
+}
+
+require'nvim-tree'.setup {
+   ignore_ft_on_setup = { "dashboard" },
+   lsp_diagnostics = true,
+   update_focused_file = {
+      enable = true
+   },
+   view = {
+      width = 40,
+      auto_resize = true,
+      mappings = {
+         list = list
+      }
+   }
 }
 
 -- hide statusline when nvim tree is opened

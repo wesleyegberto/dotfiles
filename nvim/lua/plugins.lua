@@ -82,9 +82,10 @@ paq {'KeitaNakamura/neodark.vim'}
 paq {'ryanoasis/vim-devicons'}
 
 -- tree explorer
-paq {'kyazdani42/nvim-tree.lua'}
 paq {'kyazdani42/nvim-web-devicons'}
+paq {'kyazdani42/nvim-tree.lua'}
 
+paq {'famiu/bufdelete.nvim'}
 paq {'glepnir/dashboard-nvim'}
 
 -- session management

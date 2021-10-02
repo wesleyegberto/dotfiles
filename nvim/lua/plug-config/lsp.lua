@@ -92,8 +92,8 @@ local function setup_keymappings()
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 
-  map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  map('v', '<leader>cf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+  map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
