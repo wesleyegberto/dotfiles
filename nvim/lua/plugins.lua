@@ -17,7 +17,6 @@ paq {'folke/which-key.nvim'}
 paq {'tpope/vim-unimpaired'}
 paq {'phaazon/hop.nvim'}
 
-
 -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
 paq {'tpope/vim-surround'}
 -- autoclose and actions to insert spaces or new line between {}, (), []
@@ -29,7 +28,7 @@ paq {'ntpeters/vim-better-whitespace'}
 paq {'tpope/vim-commentary'}
 
 -- sublime-like multiple cursor editor
-paq {'terryma/vim-multiple-cursors'}
+paq {'mg979/vim-visual-multi'}
 
 -- show git stuff and info at line
 paq {'tpope/vim-fugitive'}

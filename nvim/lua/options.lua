@@ -46,8 +46,7 @@ vim.o.hidden = true                                          -- to allow switch 
 
 vim.o.cmdheight=2                                            -- better display for messages
 
-vim.cmd('set clipboard+=unnamed')
--- vim.o.clipboard = vim.o.clipboard .. 'unnamed'
+vim.o.clipboard = vim.o.clipboard .. 'unnamed'
 vim.o.mouse = 'a'                                            -- enable mouse if possible
 
 vim.o.ls = 2                                                 -- always show status bar
