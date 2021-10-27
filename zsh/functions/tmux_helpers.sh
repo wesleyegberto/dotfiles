@@ -24,18 +24,35 @@ tfd() {
 }
 
 # Open a given folder in Tmux and use its name as session name
+# source: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
 # Usage: `tmf <PATH>`
 tmf() {
-    local _folder
-    local _sessionName
-    if [ $1 ]; then
-        _folder=$1
+    if [[ $# -eq 1 ]]; then
+        selected=$1
     else
-        _folder=$PWD
+        selected=$(find ~/projects/github "$WORKDIR" -mindepth 1 -maxdepth 2 -type d | fzf)
     fi
-    _sessionName=$(basename "$_folder")
-    tmux new-session -s "$_sessionName" -n "$_sessionName" -d "cd $_folder; zsh"
-    tmux attach-session -t "$_sessionName"
+
+    if [[ -z $selected ]]; then
+        exit 0
+    fi
+
+    selected_name=$(basename "$selected" | tr . _)
+    tmux_running=$(pgrep tmux)
+    if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+        tmux new-session -s $selected_name -c $selected
+        exit 0
+    fi
+
+    if ! tmux has-session -t $selected_name 2> /dev/null; then
+        tmux new-session -ds $selected_name -c $selected
+    fi
+
+    if [[ -z $TMUX ]]; then
+        tmux attach-session -t $selected_name
+    else
+        tmux switch-client -t $selected_name
+    fi
 }
 
 # Kill a Tmux session using FZF
