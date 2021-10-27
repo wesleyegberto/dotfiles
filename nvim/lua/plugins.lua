@@ -33,6 +33,7 @@ paq {'mg979/vim-visual-multi'}
 -- show git stuff and info at line
 paq {'tpope/vim-fugitive'}
 paq {'airblade/vim-gitgutter'}
+paq {'tveskag/nvim-blame-line'}
 
 -- tmux integration and navigate between open pages with C-h C-j C-k C-k
 paq {'benmills/vimux'}
