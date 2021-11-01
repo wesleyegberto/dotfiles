@@ -58,6 +58,9 @@ local function init_lspkind()
 end
 
 local function setup_keymappings()
+  opts = { noremap = true }
+  silentOpts = { noremap = true, silent=true }
+
   vim.cmd [[
     augroup lsp_document_highlight
         autocmd! * <buffer>
@@ -152,9 +155,6 @@ end
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  opts = { noremap = true }
-  silentOpts = { noremap = true, silent=true }
 
   -- Make the LSP client use FZF instead of the quickfix list
   lspfuzzy.setup {}

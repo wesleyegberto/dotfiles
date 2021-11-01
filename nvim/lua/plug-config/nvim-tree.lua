@@ -88,7 +88,7 @@ local list = {
 
 require'nvim-tree'.setup {
    ignore_ft_on_setup = { "dashboard" },
-   lsp_diagnostics = true,
+   -- lsp_diagnostics = true,
    update_focused_file = {
       enable = true
    },

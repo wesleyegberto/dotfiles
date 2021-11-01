@@ -39,17 +39,16 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 echo "\\n\\n=== Typing options ==="
 
-echo "Speeding up key repeat"
-defaults write -g KeyRepeat -int 0
+echo "Set a blazingly fast keyboard repeat rate (lower equals faster)"
+defaults write -g InitialKeyRepeat -int 20
+defaults write -g KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 echo "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
-echo "Set a blazingly fast keyboard repeat rate (lower equals faster)"
-defaults write NSGlobalDomain KeyRepeat -int 7
-defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
 echo "Enable full keyboard access for all controls"
 # (e.g. enable Tab in modal dialogs)
