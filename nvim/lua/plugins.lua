@@ -41,6 +41,7 @@ paq {'christoomey/vim-tmux-navigator'}
 
 paq {'voldikss/vim-floaterm'}
 
+paq {'ThePrimeagen/harpoon'}
 paq {'matbme/JABS.nvim'}
 
 -- plugin to facilitate the configuration for LSP
