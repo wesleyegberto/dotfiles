@@ -2,7 +2,7 @@
 local map = vim.api.nvim_set_keymap
 
 local refactor = require("refactoring")
-refactor.setup()
+refactor.setup({})
 
 -- telescope refactoring helper
 local function refactor(prompt_bufnr)

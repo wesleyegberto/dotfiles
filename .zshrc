@@ -82,7 +82,7 @@ SPACESHIP_NODE_SYMBOL=""
 # Plugin Manager
 ########################################################
 
-plugins=(osx git vi-mode jsontools)
+plugins=(macos git vi-mode jsontools)
 
 source $ZSH/oh-my-zsh.sh
 #source "$DOTFILES/zsh/prompts/jobs_prompt.zsh"

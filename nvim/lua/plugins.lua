@@ -57,7 +57,7 @@ paq {'ThePrimeagen/refactoring.nvim'}
 paq {'OmniSharp/omnisharp-vim'} -- csharp
 
 paq {'nvim-telescope/telescope.nvim'}
-paq {'nvim-telescope/telescope-fzf-native.nvim'}
+paq {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sort
 paq {'camgraff/telescope-tmux.nvim'}
 paq {'fhill2/telescope-ultisnips.nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
