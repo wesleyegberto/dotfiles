@@ -12,7 +12,7 @@ highlight default link WhichKeyDesc      Operator
 -- use the default settings
 wk.setup {
   plugins = {
-    marks = true, -- shows a list of your marks on ' and `
+    marks = false, -- shows a list of your marks on ' and `
     presets = {
       operators = false, -- adds help for operators like d, y, ...
       motions = false, -- adds help for motions
@@ -39,8 +39,11 @@ wk.setup {
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 2, -- spacing between columns
   },
+  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
+  triggers = "auto",
+  triggers = "<leader>"
 }
 
 wk.register({

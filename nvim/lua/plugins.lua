@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 
 cmd 'packadd paq-nvim'
-local paq = require('paq-nvim').paq
+local paq = require('paq').paq
 
 paq {'savq/paq-nvim', opt = true}
 
