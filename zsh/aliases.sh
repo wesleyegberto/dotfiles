@@ -65,12 +65,12 @@ alias kgctx="kubectl config get-contexts"
 alias ksctx="kubectl config use-context"
 
 alias kgpoan="kubectl get po --all-namespaces"
-alias kgpo="kubectl get po"
-alias kgsvc="kubectl get svc"
+alias kgpo="kubectl get po  --all-namespaces"
+alias kgsvc="kubectl get svc  --all-namespaces"
 
-alias kdesc="kubectl describe"
-alias kgpog="kubectl get po | grep"
-alias kgrep="kubectl get pod,svc -o wide | grep"
+alias kdesc="kubectl describe  --all-namespaces"
+alias kgpog="kubectl get po --all-namespaces | grep"
+alias kgrep="kubectl get pod,svc -o wide --all-namespaces | grep"
 alias klogsf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl logs"
 alias klogs="kubectl logs --all-namespaces"
 alias kport="kubectl port-forward" # kport <pod_name> <my_port>:<pod_port>

@@ -46,7 +46,7 @@ paq {'matbme/JABS.nvim'}
 
 -- plugin to facilitate the configuration for LSP
 paq {'neovim/nvim-lspconfig'}
-paq {'kabouzeid/nvim-lspinstall'}
+paq {'williamboman/nvim-lsp-installer'}
 paq {'onsails/lspkind-nvim'}
 
 -- better syntax highlighter and more
