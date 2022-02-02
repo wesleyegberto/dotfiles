@@ -54,7 +54,7 @@ alias gdf="g d"
 
 
 # Utiltiy Aliases
-alias cpu='top -o cpu'   # CPU
+alias cpu='top -o cpu'  # CPU
 alias mem='top -o rsize' # Memory
 
 
@@ -65,10 +65,10 @@ alias kgctx="kubectl config get-contexts"
 alias ksctx="kubectl config use-context"
 
 alias kgpoan="kubectl get po --all-namespaces"
-alias kgpo="kubectl get po  --all-namespaces"
-alias kgsvc="kubectl get svc  --all-namespaces"
+alias kgpo="kubectl get po --all-namespaces"
+alias kgsvc="kubectl get svc --all-namespaces"
 
-alias kdesc="kubectl describe  --all-namespaces"
+alias kdesc="kubectl describe --all-namespaces"
 alias kgpog="kubectl get po --all-namespaces | grep"
 alias kgrep="kubectl get pod,svc -o wide --all-namespaces | grep"
 alias klogsf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl logs"
@@ -92,20 +92,20 @@ alias kdpof="k get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"
 
 # Connect to a Kubernetes pod
 kpsh() {
-    if [ -z "$1" ]; then
-        echo "Usage: kpsh <pod-name>"
-        return
-    fi
-    kubectl get po --all-namespaces | fzf | awk '{print $2}' | xargs -I {} kubectl exec -it {} sh
+  if [ -z "$1" ]; then
+    echo "Usage: kpsh <pod-name>"
+    return
+  fi
+  kubectl get po --all-namespaces | fzf | awk '{print $2}' | xargs -I {} kubectl exec -it {} sh
 }
 
 # Delete a Kubernetes pod
 kdpo() {
-    if [ -z "$1" ]; then
-        echo "Usage: kdpo <pod-name>"
-        return
-    fi
+  if [ -z "$1" ]; then
+    echo "Usage: kdpo <pod-name>"
+    return
+  fi
 
-    k get pods --all-namespaces | grep "$1" | awk '{print $1}' | xargs kubectl delete pod --all-namespaces
+  k get pods --all-namespaces | grep "$1" | awk '{print $1}' | xargs kubectl delete pod --all-namespaces
 }
 
