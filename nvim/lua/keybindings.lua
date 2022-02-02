@@ -16,7 +16,7 @@ map('n', '<C-s>', ':w<CR>', options)
 map('i', '<C-s>', '<Esc>:w<CR>a', options)
 map('v', '<C-s>', '<Esc>:w<CR>', options)
 
-map('i', 'jj', '<Esc>', options)
+map('i', 'jk', '<Esc>', options)
 
 map('n', '<Leader><Esc>', ':nohlsearch<CR>', options)
 

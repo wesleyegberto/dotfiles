@@ -3,6 +3,7 @@ local map = vim.api.nvim_set_keymap
 
 local lspconfig = require'lspconfig'
 local lspfuzzy = require'lspfuzzy'
+local lspfidget = require"fidget"
 
 local function init_lspkind()
   require('lspkind').init({
@@ -150,6 +151,7 @@ local on_attach = function(_, bufnr)
 
   -- Make the LSP client use FZF instead of the quickfix list
   lspfuzzy.setup {}
+  lspfidget.setup{}
 
   init_lspkind()
 

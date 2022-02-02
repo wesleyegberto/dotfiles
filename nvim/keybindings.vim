@@ -2,20 +2,25 @@
 " # General mappings
 " #########################################################
 
-let g:mapleader = " "            " leader key
+let g:mapleader = " "
 
 " save buffer
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
 vmap <C-s> <Esc>:w<CR>
 
-inoremap jj <Esc>                   " on insert mode, jj as Esc (we can use <C-[>
+" on insert mode, jk as Esc (we can use <C-[>
+if !exists('g:vscode')
+  inoremap jk <Esc>
+endif
 
 " unhighlight the search result
 nnoremap <silent> <Leader><Esc> :nohl<CR>
 
-nnoremap <silent> <Leader>wfv <C-w>t<C-w>H   " change vertical split to horizontal
-nnoremap <silent> <Leader>wfh <C-w>t<C-w>K   " change horizontal split to vertical
+" change vertical split to horizontal
+nnoremap <silent> <Leader>wfv <C-w>t<C-w>H
+" change horizontal split to vertical
+nnoremap <silent> <Leader>wfh <C-w>t<C-w>K
 
 " tabs and buffers navigation
 nnoremap gb :bnext<CR>

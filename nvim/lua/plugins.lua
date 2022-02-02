@@ -48,6 +48,7 @@ paq {'matbme/JABS.nvim'}
 paq {'neovim/nvim-lspconfig'}
 paq {'williamboman/nvim-lsp-installer'}
 paq {'onsails/lspkind-nvim'}
+paq {'j-hui/fidget.nvim'}
 
 -- better syntax highlighter and more
 paq {'nvim-treesitter/nvim-treesitter'}
