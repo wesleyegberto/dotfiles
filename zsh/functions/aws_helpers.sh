@@ -90,7 +90,10 @@ awsSqsReadMsg() {
 
 awsSqsSendMsg() {
     local queueUrl
-    queueUrl=$(aws sqs list-queues | jq '.QueueUrls[]' | fzf -q "$2" | sed 's/^"//g;s/"$//g')
+    queueUrl="$2"
+    if [ -z "$queueUrl" ]; then
+        queueUrl=$(aws sqs list-queues | jq '.QueueUrls[]' | fzf -q "$2" | sed 's/^"//g;s/"$//g')
+    fi
     echo "Sending '$1' to $queueUrl"
     aws sqs send-message --queue-url "$queueUrl" --message-body "'$1'" | jq
 }
