@@ -7,9 +7,10 @@ local lspfidget = require"fidget"
 
 local function init_lspkind()
   require('lspkind').init({
-      -- enables text annotations
-      -- default: true
-      with_text = true,
+      -- defines how annotations are shown
+      -- default: symbol
+      -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+      mode = 'symbol_text',
 
       -- default symbol map
       -- can be either 'default' or
@@ -93,6 +94,12 @@ local function setup_keymappings()
 
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
+
+  vim.cmd [[
+    :Copilot enable
+    imap <silent><script><expr> <C-Tab> copilot#Accept("\<CR>")
+    let g:copilot_no_tab_map = v:true
+  ]]
 end
 
 local function setup_snippet()

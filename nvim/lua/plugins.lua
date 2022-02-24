@@ -71,6 +71,7 @@ paq {'ojroques/nvim-lspfuzzy'}
 paq {'rafamadriz/friendly-snippets'}
 paq {'hrsh7th/vim-vsnip'}
 paq {'hrsh7th/nvim-compe'}
+paq {'github/copilot.vim'}
 -- paq {'ms-jpq/coq_nvim'}
 
 paq {'glepnir/galaxyline.nvim'}
