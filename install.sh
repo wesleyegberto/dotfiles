@@ -14,7 +14,9 @@ ln -s $DOTFILES/.gitignore_global ~/.gitignore_global
 
 echo "Copying terminal conf"
 [ -f ~/.config/kitty/kitty.conf ] && cp ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf_backup
+[ -f ~/.config/kitty/current-theme.conf ] && cp ~/.config/kitty/current-theme.conf ~/.config/kitty/current-theme.conf_backup
 ln -s $DOTFILES/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -s $DOTFILES/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
 
 echo "Copying .zshrc"
 [ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc_backup
