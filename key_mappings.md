@@ -30,13 +30,16 @@ C-S-l             " cycle window layout
 ## Tmux
 
 Leader key is `C-b`.
+Reload config: `<Leader>C-r`
 
 Help: `<Leader>?`
 
 ### Session
 
 ```
+<Leader>C-c         " create new session
 <Leader>$           " rename session
+<Leader>C-f         " find session
 <Leader>s           " choose session
 <Leader>d           " detach from session
 
@@ -48,7 +51,7 @@ Help: `<Leader>?`
 ### Window
 
 ```
-<Leader>c           " create new window
+<Leader>C-c         " create new window
 <Leader>,           " rename window
 <Leader>w           " choose window
 
