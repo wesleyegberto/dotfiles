@@ -97,9 +97,9 @@ local function setup_keymappings()
 
   vim.cmd [[
     :Copilot enable
-    imap <silent><script><expr> <C-Tab> copilot#Accept("\<CR>")
-    let g:copilot_no_tab_map = v:true
   ]]
+  -- imap <silent><script><expr> <C-Tab> copilot#Accept("\<CR>")
+  -- let g:copilot_no_tab_map = v:true
 end
 
 local function setup_snippet()

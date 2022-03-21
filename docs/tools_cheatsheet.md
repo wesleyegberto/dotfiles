@@ -22,9 +22,28 @@ xsv stats myfile.csv --everything | xsv table
 
 Benchmark a command:
 
-
 ```bash
 bench ls
+```
+
+Run a command:
+
+```sh
+stress_command 'curl http://httpbin.org/get' 10 1
+```
+
+**Apache Bench**
+
+GET request:
+
+```sh
+ab_get_test http://httpbin.org/get 1000 10
+```
+
+POST request:
+
+```sh
+ab_post_test http://httpbin.org/post payload.json 5000 10
 ```
 
 ## Misc

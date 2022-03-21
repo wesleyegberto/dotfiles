@@ -25,13 +25,13 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 ## My Setup
 
 * Bash: I'm using Kitty + Oh-My-Zsh + Tmux.
-* Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, Eclipse, so on.
+* Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, so on.
 * Windows manager: [Amethyst](https://ianyh.com/amethyst/).
 
 Aliases & Key mappings:
 
-* [Terminal aliases](./aliases.md)
-* [Key mappings](./key_mappings.md)
+* [Terminal aliases](./docs/aliases.md)
+* [Key mappings](./docs/key_mappings.md)
 
 ## Instructions
 
@@ -73,13 +73,7 @@ Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Inst
 
 **Neovim 0.4**
 
-Install Vim plugin manager:
-
-`git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim`.
-
-Copy the content of file `.vimrc` to `~/.config/nvim/init.vim`.
-
-Then install the plugins by running: `vim +PluginInstall +qall`.
+For Neovim 0.4, see [this branch](https://github.com/wesleyegberto/dotfiles/tree/neovim-0.4).
 
 **Neovim 0.5+ with Lua**
 
@@ -100,7 +94,7 @@ Then install the plugins by running: `vim +PaqInstall +qall`.
   * lazydocker
   * lazynpm
 * Python deps and Pylint:
-  * `pip2 install --user pynvim`
+  * `pip install --user pynvim`
   * `pip3 install --user pynvim`
   * `pip3 install neovim-remote`
 * C#: open a `.cs` file and execute command `:OmniSharpInstall`

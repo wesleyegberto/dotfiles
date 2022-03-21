@@ -77,7 +77,9 @@ paq {'github/copilot.vim'}
 paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
-paq {'morhetz/gruvbox'}
+-- paq {'morhetz/gruvbox'}
+paq {'luisiacc/gruvbox-baby'}
+paq {'ellisonleao/gruvbox.nvim'}
 paq {'dracula/vim'}
 paq {'joshdick/onedark.vim'}
 paq {'kaicataldo/material.vim'}
