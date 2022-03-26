@@ -92,7 +92,7 @@ tsp() {
 }
 
 
-# Boost Productivity with tmux and iTerm2 workspace
+# Boost Productivity with tmux
 # http://www.huyng.com/posts/productivity-boost-with-tmux-iterm2-workspaces/
 tc() {
     local PS3 options SESSION_NAME
@@ -128,4 +128,31 @@ tc() {
                 ;;
         esac
     done
+}
+
+# Setup a session with code setup (session and project directory use current dir by default)
+# usage: `tcode <SESSION_NAME> <PROJECT_DIR>`
+tcode() {
+    local session folder
+    session=$1
+    folder=$2
+
+    if [[ -z $session ]]; then
+        session=$(basename "$PWD")
+    fi
+
+    if [[ -z $folder ]]; then
+        folder=$PWD
+    fi
+
+    if ! tmux has-session -t $session; then
+        tmux new-session -ds $session -c $folder
+        tmux new-window -t $session:2
+
+        tmux rename-window -t $session:1 'src'
+        tmux rename-window -t $session:2 'run'
+
+        tmux send-keys -t fiap:1 vim Enter
+    fi
+    tmux attach-session -t $session
 }

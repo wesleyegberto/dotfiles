@@ -64,7 +64,7 @@ Copy the content of file `.zshrc` to `~/.zshrc`.
 Install Tmux following [this steps](https://github.com/tmux/tmux/wiki/Installing):
 `brew install tmux`
 
-Copy the content of file `.tmux.conf` to `~/.tmux.conf`.
+Copy the content of file `tmux/.tmux.conf` to `~/.tmux.conf`.
 
 #### NeoVim
 
