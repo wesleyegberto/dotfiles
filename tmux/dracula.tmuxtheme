@@ -84,6 +84,6 @@ set -g mode-bg "${light_purple}"
 set -g mode-fg "${white}"
 
 
-#  modes
+# modes
 setw -g clock-mode-colour '${light_purple}'
 setw -g mode-style 'fg=${yellow} bg=${red} bold'

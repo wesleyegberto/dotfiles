@@ -25,7 +25,11 @@ brew install cask htop vtop
 brew install unrar wget tree
 brew install fd fzf the_silver_searcher ripgrep
 
+echo "\\n\\n === Automation tools ==="
 brew cask install alfred
+brew install rectangle
+brew install amethyst
+brew install hammerspoon --cask
 
 echo "\\n\\n === iTerm2 & Oh-My-Zsh & Tmux ==="
 brew cask install iterm2
@@ -64,6 +68,8 @@ brew install lazydocker
 brew install jesseduffield/lazynpm/lazynpm
 
 echo "\\n\\n=== Installing langs tools ==="
+brew install asdf
+brew install sdkman
 brew install shellcheck
 brew install node
 brew install jenv
@@ -90,24 +96,8 @@ npm install -g neovim
 
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 
-echo "\\n\\n=== Installing coc-vim ==="
-# for neovim
-mkdir -p ~/.local/share/nvim/site/pack/coc/start
-cd ~/.local/share/nvim/site/pack/coc/start
-curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
-
-# Neovim 0.5+
+echo "\\n\\n=== Installing Paq-Nvim ==="
 git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
-
-# Install extensions
-mkdir -p ~/.config/coc/extensions
-cd ~/.config/coc/extensions
-if [ ! -f package.json ]
-then
-  echo '{"dependencies":{}}'> package.json
-fi
-# Change extension names to the extensions you need
-npm install coc-actions coc-snippets coc-java --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 
 
 echo "\\n\\n=== Setting up Powerline==="
