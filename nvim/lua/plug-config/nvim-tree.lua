@@ -10,7 +10,6 @@ require'nvim-web-devicons'.setup {
 -- vim.cmd('highlight NvimTreeFolderIcon guibg=blue')
 
 g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_indent_markers = 1
 
 g.nvim_tree_show_icons = {
    git = 1,
@@ -38,7 +37,7 @@ g.nvim_tree_icons = {
       -- arrow_open = "",
       -- arrow_closed = "",
       default = "",
-      open = "",
+      open = "",
       empty = "", -- 
       empty_open = "",
       symlink = "",
@@ -85,6 +84,8 @@ local list = {
 }
 
 require'nvim-tree'.setup {
+   hijack_cursor = true,
+   hijack_unnamed_buffer_when_opening = true,
    ignore_ft_on_setup = { "dashboard" },
    -- lsp_diagnostics = true,
    update_focused_file = {
@@ -98,9 +99,23 @@ require'nvim-tree'.setup {
          list = list
       }
    },
+   renderer = {
+     indent_markers = {
+       enable = true,
+       icons = {
+         corner = "└ ",
+         edge = "│ ",
+         none = "  ",
+      },
+     }
+   },
    git = {
      enable = true,
      ignore = true
+   },
+   filters = {
+     dotfiles = false,
+     custom = {'.git', 'node_modules', '.cache', '.vscode'}
    }
 }
 
