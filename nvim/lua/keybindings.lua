@@ -132,11 +132,6 @@ map('c', '<C-e>', '<End>', options)
 -- # Plugins configuration
 -- #########################################################
 
--- === tpope/vim-commentary === {{{
-map('n', '<Leader>C', ':Commentary<CR>', options)
-map('v', '<Leader>C', ':Commentary<CR>', options)
--- }}}
-
 
 -- === tpope/vim-unimpaired === {{{
 map('n', '<M-Up>', '<Plug>unimpairedMoveUp', options)

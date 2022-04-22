@@ -25,7 +25,7 @@ paq {'wellle/targets.vim'}
 
 -- highlight trailing whitespaces
 paq {'ntpeters/vim-better-whitespace'}
-paq {'tpope/vim-commentary'}
+paq {'numToStr/Comment.nvim'}
 
 -- sublime-like multiple cursor editor
 paq {'mg979/vim-visual-multi'}
@@ -78,7 +78,6 @@ paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
 -- paq {'morhetz/gruvbox'}
-paq {'luisiacc/gruvbox-baby'}
 paq {'ellisonleao/gruvbox.nvim'}
 paq {'dracula/vim'}
 paq {'joshdick/onedark.vim'}
