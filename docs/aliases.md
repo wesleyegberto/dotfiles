@@ -15,7 +15,6 @@ tkf             " kill session selected from FZF
 tksv            " kill tmux server
 
 td              " create or attach to session named `default`
-ide             " create a session named `ide`
 ```
 
 ### Helper functions
@@ -29,6 +28,9 @@ tm $1           " attach to an existing session $1 or creates a new one
 tfd $1          " start a tmux session using dirname from the a folder selected from given path $1
 
 tsp             " find a Tmux pane
+
+ide             " create a session named `ide`
+tcode           " create a session using folder name, with windows `src` running Vim and `run`
 ```
 
 ## Git

@@ -5,11 +5,12 @@
 Leader key is `C-a`.
 
 ```
-C-S-l             " cycle window layout
+C-S-l               " cycle window layout
 
 <Leader>c           " create new tab
 <Leader>|           " create new window aside
 <Leader>-           " create new window aside
+<Leader>C           " create new window
 
 <Leader>shift+.     " move window to right
 <Leader>shift+,     " move window to left
@@ -25,6 +26,13 @@ C-S-l             " cycle window layout
 <Leader>S-h         " resize window
 <Leader>S-l         " resize window
 
+C-S-Delete          " clear terminal
+Cmd-A-r             " clear terminal
+
+C-S-a>m             " increase background opacity
+C-S-a>l             " decrease background opacity
+C-S-a>d             " reset background opacity
+C-S-a>1             " full background opacity
 ```
 
 ## Tmux
