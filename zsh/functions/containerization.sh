@@ -19,3 +19,23 @@ function drm() {
 
   [ -n "$cid" ] && docker rm "$cid"
 }
+
+# Connect to a Kubernetes pod
+kpsh() {
+  if [ -z "$1" ]; then
+    echo "Usage: kpsh <pod-name>"
+    return
+  fi
+  kubectl get po --all-namespaces | fzf | awk '{print $2}' | xargs -I {} kubectl exec -it {} sh
+}
+
+# Delete a Kubernetes pod
+kdpo() {
+  if [ -z "$1" ]; then
+    echo "Usage: kdpo <pod-name>"
+    return
+  fi
+
+  kubectl get pods --all-namespaces | grep "$1" | awk '{print $1}' | xargs kubectl delete pod --all-namespaces
+}
+

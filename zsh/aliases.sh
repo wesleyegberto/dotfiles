@@ -81,31 +81,17 @@ alias krollback="kubectl rollout undo deployments"
 alias knodersc="kubectl get nodes --no-headers | awk '{print \$1}' | xargs -I {} sh -c 'echo {}; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo'"
 alias kpodrsc="kubectl get po --all-namespaces -o=jsonpath=\"{range .items[*]}{.metadata.namespace}:{.metadata.name}{'\n'}{range .spec.containers[*]} {.name} - {.resources.requests.cpu} - {.resources.requests.memory}{'\n'}{end}{'\n'}{end}\""
 
-alias kscaleup="k scale --replicas=1 deploy"
-alias kscaledown="k scale --replicas=0 deploy"
+alias kscaleup="kubectl scale --replicas=1 deploy"
+alias kscaledown="kubectl scale --replicas=0 deploy"
 
 alias kpodimg="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{\", \"}{end}{end}' | sort"
 alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep"
 
 alias kdpod="kubectl delete po"
-alias kdpof="k get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"
+alias kdpof="kubectl get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"
 
-# Connect to a Kubernetes pod
-kpsh() {
-  if [ -z "$1" ]; then
-    echo "Usage: kpsh <pod-name>"
-    return
-  fi
-  kubectl get po --all-namespaces | fzf | awk '{print $2}' | xargs -I {} kubectl exec -it {} sh
-}
-
-# Delete a Kubernetes pod
-kdpo() {
-  if [ -z "$1" ]; then
-    echo "Usage: kdpo <pod-name>"
-    return
-  fi
-
-  k get pods --all-namespaces | grep "$1" | awk '{print $1}' | xargs kubectl delete pod --all-namespaces
-}
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
 
