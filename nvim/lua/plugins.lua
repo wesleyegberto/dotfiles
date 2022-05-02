@@ -59,6 +59,7 @@ paq {'OmniSharp/omnisharp-vim'} -- csharp
 
 paq {'nvim-telescope/telescope.nvim'}
 paq {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sort
+paq {'nvim-telescope/telescope-ui-select.nvim'}
 paq {'camgraff/telescope-tmux.nvim'}
 paq {'fhill2/telescope-ultisnips.nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
@@ -95,3 +96,7 @@ paq {'glepnir/dashboard-nvim'}
 -- session management
 paq {'rmagatti/auto-session'}
 paq {'rmagatti/session-lens'}
+
+paq {'renerocksai/telekasten.nvim'}
+paq {'renerocksai/calendar-vim'}
+

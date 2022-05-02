@@ -45,6 +45,7 @@ require('plug-config/galaxyline')
 require('plug-config/whichkey')
 require('plug-config/sessions')
 require('plug-config/dashboard')
+require('plug-config/zettelkasten')
 
 
 -- #########################################################
