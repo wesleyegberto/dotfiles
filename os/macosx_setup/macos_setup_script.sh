@@ -74,6 +74,8 @@ brew install shellcheck
 brew install node
 brew install jenv
 npm install -g n
+npm i -g vscode-langservers-extracted
+npm install -g @angular/language-server
 
 echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript
@@ -93,8 +95,6 @@ echo "\\n\\n=== Installing Neovim providers ==="
 pip install --upgrade pip
 pip3 install --user --upgrade neovim
 npm install -g neovim
-
-git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 
 echo "\\n\\n=== Installing Paq-Nvim ==="
 git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim

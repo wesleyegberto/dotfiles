@@ -14,5 +14,5 @@ nnoremap <silent> <Leader>pp  :Telescope langtools package<CR>
 nnoremap <silent> <Leader>pta :Telescope langtools test<CR>
 nnoremap <silent> <Leader>ptf :Telescope langtools test_file<CR>
 
-" lua require('telescope').load_extension('langtools')
-lua require('telescope._extension.langtools').setup({ language = 'java' })
+lua require('telescope').load_extension('langtools')
+lua require('telescope._extensions.langtools').setup({ language = 'java' })

@@ -9,16 +9,7 @@ require'nvim-web-devicons'.setup {
 
 -- vim.cmd('highlight NvimTreeFolderIcon guibg=blue')
 
-g.nvim_tree_highlight_opened_files = 1
-
-g.nvim_tree_show_icons = {
-   git = 1,
-   folders = 1,
-   files = 1,
-   -- folder_arrows = 1
-}
-
-g.nvim_tree_icons = {
+local nvim_tree_icons = {
    default = "",
    symlink = "",
    git = {
@@ -100,6 +91,15 @@ require'nvim-tree'.setup {
       }
    },
    renderer = {
+     icons = {
+         show = {
+            files = 1,
+            folders = true,
+            git = true,
+            -- folder_arrow = true
+         },
+         glyphs = nvim_tree_icons
+      },
      indent_markers = {
        enable = true,
        icons = {
@@ -107,7 +107,8 @@ require'nvim-tree'.setup {
          edge = "│ ",
          none = "  ",
       },
-     }
+     },
+      highlight_opened_files = "all"
    },
    git = {
      enable = true,

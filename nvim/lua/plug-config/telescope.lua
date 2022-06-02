@@ -31,12 +31,7 @@ require('telescope').setup {
         {'~/projects/globalpoints/git', max_depth = 4}
       }
       --hidden_files = true -- default: false
-    }
-  }
-}
-
-require("telescope").setup {
-  extensions = {
+    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {
         -- even more opts
@@ -47,4 +42,3 @@ require("telescope").setup {
 
 require("telescope").load_extension("ui-select")
 require('telescope').load_extension('ultisnips')
-

@@ -2,6 +2,7 @@ local utils = require'utils'
 
 local maven_options = require'telescope._extensions.langtools.setup_maven'
 local dotnet_options = require'telescope._extensions.langtools.setup_dotnet'
+local node_options = require'telescope._extensions.langtools.setup_node'
 
 local defaultConf = {
   language = 'none'
@@ -30,6 +31,8 @@ local function setup(config)
     copy_attr_to_module(maven_options)
   elseif LangTools.config.language == 'dotnet' then
     copy_attr_to_module(dotnet_options)
+  elseif LangTools.config.language == 'node' then
+    copy_attr_to_module(node_options)
   end
 end
 

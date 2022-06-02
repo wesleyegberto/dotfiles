@@ -197,7 +197,7 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 -- Enable the following language servers
-local servers = { 'tsserver', 'jdtls', 'pyright', 'omnisharp' }
+local servers = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
 
 for _, lsp in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
