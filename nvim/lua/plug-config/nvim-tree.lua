@@ -85,6 +85,7 @@ require'nvim-tree'.setup {
    ignore_ft_on_setup = {'.git', 'node_modules', '.cache'},
    view = {
       width = 40,
+      side = 'left',
       auto_resize = true,
       mappings = {
          list = list
@@ -93,8 +94,8 @@ require'nvim-tree'.setup {
    renderer = {
      icons = {
          show = {
-            files = 1,
-            folders = true,
+            file = true,
+            folder = true,
             git = true,
             -- folder_arrow = true
          },
