@@ -20,7 +20,7 @@ let g:gruvbox_invert_selection='0'
 ]]
 
 vim.o.background = 'dark'
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme palenightfall')
 
 --- popup colors
 vim.cmd [[

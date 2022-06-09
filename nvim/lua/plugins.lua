@@ -82,8 +82,8 @@ paq {'morhetz/gruvbox'}
 -- paq {'ellisonleao/gruvbox.nvim'}
 paq {'dracula/vim'}
 paq {'joshdick/onedark.vim'}
-paq {'kaicataldo/material.vim'}
-paq {'KeitaNakamura/neodark.vim'}
+paq {'JoosepAlviste/palenightfall.nvim'}
+paq {'folke/tokyonight.nvim'}
 paq {'ryanoasis/vim-devicons'}
 
 -- tree explorer
