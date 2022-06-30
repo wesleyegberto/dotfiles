@@ -25,7 +25,7 @@ require('telescope').setup {
     }
   },
   extensions = {
-    project = {
+   project = {
       base_dirs = {
         {path = '~/projects/github', max_depth = 3},
         {'~/projects/globalpoints/git', max_depth = 4}

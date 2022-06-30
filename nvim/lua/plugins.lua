@@ -78,10 +78,12 @@ paq {'github/copilot.vim'}
 paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
-paq {'morhetz/gruvbox'}
--- paq {'ellisonleao/gruvbox.nvim'}
+-- paq {'morhetz/gruvbox'}
+paq {'ellisonleao/gruvbox.nvim'}
+paq {'luisiacc/gruvbox-baby'}
 paq {'dracula/vim'}
-paq {'joshdick/onedark.vim'}
+paq {'Mofiqul/dracula.nvim'}
+paq {'navarasu/onedark.nvim'}
 paq {'JoosepAlviste/palenightfall.nvim'}
 paq {'folke/tokyonight.nvim'}
 paq {'ryanoasis/vim-devicons'}

@@ -173,3 +173,4 @@ map('n', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
 -- map('v', '<Leader><Leader>j', ':HopLineStartAC<CR>', silentOptions)
 -- map('v', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
 -- -- }}}
+

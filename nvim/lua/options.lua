@@ -1,36 +1,4 @@
 -- #########################################################
--- # Appearance
--- #########################################################
-vim.cmd('syntax on')
-
-vim.g.gruvbox_italic = 1
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.g.gruvbox_invert_selection = '0'
-
-vim.cmd [[
-set termguicolors
-
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
-]]
-
-vim.o.background = 'dark'
-vim.cmd('colorscheme palenightfall')
-
---- popup colors
-vim.cmd [[
-hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White
-hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black
-hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
-]]
-
-
--- #########################################################
 -- # General settings
 -- #########################################################
 
@@ -112,3 +80,4 @@ filetype plugin indent on
 
 autocmd BufNewFile,BufRead *.cs set ft=cs
 ]]
+

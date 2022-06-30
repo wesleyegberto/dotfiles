@@ -13,11 +13,7 @@
 " # Instructions
 " #########################################################
 
-" required by vundle
 filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-
 
 source $HOME/.config/nvim/options.vim
 source $HOME/.config/nvim/mappings.vim
@@ -51,13 +47,6 @@ source $HOME/.config/nvim/plug-config/fzf.vim
 " === ntpeters/vim-better-whitespace === {{{
 let g:strip_whitespace_on_save = 1
 " }}}
-
-
-" === tpope/vim-commentary === {{{
-nnoremap <Leader>C :Commentary<CR>
-vnoremap <Leader>C :Commentary<CR>
-" }}}
-
 
 " === tpope/vim-unimpaired === {{{
 nmap <M-Up> <Plug>unimpairedMoveUp
