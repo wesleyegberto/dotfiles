@@ -84,9 +84,9 @@ require'nvim-tree'.setup {
    },
    ignore_ft_on_setup = {'.git', 'node_modules', '.cache'},
    view = {
+      adaptive_size = true,
       width = 40,
       side = 'left',
-      auto_resize = true,
       mappings = {
          list = list
       }
