@@ -34,6 +34,7 @@ paq {'mg979/vim-visual-multi'}
 paq {'tpope/vim-fugitive'}
 paq {'airblade/vim-gitgutter'}
 paq {'tveskag/nvim-blame-line'}
+paq {'sindrets/diffview.nvim'}
 
 -- tmux integration and navigate between open pages with C-h C-j C-k C-k
 paq {'benmills/vimux'}
@@ -81,7 +82,6 @@ paq {'glepnir/galaxyline.nvim'}
 -- paq {'morhetz/gruvbox'}
 paq {'ellisonleao/gruvbox.nvim'}
 paq {'luisiacc/gruvbox-baby'}
-paq {'dracula/vim'}
 paq {'Mofiqul/dracula.nvim'}
 paq {'navarasu/onedark.nvim'}
 paq {'JoosepAlviste/palenightfall.nvim'}

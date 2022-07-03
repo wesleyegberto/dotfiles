@@ -18,7 +18,6 @@ local u = require('utils')
 -- #########################################################
 
 require('plugins')
-require('theme')
 
 -- #########################################################
 -- # General settings
@@ -26,6 +25,7 @@ require('theme')
 
 require('options')
 require('keybindings')
+require('theme')
 
 
 -- #########################################################

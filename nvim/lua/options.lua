@@ -78,6 +78,6 @@ vim.o.signcolumn = 'yes'                                     -- always show sign
 vim.cmd [[
 filetype plugin indent on
 
-autocmd BufNewFile,BufRead *.cs set ft=cs
+autocmd BufNewFile,BufRead *.cs set ft=csharp
 ]]
 
