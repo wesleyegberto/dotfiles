@@ -309,12 +309,16 @@ L                " mapped to $
 <Leader>gf       " fetch
 <Leader>gp       " pull
 <Leader>gr       " rebase
-<Leader>gs       " status
 <Leader>gm       " modified files
+<Leader>gs       " diff status
+<Leader>gS       " status
 <Leader>gc       " commit
 <Leader>gP       " push
 <Leader>gl       " log
-<Leader>gb       " blame
+<Leader>gb       " blame inline
+<Leader>gB       " blame view
+<Leader>gdf      " diff current file
+<Leader>gdc      " close diff view
 <Leader>gv       " diff vertical split
 <Leader>gh       " diff horizontal split
 ```
