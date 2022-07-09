@@ -111,6 +111,7 @@ wk.register({
     ['s'] = { ':Git d<CR>'                 , 'diff view' },
     ['S'] = { ':Git status<CR>'            , 'status' },
     ['m'] = { ':GFiles?<CR>'               , 'modified files' },
+    ['a'] = { ':Git add<CR>'               , 'add' },
     ['c'] = { ':Git commit<CR>'            , 'commit' },
     ['M'] = { ':Git merge'                 , 'merge' },
     ['P'] = { ':Git push<CR>'              , 'push' },

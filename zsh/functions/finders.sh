@@ -8,9 +8,14 @@ brainsearch() {
         echo "What do you need to know?";
         return 1;
     fi
-    ag -l "$1" ~/notes/ | \
-        fzf --preview "rg --color=always --ignore-case --pretty --context 20 '$1' {}" | \
-        xargs -I {} vim "{}"
+    local files
+    local file
+    files=$(ag -l "$1" ~/notes/)
+    file=$(fzf --preview "rg --color=always --ignore-case --pretty --context 20 '$1' {}")
+    if [ -z "$file" ]; then
+        return 1;
+    fi
+    nvim "$file"
 }
 
 # Show cheatsheet for commands

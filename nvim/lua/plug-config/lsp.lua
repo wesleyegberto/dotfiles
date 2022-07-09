@@ -1,4 +1,4 @@
---- Neovim LSP
+--- Neovm LSP
 local map = vim.api.nvim_set_keymap
 
 local lspconfig = require'lspconfig'
@@ -94,12 +94,6 @@ local function setup_keymappings()
 
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
-
-  vim.cmd [[
-    :Copilot enable
-  ]]
-  -- imap <silent><script><expr> <C-Tab> copilot#Accept("\<CR>")
-  -- let g:copilot_no_tab_map = v:true
 end
 
 local function setup_snippet()
@@ -150,15 +144,16 @@ local function setup_snippet()
     inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
   ]]
 
-  -- map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
+  map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 end
 
 local on_attach = function(_, bufnr)
+  lspfidget.setup{}
+
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Make the LSP client use FZF instead of the quickfix list
   lspfuzzy.setup{}
-  lspfidget.setup{}
 
   init_lspkind()
 

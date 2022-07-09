@@ -26,7 +26,7 @@ export HISTTIMEFORMAT='%F | %T '
 # ctrl-s: open in VSCode
 # ctrl-v: open in Vim
 # ctrl-o: open with preview
-export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008' --prompt='∼ ' --pointer='▶' --marker='✓' --bind '?:toggle-preview' --bind 'ctrl-a:select-all' --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)' --bind 'ctrl-v:execute(echo {+} | xargs -o vim)' --bind 'ctrl-s:execute(echo {+} | xargs -o code)' --bind 'ctrl-t:execute(echo {+} | xargs -o tmux)' --bind 'ctrl-o:execute(open {+})'"
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008' --prompt='∼ ' --pointer='▶' --marker='✓' --bind '?:toggle-preview' --bind 'ctrl-a:select-all' --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)' --bind 'ctrl-v:execute(echo {+} | xargs -o nvim)' --bind 'ctrl-s:execute(echo {+} | xargs -o code)' --bind 'ctrl-t:execute(echo {+} | xargs -o tmux)' --bind 'ctrl-o:execute(open {+})'"
 export FZF_PREVIEW_WINDOW="([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '.git' --exclude 'node_modules' --exclude '.build'"
 

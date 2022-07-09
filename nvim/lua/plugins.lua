@@ -19,6 +19,7 @@ paq {'phaazon/hop.nvim'}
 
 -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
 paq {'tpope/vim-surround'}
+-- paq {'kylechui/nvim-surround'}
 -- autoclose and actions to insert spaces or new line between {}, (), []
 paq {'windwp/nvim-autopairs'}
 paq {'wellle/targets.vim'}
@@ -49,6 +50,7 @@ paq {'matbme/JABS.nvim'}
 paq {'neovim/nvim-lspconfig'}
 paq {'williamboman/nvim-lsp-installer'}
 paq {'onsails/lspkind-nvim'}
+paq {'Maan2003/lsp_lines.nvim'}
 paq {'j-hui/fidget.nvim'}
 
 -- better syntax highlighter and more
@@ -73,7 +75,7 @@ paq {'ojroques/nvim-lspfuzzy'}
 paq {'rafamadriz/friendly-snippets'}
 paq {'hrsh7th/vim-vsnip'}
 paq {'hrsh7th/nvim-compe'}
-paq {'github/copilot.vim'}
+-- paq {'L3MON4D3/LuaSnip'}
 -- paq {'ms-jpq/coq_nvim'}
 
 paq {'glepnir/galaxyline.nvim'}

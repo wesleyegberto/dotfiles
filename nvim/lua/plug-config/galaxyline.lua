@@ -3,6 +3,8 @@
 local gl = require('galaxyline')
 local gls = gl.section
 
+-- separators: "┃", "▋", "█", "", "", "", "", "", "", "", "●"
+
 gl.short_line_list = {'LuaTree','vista','dbui'}
 
 local colors = {
@@ -55,8 +57,8 @@ gls.left[2] = {
         return "  " .. current_Mode .. " "
       end
     end,
-    separator = ' ',
-    separator_highlight = {colors.lightbg, colors.darkblue},
+    separator = '',
+    separator_highlight = {colors.darkblue, colors.lightbg},
     highlight = {colors.blue, colors.lightbg}
   }
 }
@@ -71,7 +73,7 @@ gls.left[3] = {
 }
 gls.left[4] = {
   FileName = {
-    provider = {'FileName','FileSize'},
+    provider = 'FileName',
     condition = buffer_not_empty,
     separator = '',
     separator_highlight = {colors.lightbg, colors.darkblue},
@@ -168,14 +170,14 @@ gls.right[1] = {
     provider = function()
       return " "
     end,
-    separator = "",
+    separator = "",
     separator_highlight = {colors.red, colors.bg},
     highlight = {colors.lightbg, colors.red}
   }
 }
 gls.right[2] = {
   FileFormat = {
-    provider = 'FileFormat',
+    provider = {'FileSize','FileEncode'},
     separator = ' ',
     separator_highlight = {colors.lightbg, colors.lightbg},
     highlight = {colors.red, colors.lightbg},
@@ -188,7 +190,7 @@ gls.right[3] = {
     provider = function()
       return " "
     end,
-    separator = " ",
+    separator = " ",
     separator_highlight = {colors.green, colors.lightbg},
     highlight = {colors.lightbg, colors.green}
   }
@@ -208,7 +210,7 @@ gls.right[5] = {
     provider = function()
       return " "
     end,
-    separator = "",
+    separator = "",
     separator_highlight = {colors.blue, colors.lightbg},
     highlight = {colors.lightbg, colors.blue}
   }
