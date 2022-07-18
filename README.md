@@ -123,6 +123,7 @@ Here are my configs:
 * [Oh-My-Zsh](https://ohmyz.sh/)
 * [Tmux](https://github.com/tmux/tmux)
 * [NeoVim](https://neovim.io/)
+  * [Learn Neovim the Pratical Way](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
 * Fonts:
   * [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
   * [Jetbrains Mono](https://www.jetbrains.com/lp/mono/)

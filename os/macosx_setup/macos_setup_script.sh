@@ -46,6 +46,7 @@ brew install neovim # NeoVim
 echo "\\n\\n === Dev Utils ==="
 brew install git
 brew install git-delta # git diff
+git config --global --add --bool push.autoSetupRemove true
 
 brew cask install dash
 npm install -g tldr

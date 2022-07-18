@@ -21,3 +21,9 @@ run() {
         echo "There is no project to run"
     fi
 }
+
+cleanup_java_ide() {
+    rm -rf \
+        .mvn mvnw mvnw.cmd HELP.md target \
+        .classpath .project .settings .idea .vscode
+}

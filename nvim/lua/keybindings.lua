@@ -145,7 +145,7 @@ map('n', '<C-p>', ':Telescope find_files<CR>', silentOptions)
 
 
 -- === matbme/JABS.nvim === {{{
-map('n', '<C-b>', ':JABSOpen<CR>', silentOptions)
+map('n', '<C-b><C-b>', ':JABSOpen<CR>', silentOptions)
 -- }}}
 
 

@@ -81,6 +81,7 @@ paq {'hrsh7th/nvim-compe'}
 paq {'glepnir/galaxyline.nvim'}
 
 -- colorscheme
+paq {'norcalli/nvim-colorizer.lua'}
 -- paq {'morhetz/gruvbox'}
 paq {'ellisonleao/gruvbox.nvim'}
 paq {'luisiacc/gruvbox-baby'}

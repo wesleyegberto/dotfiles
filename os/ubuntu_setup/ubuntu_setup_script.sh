@@ -50,6 +50,7 @@ apt-get install \
     software-properties-common \
 apt-get install tree fzf fd-find ripgrep
 apt-get install git
+git config --global --add --bool push.autoSetupRemove true
 apt-get install cpufrequtils indicator-cpufreq indicator-multiload
 
 echo "\\n\\n === Neovim ==="
