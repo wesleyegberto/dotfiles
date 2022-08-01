@@ -162,47 +162,54 @@ local on_attach = function(_, bufnr)
   setup_snippet()
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local install_lspservers = function()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local default_opts = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-require('nvim-lsp-installer').setup {
-  ensure_installed = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
-}
-
-require('lspconfig')['pyright'].setup{
+  local default_opts = {
     on_attach = on_attach,
-    flags = capabilities,
-}
+    capabilities = capabilities,
+  }
 
-require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    flags = capabilities,
-}
+  require('nvim-lsp-installer').setup {
+    ensure_installed = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
+  }
 
-require('lspconfig')['jdtls'].setup{
-    on_attach = on_attach,
-    flags = capabilities,
-}
+  require('lspconfig')['pyright'].setup{
+      on_attach = on_attach,
+      flags = capabilities,
+  }
 
-require('lspconfig')['angularls'].setup{
-    on_attach = on_attach,
-    flags = capabilities,
-}
+  require('lspconfig')['tsserver'].setup{
+      on_attach = on_attach,
+      flags = capabilities,
+  }
 
-require('lspconfig')['html'].setup{
-    on_attach = on_attach,
-    flags = capabilities,
-}
+  require('lspconfig')['jdtls'].setup{
+      on_attach = on_attach,
+      flags = capabilities,
+  }
 
-local pid = vim.fn.getpid()
-require('lspconfig')['omnisharp'].setup{
-    on_attach = on_attach,
-    flags = capabilities,
-    cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
-}
+  require('lspconfig')['angularls'].setup{
+      on_attach = on_attach,
+      flags = capabilities,
+  }
+
+  require('lspconfig')['html'].setup{
+      on_attach = on_attach,
+      flags = capabilities,
+  }
+
+  local pid = vim.fn.getpid()
+  require('lspconfig')['omnisharp'].setup{
+      on_attach = on_attach,
+      flags = capabilities,
+      cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
+  }
+end
+
+install_lspservers()
+
+require('mason').setup()
+require('mason-lspconfig').setup()
 

@@ -18,7 +18,6 @@ local nvim_tree_icons = {
       staged = '+',
       unmerged = '!',
       renamed = "➜",
-      -- deleted = '-',
       deleted = "✗",
       ignored = "◌",
    },
@@ -84,8 +83,8 @@ require'nvim-tree'.setup {
    },
    ignore_ft_on_setup = {'.git', 'node_modules', '.cache'},
    view = {
-      adaptive_size = true,
-      width = 40,
+      adaptive_size = false,
+      width = 50,
       side = 'left',
       mappings = {
          list = list
@@ -97,14 +96,14 @@ require'nvim-tree'.setup {
             file = true,
             folder = true,
             git = true,
-            -- folder_arrow = true
+            folder_arrow = false
          },
          glyphs = nvim_tree_icons
       },
      indent_markers = {
        enable = true,
        icons = {
-         corner = "└ ",
+         corner = "└",
          edge = "│ ",
          none = "  ",
       },

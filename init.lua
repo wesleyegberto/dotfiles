@@ -38,14 +38,15 @@ require('plug-config/others-setup')
 require('plug-config/nvim-tree')
 require('plug-config/floaterm')
 require('plug-config/telescope')
+require('plug-config/galaxyline')
 require('plug-config/lsp')
+require('plug-config/treesitter')
 require('plug-config/refactoring')
 require('plug-config/compe')
-require('plug-config/galaxyline')
-require('plug-config/whichkey')
+require('plug-config/zettelkasten')
 require('plug-config/sessions')
 require('plug-config/dashboard')
-require('plug-config/zettelkasten')
+require('plug-config/whichkey')
 
 
 -- #########################################################

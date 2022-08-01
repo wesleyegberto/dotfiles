@@ -2,7 +2,16 @@
 local map = vim.api.nvim_set_keymap
 
 local refactor = require("refactoring")
-refactor.setup({})
+refactor.setup({
+   -- prompt for return type
+    prompt_func_return_type = {
+        java = true,
+    },
+    -- prompt for function parameters
+    prompt_func_param_type = {
+        java = true,
+    },
+})
 
 -- telescope refactoring helper
 local function refactor(prompt_bufnr)

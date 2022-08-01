@@ -1,8 +1,9 @@
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 
-require('Comment').setup()
+require'Comment'.setup()
 
-require('nvim-autopairs').setup{}
+require'nvim-autopairs'.setup()
+require'colorizer'.setup()
 
 local ui = vim.api.nvim_list_uis()[1]
 

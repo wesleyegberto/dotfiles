@@ -37,6 +37,19 @@ prcheck() {
     gh pr checkout "$1" && gh pr diff
 }
 
+# Usage: `gtag 1.0.0`
+gtag() {
+    local version
+    version="$1"
+    if [ -z "$version" ]; then
+        echo "Please provide a version to tag"
+        return 1
+    fi
+
+    git tag -a "v$version" -m "version v$version"
+    git push origin --tags
+}
+
 # Create a new branch from the current branch to hotfix a bug and open PR
 hotfix_new() {
     if [ -z "$(git status --porcelain)" ]; then

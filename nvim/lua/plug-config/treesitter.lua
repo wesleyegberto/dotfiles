@@ -1,11 +1,9 @@
--- https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/lua/plugins/treesitter.lua
-
 -- vim.wo.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 require('nvim-treesitter.configs').setup({
     -- nvim-treesitter/nvim-treesitter (self config)
-    ensure_installed = 'maintained',
+    ensure_installed = { 'java', 'python', 'c_sharp', 'typescript', 'javascript'},
     highlight = {
         enable = true,
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -16,6 +14,7 @@ require('nvim-treesitter.configs').setup({
     },
     indent = {
         enable = true,
+        disable = { 'yaml' }
     },
     incremental_selection = {
         enable = true,
@@ -88,11 +87,11 @@ require('nvim-treesitter.configs').setup({
     },
     -- windwp/nvim-ts-autotag
     autotag = {
-        enable = true,
+        enable = false,
     },
     -- nvim-treesitter/playground
     playground = {
-        enable = true,
+        enable = false,
         disable = {},
         updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false, -- Whether the query persists across vim sessions

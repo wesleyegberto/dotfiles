@@ -19,22 +19,24 @@ endif
 let g:gruvbox_invert_selection='0'
 ]]
 
+require("gruvbox").setup({})
+vim.cmd('colorscheme gruvbox')
+
 require('onedark').setup {
     style = 'deep',
     colors = {
-      bright_orange = "#ff8800",
+      bright_orange = '#F38A35',
       green = '#00ffaa',
+      carolina_blue = '#379ff3',
+      thanos_purple = '#c858eb', -- #8A35F3
     },
     highlights = {
-      TSKeyword = {fg = '$green'},
-      TSString = {fg = '$bright_orange', bg = '#00ff00', fmt = 'bold'},
-      TSFunction = {fg = '#0000ff', sp = '$cyan', fmt = 'underline,italic'},
+      TSKeyword = {fg = '$thanos_purple', fmt = 'bold'},
+      TSString = {fg = '$red', fmt = 'bold'},
+      TSFunction = {fg = '$carolina_blue', sp = '$cyan', fmt = 'italic'},
     }
 }
 require('onedark').load()
-
--- require("gruvbox").setup({})
--- vim.cmd('colorscheme gruvbox')
 
 --- popup colors
 vim.cmd [[

@@ -36,6 +36,7 @@ paq {'tpope/vim-fugitive'}
 paq {'airblade/vim-gitgutter'}
 paq {'tveskag/nvim-blame-line'}
 paq {'sindrets/diffview.nvim'}
+paq {'akinsho/git-conflict.nvim'}
 
 -- tmux integration and navigate between open pages with C-h C-j C-k C-k
 paq {'benmills/vimux'}
@@ -52,6 +53,8 @@ paq {'williamboman/nvim-lsp-installer'}
 paq {'onsails/lspkind-nvim'}
 paq {'Maan2003/lsp_lines.nvim'}
 paq {'j-hui/fidget.nvim'}
+paq {'williamboman/mason.nvim'}
+paq {'williamboman/mason-lspconfig.nvim'}
 
 -- better syntax highlighter and more
 paq {'nvim-treesitter/nvim-treesitter'}
