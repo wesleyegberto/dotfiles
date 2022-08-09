@@ -25,7 +25,7 @@ require('plugins')
 
 require('options')
 require('keybindings')
-require('theme')
+require('config/colorscheme')
 
 
 -- #########################################################

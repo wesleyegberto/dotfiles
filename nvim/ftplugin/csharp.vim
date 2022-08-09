@@ -3,7 +3,7 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal softtabstop=4
 
-source $HOME/.config/nvim/plug-config/omnisharp.vim
+" source $HOME/.config/nvim/plug-config/omnisharp.vim
 
 lua require('telescope').load_extension('langtools')
 lua require('telescope._extensions.langtools').setup({ language = 'dotnet' })

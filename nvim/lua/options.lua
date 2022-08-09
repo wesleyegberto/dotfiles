@@ -79,5 +79,6 @@ vim.cmd [[
 filetype plugin indent on
 
 autocmd BufNewFile,BufRead *.cs set ft=csharp
+autocmd BufNewFile,BufRead *.cshtml set ft=html
 ]]
 

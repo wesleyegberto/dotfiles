@@ -151,3 +151,6 @@ if has('nvim')
 endif
 
 filetype plugin indent on                                    " load identation by file type
+autocmd BufNewFile,BufRead *.cs set ft=csharp
+autocmd BufNewFile,BufRead *.cshtml set ft=html
+
