@@ -3,7 +3,8 @@ local map = vim.api.nvim_set_keymap
 
 local lspconfig = require'lspconfig'
 local lspfuzzy = require'lspfuzzy'
-local lspfidget = require"fidget"
+local lspfidget = require'fidget'
+local lsplines = require'lsp_lines'
 
 local function init_lspkind()
   require('lspkind').init({
@@ -160,6 +161,7 @@ local on_attach = function(_, bufnr)
   setup_keymappings()
 
   setup_snippet()
+  lsplines.setup()
 end
 
 local install_lspservers = function()

@@ -17,6 +17,10 @@ endif
 " unhighlight the search result
 nnoremap <silent> <Leader><Esc> :nohl<CR>
 
+" toggle wrap
+nnoremap <silent> <Leader>ow :set wrap!<CR>
+
+
 " change vertical split to horizontal
 nnoremap <silent> <Leader>wfv <C-w>t<C-w>H
 " change horizontal split to vertical

@@ -5,6 +5,10 @@
 [core]
     editor = vim
     excludesfile = '~/.gitignore_global'
+[merge]
+  tool = code
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [alias]
     co = checkout
     ci = commit
