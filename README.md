@@ -131,3 +131,5 @@ Here are my configs:
 * Tutorials:
   * [Configure Neovim using Lua](https://icyphox.sh/blog/nvim-lua/)
   * [Write init.lua](https://oroques.dev/notes/neovim-init/)
+  * [YMDK SP64](https://github.com/qmk/qmk_firmware/tree/master/keyboards/ymdk/sp64)
+

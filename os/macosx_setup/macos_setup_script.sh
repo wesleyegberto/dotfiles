@@ -111,6 +111,10 @@ cd ..
 
 brew cask install amethyst
 
+echo "\\n\\nQMK Tools"
+brew install qmk/qmk/qmk
+qmk setup
+
 
 echo "\\n\\n=== Cleaning up ==="
 brew cask cleanup
