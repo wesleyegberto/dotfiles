@@ -26,6 +26,8 @@ alias icat="kitty +kitten icat" # display image on terminal
 alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 alias cleanup_nodemodules='tree -dfi -P "*./node_modules$" --matchdirs | grep -e /node_modules$ | xargs rm -rf'
 alias cleanup_javabuilds='tree -dfi -P "*./target$" --matchdirs | grep -e /target$ | xargs rm -rf'
+alias cleanup_serverless='tree -adfi -P "*.serverless$" --matchdirs | grep -e /.serverless$ | xargs rm -rf'
+
 
 # Time tracker (https://tailordev.github.io/Watson/)
 alias track="watson"
