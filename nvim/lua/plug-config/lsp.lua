@@ -59,7 +59,7 @@ local function setup_keymappings()
   vim.cmd [[
     augroup lsp_document_highlight
         autocmd! * <buffer>
-        autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
+        " autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
         autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
     augroup END
