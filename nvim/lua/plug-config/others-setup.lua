@@ -1,3 +1,5 @@
+require('bqf').setup()
+
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 
 require'Comment'.setup()

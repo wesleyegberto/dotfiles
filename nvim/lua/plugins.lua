@@ -46,15 +46,15 @@ paq {'voldikss/vim-floaterm'}
 
 paq {'ThePrimeagen/harpoon'}
 paq {'matbme/JABS.nvim'}
+paq {'kevinhwang91/nvim-bqf'}
 
 -- plugin to facilitate the configuration for LSP
 paq {'neovim/nvim-lspconfig'}
 paq {'williamboman/nvim-lsp-installer'}
 paq {'onsails/lspkind-nvim'}
-paq {'Maan2003/lsp_lines.nvim'}
-paq {'j-hui/fidget.nvim'}
 paq {'williamboman/mason.nvim'}
 paq {'williamboman/mason-lspconfig.nvim'}
+paq {'folke/trouble.nvim'}                  -- panel for diagnostics
 
 -- better syntax highlighter and more
 paq {'nvim-treesitter/nvim-treesitter'}

@@ -3,8 +3,7 @@ local map = vim.api.nvim_set_keymap
 
 local lspconfig = require'lspconfig'
 local lspfuzzy = require'lspfuzzy'
-local lspfidget = require'fidget'
-local lsplines = require'lsp_lines'
+local lsptrouble = require'trouble'
 
 local function init_lspkind()
   require('lspkind').init({
@@ -87,6 +86,8 @@ local function setup_keymappings()
   map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   map('i', '<C-\\>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
+  map('n', '<leader>cx', ':TroubleToggle<CR>', opts)
+
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 
@@ -149,8 +150,6 @@ local function setup_snippet()
 end
 
 local on_attach = function(_, bufnr)
-  lspfidget.setup{}
-
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Make the LSP client use FZF instead of the quickfix list
@@ -161,7 +160,8 @@ local on_attach = function(_, bufnr)
   setup_keymappings()
 
   setup_snippet()
-  lsplines.setup()
+
+  lsptrouble.setup();
 end
 
 local install_lspservers = function()
