@@ -96,6 +96,12 @@ local function setup_keymappings()
 
   map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
+
+  map('n', '<leader>ls', ':LspStart<CR>', opts)
+  map('n', '<leader>lS', ':LspStop<CR>', opts)
+  map('n', '<leader>ll', ':LspLog<CR>', opts)
+  map('n', '<leader>li', ':LspInfo<CR>', opts)
+  map('n', '<leader>lp', ':LspInstallInfo<CR>', opts)
 end
 
 local function setup_snippet()

@@ -62,6 +62,7 @@ brew install choose-rust # to use instead of `awk '{print $1}` -> `choose 0`
 brew install sd # to use instead of `sed s/before/after/g` -> `sd 'before' 'after'`
 brew install procs # modern `ps`
 brew install bench
+brew install graphviz
 
 brew cask install docker-toolbox
 brew install lazygit
