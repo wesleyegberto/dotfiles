@@ -39,3 +39,17 @@ kdpo() {
   kubectl get pods --all-namespaces | grep "$1" | awk '{print $1}' | xargs kubectl delete pod --all-namespaces
 }
 
+ksh() {
+  if [ ! "$#" -gt 0 ]; then
+    echo "Usage: ksh <pod-name> <namespace>"
+    return
+  fi
+
+  podName="$1"
+  namespace="$2"
+  if [ -z "$GROUP_ID" ]; then
+    namespace="default"
+  fi
+
+  kubectl exec -it "$1" -n "$2" -- sh
+}
