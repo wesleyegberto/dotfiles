@@ -39,6 +39,8 @@ kdpo() {
   kubectl get pods --all-namespaces | grep "$1" | awk '{print $1}' | xargs kubectl delete pod --all-namespaces
 }
 
+# Connect to a pod using shell
+# Usage: `ksh dev my-prod-id`
 ksh() {
   if [ ! "$#" -gt 0 ]; then
     echo "Usage: ksh <pod-name> <namespace>"
@@ -47,7 +49,7 @@ ksh() {
 
   podName="$1"
   namespace="$2"
-  if [ -z "$GROUP_ID" ]; then
+  if [ -z "$namespace" ]; then
     namespace="default"
   fi
 
