@@ -1,4 +1,5 @@
 local actions = require('telescope.actions')
+local easypick = require("easypick")
 
 require('telescope').setup {
   defaults = {
@@ -43,3 +44,15 @@ require('telescope').setup {
 require("telescope").load_extension('ui-select')
 require('telescope').load_extension('ultisnips')
 require("telescope").load_extension('file_browser')
+
+easypick.setup({
+  pickers = {
+    -- list files that have conflicts with diffs in preview
+    {
+      name = "conflicts",
+      command = "git diff --name-only --diff-filter=U --relative",
+      previewer = easypick.previewers.file_diff()
+    },
+  }
+})
+

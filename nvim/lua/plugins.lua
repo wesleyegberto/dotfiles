@@ -70,6 +70,7 @@ paq {'camgraff/telescope-tmux.nvim'}
 paq {'fhill2/telescope-ultisnips.nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
 paq {'nvim-telescope/telescope-file-browser.nvim'}
+paq {'axkirillov/easypick.nvim'}
 
 paq {'junegunn/fzf', run = fn['fzf#install']}
 paq {'junegunn/fzf.vim'}

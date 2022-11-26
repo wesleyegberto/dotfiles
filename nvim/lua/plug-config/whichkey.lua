@@ -81,13 +81,14 @@ wk.register({
     ['_'] = { ':Telescope<CR>'                            , 'Open Telescope' },
     [';'] = { ':Telescope commands<CR>'                   , 'Commands' },
     ['f'] = { ':Telescope find_files<CR>'                 , 'File' },
-    ['F'] = { ':Telescope git_files<CR>'                  , 'Git files' },
     ['e'] = { ':Telescope file_browser<CR>'               , 'File explorer' },
-    ['g'] = { ':Telescope git_status<CR>'                 , 'Modifiled git files' },
     ['b'] = { ':Telescope buffers<CR>'                    , 'Buffers' },
     ['L'] = { ':Telescope current_buffer_fuzzy_find<CR>'  , 'Buffer line' },
-    ['c'] = { ':Telescope git_commits<CR>'                , 'Commit' },
-    ['C'] = { ':Telescope git_bcommits<CR>'               , 'Buffer commit' },
+    ['gs'] = { ':Telescope git_status<CR>'                , 'Modifiled git files' },
+    ['gf'] = { ':Telescope git_files<CR>'                 , 'Git files' },
+    ['gm'] = { ':Easypick conflicts<CR>'                  , 'Modifiled git files' },
+    ['gc'] = { ':Telescope git_commits<CR>'               , 'Commit' },
+    ['gC'] = { ':Telescope git_bcommits<CR>'              , 'Buffer commit' },
     ['m'] = { ':Telescope marks<CR>'                      , 'Marks' },
     ['t'] = { ':Telescope tags<CR>'                       , 'Tags' },
     ['T'] = { ':Telescope current_buffer_tags<CR>'        , 'Buffer tags' },
@@ -135,7 +136,7 @@ wk.register({
     ['s'] = { ':SessionSave<CR>'   , 'save sessions' },
     ['l'] = { ':SessionLoad<CR>'   , 'load sessions' },
   },
-}, { prefix = "<leader>" })
+:, { prefix = "<leader>" })
 
 
 wk.register({
@@ -160,20 +161,21 @@ wk.register({
 wk.register({
   m = {
     name = 'Harpoon',
+    ['M'] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'menu' },
     ['a'] = { ':lua require("harpoon.mark").add_file()<CR>'       , 'add file' },
     ['d'] = { ':lua require("harpoon.mark").rm_file()<CR>'        , 'remove file' },
     ['t'] = { ':lua require("harpoon.mark").toggle_file()<CR>'    , 'toggle file' },
-    ['M'] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'menu' },
-    ['C'] = { ':lua require("harpoon.mark").clear_all()<CR>'      , 'toggle file' },
-    ['1'] = { ':lua require("harpoon.ui").nav_file(1)<CR>'        , 'toggle file' },
-    ['2'] = { ':lua require("harpoon.ui").nav_file(2)<CR>'        , 'toggle file' },
-    ['3'] = { ':lua require("harpoon.ui").nav_file(3)<CR>'        , 'toggle file' },
-    ['4'] = { ':lua require("harpoon.ui").nav_file(4)<CR>'        , 'toggle file' },
-    ['5'] = { ':lua require("harpoon.ui").nav_file(5)<CR>'        , 'toggle file' },
-    ['6'] = { ':lua require("harpoon.ui").nav_file(6)<CR>'        , 'toggle file' },
-    ['7'] = { ':lua require("harpoon.ui").nav_file(7)<CR>'        , 'toggle file' },
-    ['8'] = { ':lua require("harpoon.ui").nav_file(8)<CR>'        , 'toggle file' },
-    ['9'] = { ':lua require("harpoon.ui").nav_file(9)<CR>'        , 'toggle file' },
-    ['0'] = { ':lua require("harpoon.ui").nav_file(0)<CR>'        , 'toggle file' },
+    ['C'] = { ':lua require("harpoon.mark").clear_all()<CR>'      , 'clear all' },
+    ['1'] = { ':lua require("harpoon.ui").nav_file(1)<CR>'        , 'go to 1' },
+    ['2'] = { ':lua require("harpoon.ui").nav_file(2)<CR>'        , 'go to 2' },
+    ['3'] = { ':lua require("harpoon.ui").nav_file(3)<CR>'        , 'go to 3' },
+    ['4'] = { ':lua require("harpoon.ui").nav_file(4)<CR>'        , 'go to 4' },
+    ['5'] = { ':lua require("harpoon.ui").nav_file(5)<CR>'        , 'go to 5' },
+    ['6'] = { ':lua require("harpoon.ui").nav_file(6)<CR>'        , 'go to 6' },
+    ['7'] = { ':lua require("harpoon.ui").nav_file(7)<CR>'        , 'go to 7' },
+    ['8'] = { ':lua require("harpoon.ui").nav_file(8)<CR>'        , 'go to 8' },
+    ['9'] = { ':lua require("harpoon.ui").nav_file(9)<CR>'        , 'go to 9' },
+    ['0'] = { ':lua require("harpoon.ui").nav_file(0)<CR>'        , 'go to 0' },
   },
 }, { prefix = "<leader>" })
+
