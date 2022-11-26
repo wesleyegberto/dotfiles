@@ -43,6 +43,7 @@ require('telescope').setup {
 
 require("telescope").load_extension('ui-select')
 require('telescope').load_extension('ultisnips')
+require("telescope").load_extension('project')
 require("telescope").load_extension('file_browser')
 
 easypick.setup({

@@ -136,7 +136,7 @@ wk.register({
     ['s'] = { ':SessionSave<CR>'   , 'save sessions' },
     ['l'] = { ':SessionLoad<CR>'   , 'load sessions' },
   },
-:, { prefix = "<leader>" })
+}, { prefix = "<leader>" })
 
 
 wk.register({
