@@ -76,7 +76,7 @@ alias kgsvc="kubectl get svc --all-namespaces"
 alias kdesc="kubectl describe --all-namespaces"
 alias kgpog="kubectl get po --all-namespaces | grep"
 alias kgrep="kubectl get pod,svc -o wide --all-namespaces | grep"
-alias klogsf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl logs"
+# alias klogsf="kubectl get po --all-namespaces | fzf | awk '{print \$2}' | xargs kubectl logs"
 alias klogs="kubectl logs --all-namespaces"
 alias kport="kubectl port-forward" # kport <pod_name> <my_port>:<pod_port>
 
@@ -93,7 +93,7 @@ alias kpodimg="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{
 alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep"
 
 alias kdpod="kubectl delete po"
-alias kdpof="kubectl get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"
+# alias kdpof="kubectl get po | fzf | awk '{print \$1}' | xargs kubectl delete pod"
 
 alias dps="docker ps"
 alias dpsa="docker ps -a"

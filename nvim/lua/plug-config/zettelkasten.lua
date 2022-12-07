@@ -126,7 +126,6 @@ require('telekasten').setup({
     rename_update_links = true,
 })
 
-map('n', '<C-s>', ':w<CR>', options)
 map('n', '<leader>zf', ":lua require('telekasten').find_notes()<CR>", options)
 map('n', '<leader>zd', ":lua require('telekasten').find_daily_notes()<CR>", options)
 map('n', '<leader>zg', ":lua require('telekasten').search_notes()<CR>", options)

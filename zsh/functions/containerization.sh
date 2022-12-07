@@ -53,5 +53,54 @@ ksh() {
     namespace="default"
   fi
 
-  kubectl exec -it "$1" -n "$2" -- sh
+  kubectl exec -it "$podName" -n "$namespace" -- sh
 }
+
+# Delete pod found with FZF
+# Usage: `kdpof`
+kshf() {
+  local podLine
+  podLine=$(kubectl get pod --all-namespaces | fzf)
+  if [ -z "$podLine" ]; then
+    echo "Select a running pod"
+    return
+  fi
+
+  namespace=$(echo "$podLine" | choose 0)
+  podName=$(echo "$podLine" | choose 1)
+
+  kubectl exec -it "$podName" -n "$namespace" -- sh
+}
+
+# Delete pod found with FZF
+# Usage: `kdpof`
+kdpof() {
+  local podLine
+  podLine=$(kubectl get pod --all-namespaces | fzf)
+  if [ -z "$podLine" ]; then
+    echo "Select a running pod"
+    return
+  fi
+
+  namespace=$(echo "$podLine" | choose 0)
+  podName=$(echo "$podLine" | choose 1)
+
+  kubectl delete pod -n "$namespace" "$podName"
+}
+
+# Log pod found with FZF
+# Usage: `klogsf`
+kdpof() {
+  local podLine
+  podLine=$(kubectl get pod --all-namespaces | fzf)
+  if [ -z "$podLine" ]; then
+    echo "Select a running pod"
+    return
+  fi
+
+  namespace=$(echo "$podLine" | choose 0)
+  podName=$(echo "$podLine" | choose 1)
+
+  kubectl logs -n "$namespace" -f "$podName"
+}
+
