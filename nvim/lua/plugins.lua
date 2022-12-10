@@ -57,7 +57,7 @@ paq {'williamboman/mason-lspconfig.nvim'}
 paq {'folke/trouble.nvim'}                  -- panel for diagnostics
 
 -- better syntax highlighter and more
-paq {'nvim-treesitter/nvim-treesitter'}
+paq {'nvim-treesitter/nvim-treesitter'} -- fix highlight error: `:TSUpdate`
 paq {'ThePrimeagen/refactoring.nvim'}
 
 -- paq {'mfussenegger/nvim-jdtls'} -- java
