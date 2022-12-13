@@ -90,7 +90,7 @@ kdpof() {
 
 # Log pod found with FZF
 # Usage: `klogsf`
-kdpof() {
+klogsf() {
   local podLine
   podLine=$(kubectl get pod --all-namespaces | fzf)
   if [ -z "$podLine" ]; then
