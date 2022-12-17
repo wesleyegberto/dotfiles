@@ -76,11 +76,11 @@ paq {'junegunn/fzf.vim'}
 paq {'ojroques/nvim-lspfuzzy'}
 
 -- snippet engine
-paq {'rafamadriz/friendly-snippets'}
 paq {'hrsh7th/nvim-cmp'}
-paq {'hrsh7th/vim-vsnip'}
--- paq {'L3MON4D3/LuaSnip'}
--- paq {'ms-jpq/coq_nvim'}
+paq {'hrsh7th/cmp-nvim-lsp'}
+paq {'L3MON4D3/LuaSnip'}
+paq {'saadparwaiz1/cmp_luasnip'}
+paq {'rafamadriz/friendly-snippets'}
 
 paq {'glepnir/galaxyline.nvim'}
 
