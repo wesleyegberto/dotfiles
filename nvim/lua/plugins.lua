@@ -46,11 +46,10 @@ paq {'voldikss/vim-floaterm'}
 
 paq {'ThePrimeagen/harpoon'}
 paq {'matbme/JABS.nvim'}
-paq {'kevinhwang91/nvim-bqf'}
+paq {'kevinhwang91/nvim-bqf'} -- improves quick-fix list
 
 -- plugin to facilitate the configuration for LSP
 paq {'neovim/nvim-lspconfig'}
-paq {'williamboman/nvim-lsp-installer'}
 paq {'onsails/lspkind-nvim'}
 paq {'williamboman/mason.nvim'}
 paq {'williamboman/mason-lspconfig.nvim'}
@@ -78,8 +77,8 @@ paq {'ojroques/nvim-lspfuzzy'}
 
 -- snippet engine
 paq {'rafamadriz/friendly-snippets'}
+paq {'hrsh7th/nvim-cmp'}
 paq {'hrsh7th/vim-vsnip'}
-paq {'hrsh7th/nvim-compe'}
 -- paq {'L3MON4D3/LuaSnip'}
 -- paq {'ms-jpq/coq_nvim'}
 

@@ -54,7 +54,7 @@ set hidden                                                   " to allow switch b
 set nobackup                                                 " some servers have issues with backup files, see #649
 set nowritebackup
 
-set cmdheight=2                                              " better display for messages
+set cmdheight=1                                              " better display for messages
 
 " if has('unnamedplus')
 "   set clipboard=unnamedplus,unnamed
@@ -80,6 +80,7 @@ set shiftwidth=4
 set softtabstop=4
 set lazyredraw                                               " don't redraw while executing macros
 set smartindent
+set colorcolumn=20
 
 set backspace=indent,eol,start                               " allow backspace over everything in isert mode
 
@@ -101,6 +102,9 @@ set foldnestmax=10                                           " deepest fold is 1
 set list
 set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.
 set showbreak=↪
+
+" Scroll
+set scrolloff=3
 
 " Autocomplete menu
 set completeopt=menuone,longest,preview                      " simple autocomplete for anything

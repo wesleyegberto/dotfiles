@@ -12,7 +12,7 @@ vim.o.encoding = 'utf-8'
 vim.o.backup = false                                         -- some servers have issues with backup files, see #649
 vim.o.hidden = true                                          -- to allow switch between buffers without save
 
-vim.o.cmdheight=2                                            -- better display for messages
+vim.o.cmdheight=1                                            -- better display for messages
 
 vim.o.clipboard = vim.o.clipboard .. 'unnamed'
 vim.o.mouse = 'a'                                            -- enable mouse if possible
@@ -24,6 +24,7 @@ vim.o.cursorline = true                                      -- display a marker
 -- vim.o.showmode = false                                       -- airline will do the job
 vim.o.showcmd = true                                         -- display incomplete commands
 vim.o.showmatch = true                                       -- show matching brackets/parentthesis
+vim.opt.colorcolumn = "120"
 
 -- Whitespace and indentation
 vim.wo.wrap = false                                          -- don't wrap lines
@@ -54,6 +55,9 @@ vim.wo.foldnestmax = 10                                      -- deepest fold is 
 vim.wo.list = true
 vim.o.listchars = [[tab:→ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.]]
 vim.o.showbreak = '↪'
+
+-- Scroll
+vim.opt.scrolloff = 3
 
 -- Autocomplete menu
 -- vim.o.completeopt = 'menuone,longest,preview'                -- simple autocomplete for anything

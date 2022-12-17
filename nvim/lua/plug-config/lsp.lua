@@ -5,13 +5,15 @@ local lspconfig = require'lspconfig'
 local lspfuzzy = require'lspfuzzy'
 local lsptrouble = require'trouble'
 
+require('mason').setup()
+require('mason-lspconfig').setup()
 
 opts = { noremap = true }
 map('n', '<leader>ls', ':LspStart<CR>', opts)
 map('n', '<leader>lS', ':LspStop<CR>', opts)
 map('n', '<leader>ll', ':LspLog<CR>', opts)
 map('n', '<leader>li', ':LspInfo<CR>', opts)
-map('n', '<leader>lp', ':LspInstallInfo<CR>', opts)
+map('n', '<leader>lp', ':Mason<CR>', opts)
 
 
 local function init_lspkind()
@@ -28,8 +30,6 @@ local function init_lspkind()
       preset = 'codicons',
 
       -- override preset symbols
-      --
-      -- default: {}
       symbol_map = {
         Text = "",
         Method = "",
@@ -94,16 +94,15 @@ local function setup_keymappings()
   map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   map('i', '<C-\\>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-  map('n', '<leader>cx', ':TroubleToggle<CR>', opts)
-
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 
   map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
-  map('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  map('n', '<leader>cD', ':Telescope lsp_workspace_diagnostics<CR>', opts)
+  map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  map('n', '<leader>cdp', ':Telescope lsp_workspace_diagnostics<CR>', opts)
+  map('n', '<leader>cdt', ':TroubleToggle<CR>', opts)
 end
 
 local function setup_snippet()
@@ -172,54 +171,33 @@ local on_attach = function(_, bufnr)
   lsptrouble.setup();
 end
 
-local install_lspservers = function()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
+local default_opts = {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
-  local default_opts = {
+local servers = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
+
+require('mason-lspconfig').setup {
+  ensure_installed = servers
+}
+
+-- nvim-cmp supports additional completion capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
-
-  require('nvim-lsp-installer').setup {
-    ensure_installed = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
-  }
-
-  require('lspconfig')['pyright'].setup{
-      on_attach = on_attach,
-      flags = capabilities,
-  }
-
-  require('lspconfig')['tsserver'].setup{
-      on_attach = on_attach,
-      flags = capabilities,
-  }
-
-  require('lspconfig')['jdtls'].setup{
-      on_attach = on_attach,
-      flags = capabilities,
-  }
-
-  require('lspconfig')['angularls'].setup{
-      on_attach = on_attach,
-      flags = capabilities,
-  }
-
-  require('lspconfig')['html'].setup{
-      on_attach = on_attach,
-      flags = capabilities,
-  }
-
-  local pid = vim.fn.getpid()
-  require('lspconfig')['omnisharp'].setup{
-      on_attach = on_attach,
-      flags = capabilities,
-      cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
-  }
 end
 
-install_lspservers()
-
-require('mason').setup()
-require('mason-lspconfig').setup()
+local pid = vim.fn.getpid()
+require('lspconfig')['omnisharp'].setup{
+  on_attach = on_attach,
+  flags = capabilities,
+  cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
+}
 

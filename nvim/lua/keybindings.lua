@@ -143,7 +143,7 @@ map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
 
 
 -- === nvim-lua/telescope === {{{
-map('n', '<C-p>', ':Telescope find_files<CR>', silentOptions)
+map('n', '<C-p>', ':Telescope git_files<CR>', silentOptions)
 -- }}}
 
 
