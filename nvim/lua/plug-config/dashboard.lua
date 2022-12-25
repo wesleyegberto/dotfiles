@@ -1,4 +1,8 @@
--- === ChristianChiarulli/dashboard-nvim ===
+-- === glepnir/dashboard-nvim ===
+
+local db = require('dashboard')
+
+local dotfilesPath = os.getenv('DOTFILES')
 
 -- vim.g.dashboard_custom_header = {
 --   ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗ ',
@@ -9,7 +13,7 @@
 --   ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝ '
 -- }
 
-vim.g.dashboard_custom_header = {
+db.custom_header = {
   [[=================     ===============     ===============   ========  ========]],
   [[\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //]],
   [[||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||]],
@@ -34,25 +38,30 @@ vim.g.dashboard_custom_header = {
 
 vim.g.dashboard_default_executive = 'telescope'
 
-vim.g.dashboard_custom_section = {
-  a = {
-    description = { "  Find File" },
-    command = "Telescope find_files",
+db.custom_center = {
+  {
+    icon = "  ",
+    desc = "Find File",
+    action = "Telescope find_files",
   },
-  b = {
-    description = { "  Recently Used Files" },
-    command = "Telescope oldfiles",
+  {
+    icon = "  ",
+    desc = "Recently Used Files",
+    action = "Telescope oldfiles",
   },
-  c = {
-    description = { "  Load Last Session" },
-    command = "SessionLoad",
+  {
+    icon = "  ",
+    desc = "Load Last Session",
+    action = "SessionLoad",
   },
-  d = {
-    description = { "  Find Word" },
-    command = "Telescope live_grep",
+  {
+    icon = "  ",
+    desc = "Find Word",
+    action = "Telescope live_grep",
   },
-  e = {
-    description = { "  Settings" },
-    command = ":e ~/.config/nvim/init.lua",
+  {
+    icon = "  ",
+    desc = "Dotfiles",
+    action = ":e $DOTFILES",
   }
 }
