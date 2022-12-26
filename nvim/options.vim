@@ -30,7 +30,7 @@ endif
 let g:gruvbox_invert_selection='0'
 
 set background=dark
-colorscheme gruvbox
+colorscheme tokyonight
 
 
 " popup colors

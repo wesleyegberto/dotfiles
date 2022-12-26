@@ -1,0 +1,100 @@
+# Dracula Color Pallette
+# light='#f8f8f2'
+# dark='#44475a'
+# dark_1='#282a36'
+# light_purple='#bd93f9'
+# light_purple_text='#44475a'
+# dark_2_bg='#6272a4'
+# dark_2_fg='#44475a'
+# most_left_bg='#50fa7b'
+# most_right_bg='#ffb86c'
+# most_right_fg='#282a36'
+
+# Tokyonight Color Pallette
+light='#82aaff'
+dark='#3b4261'
+dark_1='#565f89'
+light_purple='#bb9af7'
+light_purple_text='#414868'
+most_right_bg='#24283b'
+most_right_fg='#82aaff'
+dark_2_bg='#3b4261'
+dark_2_fg='#82aaff'
+
+red='#ff5555'
+yellow='#f1fa8c'
+
+set-option -g pane-border-style "fg=${light}"
+
+# message styling
+set -g message-style "bg=${dark} fg=${light}"
+
+# status bar
+set -g status-style "bg=${dark} fg=${light}"
+
+# Basic status bar colors
+set -g status-fg "${light}"
+set -g status-bg "${dark}"
+
+# Left side of status bar
+set -g status-left-bg "${dark_1}"
+set -g status-left-fg "${light}"
+set -g status-left-length 40
+set -g @prefix_highlight_fg 'white' # default is 'colour231'
+set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
+set -g status-left "#[fg=${dark_1},bg=${most_left_bg},bold] #S #[fg=${most_left_bg},bg=${light},nobold]#[fg=${dark},bg=${light}] #(whoami) #[fg=${light},bg=${dark_2_bg}]#[fg=${light},bg=${dark_2_bg}] #I:#P #{prefix_highlight} #[fg=${dark_2_bg},bg=${dark},nobold]"
+
+# Right side of status bar
+set -g status-right-bg "${dark_1}"
+set -g status-right-fg "${light}"
+set -g status-right-length 150
+set -g status-right "#[fg=${dark_2_fg},bg=${dark_2_bg}]#[fg=${dark_2_bg},bg=${dark_2_fg}] %d-%b-%y %H:%M #[fg=${most_right_bg},bg=${dark_2_fg}]#[fg=${most_right_fg},bg=${most_right_bg},bold] #H "
+
+# Window status
+set -g window-status-format "#[fg=${light}]#[bg=${dark}]  #I:#W#F  "
+set -g window-status-current-format "#[fg=${dark},bg=${light_purple}]|#[fg=${dark_1},nobold] #I:#W#F #[fg=${dark},bg=${light_purple},nobold]|"
+
+# Current window status
+set -g window-status-current-bg "${light_purple}"
+set -g window-status-current-fg "${dark_2_bg}"
+
+# Window with activity status
+set -g window-status-activity-bg "${light}" # fg and bg are flipped here due to
+set -g window-status-activity-fg "${dark}" # a bug in tmux
+
+# Window separator
+set -g window-status-separator ""
+
+# Window status alignment
+set -g status-justify centre
+
+# Pane border
+set -g pane-border "fg=${dark} bg=default"
+
+# Active pane border
+set -g pane-active-border "fg=${most_left_bg} bg=default"
+
+# Pane number indicator
+set -g display-panes-colour "${dark}"
+set -g display-panes-active-colour "${light}"
+
+set -g window-style "fg=${light} bg=default"
+set -g window-active-style "fg=#ffffff bg=default"
+set -g window-status-bell-style "fg=${dark_1} bg=${red} bold"
+
+# Clock mode
+set -g clock-mode-colour "${light_purple}"
+set -g clock-mode-style 24
+
+# Command message
+set -g message-command-bg "${dark}"
+set -g message-command-fg black
+
+# Mode
+set -g mode-bg "${light_purple}"
+set -g mode-fg "${light_purple_text}"
+
+
+# modes
+setw -g clock-mode-colour '${light_purple}'
+setw -g mode-style 'fg=${yellow} bg=${red} bold'

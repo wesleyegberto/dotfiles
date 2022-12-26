@@ -22,7 +22,6 @@ let g:gruvbox_invert_selection='0'
 ]]
 
 require("gruvbox").setup({})
-vim.cmd('colorscheme gruvbox')
 
 require('onedark').setup {
     style = 'deep',
@@ -39,6 +38,19 @@ require('onedark').setup {
     }
 }
 require('onedark').load()
+
+require("tokyonight").setup({
+  style = 'night',
+  transparent = true,
+  terminal_colors = true,
+  styles = {
+    comments = { italic = true },
+    sidebars = 'dark',
+    floats = 'dark'
+  }
+})
+
+vim.cmd('colorscheme tokyonight')
 
 --- popup colors
 vim.cmd [[
