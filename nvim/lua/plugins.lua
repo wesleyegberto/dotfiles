@@ -78,6 +78,8 @@ paq {'ojroques/nvim-lspfuzzy'}
 -- snippet engine
 paq {'hrsh7th/nvim-cmp'}
 paq {'hrsh7th/cmp-nvim-lsp'}
+paq {'hrsh7th/cmp-buffer'}
+paq {'hrsh7th/cmp-path'}
 paq {'L3MON4D3/LuaSnip'}
 paq {'saadparwaiz1/cmp_luasnip'}
 paq {'rafamadriz/friendly-snippets'}

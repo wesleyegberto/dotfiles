@@ -4,8 +4,6 @@ local map = vim.api.nvim_set_keymap
 local lspconfig = require'lspconfig'
 local lspfuzzy = require'lspfuzzy'
 local lsptrouble = require'trouble'
-local cmp = require'cmp'
-local luasnip = require'luasnip'
 
 require('mason').setup()
 require('mason-lspconfig').setup()
@@ -99,7 +97,7 @@ local function setup_keymappings()
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 
-  map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
   map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -109,55 +107,6 @@ local function setup_keymappings()
   map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 end
 
-local function setup_snippet()
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
-    window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<Esc>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true
-      }),
-      ['<Tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        else
-          fallback()
-        end
-      end, { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, { 'i', 's' }),
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    })
-  })
-
-  require("luasnip.loaders.from_vscode").lazy_load()
-
-end
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -201,6 +150,4 @@ require('lspconfig')['omnisharp'].setup{
   flags = capabilities,
   cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
 }
-
-setup_snippet()
 
