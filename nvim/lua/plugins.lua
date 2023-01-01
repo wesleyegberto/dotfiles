@@ -55,6 +55,7 @@ paq {'onsails/lspkind-nvim'}
 paq {'williamboman/mason.nvim'}
 paq {'williamboman/mason-lspconfig.nvim'}
 paq {'folke/trouble.nvim'}                  -- panel for diagnostics
+paq {'vim-test/vim-test'}
 
 -- better syntax highlighter and more
 paq {'nvim-treesitter/nvim-treesitter'} -- fix highlight error: `:TSUpdate`

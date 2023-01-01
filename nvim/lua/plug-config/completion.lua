@@ -41,8 +41,8 @@ cmp.setup({
     end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
-    { name = 'buffer', option = { keyword_length = 5 } },
     { name = 'nvim_lsp' },
+    { name = 'buffer', option = { keyword_length = 5 } },
     { name = 'luasnip' },
     { name = 'path' },
   })

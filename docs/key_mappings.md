@@ -104,7 +104,8 @@ Help: `<Leader>?`
 Leader key is `<Space>`.
 
 ```
-<Leader>st              " Show startify
+<Leader>S;          " Show startify
+<Leader>Sf          " find session
 ```
 
 ### Folder Explorer
@@ -222,21 +223,32 @@ There are two tools to use with the following prefix:
 * FZF: `<Leader>F`
 
 ```
+<Leader>fh       " find help tags
+
 C-p              " fuzzy finder with Telescope
 C-b              " fuzzy finder for buffers
 
-<Leader>fb       " find buffer
+<Leader>fe       " file explorer finder
 <Leader>ff       " find file
+
+<Leader>fb       " find buffer
+<Leader>fL       " fuzzy finder buffer content
 <Leader>fr       " find ripgrep
 
-<Leader>fm       " find mark
-<Leader>ft       " find tag
+<Leader>fgf      " find file in git
+<Leader>fgs      " find file in git chages
+<Leader>fgc      " find git commit
+<Leader>fgC      " find git commit in current buffer
 
-<Leader>fT       " find tmux sessions
+<Leader>fm       " find mark
+
+<Leader>ft       " find tag
+<Leader>fT       " find tag in current buffer
+
+<Leader>fX       " find tmux sessions
 <Leader>fS       " find sessions
 <Leader>fP       " find projects
 
-<Leader>fh       " find help tags
 ```
 
 In result use:
@@ -255,6 +267,17 @@ Buffer content:
 <Leader><Esc>    " clear searching results
 [i               " show first occurrence of current word
 [I               " show all occurrences of current word
+```
+
+Harpoon:
+
+```
+<Leader>mM      " show quick menu
+<Leader>mt      " toggle file
+<Leader>ma      " add file
+<Leader>md      " remove file
+<Leader>mC      " clear all files
+<Leader>m#      " go to file #
 ```
 
 ### Navigation
@@ -338,7 +361,6 @@ After `<C-n>`:
 <C-p>            " remove current virtual cursor + selection and go back on previous match
 ```
 
-
 ### Git changes navigation
 
 ```
@@ -358,7 +380,7 @@ After `<C-n>`:
 ### Vim-Unimpaired
 
 ```
-[e               " move current line above
+[e               " Move current line above
 ]e               " move current line bellow
 <M-Up>           " move current line above
 <M-Down>         " move current line bellow
@@ -395,19 +417,26 @@ ysiw]            " wrap the current word (iw -> inner word) with ]
 ```
 <C-Space>        " refresh autocomplete (INSERT MODE)
 
+[g               " go to previous diagnostic
+]g               " go to next diagnostic
+
 gd               " go to definition
 gD               " peek definition
 gi               " go to implementation
 gI               " peek implementation
 gt               " go to type definition
 gr               " find references
+glt              " go to last run test
 
 gh               " hover action
-<Leader>cd       " show line diagnostics
+<Leader>cdl      " show line diagnostics
+<Leader>cdp      " show workspace diagnostics
+<Leader>cdt      " show view diagnostics
 
 <Leader>ch       " show documentation
 C-\              " show documentation (Insert Mode)
 
+<Leader>cft      " find workspace symbols
 <Leader>cfm      " find members
 <Leader>cfi      " find ingoing calls
 <Leader>cfo      " find outgoing calls
@@ -416,13 +445,28 @@ C-\              " show documentation (Insert Mode)
 Actions:
 
 ```
-<Leader>cf       " format buffer (when Visual Mode, format the selecion)
+<Leader>csf      " format buffer (when Visual Mode, format the selecion)
 <Leader>crn      " rename var
 
 <Leader>cqf      " quick fix
 
 <Leader>cal      " action for current line
 <Leader>cas      " action for selected content in Visual Mode
+```
+
+Tests:
+
+```
+<Leader>rta      " run all tests
+<Leader>rtf      " run file test
+<Leader>rtl      " run last test
+
+<Leader>pb       " run project build 
+<Leader>pb       " run project build 
+<Leader>pc       " run project clean 
+<Leader>pp       " run project package 
+<Leader>pta      " run project tests
+<Leader>ptf      " run project test from current file
 ```
 
 ### Omnisharp.vim
@@ -443,3 +487,4 @@ Actions:
 <C-n>            " next item
 <C-p>            " previous item
 ```
+

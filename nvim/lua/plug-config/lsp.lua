@@ -27,7 +27,7 @@ local function init_lspkind()
       -- can be either 'default' or
       -- 'codicons' for codicon preset (requires vscode-codicons font installed)
       -- default: 'default'
-      preset = 'codicons',
+      preset = 'default',
 
       -- override preset symbols
       symbol_map = {
@@ -72,6 +72,8 @@ local function setup_keymappings()
     augroup END
   ]]
 
+  map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
+
   map('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
@@ -80,13 +82,14 @@ local function setup_keymappings()
   map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   map('n', 'gI', "<cmd>lua require'lsp.peek'.Peek('implementation')<CR>", opts)
   map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  map('n', 'gr', ':Telescope lsp_references<CR>', opts)
 
-  map('n', '<Leader>cfi', '<cmd>lua vim.lsp.buf.ingoing_calls()<CR>', opts)
-  map('n', '<Leader>cfo', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
 
   map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
   map('n', '<Leader>cfm', ':Telescope lsp_document_symbols<CR>', opts)
+  map('n', '<Leader>cfi', ':Telescope lsp_incoming_calls<CR>', opts)
+  map('n', '<Leader>cfo', ':Telescope lsp_outgoing_calls<CR>', opts)
+
   map('n', '<leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
@@ -104,7 +107,11 @@ local function setup_keymappings()
   map('n', '<leader>cdp', ':Telescope lsp_workspace_diagnostics<CR>', opts)
   map('n', '<leader>cdt', ':TroubleToggle<CR>', opts)
 
-  map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
+  -- vim-test
+  map('n', '<leader>rta', ':TestSuite<CR>', opts)
+  map('n', '<leader>rtf', ':TestFile<CR>', opts)
+  map('n', '<leader>rtl', ':TestLast<CR>', opts)
+  map('n', 'glt', ':TestVisit<CR>zz', opts) -- go to last test run
 end
 
 

@@ -93,7 +93,6 @@ wk.register({
     ['t'] = { ':Telescope tags<CR>'                       , 'Tags' },
     ['T'] = { ':Telescope current_buffer_tags<CR>'        , 'Buffer tags' },
     ['r'] = { ':Telescope live_grep<CR>'                  , 'With rg' },
-    ['s'] = { ':Telescope ultisnips<CR>'                  , 'Snippets' },
     ['S'] = { ':Telescope session-lens search_session<CR>', 'Sessions' },
     ['X'] = { ':Telescope tmux sessions<CR>'              , 'Tmux sessions' },
     ['/'] = { ':Telescope search_history<CR>'             , 'Commands' },
