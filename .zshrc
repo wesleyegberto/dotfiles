@@ -43,7 +43,6 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '.git' --exc
 
 # === Spaceship ===
 # https://github.com/denysdovhan/spaceship-prompt
-
 ZSH_THEME="spaceship"
 
 # source "$DOTFILES/zsh/prompts/spaceship_watson.sh"

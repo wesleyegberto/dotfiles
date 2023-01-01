@@ -33,6 +33,7 @@ echo "Copying .vimrc"
 ln -s $DOTFILES/nvim/ftplugin ~/.config/nvim/ftplugin
 ln -s $DOTFILES/nvim/plug-config ~/.config/nvim/plug-config
 ln -s $DOTFILES/nvim/lua ~/.config/nvim/lua
+ln -s $DOTFILES/nvim/snippets ~/.config/nvim/snippets
 ln -s $DOTFILES/nvim/options.vim ~/.config/nvim/options.vim
 ln -s $DOTFILES/nvim/keybindings.vim ~/.config/nvim/keybindings.vim
 ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua

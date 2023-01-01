@@ -116,6 +116,10 @@ echo "\\n\\nQMK Tools"
 brew install qmk/qmk/qmk
 qmk setup
 
+echo "\\n\\n=== Installing Java ==="
+sdk install java 17
+sdk default java 17
+
 
 echo "\\n\\n=== Cleaning up ==="
 brew cask cleanup

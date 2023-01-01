@@ -22,6 +22,7 @@ paq {'tpope/vim-surround'}
 -- paq {'kylechui/nvim-surround'}
 -- autoclose and actions to insert spaces or new line between {}, (), []
 paq {'windwp/nvim-autopairs'}
+-- adds more text objects to be used as targets in motions
 paq {'wellle/targets.vim'}
 
 -- highlight trailing whitespaces
