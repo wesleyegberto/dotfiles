@@ -1,11 +1,11 @@
-require('bqf').setup()
+require'bqf'.setup()
 
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 
 require'Comment'.setup()
 
 require'nvim-autopairs'.setup()
--- require'colorizer'.setup()
+require'nvim-surround'.setup()
 
 local ui = vim.api.nvim_list_uis()[1]
 

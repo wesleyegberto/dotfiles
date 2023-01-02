@@ -223,11 +223,16 @@ There are two tools to use with the following prefix:
 * FZF: `<Leader>F`
 
 ```
-<Leader>fh       " find help tags
+<Leader>f_       " open Telescope
+<Leader>f;       " find command
+<Leader>f/       " find command history
+<Leader>f?       " find help tags
+
 
 C-p              " fuzzy finder with Telescope
 C-b              " fuzzy finder for buffers
 
+<Leader>fw       " find open windows
 <Leader>fe       " file explorer finder
 <Leader>ff       " find file
 

@@ -1,7 +1,8 @@
+local telescope = require('telescope')
 local actions = require('telescope.actions')
 local easypick = require("easypick")
 
-require('telescope').setup {
+telescope.setup {
   defaults = {
     prompt_prefix = ">",
     selection_caret = "> ",
@@ -41,10 +42,9 @@ require('telescope').setup {
   }
 }
 
-require("telescope").load_extension('ui-select')
-require('telescope').load_extension('ultisnips')
-require("telescope").load_extension('project')
-require("telescope").load_extension('file_browser')
+telescope.load_extension('ui-select')
+telescope.load_extension('project')
+telescope.load_extension('file_browser')
 
 easypick.setup({
   pickers = {

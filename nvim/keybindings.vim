@@ -31,10 +31,9 @@ nnoremap gb :bnext<CR>
 nnoremap gB :bprev<CR>
 nnoremap <silent> <M-Right> :bn<CR>
 nnoremap <silent> <M-Left> :bp<CR>
+nnoremap <silent> <Leader>bf :Buffers<CR>
 nnoremap <silent> <Leader>bp :bprevious<CR>
 nnoremap <silent> <Leader>bn :bnext<CR>
-nnoremap <silent> <Leader>bf :bfirst<CR>
-nnoremap <silent> <Leader>bl :blast<CR>
 nnoremap <silent> <Leader>bd :bd<CR>
 nnoremap <silent> <Leader>bk :bw<CR>
 

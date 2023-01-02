@@ -1,115 +1,111 @@
-local cmd = vim.cmd
-local fn = vim.fn
+vim.cmd 'packadd paq-nvim'
 
-cmd 'packadd paq-nvim'
-local paq = require('paq').paq
+require('paq') {
+  {'savq/paq-nvim'};
 
-paq {'savq/paq-nvim', opt = true}
+  -- APIs for Lua (used by many plugins)
+  {'nvim-lua/plenary.nvim'};
+  {'nvim-lua/popup.nvim'};
 
--- APIs for Lua (used by many plugins)
-paq {'nvim-lua/plenary.nvim'}
-paq {'nvim-lua/popup.nvim'}
+  -- display which keybindings is available
+  {'folke/which-key.nvim'};
 
--- display which keybindings is available
-paq {'folke/which-key.nvim'}
+  -- plugin to facilitate navigation
+  {'tpope/vim-unimpaired'};
+  -- jump to any place in the buffer
+  {'phaazon/hop.nvim'};
 
--- plugin to facilitate navigation
-paq {'tpope/vim-unimpaired'}
-paq {'phaazon/hop.nvim'}
+  -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
+  {'kylechui/nvim-surround'};
+  -- autoclose and actions to insert spaces or new line between {}, (), []
+  {'windwp/nvim-autopairs'};
+  -- adds more text objects to be used as targets in motions
+  {'wellle/targets.vim'};
+  -- sublime-like multiple cursor editor
+  {'mg979/vim-visual-multi'};
 
--- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
-paq {'tpope/vim-surround'}
--- paq {'kylechui/nvim-surround'}
--- autoclose and actions to insert spaces or new line between {}, (), []
-paq {'windwp/nvim-autopairs'}
--- adds more text objects to be used as targets in motions
-paq {'wellle/targets.vim'}
+  -- highlight trailing whitespaces
+  {'ntpeters/vim-better-whitespace'};
+  {'numToStr/Comment.nvim'};
 
--- highlight trailing whitespaces
-paq {'ntpeters/vim-better-whitespace'}
-paq {'numToStr/Comment.nvim'}
+  -- show git stuff and info at line
+  {'tpope/vim-fugitive'};
+  {'airblade/vim-gitgutter'};
+  {'tveskag/nvim-blame-line'};
+  {'sindrets/diffview.nvim'};
+  {'akinsho/git-conflict.nvim'};
 
--- sublime-like multiple cursor editor
-paq {'mg979/vim-visual-multi'}
+  {'voldikss/vim-floaterm'};
+  {'ThePrimeagen/harpoon'};
+  {'matbme/JABS.nvim'};
 
--- show git stuff and info at line
-paq {'tpope/vim-fugitive'}
-paq {'airblade/vim-gitgutter'}
-paq {'tveskag/nvim-blame-line'}
-paq {'sindrets/diffview.nvim'}
-paq {'akinsho/git-conflict.nvim'}
+  -- plugin to facilitate the configuration for LSP
+  {'neovim/nvim-lspconfig'};
+  {'williamboman/mason.nvim'};
+  {'williamboman/mason-lspconfig.nvim'};
+  {'onsails/lspkind-nvim'};
+  {'folke/trouble.nvim'}; -- panel for diagnostics
+  {'vim-test/vim-test'};
+  {'kevinhwang91/nvim-bqf'}; -- improves quick-fix list (float window, search), use `zf` to search
+  {'gennaro-tedesco/nvim-jqx'}; -- JSON/YML formatter and querier (JqxList and JqxQuery)
 
--- tmux integration and navigate between open pages with C-h C-j C-k C-k
-paq {'benmills/vimux'}
-paq {'christoomey/vim-tmux-navigator'}
+  {'mfussenegger/nvim-dap'}; -- debugger
+  {'rcarriga/nvim-dap-ui'}; -- UI for debug
 
-paq {'voldikss/vim-floaterm'}
+  -- {'mfussenegger/nvim-jdtls'}; -- java
+  {'OmniSharp/omnisharp-vim'}; -- csharp
 
-paq {'ThePrimeagen/harpoon'}
-paq {'matbme/JABS.nvim'}
-paq {'kevinhwang91/nvim-bqf'} -- improves quick-fix list
+  -- better syntax highlighter and more
+  {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error
+  {'ThePrimeagen/refactoring.nvim'};
 
--- plugin to facilitate the configuration for LSP
-paq {'neovim/nvim-lspconfig'}
-paq {'onsails/lspkind-nvim'}
-paq {'williamboman/mason.nvim'}
-paq {'williamboman/mason-lspconfig.nvim'}
-paq {'folke/trouble.nvim'}                  -- panel for diagnostics
-paq {'vim-test/vim-test'}
+  {'nvim-telescope/telescope.nvim'};
+  {'nvim-telescope/telescope-fzf-native.nvim'}; -- better performance to sort
+  {'nvim-telescope/telescope-ui-select.nvim'};
+  {'nvim-telescope/telescope-project.nvim'};
+  {'nvim-telescope/telescope-file-browser.nvim'};
+  {'axkirillov/easypick.nvim'}; -- to create pickers from terminal commands
 
--- better syntax highlighter and more
-paq {'nvim-treesitter/nvim-treesitter'} -- fix highlight error: `:TSUpdate`
-paq {'ThePrimeagen/refactoring.nvim'}
+  {'junegunn/fzf', run = vim.fn['fzf#install']};
+  {'junegunn/fzf.vim'};
+  {'ojroques/nvim-lspfuzzy'}; -- enable use FZF popup in LSP finders
 
--- paq {'mfussenegger/nvim-jdtls'} -- java
-paq {'OmniSharp/omnisharp-vim'} -- csharp
+  -- tmux integration and navigate between open pages with C-h C-j C-k C-k
+  {'benmills/vimux'};
+  {'christoomey/vim-tmux-navigator'};
+  {'camgraff/telescope-tmux.nvim'};
 
-paq {'nvim-telescope/telescope.nvim'}
-paq {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sort
-paq {'nvim-telescope/telescope-ui-select.nvim'}
-paq {'camgraff/telescope-tmux.nvim'}
-paq {'fhill2/telescope-ultisnips.nvim'}
-paq {'nvim-telescope/telescope-project.nvim'}
-paq {'nvim-telescope/telescope-file-browser.nvim'}
-paq {'axkirillov/easypick.nvim'}
+  -- snippet engine
+  {'hrsh7th/nvim-cmp'};
+  {'hrsh7th/cmp-nvim-lsp'};
+  {'hrsh7th/cmp-buffer'};
+  {'hrsh7th/cmp-path'};
+  {'L3MON4D3/LuaSnip'};
+  {'saadparwaiz1/cmp_luasnip'};
+  {'rafamadriz/friendly-snippets'};
 
-paq {'junegunn/fzf', run = fn['fzf#install']}
-paq {'junegunn/fzf.vim'}
-paq {'ojroques/nvim-lspfuzzy'}
+  {'glepnir/galaxyline.nvim'};
 
--- snippet engine
-paq {'hrsh7th/nvim-cmp'}
-paq {'hrsh7th/cmp-nvim-lsp'}
-paq {'hrsh7th/cmp-buffer'}
-paq {'hrsh7th/cmp-path'}
-paq {'L3MON4D3/LuaSnip'}
-paq {'saadparwaiz1/cmp_luasnip'}
-paq {'rafamadriz/friendly-snippets'}
+  -- colorscheme
+  {'ellisonleao/gruvbox.nvim'};
+  {'luisiacc/gruvbox-baby'};
+  {'Mofiqul/dracula.nvim'};
+  {'navarasu/onedark.nvim'};
+  {'JoosepAlviste/palenightfall.nvim'};
+  {'folke/tokyonight.nvim'};
+  {'ryanoasis/vim-devicons'};
 
-paq {'glepnir/galaxyline.nvim'}
+  -- tree explorer
+  {'kyazdani42/nvim-web-devicons'};
+  {'kyazdani42/nvim-tree.lua'};
 
--- colorscheme
--- paq {'norcalli/nvim-colorizer.lua'}
--- paq {'morhetz/gruvbox'}
-paq {'ellisonleao/gruvbox.nvim'}
-paq {'luisiacc/gruvbox-baby'}
-paq {'Mofiqul/dracula.nvim'}
-paq {'navarasu/onedark.nvim'}
-paq {'JoosepAlviste/palenightfall.nvim'}
-paq {'folke/tokyonight.nvim'}
-paq {'ryanoasis/vim-devicons'}
+  {'famiu/bufdelete.nvim'};
+  {'glepnir/dashboard-nvim'};
 
--- tree explorer
-paq {'kyazdani42/nvim-web-devicons'}
-paq {'kyazdani42/nvim-tree.lua'}
+  -- session management
+  {'rmagatti/auto-session'};
+  {'rmagatti/session-lens'};
 
-paq {'famiu/bufdelete.nvim'}
-paq {'glepnir/dashboard-nvim'}
-
--- session management
-paq {'rmagatti/auto-session'}
-paq {'rmagatti/session-lens'}
-
-paq {'renerocksai/telekasten.nvim'}
-paq {'renerocksai/calendar-vim'}
-
+  {'renerocksai/telekasten.nvim'};
+  {'renerocksai/calendar-vim'};
+}

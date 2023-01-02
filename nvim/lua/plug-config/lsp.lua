@@ -2,11 +2,10 @@
 local map = vim.api.nvim_set_keymap
 
 local lspconfig = require'lspconfig'
-local lspfuzzy = require'lspfuzzy'
-local lsptrouble = require'trouble'
 
 require('mason').setup()
-require('mason-lspconfig').setup()
+local mason_lsconfig = require'mason-lspconfig'
+mason_lsconfig.setup()
 
 opts = { noremap = true }
 map('n', '<leader>ls', ':LspStart<CR>', opts)
@@ -119,13 +118,13 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Make the LSP client use FZF instead of the quickfix list
-  lspfuzzy.setup{}
+  -- require'lspfuzzy'.setup{}
 
   init_lspkind()
 
   setup_keymappings()
 
-  lsptrouble.setup();
+  require('trouble').setup()
 end
 
 local default_opts = {
@@ -135,7 +134,7 @@ local default_opts = {
 
 local servers = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
 
-require('mason-lspconfig').setup {
+mason_lsconfig.setup {
   ensure_installed = servers
 }
 
@@ -145,14 +144,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
 
 local pid = vim.fn.getpid()
-require('lspconfig')['omnisharp'].setup{
+lspconfig['omnisharp'].setup{
   on_attach = on_attach,
   flags = capabilities,
   cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
