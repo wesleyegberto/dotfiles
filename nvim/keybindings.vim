@@ -9,11 +9,6 @@ nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
 vmap <C-s> <Esc>:w<CR>
 
-" on insert mode, jk as Esc (we can use <C-[>
-if !exists('g:vscode')
-  inoremap jk <Esc>
-endif
-
 " unhighlight the search result
 nnoremap <silent> <Leader><Esc> :nohl<CR>
 
@@ -33,12 +28,31 @@ nnoremap <silent> <M-Right> :bn<CR>
 nnoremap <silent> <M-Left> :bp<CR>
 nnoremap <silent> <Leader>bf :Buffers<CR>
 nnoremap <silent> <Leader>bp :bprevious<CR>
-nnoremap <silent> <Leader>bn :bnext<CR>
+nnoremap <silent> <Leader>b
 nnoremap <silent> <Leader>bd :bd<CR>
-nnoremap <silent> <Leader>bk :bw<CR>
 
+" paste over selection without yank it:
+" paste and stay at the end of selection
+vnoremap p "_dP
+" paste and go to beginning of selection
+vnoremap P "_dP`[
+" yank until end of line
+nnoremap Y y$
+" redo
+nnoremap U <C-r>
+
+" go to last character in the line (will keep EOL)
+nnoremap $ g_
+" keep selection after indenting
+noremap < <gv
+noremap > >gv
 " reselect either the last pasted or changed text
 noremap gV `[v`]
+
+" on insert mode, jk as Esc (we can use <C-[>
+if !exists('g:vscode')
+  inoremap jk <Esc>
+endif
 
 " to allow navigate a line above and bellow correctly when word wrapping
 nnoremap k gk
@@ -48,11 +62,6 @@ nnoremap j gj
 nnoremap H ^
 " move to the end of line
 nnoremap L $
-
-nnoremap Y y$
-
-" redo
-nnoremap U <C-r>
 
 " keep the cursor position - don't move to next match
 nmap * *N

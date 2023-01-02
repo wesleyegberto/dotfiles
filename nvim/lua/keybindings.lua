@@ -16,8 +16,6 @@ map('n', '<C-s>', ':w<CR>', options)
 map('i', '<C-s>', '<Esc>:w<CR>a', options)
 map('v', '<C-s>', '<Esc>:w<CR>', options)
 
-map('i', 'jk', '<Esc>', options)
-
 map('n', '<Leader><Esc>', ':nohlsearch<CR>', options)
 
 -- toggle wrap
@@ -38,22 +36,31 @@ map('n', '<Leader>bn', ':bnext<CR>', silentOptions)
 map('n', '<Leader>bd', ':bd<CR>', silentOptions)
 map('n', '<Leader>bk', ':bw<CR>', silentOptions)
 
+-- paste over selection without yank it:
+map('v', 'p', '"_dP', options) -- paste and stay at the end of selection
+map('v', 'P', '"_dP`[', options) -- paste and go to beginning of selection
+-- yank until end of line
+map('n', 'Y', 'y$', options)
+-- redo
+map('n', 'U', '<C-r>', options)
+
+-- go to last character in the line (will keep EOL)
+map('v', '$', 'g_', options)
+-- keep selection after indenting
+map('v', '<', '<gv', options)
+map('v', '>', '>gv', options)
 -- reselect either the last pasted or changed text
 map('n', 'gV', '`[v`]', options)
 
 -- to allow navigate a line above and bellow correctly when word wrapping
 map('n', 'k', 'gk', options)
 map('n', 'j', 'gj', options)
+map('i', 'jk', '<Esc>', options)
 
 -- move to the start of line
 map('n', 'H', '^', options)
 -- move to the end of line
 map('n', 'L', '$', options)
-
-map('n', 'Y', 'y$', options)
-
--- redo
-map('n', 'U', '<C-r>', options)
 
 -- keep the cursor position - don't move to next match
 map('n', '*', '*N', {})

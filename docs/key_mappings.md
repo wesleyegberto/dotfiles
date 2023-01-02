@@ -144,12 +144,12 @@ X                " open item using system defaults
 Navigation:
 
 ```
-f                " search
-F                " searchRecursive
 gf               " gotoSource:file
 gb               " gotoSource:buffer
 [d               " diagnosticPrev
 ]d               " diagnosticNext
+[l               " previous location in list
+]l               " next location in list
 [c               " gitPrev
 ]c               " gitNext
 <<               " gitStage
