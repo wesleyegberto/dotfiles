@@ -26,6 +26,7 @@ local function create_floating_file(location, opts)
 
   local range = location.targetRange or location.range
 
+
   local contents = vim.api.nvim_buf_get_lines(
     bufnr,
     range.start.line,

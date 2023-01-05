@@ -68,7 +68,7 @@ require('paq') {
 
   {'junegunn/fzf', run = vim.fn['fzf#install']};
   {'junegunn/fzf.vim'};
-  {'ojroques/nvim-lspfuzzy'}; -- enable use FZF popup in LSP finders
+  -- {'ojroques/nvim-lspfuzzy'}; -- enable use FZF popup in LSP finders
 
   -- tmux integration and navigate between open pages with C-h C-j C-k C-k
   {'benmills/vimux'};
