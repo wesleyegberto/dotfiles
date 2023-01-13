@@ -1,15 +1,16 @@
-require'bqf'.setup()
-
-require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-
-require'Comment'.setup()
-
-require'nvim-autopairs'.setup()
-require'nvim-surround'.setup()
-
 local ui = vim.api.nvim_list_uis()[1]
+local map = vim.api.nvim_set_keymap
 
-require 'jabs'.setup {
+require('bqf').setup()
+
+require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+
+require('Comment').setup()
+
+require('nvim-autopairs').setup()
+require('nvim-surround').setup()
+
+require('jabs').setup {
   position = 'center', -- center, corner
   width = 150,
   height = 10,
@@ -27,3 +28,18 @@ require 'jabs'.setup {
   col = ui.width,  -- Window appears on the right
   row = ui.height/2, -- Window appears in the vertical middle
 }
+
+-- === nvim-pack/nvim-spectre ===
+require('spectre').setup()
+
+local opts = { noremap = true, silent=true }
+
+map('n', '<leader>kf', 'lua require("spectre").open()<CR>', opts)
+-- search current word
+map('n', '<leader>kw', 'lua require("spectre").open_visual({select_word=true})<CR>', opts)
+map('v', '<leader>ks', 'lua require("spectre").open_visual()<CR>', opts)
+-- search in current file
+map('n', '<leader>kb', 'lua require("spectre").open_file_search()<CR>', opts)
+-- === end ===
+
+

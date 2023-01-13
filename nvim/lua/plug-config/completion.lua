@@ -1,7 +1,8 @@
-local cmp = require'cmp'
-local luasnip = require'luasnip'
-
 local map = vim.api.nvim_set_keymap
+local cmp = require'cmp'
+
+local luasnip = require'luasnip'
+local luasnip_loader = require("luasnip.loaders.from_vscode")
 
 cmp.setup({
   snippet = {
@@ -50,11 +51,10 @@ cmp.setup({
   })
 })
 
-local luasnip_loader = require("luasnip.loaders.from_vscode")
+luasnip.filetype_extend("java", { "java-testing" })
 
 luasnip_loader.lazy_load({
   includes = {
-    'java',
     'python',
     'javascript',
     'csharp',
@@ -70,7 +70,7 @@ luasnip_loader.lazy_load({
 luasnip_loader.lazy_load({
   paths = {
     '~/.config/nvim/snippets/java',
-    '~/.config/nvim/snippets/java-tests',
+    -- '~/.config/nvim/snippets/java-tests',
     '.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.4',
     '.vscode/extensions/johnpapa.angular2-13.0.0',
     '.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',

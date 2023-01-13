@@ -7,40 +7,61 @@ require('paq') {
   {'nvim-lua/plenary.nvim'};
   {'nvim-lua/popup.nvim'};
 
-  -- display which keybindings is available
+  -- display keymaps available
   {'folke/which-key.nvim'};
 
-  -- plugin to facilitate navigation
-  {'tpope/vim-unimpaired'};
+  -- === file navigaton ===
+  -- tree explorer
+  {'kyazdani42/nvim-web-devicons'};
+  {'kyazdani42/nvim-tree.lua'};
+
+  {'famiu/bufdelete.nvim'};
+  {'glepnir/dashboard-nvim'};
+  {'glepnir/galaxyline.nvim'};
+
+  -- {'anuvyklack/middleclass'};
+  -- {'anuvyklack/windows.nvim'};
+  {'voldikss/vim-floaterm'};
+  {'ThePrimeagen/harpoon'};
+  {'matbme/JABS.nvim'};
+
+  {'nvim-telescope/telescope.nvim'};
+  {'nvim-telescope/telescope-fzf-native.nvim'}; -- better performance to sort
+  {'nvim-telescope/telescope-ui-select.nvim'};
+  {'nvim-telescope/telescope-project.nvim'};
+  {'axkirillov/easypick.nvim'}; -- to create pickers from terminal commands
+
+  {'junegunn/fzf', run = vim.fn['fzf#install']};
+  {'junegunn/fzf.vim'};
+
+  -- === buffer navigation ===
   -- jump to any place in the buffer
   {'phaazon/hop.nvim'};
+  -- plugin to facilitate navigation
+  {'tpope/vim-unimpaired'};
 
+  -- === editing ===
+
+  {'nvim-pack/nvim-spectre'}; -- search/replace
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
   {'kylechui/nvim-surround'};
   -- autoclose and actions to insert spaces or new line between {}, (), []
   {'windwp/nvim-autopairs'};
   -- adds more text objects to be used as targets in motions
   {'wellle/targets.vim'};
-  -- sublime-like multiple cursor editor
-  {'mg979/vim-visual-multi'};
-
-  -- highlight trailing whitespaces
-  {'ntpeters/vim-better-whitespace'};
+  {'mg979/vim-visual-multi'}; -- sublime-like multiple cursor editor
+  {'ntpeters/vim-better-whitespace'}; -- highlight trailing whitespaces
   {'numToStr/Comment.nvim'};
 
-  -- show git stuff and info at line
+  -- === git ===
   {'tpope/vim-fugitive'};
   {'airblade/vim-gitgutter'};
   {'tveskag/nvim-blame-line'};
   {'sindrets/diffview.nvim'};
   {'akinsho/git-conflict.nvim'};
 
-  {'voldikss/vim-floaterm'};
-  {'ThePrimeagen/harpoon'};
-  {'matbme/JABS.nvim'};
-
-  -- plugin to facilitate the configuration for LSP
-  {'neovim/nvim-lspconfig'};
+  -- === LSP ===
+  {'neovim/nvim-lspconfig'}; -- plugin to facilitate the configuration for LSP
   {'williamboman/mason.nvim'};
   {'williamboman/mason-lspconfig.nvim'};
   {'onsails/lspkind-nvim'};
@@ -58,24 +79,15 @@ require('paq') {
   -- better syntax highlighter and more
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error
   {'ThePrimeagen/refactoring.nvim'};
-
-  {'nvim-telescope/telescope.nvim'};
-  {'nvim-telescope/telescope-fzf-native.nvim'}; -- better performance to sort
-  {'nvim-telescope/telescope-ui-select.nvim'};
-  {'nvim-telescope/telescope-project.nvim'};
-  {'nvim-telescope/telescope-file-browser.nvim'};
-  {'axkirillov/easypick.nvim'}; -- to create pickers from terminal commands
-
-  {'junegunn/fzf', run = vim.fn['fzf#install']};
-  {'junegunn/fzf.vim'};
   -- {'ojroques/nvim-lspfuzzy'}; -- enable use FZF popup in LSP finders
 
+  -- === tmux ===
   -- tmux integration and navigate between open pages with C-h C-j C-k C-k
   {'benmills/vimux'};
   {'christoomey/vim-tmux-navigator'};
   {'camgraff/telescope-tmux.nvim'};
 
-  -- snippet engine
+  -- === snippet engine ===
   {'hrsh7th/nvim-cmp'};
   {'hrsh7th/cmp-nvim-lsp'};
   {'hrsh7th/cmp-buffer'};
@@ -84,9 +96,7 @@ require('paq') {
   {'saadparwaiz1/cmp_luasnip'};
   {'rafamadriz/friendly-snippets'};
 
-  {'glepnir/galaxyline.nvim'};
-
-  -- colorscheme
+  -- === colorscheme ===
   {'ellisonleao/gruvbox.nvim'};
   {'luisiacc/gruvbox-baby'};
   {'Mofiqul/dracula.nvim'};
@@ -95,14 +105,7 @@ require('paq') {
   {'folke/tokyonight.nvim'};
   {'ryanoasis/vim-devicons'};
 
-  -- tree explorer
-  {'kyazdani42/nvim-web-devicons'};
-  {'kyazdani42/nvim-tree.lua'};
-
-  {'famiu/bufdelete.nvim'};
-  {'glepnir/dashboard-nvim'};
-
-  -- session management
+  -- === session management ===
   {'rmagatti/auto-session'};
   {'rmagatti/session-lens'};
 
