@@ -23,7 +23,7 @@ brew bundle
 brew install cask htop vtop
 
 brew install unrar wget tree
-brew install fd fzf the_silver_searcher ripgrep
+brew install fd fzf the_silver_searcher ripgrep gnu-sed
 
 echo "\\n\\n === Automation tools ==="
 brew cask install alfred
