@@ -17,18 +17,8 @@ map('n', '<leader>lp', ':Mason<CR>', opts)
 
 local function init_lspkind()
   require('lspkind').init({
-      -- defines how annotations are shown
-      -- default: symbol
-      -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
       mode = 'symbol_text',
-
-      -- default symbol map
-      -- can be either 'default' or
-      -- 'codicons' for codicon preset (requires vscode-codicons font installed)
-      -- default: 'default'
       preset = 'default',
-
-      -- override preset symbols
       symbol_map = {
         Text = "",
         Method = "",
@@ -141,7 +131,6 @@ mason_lsconfig.setup {
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
