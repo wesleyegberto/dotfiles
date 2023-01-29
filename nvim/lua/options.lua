@@ -4,7 +4,7 @@
 
 vim.o.termguicolors = true
 
--- vim.o.t_Co = '256'                                           -- explicitly tell vim that the terminal supports 256 colors
+-- vim.o.t_Co = '256'                                        -- explicitly tell vim that the terminal supports 256 colors
 vim.o.ttyfast = true                                         -- faster redrawing
 
 vim.o.encoding = 'utf-8'
@@ -21,7 +21,7 @@ vim.o.ls = 2                                                 -- always show stat
 vim.wo.number = true
 vim.wo.relativenumber = true                                 -- show relative number of lines to the current line
 vim.o.cursorline = true                                      -- display a marker on current line
--- vim.o.showmode = false                                       -- airline will do the job
+-- vim.o.showmode = false                                    -- airline will do the job
 vim.o.showcmd = true                                         -- display incomplete commands
 vim.o.showmatch = true                                       -- show matching brackets/parentthesis
 vim.opt.colorcolumn = "120"

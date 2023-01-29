@@ -71,7 +71,7 @@ nnoremap N Nzzzv
 " when joining lines, keep the cursor in location before the join
 nnoremap J mzJ`z
 
-" register with C-g to allow undo break points (instead of whole thing)
+" register with C-g to allow ugdo break points (instead of whole thing)
 if !exists("g:vscode")
   inoremap , ,<C-g>u
   inoremap . .<C-g>u

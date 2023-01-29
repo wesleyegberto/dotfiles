@@ -136,3 +136,4 @@ source "$DOTFILES/zsh/aliases.sh"
 # infer run -- javac Hello.java
 
 # MS's C# static analyzer (https://github.com/microsoft/CSharpCodeAnalyzer)
+
