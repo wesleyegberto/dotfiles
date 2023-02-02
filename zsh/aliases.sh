@@ -56,7 +56,7 @@ alias gsp='git pull --rebase --autostash' # Git stash, pull and apply stash
 alias gp="git push"
 alias gdf="g d"
 alias gfl="git fetch --prune && git pull"
-alias gcf='g branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always" --pointer="B" | xargs git checkout'
+alias gcf='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always | diff-so-fancy" --pointer="B" | xargs git checkout'
 
 
 # Utiltiy Aliases

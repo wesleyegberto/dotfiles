@@ -183,3 +183,13 @@ map('n', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
 -- map('v', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
 -- -- }}}
 
+
+-- === nvim-pack/nvim-spectre ===
+map('n', '<leader>kf', 'lua require("spectre").open()<CR>', silentOptions)
+-- search current word
+map('n', '<leader>kw', 'lua require("spectre").open_visual({select_word=true})<CR>', silentOptions)
+map('v', '<leader>ks', 'lua require("spectre").open_visual()<CR>', silentOptions)
+-- search in current file
+map('n', '<leader>kb', 'lua require("spectre").open_file_search()<CR>', silentOptions)
+-- }}}
+

@@ -19,10 +19,9 @@ require('paq') {
   {'glepnir/dashboard-nvim'};
   {'glepnir/galaxyline.nvim'};
 
-  -- {'anuvyklack/middleclass'};
-  -- {'anuvyklack/windows.nvim'};
   {'voldikss/vim-floaterm'};
   {'ThePrimeagen/harpoon'};
+  -- {'chentoast/marks.nvim'}
   {'matbme/JABS.nvim'};
 
   {'nvim-telescope/telescope.nvim'};
