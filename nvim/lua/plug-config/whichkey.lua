@@ -178,3 +178,40 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
+
+
+wk.register({
+  z = {
+    ['f'] = { ":lua require('telekasten').find_notes()<CR>", 'Find notes' },
+    ['d'] = { ":lua require('telekasten').find_daily_notes()<CR>", 'Find daily notes' },
+    ['w'] = { ":lua require('telekasten').find_weekly_notes()<CR>", 'Find weekly notes' },
+    ['T'] = { ":lua require('telekasten').goto_today()<CR>", 'Go to today' },
+    ['W'] = { ":lua require('telekasten').goto_thisweek()<CR>", 'Go to week' },
+    ['t'] = { ":lua require('telekasten').toggle_todo()<CR>", 'Toggle todo' },
+
+    ['g'] = { ":lua require('telekasten').search_notes()<CR>", 'Search notes' },
+    ['n'] = { ":lua require('telekasten').new_note()<CR>", 'New note' },
+    ['N'] = { ":lua require('telekasten').new_templated_note()<CR>", 'New template' },
+
+    ['z'] = { ":lua require('telekasten').follow_link()<CR>", 'Follow link' },
+    ['b'] = { ":lua require('telekasten').show_backlinks()<CR>", 'Show backlinks' },
+
+    ['y'] = { ":lua require('telekasten').yank_notelink()<CR>", 'Yank note link' },
+    ['I'] = { ":lua require('telekasten').insert_link({ i=true })<CR>", 'Insert link' },
+    ['I'] = { ":lua require('telekasten').insert_img_link({ i=true })<CR>", 'Insert img link' },
+    ['i'] = { ":lua require('telekasten').paste_img_and_link()<CR>", 'Paste img and link' },
+    ['p'] = { ":lua require('telekasten').preview_img()<CR>", 'Preview img' },
+
+    ['m'] = { ":lua require('telekasten').browse_media()<CR>", 'Browser media' },
+    ['a'] = { ":lua require('telekasten').show_tags()<CR>", 'Show tags' },
+    ['#'] = {  ":lua require('telekasten').show_tags()<CR>", 'Show tags' },
+
+    ['c'] = { ":lua require('telekasten').show_calendar()<CR>", 'Show calendar' },
+    ['C'] = { ":CalendarT<CR>", 'Show fullscreen calendar' },
+    ['r'] = { ":lua require('telekasten').rename_note()<CR>", 'Rename note' },
+    -- on hesitation, bring up the panel
+    ['r'] = { ":lua require('telekasten').panel()<CR>", 'Show panel' },
+  }
+}, { prefix = "<leader>"})
+
+

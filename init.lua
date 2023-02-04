@@ -9,9 +9,6 @@
 -- #########################################################################
 -- cp ~/init.lua ~/.config/nvim/init.lua
 
-local cmd = vim.cmd
-local u = require('utils')
-
 -- #########################################################
 -- # Plugin installations
 -- # `vim +PaqInstall +PaqUpdate +PaqClean`
@@ -47,24 +44,4 @@ require('plug-config/zettelkasten')
 require('plug-config/sessions')
 require('plug-config/dashboard')
 require('plug-config/whichkey')
-
-
--- #########################################################
--- # Custom configuration
--- #########################################################
-
--- builtin highlight yanked content
-cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
-
--- === translated from jeffkreeftmeijer/vim-numbertoggle === {{{
--- hybrid mode (normal mode: relative, insert mode: absolute)
-u.create_augroup('numbertoggle', {
-    { 'BufEnter,FocusGained,InsertLeave,WinEnter', '*', 'if &nu | set rnu | endif' },
-    { 'BufLeave,FocusLost,InsertEnter,WinLeave', '*', 'if &nu | set nornu | endif' }
-})
--- }}}
-
--- === ntpeters/vim-better-whitespace === {{{
-vim.g.strip_whitespace_on_save = 1
--- }}}
 

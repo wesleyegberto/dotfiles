@@ -6,7 +6,7 @@ vim.g.mapleader = ' '
 
 local options = { noremap = true }
 
-local home = vim.fn.expand("~/notes/journal/")
+local home = vim.fn.expand("~/notes")
 
 require('telekasten').setup({
   home = home,
@@ -18,9 +18,9 @@ require('telekasten').setup({
     auto_set_filetype = true,
 
     -- dir names for special notes (absolute path or subdir name)
-    dailies      = home .. '/daily',
-    weeklies     = home .. '/weekly',
     templates    = home .. '/templates',
+    dailies      = home .. '/journal/daily',
+    weeklies     = home .. '/journal/weekly',
 
     -- image (sub)dir for pasting
     -- dir name (absolute path or subdir name)
@@ -48,7 +48,7 @@ require('telekasten').setup({
 
     -- template for newly created daily notes (goto_today)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_daily = home .. '/templates/daily.md',
+    template_new_daily = home .. '/templates/daily-note-template.md',
 
     -- template for newly created weekly notes (goto_thisweek)
     -- set to `nil` or do not specify if you do not want a template
@@ -126,32 +126,6 @@ require('telekasten').setup({
     rename_update_links = true,
 })
 
-map('n', '<leader>zf', ":lua require('telekasten').find_notes()<CR>", options)
-map('n', '<leader>zd', ":lua require('telekasten').find_daily_notes()<CR>", options)
-map('n', '<leader>zg', ":lua require('telekasten').search_notes()<CR>", options)
-map('n', '<leader>zz', ":lua require('telekasten').follow_link()<CR>", options)
-map('n', '<leader>zT', ":lua require('telekasten').goto_today()<CR>", options)
-map('n', '<leader>zW', ":lua require('telekasten').goto_thisweek()<CR>", options)
-map('n', '<leader>zw', ":lua require('telekasten').find_weekly_notes()<CR>", options)
-map('n', '<leader>zn', ":lua require('telekasten').new_note()<CR>", options)
-map('n', '<leader>zN', ":lua require('telekasten').new_templated_note()<CR>", options)
-map('n', '<leader>zy', ":lua require('telekasten').yank_notelink()<CR>", options)
-map('n', '<leader>zc', ":lua require('telekasten').show_calendar()<CR>", options)
-map('n', '<leader>zC', ":CalendarT<CR>", options)
-map('n', '<leader>zi', ":lua require('telekasten').insert_link({ i=true })<CR>", options)
-map('n', '<leader>zi', ":lua require('telekasten').paste_img_and_link()<CR>", options)
-map('n', '<leader>zt', ":lua require('telekasten').toggle_todo()<CR>", options)
-map('n', '<leader>zb', ":lua require('telekasten').show_backlinks()<CR>", options)
-map('n', '<leader>zF', ":lua require('telekasten').find_friends()<CR>", options)
-map('n', '<leader>zI', ":lua require('telekasten').insert_img_link({ i=true })<CR>", options)
-map('n', '<leader>zp', ":lua require('telekasten').preview_img()<CR>", options)
-map('n', '<leader>zm', ":lua require('telekasten').browse_media()<CR>", options)
-map('n', '<leader>za', ":lua require('telekasten').show_tags()<CR>", options)
-map('n', '<leader>#',  ":lua require('telekasten').show_tags()<CR>", options)
-map('n', '<leader>zr', ":lua require('telekasten').rename_note()<CR>", options)
--- on hesitation, bring up the panel
-map('n', '<leader>zr', ":lua require('telekasten').panel()<CR>", options)
-
 vim.cmd [[
 " for gruvbox
 hi tklink ctermfg=72 guifg=#689d6a cterm=bold,underline gui=bold,underline
@@ -166,3 +140,4 @@ hi link CalNavi CalRuler
 hi tkTagSep ctermfg=gray guifg=gray
 hi tkTag ctermfg=175 guifg=#d3869B
 ]]
+

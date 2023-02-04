@@ -1,3 +1,6 @@
+local cmd = vim.cmd
+local u = require('utils')
+
 -- #########################################################
 -- # General settings
 -- #########################################################
@@ -78,6 +81,26 @@ vim.o.wildignore = vim.o.wildignore .. '*/tmp/*,*.o,*.obj,*.so'
 vim.o.updatetime = 1000                                      -- You will have bad experience for diagnostic messages when it's default 4000
 vim.o.shortmess = vim.o.shortmess .. 'c'                     -- don't give |ins-completion-menu| messages
 vim.o.signcolumn = 'yes'                                     -- always show signcolumns
+
+-- #########################################################
+-- # Custom configuration
+-- #########################################################
+
+-- builtin highlight yanked content
+cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+
+-- === translated from jeffkreeftmeijer/vim-numbertoggle === {{{
+-- hybrid mode (normal mode: relative, insert mode: absolute)
+u.create_augroup('numbertoggle', {
+    { 'BufEnter,FocusGained,InsertLeave,WinEnter', '*', 'if &nu | set rnu | endif' },
+    { 'BufLeave,FocusLost,InsertEnter,WinLeave', '*', 'if &nu | set nornu | endif' }
+})
+-- }}}
+
+-- === ntpeters/vim-better-whitespace === {{{
+vim.g.strip_whitespace_on_save = 1
+-- }}}
+
 
 vim.cmd [[
 filetype plugin indent on
