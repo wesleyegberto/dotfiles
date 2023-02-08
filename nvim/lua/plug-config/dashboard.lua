@@ -2,8 +2,6 @@
 
 local db = require('dashboard')
 
-local dotfilesPath = os.getenv('DOTFILES')
-
 -- vim.g.dashboard_custom_header = {
 --   ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗ ',
 --   ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║ ',
@@ -13,7 +11,7 @@ local dotfilesPath = os.getenv('DOTFILES')
 --   ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝ '
 -- }
 
-db.custom_header = {
+custom_header = {
   [[=================     ===============     ===============   ========  ========]],
   [[\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //]],
   [[||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||]],
@@ -38,30 +36,41 @@ db.custom_header = {
 
 vim.g.dashboard_default_executive = 'telescope'
 
-db.custom_center = {
-  {
-    icon = "  ",
-    desc = "Find File",
-    action = "Telescope find_files",
-  },
-  {
-    icon = "  ",
-    desc = "Recently Used Files",
-    action = "Telescope oldfiles",
-  },
-  {
-    icon = "  ",
-    desc = "Load Last Session",
-    action = "SessionLoad",
-  },
-  {
-    icon = "  ",
-    desc = "Find Word",
-    action = "Telescope live_grep",
-  },
-  {
-    icon = "  ",
-    desc = "Dotfiles",
-    action = ":e $DOTFILES",
+db.setup({
+  theme = 'doom',
+  config = {
+    header = custom_header,
+    center = {
+      {
+        icon = '  ',
+        desc = 'Find File',
+        action = 'Telescope find_files',
+        key = 'f'
+      },
+      {
+        icon = '  ',
+        desc = 'Recently Used Files',
+        action = 'Telescope oldfiles',
+        key = 'r'
+      },
+      {
+        icon = '  ',
+        desc = 'Load Last Session',
+        action = 'SessionLoad',
+        key = 'l'
+      },
+      {
+        icon = '  ',
+        desc = 'Find Word',
+        action = 'Telescope live_grep',
+        key = 'w'
+      },
+      {
+        icon = '  ',
+        desc = 'Dotfiles',
+        action = ':e $DOTFILES',
+        key = 'd'
+      }
+    }
   }
-}
+})
