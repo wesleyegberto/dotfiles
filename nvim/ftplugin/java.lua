@@ -3,8 +3,6 @@ local map = vim.api.nvim_set_keymap
 local home = os.getenv('HOME')
 local dotfiles = os.getenv('DOTFILES')
 
-local devtools_dir = home .. "/dev-tools/ide"
-
 vim.cmd [[
   setlocal shiftwidth=4
   setlocal softtabstop=4
@@ -30,7 +28,7 @@ local function setup_keymaps()
   map('n', '<Leader>pta', ':Telescope langtools test<CR>', opts)
   map('n', '<Leader>ptf', ':Telescope langtools test_file<CR>', opts)
 
-  map('n', 'A-o', '<cmd>lua require"jdtls".organize_imports()<CR>', opts)
+  -- source
   map('n', '<Leader>cso', '<cmd>lua require"jdtls".organize_imports()<CR>', opts)
 
   -- refactoring
@@ -44,6 +42,7 @@ local function setup_keymaps()
   -- test
   map('n', '<Leader>rtd', '<cmd>lua require"jdtls".test_class()<CR>', opts) -- debug
   map('n', '<Leader>rtc', '<cmd>lua require"jdtls".test_class()<CR>', opts)
+  map('v', '<Leader>rtm', '<cmd>lua require"jdtls".pick_test()<CR>', opts)
   map('n', '<Leader>rtn', '<cmd>lua require"jdtls".test_nearest_method()<CR>', opts)
   map('n', '<Leader>dl', '<cmd>lua require"dap".run_last()<CR>', opts)
   map('n', '<Leader>ds', '<cmd>lua require"dap".terminate()<CR>', opts)
@@ -95,7 +94,7 @@ local function setup_dap()
     highlight_changed_variables = true,
     display_callback = function(variable, _buf, _stackframe, _node)
       return '  🔍 ' .. variable.name .. ' = ' .. variable.value
-    end,
+    end
   })
 
   dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -116,6 +115,7 @@ local function setup_dap()
   require('jdtls.dap').setup_dap_main_class_configs()
 end
 
+local devtools_dir = home .. "/dev-tools/ide"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = '/Users/wesley/workspace/' .. project_name
 
@@ -135,14 +135,11 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
-    -- 💀
-    '-jar', devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_*.jar'),
     '-configuration', devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/config_mac',
-    -- See `data directory configuration` section in the README
     '-data', workspace_dir,
   },
-  root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', '.git', 'pom.xml'}, { upward = true })[1]),
+  root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', 'pom.xml'}, { upward = true })[1]),
   ['java.format.settings.url'] = dotfiles .. "/ide/eclipse_formatter.xml",
   ['java.format.settings.profile'] = "Java",
   settings = {
@@ -179,6 +176,18 @@ local config = {
       }
     }
   },
+  capabilities = {
+    workspace = {
+      configuration = true
+    },
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = true
+        }
+      }
+    }
+  },
   on_attach = function()
     setup_dap()
 
@@ -188,30 +197,30 @@ local config = {
         command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
         command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)
         command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
-        command! -buffer JdtJol lua require('jdtls').jol()
         command! -buffer JdtBytecode lua require('jdtls').javap()
         command! -buffer JdtJshell lua require('jdtls').jshell()
       augroup END
     ]]
 
     setup_keymaps()
-  end
+  end,
 }
+
+on_init = function(client, _)
+  client.notify('workspace/didChangeConfiguration', { settings = config.settings })
+end
 
 local bundles = {
   -- config for debug tool
-  vim.fn.glob(devtools_dir .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+  vim.fn.glob(devtools_dir .. '/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', 1),
 }
-
-vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. "/vscode-java-test/server/*.jar", 1), "\n"))
-config['init_options'] = {
-  bundles = bundles;
-}
+vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-test/server/*.jar', 1), '\n'))
+vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-decompiler/server/*.jar', 1), '\n'))
 
 config.init_options = {
   bundles = bundles,
   extendedClientCapabilities = extendedClientCapabilities
 }
 
-require('jdtls').start_or_attach(config)
+jdtls.start_or_attach(config)
 
