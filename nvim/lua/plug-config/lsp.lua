@@ -7,49 +7,8 @@ require('mason').setup()
 local mason_lsconfig = require'mason-lspconfig'
 mason_lsconfig.setup()
 
-opts = { noremap = true }
-map('n', '<leader>ls', ':LspStart<CR>', opts)
-map('n', '<leader>lS', ':LspStop<CR>', opts)
-map('n', '<leader>ll', ':LspLog<CR>', opts)
-map('n', '<leader>li', ':LspInfo<CR>', opts)
-map('n', '<leader>lp', ':Mason<CR>', opts)
-
-
-local function init_lspkind()
-  require('lspkind').init({
-      mode = 'symbol_text',
-      preset = 'default',
-      symbol_map = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "פּ",
-        Event = "",
-        Operator = "",
-        TypeParameter = ""
-      },
-  })
-end
-
-local function setup_keymappings()
+local function setup_keymaps()
+  opts = { noremap = true }
   silentOpts = { noremap = true, silent=true }
 
   vim.cmd [[
@@ -60,6 +19,12 @@ local function setup_keymappings()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
     augroup END
   ]]
+
+  map('n', '<leader>ls', ':LspStart<CR>', opts)
+  map('n', '<leader>lS', ':LspStop<CR>', opts)
+  map('n', '<leader>ll', ':LspLog<CR>', opts)
+  map('n', '<leader>li', ':LspInfo<CR>', opts)
+  map('n', '<leader>lp', ':Mason<CR>', opts)
 
   map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
@@ -103,18 +68,43 @@ local function setup_keymappings()
   map('n', 'glt', ':TestVisit<CR>zz', opts) -- go to last test run
 end
 
+local function init_lspkind()
+  require('lspkind').init({
+      mode = 'symbol_text',
+      preset = 'default',
+      symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+      },
+  })
+end
+
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Make the LSP client use FZF instead of the quickfix list
-  -- require'lspfuzzy'.setup{}
-
-  init_lspkind()
-
-  setup_keymappings()
-
-  require('trouble').setup()
 end
 
 local default_opts = {
@@ -122,7 +112,7 @@ local default_opts = {
   capabilities = capabilities,
 }
 
-local servers = { 'tsserver', 'jdtls', 'pyright', 'omnisharp', 'angularls', 'html' }
+local servers = { 'tsserver', 'pyright', 'omnisharp', 'angularls', 'html' } -- jdtls
 
 mason_lsconfig.setup {
   ensure_installed = servers
@@ -145,4 +135,11 @@ lspconfig['omnisharp'].setup{
   flags = capabilities,
   cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
 }
+-- lspconfig.jdtls.setup{}
+
+-- Make the LSP client use FZF instead of the quickfix list
+-- require'lspfuzzy'.setup{}
+init_lspkind()
+setup_keymaps()
+require('trouble').setup()
 

@@ -1,5 +1,7 @@
 clear
 
+CUR_DIR=$(pwd)
+
 echo "===================="
 echo " macOS Setup Script "
 echo "===================="
@@ -78,6 +80,24 @@ brew install jenv
 npm install -g n
 npm i -g vscode-langservers-extracted
 npm install -g @angular/language-server
+
+echo "\\nInstalling Java tools"
+DEV_TOOLS="~/dev-tools/ide/jdt-language-server"
+mkdir -p $DEV_TOOLS
+cd $DEV_TOOLS
+
+wget https://download.eclipse.org/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz
+
+git clone https://github.com/microsoft/java-debug.git $DEV_TOOLS/java-debug
+cd $DEV_TOOLS/java-debug
+./mvnw clean install
+
+git clone https://github.com/microsoft/vscode-java-test.git $DEV_TOOLS/vscode/java-test
+cd $DEV_TOOLS/vscode-java-test
+npm install
+npm run build-plugin
+
+cd $CUR_DIR
 
 echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript

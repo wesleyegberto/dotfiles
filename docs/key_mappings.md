@@ -474,7 +474,44 @@ Tests:
 <Leader>ptf      " run project test from current file
 ```
 
-### Omnisharp.vim
+#### Java
+
+```
+<Leader>cro      " organize imports
+
+<Leader>crm      " extract method
+<Leader>crv      " extract variable
+<Leader>crc      " extract constant
+
+<Leader>rtc      " run test class
+<Leader>rtn      " run nearest test method
+```
+
+Debug:
+
+```
+<Leader>dt       " run test class
+<Leader>ds       " stop debug
+
+<Leader>dv       " toggle debug view
+<Leader>dt       " toggle repl view
+<Leader>de       " eval selected expression
+<Leader>dp       " view selected expression in preview window
+<Leader>dh       " view selected expression in float window
+<Leader>ds       " show scopes
+<Leader>df       " show frames
+
+F5               " continue/start debug
+S-F5             " stop debug
+F9               " toggle breakpoint
+S-F9             " remove all breakpoints
+F10              " step over
+F11              " step into
+S-F11            " step out
+F12              " step out
+```
+
+#### Omnisharp.vim
 
 ```
 <Leader>clc      " code check

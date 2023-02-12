@@ -69,11 +69,11 @@ require('paq') {
   {'kevinhwang91/nvim-bqf'}; -- improves quick-fix list (float window, search), use `zf` to search
   {'gennaro-tedesco/nvim-jqx'}; -- JSON/YML formatter and querier (JqxList and JqxQuery)
 
-  {'mfussenegger/nvim-dap'}; -- debugger
+  -- {'OmniSharp/omnisharp-vim'}; -- csharp
+  {'mfussenegger/nvim-jdtls'}; -- java
+  {'mfussenegger/nvim-dap'}; -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
   {'rcarriga/nvim-dap-ui'}; -- UI for debug
-
-  -- {'mfussenegger/nvim-jdtls'}; -- java
-  {'OmniSharp/omnisharp-vim'}; -- csharp
+  {'theHamsta/nvim-dap-virtual-text'};
 
   -- better syntax highlighter and more
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error

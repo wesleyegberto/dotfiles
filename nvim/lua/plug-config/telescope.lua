@@ -35,9 +35,7 @@ telescope.setup {
       --hidden_files = true -- default: false
     },
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        -- even more opts
-      }
+      require("telescope.themes").get_dropdown {}
     }
   }
 }
