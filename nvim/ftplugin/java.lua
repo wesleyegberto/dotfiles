@@ -6,10 +6,10 @@ local dotfiles = os.getenv('DOTFILES')
 local devtools_dir = home .. "/dev-tools/ide"
 
 vim.cmd [[
-  setlocal noexpandtab
-  setlocal tabstop=4
   setlocal shiftwidth=4
   setlocal softtabstop=4
+  setlocal tabstop=4
+  setlocal noexpandtab
 
   setlocal path=.,src/main/java/**,src/test/java/**,**/src/main/java/**,**/src/test/java/**
   setlocal include=^\s*import
@@ -180,6 +180,8 @@ local config = {
     }
   },
   on_attach = function()
+    setup_dap()
+
     jdtls.setup.add_commands()
     vim.cmd [[
       augroup lsp_jdtls
@@ -192,7 +194,6 @@ local config = {
       augroup END
     ]]
 
-    setup_dap()
     setup_keymaps()
   end
 }
