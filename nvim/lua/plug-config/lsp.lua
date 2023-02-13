@@ -5,7 +5,17 @@ local lspconfig = require'lspconfig'
 
 local home = os.getenv('HOME')
 
-require('mason').setup()
+require('mason').setup({
+  ui = {
+    border = 'rounded',
+    icons = {
+      package_installed = "✅",
+      package_pending = "⏳",
+      package_uninstalled = "☑️"
+    }
+  }
+})
+
 local mason_lsconfig = require'mason-lspconfig'
 mason_lsconfig.setup()
 
@@ -110,7 +120,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'pyright', 'omnisharp', 'angularls', 'html' } -- tsserver
+local servers = { 'pyright', 'omnisharp', 'tsserver', 'angularls', 'html' }
 
 mason_lsconfig.setup {
   ensure_installed = servers
@@ -121,7 +131,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for _, lsp in ipairs(servers) do
-  if lsp ~= 'omnisharp' then
+  if lsp ~= ('omnisharp' and 'tsserver') then
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
