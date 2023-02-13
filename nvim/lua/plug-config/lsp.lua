@@ -3,6 +3,8 @@ local map = vim.api.nvim_set_keymap
 
 local lspconfig = require'lspconfig'
 
+local home = os.getenv('HOME')
+
 require('mason').setup()
 local mason_lsconfig = require'mason-lspconfig'
 mason_lsconfig.setup()
@@ -107,12 +109,8 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
-local default_opts = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-local servers = { 'tsserver', 'pyright', 'omnisharp', 'angularls', 'html' } -- jdtls
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+local servers = { 'pyright', 'omnisharp', 'angularls', 'html' } -- tsserver
 
 mason_lsconfig.setup {
   ensure_installed = servers
@@ -123,19 +121,37 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if lsp ~= 'omnisharp' then
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
+require("typescript").setup({
+  disable_commands = false, -- prevent the plugin from creating Vim commands
+  debug = false, -- enable debug logging for commands
+  go_to_source_definition = {
+    fallback = true, -- fall back to standard LSP definition on failure
+  },
+  server = {
+    on_attach = on_attach
+  },
+})
+
 local pid = vim.fn.getpid()
-lspconfig['omnisharp'].setup{
+lspconfig['omnisharp'].setup {
+  cmd = { home .. '/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) },
   on_attach = on_attach,
   flags = capabilities,
-  cmd = { '/Users/wesley/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) }
+  handlers = {
+    ["textDocument/definition"] = require('omnisharp_extended').handler,
+  },
+  enable_roslyn_analyzers = true,
+  organize_imports_on_format = true,
+  analyze_open_documents_only = true,
 }
--- lspconfig.jdtls.setup{}
 
 -- Make the LSP client use FZF instead of the quickfix list
 -- require'lspfuzzy'.setup{}

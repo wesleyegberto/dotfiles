@@ -97,13 +97,12 @@ Then install the plugins by running: `vim +PaqInstall +qall`.
   * `pip install --user pynvim`
   * `pip3 install --user pynvim`
   * `pip3 install neovim-remote`
-* C#: open a `.cs` file and execute command `:OmniSharpInstall`
 
 ## Tools Configuration
 
 ### NeoVim
 
-I'm using Neovim 0.5+ configured with Lua.
+I'm using Neovim 0.8+ configured with Lua.
 NeoVim plugins installed is listed [here](nvim/.config/nvim/lua/plugins.lua).
 
 ### VS Code
@@ -111,7 +110,7 @@ NeoVim plugins installed is listed [here](nvim/.config/nvim/lua/plugins.lua).
 I'm using VSCode with Vim extension which has my favorites Vim plugins (like vim-surround, vim-airline).
 Using it I can use all the Vim power for editing and navigation.
 
-I've been exploring some configuration and key mappings to allow me to use the same mappings that I'm using on NeoVim (like navigate between panes, motion, leader key and so on).
+I've been exploring some configuration and key mappings to allow me to use the same key mappings that I'm using on NeoVim (like navigate between panes, motion, leader key and so on).
 Here are my configs:
 
 * [VSCode settings](https://gist.github.com/wesleyegberto/373c6b27a7b5952acf5fca872a0eafc4#file-settings-json): configuration to enable the same behavior (configs with prefix `vim.`).
