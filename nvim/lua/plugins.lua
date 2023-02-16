@@ -64,6 +64,7 @@ require('paq') {
   {'williamboman/mason.nvim'};
   {'williamboman/mason-lspconfig.nvim'};
   {'onsails/lspkind-nvim'};
+  {'DNLHC/glance.nvim'}; -- window preview
   {'folke/trouble.nvim'}; -- panel for diagnostics
   {'vim-test/vim-test'};
   {'kevinhwang91/nvim-bqf'}; -- improves quick-fix list (float window, search), use `zf` to search

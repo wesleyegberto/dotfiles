@@ -44,11 +44,13 @@ local function setup_keymaps()
   map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  map('n', 'gD', "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", opts)
+  map('n', 'gD', "<cmd>Glance definitions<CR>", opts)
   map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  map('n', 'gI', "<cmd>lua require'lsp.peek'.Peek('implementation')<CR>", opts)
+  map('n', 'gI', "<cmd>Glance implementations<CR>", opts)
   map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  map('n', 'gr', ':Telescope lsp_references<CR>', opts)
+  map('n', 'gT', '<cmd>Glance type_definitions<CR>', opts)
+  map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+  map('n', 'gR', '<cmd>Glance references<CR>', opts)
 
 
   map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
@@ -166,6 +168,19 @@ lspconfig['omnisharp'].setup {
 -- Make the LSP client use FZF instead of the quickfix list
 -- require'lspfuzzy'.setup{}
 init_lspkind()
-setup_keymaps()
+local glance = require('glance')
+glance.setup({
+  -- your configuration
+  border = {
+    enable = true
+  },
+  mappings = {
+    list = {
+      ['l'] = glance.actions.jump
+    }
+  }
+})
 require('trouble').setup()
+
+setup_keymaps()
 
