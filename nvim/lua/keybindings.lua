@@ -160,6 +160,7 @@ map('n', '<C-b><C-b>', ':JABSOpen<CR>', silentOptions)
 
 -- === kyazdani42/nvim-tree.lua === {{{
 map('n', '<Leader>e', ':NvimTreeToggle<CR>', silentOptions)
+map('n', '<Leader>y', ':NvimTreeFocus<CR>', silentOptions)
 -- }}}
 
 

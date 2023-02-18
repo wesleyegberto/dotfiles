@@ -76,12 +76,10 @@ local list = {
 require'nvim-tree'.setup {
    hijack_cursor = true,
    hijack_unnamed_buffer_when_opening = true,
-   ignore_ft_on_setup = { "dashboard" },
    -- lsp_diagnostics = true,
    update_focused_file = {
       enable = true
    },
-   ignore_ft_on_setup = {'.git', 'node_modules', '.cache'},
    view = {
       adaptive_size = false,
       width = 50,
