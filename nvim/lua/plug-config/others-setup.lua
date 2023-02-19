@@ -1,6 +1,3 @@
-local ui = vim.api.nvim_list_uis()[1]
-local map = vim.api.nvim_set_keymap
-
 require('bqf').setup()
 
 require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
@@ -11,25 +8,21 @@ require('nvim-autopairs').setup()
 require('nvim-surround').setup()
 
 require('jabs').setup {
-  position = 'center', -- center, corner
-  width = 150,
+  position = 'center',
+  width = 80,
   height = 10,
-  border = 'rounded', -- none, single, double, rounded, solid, shadow, (or an array or chars)
-
-  -- Options for preview window
-  preview_position = 'left', -- top, bottom, left, right
+  border = 'rounded',
+  preview_position = 'right',
   preview = {
-    width = 40,
+    width = 50,
     height = 30,
-    border = 'double', -- none, single, double, rounded, solid, shadow, (or an array or chars)
+    border = 'single',
   },
-
-  -- the options below are ignored when position = 'center'
-  col = ui.width,  -- Window appears on the right
-  row = ui.height/2, -- Window appears in the vertical middle
+  keymap = {
+    close = 'd',
+    preview = 'p'
+  }
 }
 
--- === nvim-pack/nvim-spectre ===
 require('spectre').setup()
--- === end ===
 
