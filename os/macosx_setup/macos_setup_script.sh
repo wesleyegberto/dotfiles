@@ -30,8 +30,11 @@ brew install fd fzf the_silver_searcher ripgrep gnu-sed
 echo "\\n\\n === Automation tools ==="
 brew cask install alfred
 brew install rectangle
-brew install amethyst
-brew install hammerspoon --cask
+# window management
+brew install amethyst # ui
+brew install koekeishiya/formulae/yabai # service with commands
+# global key bindinds
+brew install koekeishiya/formulae/skhd
 
 echo "\\n\\n === iTerm2 & Oh-My-Zsh & Tmux ==="
 brew cask install iterm2
@@ -39,11 +42,11 @@ brew cask install iterm2
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 
-brew install tmux # Tmux
+brew install tmux
 
 echo "\\n\\n === Neovim ==="
 brew install --HEAD luajit
-brew install neovim # NeoVim
+brew install neovim
 
 echo "\\n\\n === Dev Utils ==="
 brew install git
@@ -78,8 +81,8 @@ brew install shellcheck
 brew install node
 brew install jenv
 npm install -g n
-npm i -g vscode-langservers-extracted
-npm install -g @angular/language-server
+# npm i -g vscode-langservers-extracted
+# npm install -g @angular/language-server
 
 echo "\\nInstalling Java tools"
 DEV_TOOLS="~/dev-tools/ide/jdt-language-server"
@@ -101,7 +104,7 @@ cd $CUR_DIR
 
 echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript
-npm install -g gtop vtop csvtojson # diff-so-fancy removed to use `delta`
+npm install -g vtop csvtojson # diff-so-fancy removed to use `delta`
 npm install --global fkill-cli
 
 echo "\\n\\n=== Installing editors: Sublime-Text, VS Code ==="
@@ -109,8 +112,9 @@ brew cask install sublime-text3
 brew cask install visual-studio-code
 
 echo "\\n\\n=== Installing browsers, spotify ==="
-brew cask install firefox
+# brew cask install firefox
 brew cask install google-chrome
+brew install --cask brave-browser
 brew cask install spotify
 
 echo "\\n\\n=== Installing Neovim providers ==="
@@ -121,7 +125,6 @@ npm install -g neovim
 echo "\\n\\n=== Installing Paq-Nvim ==="
 git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
 
-
 echo "\\n\\n=== Setting up Powerline==="
 cd ~ || exit
 git clone https://github.com/powerline/fonts.git
@@ -129,17 +132,21 @@ cd fonts || exit
 ./install.sh
 cd ..
 
-
-brew cask install amethyst
-
-echo "\\n\\nQMK Tools"
+echo "\\n\\n=== QMK Tools ==="
 brew install qmk/qmk/qmk
 qmk setup
 
 echo "\\n\\n=== Installing Java ==="
+sdk install java 11
 sdk install java 17
 sdk default java 17
 
-
 echo "\\n\\n=== Cleaning up ==="
 brew cask cleanup
+
+echo "\\n\\n=== Starting Yabai and SKH ==="
+brew services start yabai
+brew services restart yabai
+
+brew services start skhd
+

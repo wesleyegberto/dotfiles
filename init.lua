@@ -7,7 +7,6 @@
 -- #     \__/  \__/     |_______|_______/    |_______||_______|   |__|     #
 -- # VIM Setup in Lua                                                      #
 -- #########################################################################
--- cp ~/init.lua ~/.config/nvim/init.lua
 
 -- #########################################################
 -- # Plugin installations
@@ -33,9 +32,7 @@ require('config/colorscheme')
 -- # Plugins configuration
 -- #########################################################
 
--- others setup
 require('plug-config/others-setup')
-
 require('plug-config/nvim-tree')
 require('plug-config/floaterm')
 require('plug-config/telescope')

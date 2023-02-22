@@ -39,16 +39,20 @@ ln -s $DOTFILES/nvim/keybindings.vim ~/.config/nvim/keybindings.vim
 ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
 ln -s $DOTFILES/vscode.vimrc ~/vscode.vimrc
 
+echo "Copying yabai and skhd"
+mkdir -p ~/.config/yabai
+ln -s $DOTFILES/.config/yabai/yabairc ~/.config/yabai/yabairc
+mkdir -p ~/.config/skhd
+ln -s $DOTFILES/.config/skhd/skhdrc ~/.config/skhd/skhdrc
+
 if [ $(uname -s) = "Darwin" ]; then
   sh ./macosx_setup/macos_setup_script.sh
 fi
 
 if test "$( command -v nvim )"; then
   echo "Cloning Neovim plugin manager"
-  # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim # Neovim 0.4
   git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim # Neovim 0.5+
 
   echo "Installing Vim plugins"
-  # vim +PluginInstall +qall # Neovim 0.4
   vim +PaqInstall +PaqUpdate +PaqClean +qall # Neovim 0.5+
 fi

@@ -11,6 +11,8 @@ echo "===================="
 echo " macOS Defautls     "
 echo "===================="
 
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
 echo "Upping bluetooth audio quality (try 40 or 80)"
 # Ref: https://www.reddit.com/r/apple/comments/5rfdj6/pro_tip_significantly_improve_bluetooth_audio/
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
