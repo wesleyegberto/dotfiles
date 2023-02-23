@@ -113,10 +113,10 @@ if has('osx')
   vnoremap <silent> ˚ :m '<-2<CR>gv=gv
 
   " Use alt + hjkl to resize windows
-  nnoremap <silent> Ô :resize -5<CR>
-  nnoremap <silent>  :resize +5<CR>
-  nnoremap <silent> Ó :vertical resize -5<CR>
-  nnoremap <silent> Ò :vertical resize +5<CR>
+  " nnoremap <silent> Ô :resize -5<CR>
+  " nnoremap <silent>  :resize +5<CR>
+  " nnoremap <silent> Ó :vertical resize -5<CR>
+  " nnoremap <silent> Ò :vertical resize +5<CR>
 
 else
   " <M-j> and <M-k> to move line up and down
@@ -128,8 +128,8 @@ else
   vnoremap <silent> <M-k> :m '<-2<CR>gv=gv
 
   " Use alt + hjkl to resize windows (Ô is <M-J>;  is <M-K>; Ó is <M-H>; Ò is <M-L>)
-  nnoremap <silent> <M-J> :resize -5<CR>
-  nnoremap <silent> <M-K> :resize +5<CR>
-  nnoremap <silent> <M-H> :vertical resize -5<CR>
-  nnoremap <silent> <M-L> :vertical resize +5<CR>
+  " nnoremap <silent> <M-J> :resize -5<CR>
+  " nnoremap <silent> <M-K> :resize +5<CR>
+  " nnoremap <silent> <M-H> :vertical resize -5<CR>
+  " nnoremap <silent> <M-L> :vertical resize +5<CR>
 endif

@@ -49,6 +49,10 @@ set ttyfast                                                  " faster redrawing
 set nocompatible                                             " no compatibility with vi
 set encoding=utf-8
 
+" Split the window and put to right/below
+set splitright
+set splitbelow
+
 set hidden                                                   " to allow switch between buffers without save
 
 set nobackup                                                 " some servers have issues with backup files, see #649

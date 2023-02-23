@@ -1,5 +1,75 @@
 # My Key Mappings
 
+## Yabai
+
+Displays:
+
+```
+cmd + ctrl + alt + n               " focus next display
+cmd + ctrl + alt + p               " focus prev display
+
+alt + s                            " focus left display
+alt + g                            " focus right display
+
+shift + alt + s                    " move window to left display
+shift + alt + g                    " move window to right display
+```
+
+Layout:
+
+```
+cmd + ctrl + alt + s               " set BSP layout
+cmd + ctrl + alt + f               " set float layout
+
+shift + alt + t                    " toggle float for current window
+
+shift + alt + y                    " swap Y axis
+shift + alt + x                    " swap X axis
+
+shift + alt + r                    " swap windows with rotation clock-wise
+```
+
+Workspaces:
+
+```
+cmd + ctrl + alt + right           " move window to next workspace
+cmd + ctrl + alt + left            " move window to previous workspace
+
+shift + alt + n                    " move window to next workspace
+shift + alt + p                    " move window to previous workspace
+
+shift + alt + #                    " move window to workspace at index #
+```
+
+Windows:
+
+```
+cmd + k                            " focus next window clock-wise
+cmd + j                            " focus prev window clock-wise
+
+cmd + shift + k                    " swap prev window clock-wise
+cmd + shift + j                    " swap next window clock-wise
+
+shift + alt + m                    " maximize window
+
+shift + alt + e                    " equalize windows size
+
+alt + j                            " focus below window
+alt + k                            " focus upper window
+alt + h                            " focus left window
+alt + l                            " focus right window
+
+shift + alt + j                    " swap below window
+shift + alt + k                    " swap below window
+shift + alt + h                    " swap left window
+shift + alt + l                    " swap right window
+
+ctrl + alt + j                     " move and split window to below
+ctrl + alt + k                     " move and split window to upper
+ctrl + alt + h                     " move and split window to left
+ctrl + alt + l                     " move and split window to right
+```
+
 ## Kitty
 
 Leader key is `C-a`.

@@ -29,10 +29,13 @@ brew install fd fzf the_silver_searcher ripgrep gnu-sed
 
 echo "\\n\\n === Automation tools ==="
 brew cask install alfred
-brew install rectangle
+# brew install --cask raycast
+
 # window management
-brew install amethyst # ui
-brew install koekeishiya/formulae/yabai # service with commands
+brew install rectangle
+brew install koekeishiya/formulae/yabai # daemon for macOS 11+
+# brew install amethyst # ui
+
 # global key bindinds
 brew install koekeishiya/formulae/skhd
 

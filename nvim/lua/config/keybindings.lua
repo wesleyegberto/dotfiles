@@ -114,10 +114,10 @@ map('c', '<C-e>', '<End>', options)
   map('v', '˚', ':m \'<-2<CR>gv=gv', silentOptions)
 
   -- Use alt + hjkl to resize windows
-  map('n', 'Ô', ':resize -5<CR>', silentOptions)
-  map('n', '', ':resize +5<CR>', silentOptions)
-  map('n', 'Ó', ':vertical resize -5<CR>', silentOptions)
-  map('n', 'Ò', ':vertical resize +5<CR>', silentOptions)
+  -- map('n', 'Ô', ':resize -5<CR>', silentOptions)
+  -- map('n', '', ':resize +5<CR>', silentOptions)
+  -- map('n', 'Ó', ':vertical resize -5<CR>', silentOptions)
+  -- map('n', 'Ò', ':vertical resize +5<CR>', silentOptions)
 
 -- else
 --   -- <M-j> and <M-k> to move line up and down
@@ -149,7 +149,7 @@ map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
 
 
 -- === nvim-lua/telescope === {{{
-map('n', '<C-p>', ':Telescope git_files<CR>', silentOptions)
+map('n', '<C-p>', ':Telescope find_files<CR>', silentOptions)
 -- }}}
 
 

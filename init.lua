@@ -10,7 +10,7 @@
 
 -- #########################################################
 -- # Plugin installations
--- # `vim +PaqInstall +PaqUpdate +PaqClean`
+-- # `vim +PaqInstall +PaqUpdate +PaqClean +qall`
 -- #########################################################
 
 -- disable netrw
@@ -19,19 +19,12 @@ vim.g.loaded_netrwPlugin = 1
 
 require('plugins')
 
--- #########################################################
--- # General settings
--- #########################################################
-
-require('options')
-require('keybindings')
+-- General settings
+require('config/options')
+require('config/keybindings')
 require('config/colorscheme')
 
-
--- #########################################################
--- # Plugins configuration
--- #########################################################
-
+-- Plugins configuration
 require('plug-config/others-setup')
 require('plug-config/nvim-tree')
 require('plug-config/floaterm')

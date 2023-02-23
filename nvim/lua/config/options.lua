@@ -1,5 +1,5 @@
 local cmd = vim.cmd
-local u = require('utils')
+local u = require('custom/utils')
 
 -- #########################################################
 -- # General settings
@@ -14,6 +14,10 @@ vim.o.encoding = 'utf-8'
 
 vim.o.backup = false                                         -- some servers have issues with backup files, see #649
 vim.o.hidden = true                                          -- to allow switch between buffers without save
+
+-- Split the window and put to right/below
+vim.o.splitright=1
+vim.o.splitbelow=1
 
 vim.o.cmdheight=1                                            -- better display for messages
 

@@ -1,6 +1,3 @@
--- vim.wo.foldmethod = 'expr'
--- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-
 require('nvim-treesitter.configs').setup({
     -- nvim-treesitter/nvim-treesitter (self config)
     ensure_installed = { 'java', 'python', 'c_sharp', 'typescript', 'javascript', 'lua', 'html' },
