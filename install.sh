@@ -9,8 +9,8 @@ ln -s $(pwd) ~/.dotfiles/
 
 echo "Copying .gitconfig"
 [ -f ~/.gitconfig ] && cp ~/.gitconfig ~/.gitconfig_backup
-cp $DOTFILES/.gitconfig ~/.gitconfig
-ln -s $DOTFILES/.gitignore_global ~/.gitignore_global
+cp $DOTFILES/gitconfig/.gitconfig ~/.gitconfig
+ln -s $DOTFILES/gitconfig/.gitignore_global ~/.gitignore_global
 
 echo "Copying terminal conf"
 [ -f ~/.config/kitty/kitty.conf ] && cp ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf_backup
@@ -39,7 +39,7 @@ ln -s $DOTFILES/nvim/keybindings.vim ~/.config/nvim/keybindings.vim
 ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
 ln -s $DOTFILES/vscode.vimrc ~/vscode.vimrc
 
-echo "Copying yabai and skhd"
+echo "Copying Yabai and Skhd"
 mkdir -p ~/.config/yabai
 ln -s $DOTFILES/.config/yabai/yabairc ~/.config/yabai/yabairc
 mkdir -p ~/.config/skhd

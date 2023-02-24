@@ -5,52 +5,19 @@
 " #   \            /   |   __|     \   \    |  |     |   __|   \_    _/   #
 " #    \    /\    /    |  |____.----)   |   |  `----.|  |____    |  |     #
 " #     \__/  \__/     |_______|_______/    |_______||_______|   |__|     #
-" # VIM Setup                                                             #
+" # VIM Setup: used only in same cases (replaced by init.lua)             #
 " #########################################################################
-" cp ~/.vimrc ~/.config/nvim/init.vim
-
-" #########################################################
-" # Instructions
-" #########################################################
 
 filetype off
 
 source $HOME/.config/nvim/options.vim
 source $HOME/.config/nvim/mappings.vim
 
-
-" #########################################################
-" # Plugins configuration
-" #########################################################
-
-source $HOME/.config/nvim/plug-config/fzf.vim
-
-
-" === jeffkreeftmeijer/vim-numbertoggle === {{{
-" hybrid mode (normal mode: relative, insert mode: absolute)
-:augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-:augroup END
-" }}}
-
-
 " ===  builtin highlight yanked content === {{{
 :augroup textyankpost
   autocmd!
   autocmd au TextYankPost * lua vim.highlight.on_yank {on_visual = false}
 :augroup END
-" }}}
-
-
-" === ntpeters/vim-better-whitespace === {{{
-let g:strip_whitespace_on_save = 1
-" }}}
-
-" === tpope/vim-unimpaired === {{{
-nmap <M-Up> <Plug>unimpairedMoveUp
-nmap <M-Down> <Plug>unimpairedMoveDown
 " }}}
 
 source $HOME/.config/nvim/plug-config/omnisharp.vim

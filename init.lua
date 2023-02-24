@@ -8,10 +8,8 @@
 -- # VIM Setup in Lua                                                      #
 -- #########################################################################
 
--- #########################################################
--- # Plugin installations
--- # `vim +PaqInstall +PaqUpdate +PaqClean +qall`
--- #########################################################
+-- Plugin installations
+-- `vim +PaqInstall +PaqUpdate +PaqClean +qall`
 
 -- disable netrw
 vim.g.loaded_netrw = 1

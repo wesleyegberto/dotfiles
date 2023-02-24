@@ -76,7 +76,7 @@ local function setup_keymaps()
     widgets.centered_float(widgets.scopes)
   end)
   vim.keymap.set('n', '<Leader>df', function()
-    widgets = require('dap.ui.widgets')
+    local widgets = require('dap.ui.widgets')
     widgets.centered_float(widgets.frames)
   end)
 end
@@ -117,7 +117,7 @@ end
 
 local devtools_dir = home .. "/dev-tools/ide"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/Users/wesley/workspace/' .. project_name
+local workspace_dir = home .. '/workspace/' .. project_name
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -204,11 +204,10 @@ local config = {
 
     setup_keymaps()
   end,
+  on_init = function(client, _)
+    client.notify('workspace/didChangeConfiguration', { settings = config.settings })
+  end
 }
-
-on_init = function(client, _)
-  client.notify('workspace/didChangeConfiguration', { settings = config.settings })
-end
 
 local bundles = {
   -- config for debug tool

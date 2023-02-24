@@ -43,6 +43,7 @@
     lt = describe --tags --abbrev=0
 
     # diff aliases
+	d = "diff"
     dff = "!sh -c 'git diff --color | diff-so-fancy' -"
     dfh = "!sh -c 'git diff --color HEAD^ HEAD | diff-so-fancy' -"
     dg = "!sh -c 'git ls-files -m | grep $1 | xargs git diff | diff-so-fancy' -"
@@ -65,12 +66,16 @@
     # Show churn for a time range:
     #   $ git churn --since='1 month ago'
     churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
+
 [push]
     # push will only do the current branch, not all branches
     default = current
+	autoSetupRemove = true
+
 [branch]
     # set up 'git pull' to rebase instead of merge
     autosetuprebase = always
+
 [color]
     ui = auto
     branch = auto

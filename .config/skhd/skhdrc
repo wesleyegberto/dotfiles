@@ -47,8 +47,8 @@ shift + alt - p : yabai -m window --space prev
 # === Window ===
 
 # focus prev/next window
-cmd - k : yabai -m window --focus prev
-cmd - j : yabai -m window --focus next
+# cmd - k : yabai -m window --focus prev
+# cmd - j : yabai -m window --focus next
 
 # swap prev/next window
 cmd + shift - k : yabai -m window --swap prev

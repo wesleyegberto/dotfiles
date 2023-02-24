@@ -2,6 +2,14 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 local easypick = require("easypick")
 
+
+-- config to search in hidden files
+local telescopeConfig = require("telescope.config")
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+table.insert(vimgrep_arguments, "--hidden")
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.git/*")
+
 telescope.setup {
   defaults = {
     prompt_prefix = ">",
@@ -12,6 +20,7 @@ telescope.setup {
     },
     initial_mode = 'insert',
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    vimgrep_arguments = vimgrep_arguments,
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
@@ -26,13 +35,25 @@ telescope.setup {
       }
     }
   },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+        }
+      }
+    },
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+  },
   extensions = {
    project = {
       base_dirs = {
         {path = '~/projects/github', max_depth = 3},
         {'~/projects/globalpoints/git', max_depth = 4}
-      }
-      --hidden_files = true -- default: false
+      },
+      hidden_files = false
     },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {}
