@@ -5,14 +5,11 @@
 Displays:
 
 ```
-cmd + ctrl + alt + n               " focus next display
-cmd + ctrl + alt + p               " focus prev display
+cmd + alt + left                   " focus left display
+cmd + alt + right                  " focus right display
 
-alt + s                            " focus left display
-alt + g                            " focus right display
-
-shift + alt + s                    " move window to left display
-shift + alt + g                    " move window to right display
+cmd + ctrl + alt + left            " move window to left display
+cmd + ctrl + alt + right           " move window to right display
 ```
 
 Layout:
@@ -32,42 +29,39 @@ shift + alt + r                    " swap windows with rotation clock-wise
 Workspaces:
 
 ```
-cmd + ctrl + alt + right           " move window to next workspace
-cmd + ctrl + alt + left            " move window to previous workspace
+cmd + ctrl + alt + n               " move window to next workspace
+cmd + ctrl + alt + p               " move window to previous workspace
 
-shift + alt + n                    " move window to next workspace
-shift + alt + p                    " move window to previous workspace
-
-shift + alt + #                    " move window to workspace at index #
+cmd + ctrl + alt + #               " move window to workspace at index #
 ```
 
 Windows:
 
 ```
-cmd + k                            " focus next window clock-wise
-cmd + j                            " focus prev window clock-wise
+cmd + alt + p                      " focus next window
+cmd + alt + n                      " focus prev window
 
-cmd + shift + k                    " swap prev window clock-wise
-cmd + shift + j                    " swap next window clock-wise
+cmd + alt + shift + p              " swap prev window
+cmd + alt + shift + n              " swap next window
 
-shift + alt + m                    " maximize window
+cmd + alt + m                      " maximize window
 
-shift + alt + e                    " equalize windows size
+cmd + alt + e                      " equalize windows size
 
-alt + j                            " focus below window
-alt + k                            " focus upper window
-alt + h                            " focus left window
-alt + l                            " focus right window
+cmd + alt + j                      " focus below window
+cmd + alt + k                      " focus upper window
+cmd + alt + h                      " focus left window
+cmd + alt + l                      " focus right window
 
-shift + alt + j                    " swap below window
-shift + alt + k                    " swap below window
-shift + alt + h                    " swap left window
-shift + alt + l                    " swap right window
+cmd + shift + alt + j              " swap below window
+cmd + shift + alt + k              " swap below window
+cmd + shift + alt + h              " swap left window
+cmd + shift + alt + l              " swap right window
 
-ctrl + alt + j                     " move and split window to below
-ctrl + alt + k                     " move and split window to upper
-ctrl + alt + h                     " move and split window to left
-ctrl + alt + l                     " move and split window to right
+cmd + ctrl + alt + j               " move and split window to below
+cmd + ctrl + alt + k               " move and split window to upper
+cmd + ctrl + alt + h               " move and split window to left
+cmd + ctrl + alt + l               " move and split window to right
 ```
 
 ## Kitty
