@@ -1,5 +1,4 @@
 -- === glepnir/galaxyline.nvim ===
-
 local gl = require('galaxyline')
 local gls = gl.section
 
@@ -57,9 +56,9 @@ gls.left[2] = {
         return "  " .. current_Mode .. " "
       end
     end,
-    separator = '',
-    separator_highlight = {colors.darkblue, colors.lightbg},
-    highlight = {colors.blue, colors.lightbg}
+    separator = ' ',
+    separator_highlight = {colors.lightbg, colors.darkblue},
+    highlight = {colors.blue, colors.lightbg},
   }
 }
 
@@ -75,9 +74,9 @@ gls.left[4] = {
   FileName = {
     provider = 'FileName',
     condition = buffer_not_empty,
-    separator = '',
-    separator_highlight = {colors.lightbg, colors.darkblue},
-    highlight = {colors.grey, colors.darkblue}
+    separator = '',
+    separator_highlight = {colors.darkblue, colors.lightbg},
+    highlight = {colors.gray, colors.darkblue}
   }
 }
 
@@ -133,10 +132,10 @@ gls.left[9] = {
 }
 gls.left[10] = {
   LeftEnd = {
-    provider = function() return '' end,
-    separator = '',
-    separator_highlight = {colors.bg, colors.lightbg},
-    highlight = {colors.lightbg, colors.lightbg}
+    provider = function() return ' ' end,
+    separator = '',
+    separator_highlight = {colors.red, colors.bg},
+    highlight = {colors.bg, colors.red}
   }
 }
 

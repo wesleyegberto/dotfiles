@@ -4,6 +4,11 @@ require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
 
 require('Comment').setup()
 
+require('indent-o-matic').setup({
+  max_lines = 1000,
+  standard_widths = { 2, 4 },
+})
+
 require('nvim-autopairs').setup()
 require('nvim-surround').setup()
 

@@ -54,22 +54,28 @@ db.setup({
         key = 'r'
       },
       {
-        icon = '  ',
-        desc = 'Load Last Session',
-        action = 'SessionLoad',
-        key = 'l'
-      },
-      {
         icon = '  ',
         desc = 'Find Word',
         action = 'Telescope live_grep',
         key = 'w'
       },
       {
+        icon = '  ',
+        desc = 'Find Session',
+        action = 'SearchSession',
+        key = 's'
+      },
+      {
         icon = '  ',
         desc = 'Dotfiles',
         action = ':e $DOTFILES',
         key = 'd'
+      },
+      {
+        icon = '  ',
+        desc = 'Update Plugins',
+        action = ':PaqSync',
+        key = 'p'
       }
     }
   }

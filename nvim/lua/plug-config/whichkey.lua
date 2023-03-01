@@ -48,7 +48,7 @@ wk.setup {
 
 wk.register({
   w = {
-    name = 'windows',
+    name = 'Windows',
     ['w']  = { '<C-w>w'         , 'other-window' },
     ['q']  = { '<C-w>q'         , 'quit window' },
     ['d']  = { ':Bdelete<CR>'   , 'close buffer' },
@@ -104,7 +104,7 @@ wk.register({
 
 wk.register({
   g = {
-    name = 'git',
+    name = 'Git',
     ['f'] = { ':Git fetch<CR>'             , 'fetch' },
     ['k'] = { ':Git checkout'              , 'commit' },
     ['p'] = { ':Git pull<CR>'              , 'pull' },
@@ -131,16 +131,17 @@ wk.register({
   S = {
     name = 'Dashboard',
     [';'] = { ':Dashboard<CR>'     , 'start screen' },
-    ['f'] = { ':SearchSession<CR>' , 'load sessions' },
-    ['s'] = { ':SessionSave<CR>'   , 'save sessions' },
-    ['l'] = { ':SessionLoad<CR>'   , 'load sessions' },
+    ['f'] = { ':SearchSession<CR>' , 'search session' },
+    ['a'] = { ':Autosession<CR>'   , 'auto session' },
+    ['s'] = { ':SaveSession<CR>'   , 'save session' },
+    ['l'] = { ':RestoreSession<CR>', 'load session (PWD)' },
   },
 }, { prefix = "<leader>" })
 
 
 wk.register({
   t = {
-    name = 'terminal',
+    name = 'Terminal',
     [';'] = { ':FloatermNew --wintype=popup<CR>', 'terminal' },
     ['t'] = { ':FloatermToggle<CR>'             , 'toggle' },
     ['f'] = { ':FloatermNew fzf<CR>'            , 'fzf' },
@@ -182,6 +183,7 @@ wk.register({
 
 wk.register({
   z = {
+    name = 'Second Brain',
     ['f'] = { ":lua require('telekasten').find_notes()<CR>", 'Find notes' },
     ['d'] = { ":lua require('telekasten').find_daily_notes()<CR>", 'Find daily notes' },
     ['w'] = { ":lua require('telekasten').find_weekly_notes()<CR>", 'Find weekly notes' },

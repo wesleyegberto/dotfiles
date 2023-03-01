@@ -10,14 +10,13 @@ require('paq') {
   -- display keymaps available
   {'folke/which-key.nvim'};
 
+  {'glepnir/dashboard-nvim'};
+  {'glepnir/galaxyline.nvim'};
+
   -- === file navigaton ===
   -- tree explorer
   {'kyazdani42/nvim-web-devicons'};
   {'kyazdani42/nvim-tree.lua'};
-
-  {'famiu/bufdelete.nvim'};
-  {'glepnir/dashboard-nvim'};
-  {'glepnir/galaxyline.nvim'};
 
   {'voldikss/vim-floaterm'};
   {'ThePrimeagen/harpoon'};
@@ -34,6 +33,8 @@ require('paq') {
   {'junegunn/fzf.vim'};
 
   -- === buffer navigation ===
+  {'famiu/bufdelete.nvim'};
+
   -- jump to any place in the buffer
   {'phaazon/hop.nvim'};
   -- plugin to facilitate navigation
@@ -41,6 +42,7 @@ require('paq') {
 
   -- === editing ===
 
+  {'Darazaki/indent-o-matic'}; -- detect indentation
   {'nvim-pack/nvim-spectre'}; -- search/replace
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
   {'kylechui/nvim-surround'};
@@ -75,19 +77,13 @@ require('paq') {
   {'rcarriga/nvim-dap-ui'}; -- UI for debug
   {'theHamsta/nvim-dap-virtual-text'};
   -- {'OmniSharp/omnisharp-vim'}; -- csharp (run `:OmniSharpInstall`)
-  {'Hoffs/omnisharp-extended-lsp.nvim'};
-  {'jose-elias-alvarez/typescript.nvim'};
+  {'Hoffs/omnisharp-extended-lsp.nvim'}; -- lib decompiler for C#
+  {'jose-elias-alvarez/typescript.nvim'}; -- lib decompiler for TS
 
   -- better syntax highlighter and more
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error
   {'ThePrimeagen/refactoring.nvim'};
   -- {'ojroques/nvim-lspfuzzy'}; -- enable use FZF popup in LSP finders
-
-  -- === tmux ===
-  -- tmux integration and navigate between open pages with C-h C-j C-k C-k
-  {'benmills/vimux'};
-  {'christoomey/vim-tmux-navigator'};
-  {'camgraff/telescope-tmux.nvim'};
 
   -- === snippet engine ===
   {'hrsh7th/nvim-cmp'};
@@ -97,6 +93,11 @@ require('paq') {
   {'L3MON4D3/LuaSnip'};
   {'saadparwaiz1/cmp_luasnip'};
   {'rafamadriz/friendly-snippets'};
+
+  -- === tmux ===
+  {'benmills/vimux'}; -- tmux integration
+  {'christoomey/vim-tmux-navigator'}; -- navigate between open tabs with C-h C-j C-k C-k
+  {'camgraff/telescope-tmux.nvim'}; -- search tmux sessions, windows and tabs
 
   -- === colorscheme ===
   {'ellisonleao/gruvbox.nvim'};
