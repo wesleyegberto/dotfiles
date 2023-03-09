@@ -86,7 +86,7 @@ defaults write -g WebKitDeveloperExtras -bool true
 echo "Enabling \"Do Not Track\" on Safari"
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
-echo "Set Safari’s home page to `about:blank` for faster loading"
+echo "Set Safari’s home page to about:blank for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
 
 echo "\\n\\n=== Monitor options ==="

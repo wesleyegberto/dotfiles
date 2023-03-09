@@ -20,21 +20,20 @@ cmd + ctrl + alt - n : yabai -m window --space next
 
 
 # === Layout ===
-
 cmd + ctrl + alt - s : yabai -m space --layout bsp
 cmd + ctrl + alt - f : yabai -m space --layout float
 
 # toggle window float
-shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+cmd + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # flip along y-axis
-shift + alt - y : yabai -m space --mirror y-axis
+cmd + alt - y : yabai -m space --mirror y-axis
 
 # flip along x-axis
-shift + alt - x : yabai -m space --mirror x-axis
+cmd + alt - x : yabai -m space --mirror x-axis
 
 # rotate layout clockwise
-shift + alt - r : yabai -m space --rotate 270
+cmd + alt - r : yabai -m space --rotate 270
 
 
 # === Window ===
