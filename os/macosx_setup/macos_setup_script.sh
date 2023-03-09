@@ -16,7 +16,7 @@ echo "\\n\\n=== Installing and tools ==="
 
 if test ! "$( command -v brew )"; then
     echo "Installing homebrew"
-    ruby -e "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install )"
+    ruby -e "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # install brew dependencies from Brewfile
