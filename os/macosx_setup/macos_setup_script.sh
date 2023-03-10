@@ -3,16 +3,14 @@ set -e errexit
 
 clear
 
+ARCH=$(uname -i)
 CUR_DIR=$(pwd)
 
 echo "===================="
 echo " macOS Setup Script "
 echo "===================="
 
-
-sh ./macos_defaults.sh
-
-echo "\\n\\n=== Installing and tools ==="
+echo "\\n=== Installing and tools ==="
 
 # Install Apple Command Line Tools
 # xcode-select --install
@@ -20,9 +18,11 @@ echo "\\n\\n=== Installing and tools ==="
 if test ! "$( command -v brew )"; then
     echo "Installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-brew install --cask htop
+brew install htop
 brew install wget tree
 brew install fd fzf the_silver_searcher ripgrep gnu-sed
 
@@ -42,13 +42,18 @@ brew install rectangle
 # global key bindinds
 brew install koekeishiya/formulae/skhd
 
-echo "\\n\\n === Kitty & Oh-My-Zsh & Tmux ==="
+echo "\\n\\n === Kitty & Tmux & Oh-My-Zsh ==="
 /bin/bash -c "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+
+brew install tmux
 
 if [[ -z $ZSH ]]; then
     echo "Installing Oh-My-Zsh"
     /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+
+    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+    ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 fi
 
 echo "\\n\\n=== Setting up Powerline==="
@@ -56,9 +61,9 @@ cd $HOME
 git clone https://github.com/powerline/fonts.git
 cd fonts || exit
 ./install.sh
+cd ..
+rm -rf ./fonts
 cd $CUR_DIR
-
-brew install tmux
 
 echo "\\n\\n === Git ==="
 brew install git
@@ -72,7 +77,9 @@ brew install jenv
 if test ! "$( command -v sdk )"; then
     curl -s "https://get.sdkman.io" | bash
 fi
-brew install node
+if test ! "$( command -v node )"; then
+    brew install node
+fi
 npm install -g n
 
 echo "\\n\\n === Dev Utils ==="
@@ -91,11 +98,16 @@ brew install procs # modern `ps`
 brew install bench
 brew install graphviz
 
-brew install --cask docker-toolbox
-wget https://desktop.docker.com/mac/main/arm64/Docker.dmg
-hdiutil attach Docker.dmg
-/Volumes/Docker/Docker.app/Contents/MacOS/install
-hdiutil detach /Volumes/Docker
+if [[ "$ARCH" == 'x86_64' ]]; then
+    brew install --cask docker-toolbox
+fi
+
+if [[ "$ARCH" == 'amd64' ]]; then
+    wget https://desktop.docker.com/mac/main/arm64/Docker.dmg
+    hdiutil attach Docker.dmg
+    /Volumes/Docker/Docker.app/Contents/MacOS/install
+    hdiutil detach /Volumes/Docker
+fi
 
 brew install lazygit
 brew install lazydocker
@@ -120,7 +132,7 @@ pip3 install --user --upgrade neovim
 npm install -g neovim
 
 echo "\\n\\n=== Installing Paq-Nvim ==="
-if [[ -d $HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim ]]; then
+if [[ ! -d "$HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim" ]]; then
     git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
 fi
 
@@ -129,9 +141,11 @@ brew install qmk/qmk/qmk
 qmk setup
 
 echo "\\n\\n=== Installing Java ==="
-sdk install java 11
-sdk install java 17
-sdk default java 17
+if [[ "$ARCH" == 'x86_64' ]]; then
+    sdk install java 11
+    sdk install java 17
+    sdk default java 17
+fi
 
 echo "\\nInstalling Java tools"
 DEV_TOOLS="$HOME/dev-tools/ide/jdt-language-server"
@@ -140,13 +154,13 @@ cd $DEV_TOOLS
 
 wget https://download.eclipse.org/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz
 
-if [[ -d "$DEV_TOOLS/java-debug" ]]; then
+if [[ ! -d "$DEV_TOOLS/java-debug" ]]; then
     git clone https://github.com/microsoft/java-debug.git $DEV_TOOLS/java-debug
     cd $DEV_TOOLS/java-debug
     ./mvnw clean install
 fi
 
-if [[ -d "$DEV_TOOLS/vscode-java-test" ]]; then
+if [[ ! -d "$DEV_TOOLS/vscode-java-test" ]]; then
     git clone https://github.com/microsoft/vscode-java-test.git $DEV_TOOLS/vscode-java-test
     cd $DEV_TOOLS/vscode-java-test
     npm install
@@ -155,9 +169,8 @@ fi
 
 cd $CUR_DIR
 
-
 echo "\\n\\n=== Cleaning up ==="
-brew cleanup --cask
+brew cleanup cask
 
 echo "\\n\\n=== Starting Yabai and SKH ==="
 brew services start yabai

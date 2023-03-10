@@ -5,7 +5,7 @@ set -o errexit    # exit when command fails
 DOTFILES=$(pwd)
 
 echo "Copying .dotfiles"
-if [[ -f $HOME/.dotfiles ]]; then
+if [[ ! -f $HOME/.dotfiles ]]; then
   ln -s $(pwd) $HOME/.dotfiles/
 fi
 
@@ -50,13 +50,13 @@ ln -s $DOTFILES/.config/yabai/yabairc $HOME/.config/yabai/yabairc
 mkdir -p $HOME/.config/skhd
 ln -s $DOTFILES/.config/skhd/skhdrc $HOME/.config/skhd/skhdrc
 
-if [ $(uname -s) = "Darwin" ]; then
+if [[ $(uname -s) = "Darwin" ]]; then
   sh ./os/macosx_setup/macos_setup_script.sh
 fi
 
 if test "$( command -v nvim )"; then
   echo "Cloning Neovim plugin manager"
-  if [[ -d $HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim ]]; then
+  if [[ ! -d $HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim ]]; then
       git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
   fi
 
