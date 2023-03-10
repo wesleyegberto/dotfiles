@@ -156,6 +156,10 @@ if [[ "$ARCH" == 'x86_64' ]]; then
     sdk install java 17
     sdk default java 17
 fi
+if [[ "$ARCH" == 'amd64' ]]; then
+    jabba install microsoft@11
+    jabba install openjdk@17
+fi
 
 echo "\\nInstalling Java tools"
 DEV_TOOLS="$HOME/dev-tools/ide/jdt-language-server"
