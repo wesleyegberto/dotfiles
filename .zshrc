@@ -87,24 +87,13 @@ plugins=(macos git vi-mode jsontools)
 source $ZSH/oh-my-zsh.sh
 #source "$DOTFILES/zsh/prompts/jobs_prompt.zsh"
 
+typeset -A ZI
+ZI[BIN_DIR]="${HOME}/.zi/bin"
+source "${ZI[BIN_DIR]}/zi.zsh"
 
-### Added by Zplugin's installer
-if [[ ! -d $HOME/.zplugin/bin ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing Zplugin…%f"
-    command mkdir -p $HOME/.zplugin
-    command git clone https://github.com/zdharma/zplugin $HOME/.zplugin/bin && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%F" || \
-        print -P "%F{160}▓▒░ The clone has failed.%F"
-fi
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin installer's chunk
-
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light zsh-users/zsh-autosuggestions
+zi light zsh-users/zsh-autosuggestions
+zi light z-shell/F-Sy-H
 zplugin light zsh-users/zsh-completions
-
 
 ########################################################
 # Custom Functions
