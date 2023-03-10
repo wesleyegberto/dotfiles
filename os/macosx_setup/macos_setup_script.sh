@@ -57,10 +57,10 @@ if [[ ! -d "$HOME/.zi/" ]]; then
     sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 fi
 
-if [[ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ]]; then
+if [[ ! -d "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" ]]; then
     echo "Installing Spaceship prompt"
-    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-    ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
+    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 fi
 
 echo "\\n\\n=== Setting up Powerline==="
