@@ -3,7 +3,7 @@ set -e errexit
 
 clear
 
-ARCH=$(uname -i)
+ARCH=$(uname -m)
 CUR_DIR=$(pwd)
 
 echo "===================="
