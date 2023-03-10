@@ -143,9 +143,11 @@ if [[ ! -d "$HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim" ]]; then
     git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
 fi
 
-echo "\\n\\n=== QMK Tools ==="
-brew install qmk/qmk/qmk
-qmk setup
+if [[ "$ARCH" == 'x86_64' ]]; then
+    echo "\\n\\n=== QMK Tools ==="
+    brew install qmk/qmk/qmk
+    qmk setup
+fi
 
 echo "\\n\\n=== Installing Java ==="
 if [[ "$ARCH" == 'x86_64' ]]; then
