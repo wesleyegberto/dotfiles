@@ -81,6 +81,7 @@ echo "\\n\\n=== Installing langs tools ==="
 brew install asdf
 brew install shellcheck
 brew install jenv
+brew install jabba
 if test ! "$( command -v sdk )"; then
     curl -s "https://get.sdkman.io" | bash
 fi

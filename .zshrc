@@ -59,7 +59,7 @@ SPACESHIP_PROMPT_ORDER=(
   java
   nodejs
   line_sep      # Line break
-  vi_mode       # Vi-mode indicator
+  # vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
