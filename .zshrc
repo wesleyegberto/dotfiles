@@ -75,25 +75,30 @@ SPACESHIP_NODE_PREFIX="⬢ "
 SPACESHIP_NODE_SUFFIX=" "
 SPACESHIP_NODE_SYMBOL=""
 
-# source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
-
 
 ########################################################
 # Plugin Manager
 ########################################################
 
-plugins=(macos git vi-mode jsontools)
-
 source $ZSH/oh-my-zsh.sh
-#source "$DOTFILES/zsh/prompts/jobs_prompt.zsh"
+
 
 typeset -A ZI
 ZI[BIN_DIR]="${HOME}/.zi/bin"
 source "${ZI[BIN_DIR]}/zi.zsh"
+# Update Zi
+# zi self-update
 
 zi light zsh-users/zsh-autosuggestions
 zi light z-shell/F-Sy-H
 zplugin light zsh-users/zsh-completions
+
+# zi snippet OMZP::macos
+zi snippet OMZP::git
+zi snippet OMZP::vi-mode
+zi snippet OMZP::jsontools
+
+#source "$DOTFILES/zsh/prompts/jobs_prompt.zsh"
 
 ########################################################
 # Custom Functions

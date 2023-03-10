@@ -49,9 +49,16 @@ brew install tmux
 
 if [[ -z $ZSH ]]; then
     echo "Installing Oh-My-Zsh"
-    /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+    /bin/bash -c sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
+if [[ ! -d "$HOME/.zi/" ]]; then
+    echo "Installing Zi plugin"
+    sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
+fi
+
+if [[ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ]]; then
+    echo "Installing Spaceship prompt"
     git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 fi
