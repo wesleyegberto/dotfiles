@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -e errexit
+
 # Ref: Mac Tips, Tricks & Shortcuts in easy steps, 2nd Edition
 
 # Ask for the administrator password upfront

@@ -5,54 +5,61 @@ set -o errexit    # exit when command fails
 DOTFILES=$(pwd)
 
 echo "Copying .dotfiles"
-ln -s $(pwd) ~/.dotfiles/
+if [[ -f $HOME/.dotfiles ]]; then
+  ln -s $(pwd) $HOME/.dotfiles/
+fi
 
 echo "Copying .gitconfig"
-[ -f ~/.gitconfig ] && cp ~/.gitconfig ~/.gitconfig_backup
-cp $DOTFILES/gitconfig/.gitconfig ~/.gitconfig
-ln -s $DOTFILES/gitconfig/.gitignore_global ~/.gitignore_global
+[ -f $HOME/.gitconfig ] && mv $HOME/.gitconfig $HOME/.gitconfig_backup
+[ -f $HOME/.gitignore_global ] && mv $HOME/.gitignore_global $HOME/.gitignore_global
+cp $DOTFILES/gitconfig/.gitconfig $HOME/.gitconfig
+ln -s $DOTFILES/gitconfig/.gitignore_global $HOME/.gitignore_global
 
-echo "Copying terminal conf"
-[ -f ~/.config/kitty/kitty.conf ] && cp ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf_backup
-[ -f ~/.config/kitty/current-theme.conf ] && cp ~/.config/kitty/current-theme.conf ~/.config/kitty/current-theme.conf_backup
-ln -s $DOTFILES/kitty/kitty.conf ~/.config/kitty/kitty.conf
-ln -s $DOTFILES/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
+echo "Copying Kitty conf"
+mkdir -p $HOME/.config/kitty
+[ -f $HOME/.config/kitty/kitty.conf ] && mv $HOME/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf_backup
+[ -f $HOME/.config/kitty/current-theme.conf ] && mv $HOME/.config/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf_backup
+ln -s $DOTFILES/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+ln -s $DOTFILES/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf
 
 echo "Copying .zshrc"
-[ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc_backup
-ln -s $DOTFILES/.zshrc ~/.zshrc
+[ -f $HOME/.zshrc ] && mv $HOME/.zshrc $HOME/.zshrc_backup
+ln -s $DOTFILES/.zshrc $HOME/.zshrc
 
 echo "Copying .tmux.conf"
-[ -f ~/.tmux.conf ] && cp ~/.tmux.conf ~/.tmux.conf_backup
-ln -s $DOTFILES/tmux/.tmux.conf ~/.tmux.conf
+[ -f $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.tmux.conf_backup
+ln -s $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 
 echo "Copying .vimrc"
-[ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc_backup
-[ -f ~/.config/nvim/init.vim ] && mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim_backup
+[ -f $HOME/.vimrc ] && mv $HOME/.vimrc $HOME/.vimrc_backup
+[ -f $HOME/.config/nvim/init.vim ] && mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim_backup
 
-ln -s $DOTFILES/nvim/ftplugin ~/.config/nvim/ftplugin
-ln -s $DOTFILES/nvim/plug-config ~/.config/nvim/plug-config
-ln -s $DOTFILES/nvim/lua ~/.config/nvim/lua
-ln -s $DOTFILES/nvim/snippets ~/.config/nvim/snippets
-ln -s $DOTFILES/nvim/options.vim ~/.config/nvim/options.vim
-ln -s $DOTFILES/nvim/keybindings.vim ~/.config/nvim/keybindings.vim
-ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
-ln -s $DOTFILES/vscode.vimrc ~/vscode.vimrc
+mkdir -p $HOME/.config/nvim
+ln -s $DOTFILES/nvim/ftplugin $HOME/.config/nvim/ftplugin
+ln -s $DOTFILES/nvim/plug-config $HOME/.config/nvim/plug-config
+ln -s $DOTFILES/nvim/lua $HOME/.config/nvim/lua
+ln -s $DOTFILES/nvim/snippets $HOME/.config/nvim/snippets
+ln -s $DOTFILES/nvim/options.vim $HOME/.config/nvim/options.vim
+ln -s $DOTFILES/nvim/keybindings.vim $HOME/.config/nvim/keybindings.vim
+ln -s $DOTFILES/init.lua $HOME/.config/nvim/init.lua
+ln -s $DOTFILES/vscode.vimrc $HOME/vscode.vimrc
 
 echo "Copying Yabai and Skhd"
-mkdir -p ~/.config/yabai
-ln -s $DOTFILES/.config/yabai/yabairc ~/.config/yabai/yabairc
-mkdir -p ~/.config/skhd
-ln -s $DOTFILES/.config/skhd/skhdrc ~/.config/skhd/skhdrc
+mkdir -p $HOME/.config/yabai
+ln -s $DOTFILES/.config/yabai/yabairc $HOME/.config/yabai/yabairc
+mkdir -p $HOME/.config/skhd
+ln -s $DOTFILES/.config/skhd/skhdrc $HOME/.config/skhd/skhdrc
 
 if [ $(uname -s) = "Darwin" ]; then
-  sh ./macosx_setup/macos_setup_script.sh
+  sh ./os/macosx_setup/macos_setup_script.sh
 fi
 
 if test "$( command -v nvim )"; then
   echo "Cloning Neovim plugin manager"
-  git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim # Neovim 0.5+
+  if [[ -d $HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim ]]; then
+      git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
+  fi
 
   echo "Installing Vim plugins"
-  vim +PaqInstall +PaqUpdate +PaqClean +qall # Neovim 0.5+
+  nvim +PaqInstall +PaqUpdate +PaqClean +qall
 fi
