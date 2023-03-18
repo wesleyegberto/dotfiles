@@ -15,6 +15,12 @@ echo "\\n=== Installing and tools ==="
 # Install Apple Command Line Tools
 # xcode-select --install
 
+# install Rosetta 2 in Apple Silicon
+if [[ "$ARCH" == 'amd64' ]]; then
+    /usr/sbin/softwareupdate –install-rosetta –agree-to-license
+fi
+
+
 if test ! "$( command -v brew )"; then
     echo "Installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -25,12 +31,6 @@ fi
 brew install htop
 brew install wget tree
 brew install fd fzf the_silver_searcher ripgrep gnu-sed
-
-echo "\\n\\n=== Installing browsers, spotify ==="
-# brew install --cask firefox
-brew install --cask google-chrome
-brew install --cask brave-browser
-brew install --cask spotify
 
 echo "\\n\\n === Automation tools ==="
 brew install --cask alfred
@@ -134,6 +134,7 @@ brew install --HEAD luajit
 brew install neovim
 brew install sublime-text
 brew install --cask visual-studio-code
+brew install --cask visual-studio-code-insider
 
 echo "\\n\\n=== Installing Neovim providers ==="
 pip3 install --user --upgrade neovim
@@ -182,6 +183,18 @@ if [[ ! -d "$DEV_TOOLS/vscode-java-test" ]]; then
 fi
 
 cd $CUR_DIR
+
+echo "\\n\\n=== Installing apps ==="
+# brew install --cask firefox
+brew install --cask google-chrome
+brew install --cask brave-browser
+brew install --cask spotify
+
+brew install insomnia
+
+brew install --cask dbeaver-community
+
+brew install --cask soapui
 
 echo "\\n\\n=== Cleaning up ==="
 brew cleanup cask
