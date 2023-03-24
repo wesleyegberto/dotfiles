@@ -105,6 +105,7 @@ brew install sd # to use instead of `sed s/before/after/g` -> `sd 'before' 'afte
 brew install procs # modern `ps`
 brew install bench
 brew install graphviz
+brew install stern
 
 if [[ "$ARCH" == 'x86_64' ]]; then
     brew install --cask docker-toolbox
