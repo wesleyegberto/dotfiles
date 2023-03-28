@@ -46,8 +46,8 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '.git' --exc
 # https://github.com/denysdovhan/spaceship-prompt
 ZSH_THEME="spaceship"
 
-# source "$DOTFILES/zsh/prompts/spaceship_watson.sh"
 source "$DOTFILES/zsh/prompts/spaceship_langs.sh"
+source "$DOTFILES/zsh/prompts/spaceship_jobs.sh"
 
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
@@ -59,7 +59,6 @@ SPACESHIP_PROMPT_ORDER=(
   java
   nodejs
   line_sep      # Line break
-  # vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
@@ -71,34 +70,27 @@ SPACESHIP_HOST_SUFFIX=") "
 SPACESHIP_CHAR_SYMBOL=">"
 SPACESHIP_CHAR_SUFFIX=" λ "
 
-SPACESHIP_NODE_PREFIX="⬢ "
-SPACESHIP_NODE_SUFFIX=" "
-SPACESHIP_NODE_SYMBOL=""
-
 
 ########################################################
 # Plugin Manager
 ########################################################
 
+plugins=(
+  macos
+  git
+  vi-mode
+  jsontools
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-completions
+  zsh-history-substring-search
+)
+
 source $ZSH/oh-my-zsh.sh
 
+# command for zsh-completions
+autoload -U compinit && compinit
 
-typeset -A ZI
-ZI[BIN_DIR]="${HOME}/.zi/bin"
-source "${ZI[BIN_DIR]}/zi.zsh"
-# Update Zi
-# zi self-update
-
-zi light zsh-users/zsh-autosuggestions
-zi light z-shell/F-Sy-H
-zplugin light zsh-users/zsh-completions
-
-# zi snippet OMZP::macos
-zi snippet OMZP::git
-zi snippet OMZP::vi-mode
-zi snippet OMZP::jsontools
-
-#source "$DOTFILES/zsh/prompts/jobs_prompt.zsh"
 
 ########################################################
 # Custom Functions
@@ -112,11 +104,11 @@ zi snippet OMZP::jsontools
 source "$DOTFILES/zsh/functions/utils.sh"
 source "$DOTFILES/zsh/functions/finders.sh"
 source "$DOTFILES/zsh/functions/tmux_helpers.sh"
-source "$DOTFILES/zsh/functions/projects.sh"
-source "$DOTFILES/zsh/functions/springboot_helpers.sh"
 source "$DOTFILES/zsh/functions/traffic_generator.sh"
 source "$DOTFILES/zsh/functions/aws_helpers.sh"
 source "$DOTFILES/zsh/functions/containerization.sh"
+source "$DOTFILES/zsh/functions/git_helpers.sh"
+source "$DOTFILES/zsh/functions/projects.sh"
 
 export PATH=$PATH:$DOTFILES/zsh/bin
 

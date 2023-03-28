@@ -34,7 +34,7 @@ brew install fd fzf the_silver_searcher ripgrep gnu-sed
 
 echo "\\n\\n === Automation tools ==="
 brew install --cask alfred
-# brew install --cask raycast
+brew install --cask raycast
 
 # window management
 brew install koekeishiya/formulae/yabai # daemon for macOS 11+
@@ -47,9 +47,17 @@ echo "\\n\\n === Kitty & Tmux & Oh-My-Zsh ==="
 
 brew install tmux
 
+brew install zsh
+
 if [[ -z $ZSH ]]; then
     echo "Installing Oh-My-Zsh"
     /bin/bash -c sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 fi
 
 if [[ ! -d "$HOME/.zi/" ]]; then
@@ -159,6 +167,8 @@ if [[ "$ARCH" == 'x86_64' ]]; then
     sdk default java 17
 fi
 if [[ "$ARCH" == 'amd64' ]]; then
+    # JDK 8: https://www.azul.com/downloads/?version=java-8-lts&os=macos&architecture=arm-64-bit&package=jdk#zulu
+    # OpenJ9: https://developer.ibm.com/languages/java/semeru-runtimes/downloads/
     jabba install microsoft@11
     jabba install openjdk@17
 fi

@@ -162,7 +162,7 @@ local config = {
         runtimes = {
           {
             name = 'JavaSE-11',
-            path = '/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home'
+            path = '/Users/wesley/.jabba/jdk/microsoft@11.0/Contents/Home'
           },
           {
             name = 'JavaSE-12',

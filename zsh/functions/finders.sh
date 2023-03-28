@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-
-# Find througout my notes
+# Find throughout my notes
 # Usage: `brainsearch <TERM>`
 brainsearch() {
     if [ ! "$#" -gt 0 ]; then
