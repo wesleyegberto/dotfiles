@@ -83,6 +83,7 @@ cd $CUR_DIR
 echo "\\n\\n === Git ==="
 brew install git
 brew install git-delta # git diff
+brew install gh
 git config --global --add --bool push.autoSetupRemove true
 
 echo "\\n\\n=== Installing langs tools ==="

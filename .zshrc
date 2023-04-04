@@ -20,6 +20,7 @@ export TERM="xterm-256color"
 export DOTFILES=$(readlink ~/.dotfiles)
 
 export HISTTIMEFORMAT='%F | %T '
+export DOCKER_DEFAULT_PLATFORM="linux/amd64"
 
 # Setting fd as the default source for fzf
 # Bindins:
