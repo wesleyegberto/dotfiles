@@ -2,7 +2,7 @@ local map = vim.api.nvim_set_keymap
 local cmp = require'cmp'
 
 local luasnip = require'luasnip'
-local luasnip_loader = require("luasnip.loaders.from_vscode")
+local luasnip_loader = require'luasnip.loaders.from_vscode'
 
 cmp.setup({
   snippet = {
@@ -48,7 +48,17 @@ cmp.setup({
     { name = 'buffer', option = { keyword_length = 5 } },
     { name = 'luasnip' },
     { name = 'path' },
-  })
+  }),
+  formatting = {
+    format = require'lspkind'.cmp_format({
+      mode = 'symbol',
+      maxwidth = 50,
+      ellipsis_char = '...',
+      before = function (entry, vim_item)
+        return vim_item
+      end
+    })
+  }
 })
 
 luasnip.filetype_extend("java", { "java-testing" })
@@ -71,11 +81,11 @@ luasnip_loader.lazy_load({
   paths = {
     '~/.config/nvim/snippets/java',
     -- '~/.config/nvim/snippets/java-tests',
-    '.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.4',
-    '.vscode/extensions/johnpapa.angular2-13.0.0',
-    '.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',
-    '.vscode/extensions/mikael.angular-beastcode-10.0.3',
-    '.vscode/extensions/lunuan.kubernetes-templates-1.3.1',
+    '~/.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.4',
+    '~/.vscode/extensions/johnpapa.angular2-13.0.0',
+    '~/.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',
+    '~/.vscode/extensions/mikael.angular-beastcode-10.0.3',
+    '~/.vscode/extensions/lunuan.kubernetes-templates-1.3.1',
   }
 })
 

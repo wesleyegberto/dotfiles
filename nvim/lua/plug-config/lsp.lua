@@ -40,8 +40,8 @@ local function setup_keymaps()
 
   map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
-  map('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  map('n', '[g', ':LspUI diagnostic prev<CR>', opts)
+  map('n', ']g', ':LspUI diagnostic next<CR>', opts)
 
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   map('n', 'gD', "<cmd>Glance definitions<CR>", opts)
@@ -58,10 +58,10 @@ local function setup_keymaps()
   map('n', '<Leader>cfi', ':Telescope lsp_incoming_calls<CR>', opts)
   map('n', '<Leader>cfo', ':Telescope lsp_outgoing_calls<CR>', opts)
 
-  map('n', '<leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  map('n', '<leader>crn', ':LspUI rename<CR>', opts)
+  map('n', '<F2>', ':LspUI rename<CR>', opts)
 
-  map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  map('n', 'gh', ':LspUI hover<CR>', opts)
   map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   map('i', '<C-\\>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
@@ -82,7 +82,7 @@ local function setup_keymaps()
   map('n', 'glt', ':TestVisit<CR>zz', opts) -- go to last test run
 end
 
-local function init_lspkind()
+local function init_lsp_tools()
   require('lspkind').init({
       mode = 'symbol_text',
       preset = 'default',
@@ -114,6 +114,24 @@ local function init_lspkind()
         TypeParameter = ""
       },
   })
+
+  require("LspUI").setup()
+
+  -- window preview enhancements
+  local glance = require('glance')
+  glance.setup({
+    -- your configuration
+    border = {
+      enable = true
+    },
+    mappings = {
+      list = {
+        ['l'] = glance.actions.jump
+      }
+    }
+  })
+  require('trouble').setup()
+
 end
 
 
@@ -167,20 +185,7 @@ lspconfig['omnisharp'].setup {
 
 -- Make the LSP client use FZF instead of the quickfix list
 -- require'lspfuzzy'.setup{}
-init_lspkind()
-local glance = require('glance')
-glance.setup({
-  -- your configuration
-  border = {
-    enable = true
-  },
-  mappings = {
-    list = {
-      ['l'] = glance.actions.jump
-    }
-  }
-})
-require('trouble').setup()
+init_lsp_tools()
 
 setup_keymaps()
 

@@ -63,6 +63,7 @@ require('paq') {
 
   -- === LSP ===
   {'neovim/nvim-lspconfig'}; -- plugin to facilitate the configuration for LSP
+  {'jinzhongjia/LspUI.nvim'};
   {'williamboman/mason.nvim'};
   {'williamboman/mason-lspconfig.nvim'};
   {'onsails/lspkind-nvim'};
@@ -76,14 +77,13 @@ require('paq') {
   {'mfussenegger/nvim-dap'}; -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
   {'rcarriga/nvim-dap-ui'}; -- UI for debug
   {'theHamsta/nvim-dap-virtual-text'};
-  -- {'OmniSharp/omnisharp-vim'}; -- csharp (run `:OmniSharpInstall`)
+  {'OmniSharp/omnisharp-vim'}; -- csharp (run `:OmniSharpInstall`)
   {'Hoffs/omnisharp-extended-lsp.nvim'}; -- lib decompiler for C#
   {'jose-elias-alvarez/typescript.nvim'}; -- lib decompiler for TS
 
   -- better syntax highlighter and more
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error
   {'ThePrimeagen/refactoring.nvim'};
-  -- {'ojroques/nvim-lspfuzzy'}; -- enable use FZF popup in LSP finders
 
   -- === snippet engine ===
   {'hrsh7th/nvim-cmp'};
@@ -93,6 +93,7 @@ require('paq') {
   {'L3MON4D3/LuaSnip'};
   {'saadparwaiz1/cmp_luasnip'};
   {'rafamadriz/friendly-snippets'};
+  -- {'smjonas/snippet-converter.nvim'}; -- snippet converter
 
   -- === tmux ===
   {'benmills/vimux'}; -- tmux integration

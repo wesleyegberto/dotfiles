@@ -12,6 +12,8 @@ cmd + alt - right: yabai -m display --focus east
 cmd + ctrl + alt - left : yabai -m window --display west; yabai -m display --focus west;
 cmd + ctrl + alt - right : yabai -m window --display east; yabai -m display --focus east;
 
+# Focus between monitors
+hyper - tab : yabai -m display --focus next || yabai -m display --focus prev
 
 # === Workspaces ===
 # move window to prev and next space
