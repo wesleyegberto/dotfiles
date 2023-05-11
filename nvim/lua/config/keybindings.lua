@@ -195,3 +195,13 @@ map('v', '<leader>ks', 'lua require("spectre").open_visual()<CR>', silentOptions
 map('n', '<leader>kb', 'lua require("spectre").open_file_search()<CR>', silentOptions)
 -- }}}
 
+
+-- === nvim-pack/nvim-spectre ===
+vim.keymap.set('n', 'zh', function()
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
+end)
+-- }}}
+

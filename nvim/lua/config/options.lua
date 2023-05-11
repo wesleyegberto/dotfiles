@@ -51,12 +51,12 @@ vim.o.ignorecase = true                                      -- searches are ins
 vim.o.smartcase = true                                       -- unless they contain at least one capital letter
 
 -- Code folding settings (use `zc`, `zo`, `zz`)
-vim.wo.foldenable = false                                    -- don't fold by default
-vim.wo.foldmethod = 'marker'
-vim.wo.foldmarker = '{,}'
-vim.wo.foldlevel = 1
+-- vim.wo.foldmethod = 'marker'
+-- vim.wo.foldmarker = '{,}'
+vim.o.foldlevel = 1
 vim.o.foldlevelstart = 99
-vim.wo.foldnestmax = 10                                      -- deepest fold is 10 levels
+vim.o.foldnestmax = 10                                      -- deepest fold is 10 levels
+vim.o.foldenable = true                                     -- don't fold by default
 
 -- Toggle invisible characters
 vim.wo.list = true

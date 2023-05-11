@@ -99,3 +99,26 @@ require('nvim-treesitter.configs').setup({
         -- highlight_current_scope = { enable = false },
     },
 })
+
+require('ufo').setup({
+    open_fold_hl_timeout = 250,
+    close_fold_kinds = {'imports', 'comment'},
+    provider_selector = function(bufnr, filetype, buftype)
+        return {'treesitter', 'indent'}
+    end,
+    preview = {
+        win_config = {
+            -- border = {'', '─', '', '', '', '─', '', ''},
+            winhighlight = 'Normal:Folded',
+            winblend = 0
+        },
+        mappings = {
+            scrollU = '<C-u>',
+            scrollD = '<C-d>',
+            jumpTop = '[',
+            jumpBot = ']'
+        }
+    }
+})
+
+

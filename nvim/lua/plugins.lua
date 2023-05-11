@@ -52,6 +52,9 @@ require('paq') {
   {'mg979/vim-visual-multi'}; -- sublime-like multiple cursor editor
   {'ntpeters/vim-better-whitespace'}; -- highlight trailing whitespaces
   {'numToStr/Comment.nvim'};
+
+  -- code folding
+  {'kevinhwang91/promise-async'};
   {'kevinhwang91/nvim-ufo'};
 
   -- === git ===
