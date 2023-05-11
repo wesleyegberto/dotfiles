@@ -34,13 +34,13 @@ yabai -m config active_window_border_color 0x50ff8a65
 
 # === Spaces ===
 yabai -m space 1 --label 1_misc
-yabai -m space 2 --label 2_code
-yabai -m space 3 --label 3_work
+yabai -m space 2 --label 2_work
+yabai -m space 3 --label 3_code
 
 # Move spaces to correct displays
 yabai -m space 1_misc --display 1
-yabai -m space 2_code --display 2
-yabai -m space 3_work --display 2
+yabai -m space 2_work --display 1
+yabai -m space 3_code --display 2
 
 # === rules ===
 yabai -m rule --add app="^kitty$" manage=on space=2_code
@@ -52,8 +52,9 @@ yabai -m rule --add app="Obsidian" space=3_work
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Raycast Settings$" manage=off
+yabai -m rule --add app="^TextEdit$" manage=off
 
 
-yabai -m space --focus 1_misc
-yabai -m space --focus 2_code
+# yabai -m space --focus 1_misc
+# yabai -m space --focus 3_code
 

@@ -41,7 +41,6 @@ require('paq') {
   {'tpope/vim-unimpaired'};
 
   -- === editing ===
-
   {'Darazaki/indent-o-matic'}; -- detect indentation
   {'nvim-pack/nvim-spectre'}; -- search/replace
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
@@ -53,6 +52,7 @@ require('paq') {
   {'mg979/vim-visual-multi'}; -- sublime-like multiple cursor editor
   {'ntpeters/vim-better-whitespace'}; -- highlight trailing whitespaces
   {'numToStr/Comment.nvim'};
+  {'kevinhwang91/nvim-ufo'};
 
   -- === git ===
   {'tpope/vim-fugitive'};
@@ -75,6 +75,7 @@ require('paq') {
 
   {'mfussenegger/nvim-jdtls'}; -- java
   {'mfussenegger/nvim-dap'}; -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
+  {'jay-babu/mason-nvim-dap.nvim'};
   {'rcarriga/nvim-dap-ui'}; -- UI for debug
   {'theHamsta/nvim-dap-virtual-text'};
   {'OmniSharp/omnisharp-vim'}; -- csharp (run `:OmniSharpInstall`)
@@ -111,7 +112,6 @@ require('paq') {
 
   -- === session management ===
   {'rmagatti/auto-session'};
-  {'rmagatti/session-lens'};
 
   {'renerocksai/telekasten.nvim'};
   {'renerocksai/calendar-vim'};

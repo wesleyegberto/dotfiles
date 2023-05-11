@@ -209,15 +209,15 @@ local config = {
   end
 }
 
-local bundles = {
-  -- config for debug tool
-  vim.fn.glob(devtools_dir .. '/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', 1),
-}
-vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-test/server/*.jar', 1), '\n'))
-vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-decompiler/server/*.jar', 1), '\n'))
+-- local bundles = {
+--   -- config for debug tool
+--   vim.fn.glob(devtools_dir .. '/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', 1),
+-- }
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-test/server/*.jar', 1), '\n'))
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-decompiler/server/*.jar', 1), '\n'))
 
 config.init_options = {
-  bundles = bundles,
+  -- bundles = bundles,
   extendedClientCapabilities = extendedClientCapabilities
 }
 

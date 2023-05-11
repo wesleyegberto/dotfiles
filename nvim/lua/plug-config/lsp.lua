@@ -183,6 +183,10 @@ lspconfig['omnisharp'].setup {
   analyze_open_documents_only = true,
 }
 
+require("mason-nvim-dap").setup({
+  ensure_installed = { "javadbg", "javatest" }
+})
+
 -- Make the LSP client use FZF instead of the quickfix list
 -- require'lspfuzzy'.setup{}
 init_lsp_tools()
