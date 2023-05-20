@@ -52,10 +52,18 @@ require("tokyonight").setup({
 
 vim.cmd('colorscheme tokyonight')
 
---- popup colors
+--- colors
 vim.cmd [[
+" popup
 hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White
 hi PmenuSel   ctermbg=White guibg=White ctermfg=Black guifg=Black
 hi PmenuThumb ctermbg=Black guibg=Black ctermfg=White guifg=White
+
+" comments
+hi Comment ctermfg=Green guifg=Green
+
+" line number (highlight LineNr ctermfg=White ctermbg=None guibg=None guifg=White)
+highlight clear LineNr
+highlight clear CursorLineNr
 ]]
 
