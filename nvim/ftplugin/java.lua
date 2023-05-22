@@ -165,10 +165,6 @@ local config = {
             path = '/Users/wesley/.jabba/jdk/microsoft@11.0/Contents/Home'
           },
           {
-            name = 'JavaSE-12',
-            path = '/Users/wesley/.jabba/jdk/openjdk@1.12.0-2/Contents/Home'
-          },
-          {
             name = 'JavaSE-17',
             path = '/Users/wesley/.jabba/jdk/openjdk@17.0.2/Contents/Home'
           }
