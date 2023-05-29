@@ -61,3 +61,13 @@ hotfix_new() {
     git push
     gh pr create -B "$current_branch" -t "$fix_message"
 }
+
+gfixupstream() {
+    local current_branch
+    current_branch="$(git symbolic-ref --short HEAD)"
+    if [ -z "$current_branch" ]; then
+        echo "No branch found"
+        return
+    fi
+    git branch --set-upstream-to=origin/"$current_branch" "$current_branch"
+}
