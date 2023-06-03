@@ -63,7 +63,8 @@ local function setup_keymaps()
 
   map('n', 'gh', ':LspUI hover<CR>', opts)
   map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  map('i', '<C-\\>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  map('n', '<C-\\>', '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
+  map('i', '<C-\\>', '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
 
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
@@ -115,8 +116,6 @@ local function init_lsp_tools()
       },
   })
 
-  require("LspUI").setup()
-
   -- window preview enhancements
   local glance = require('glance')
   glance.setup({
@@ -130,6 +129,18 @@ local function init_lsp_tools()
       }
     }
   })
+
+  require("LspUI").setup()
+  require 'lsp_signature'.setup({
+    bind = true,
+    handler_opts = {
+      border = 'rounded'
+    },
+    max_height = 15,
+    max_width = 120,
+    timer_interval = 100
+  })
+
   require('trouble').setup()
 
 end
@@ -137,6 +148,7 @@ end
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  require("lsp_signature").on_attach()
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

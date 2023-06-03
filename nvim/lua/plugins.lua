@@ -70,6 +70,7 @@ require('paq') {
   {'williamboman/mason.nvim'};
   {'williamboman/mason-lspconfig.nvim'};
   {'onsails/lspkind-nvim'};
+  {'ray-x/lsp_signature.nvim'}; -- method signature
   {'DNLHC/glance.nvim'}; -- window preview
   {'folke/trouble.nvim'}; -- panel for diagnostics
   {'vim-test/vim-test'};
@@ -84,6 +85,7 @@ require('paq') {
   {'OmniSharp/omnisharp-vim'}; -- csharp (run `:OmniSharpInstall`)
   {'Hoffs/omnisharp-extended-lsp.nvim'}; -- lib decompiler for C#
   {'jose-elias-alvarez/typescript.nvim'}; -- lib decompiler for TS
+  {'windwp/nvim-ts-autotag'}; -- auto close tags
 
   -- better syntax highlighter and more
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error

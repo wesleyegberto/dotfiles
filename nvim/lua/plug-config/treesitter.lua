@@ -100,6 +100,7 @@ require('nvim-treesitter.configs').setup({
     },
 })
 
+-- code folding
 require('ufo').setup({
     open_fold_hl_timeout = 250,
     close_fold_kinds = {'imports', 'comment'},
@@ -121,4 +122,5 @@ require('ufo').setup({
     }
 })
 
+require('nvim-ts-autotag').setup()
 
