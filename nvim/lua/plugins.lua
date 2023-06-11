@@ -71,6 +71,7 @@ require('paq') {
   {'williamboman/mason-lspconfig.nvim'};
   {'onsails/lspkind-nvim'};
   {'ray-x/lsp_signature.nvim'}; -- method signature
+  {'VidocqH/lsp-lens.nvim'}; -- show references
   {'DNLHC/glance.nvim'}; -- window preview
   {'folke/trouble.nvim'}; -- panel for diagnostics
   {'vim-test/vim-test'};

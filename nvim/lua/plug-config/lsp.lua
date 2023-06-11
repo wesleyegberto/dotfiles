@@ -147,8 +147,11 @@ end
 
 
 local on_attach = function(_, bufnr)
+  require'lsp-lens'.setup({})
+
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  require("lsp_signature").on_attach()
+  require('lsp_signature').on_attach()
+  re
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
