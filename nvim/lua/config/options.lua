@@ -86,6 +86,10 @@ vim.o.updatetime = 1000                                      -- You will have ba
 vim.o.shortmess = vim.o.shortmess .. 'c'                     -- don't give |ins-completion-menu| messages
 vim.o.signcolumn = 'yes'                                     -- always show signcolumns
 
+vim.cmd [[
+set diffopt+=linematch:60
+]]
+
 -- #########################################################
 -- # Custom configuration
 -- #########################################################

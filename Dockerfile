@@ -17,7 +17,7 @@ WORKDIR /home/neo/
 # Setup
 RUN mkdir -p ./.config/nvim/lua/
 COPY init.lua ./.config/nvim/init.lua
-COPY nvim/.config/nvim/lua ./.config/nvim/lua
+COPY nvim/.config/nvim/ ./.config/nvim/
 
 RUN echo "alias ev='nvim ~/.config/nvim/init.lua'" >> ./.bash_aliases
 
