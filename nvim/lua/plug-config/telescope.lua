@@ -57,13 +57,33 @@ telescope.setup {
     },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {}
+    },
+    advanced_git_search = {
+        -- fugitive or diffview
+      diff_plugin = "fugitive",
+      -- customize git in previewer
+      -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
+      git_flags = {},
+      -- customize git diff in previewer
+      -- e.g. flags such as { "--raw" }
+      git_diff_flags = {},
+      -- Show builtin git pickers when executing "show_custom_functions" or :AdvancedGitSearch
+      show_builtin_git_pickers = false,
+      -- Telescope layout setup
+      telescope_theme = {
+        -- e.g. realistic example
+        show_custom_functions = {
+            layout_config = { width = 0.4, height = 0.4 },
+        },
+      }
     }
-  }
+  },
 }
 
 telescope.load_extension('ui-select')
 telescope.load_extension('project')
 telescope.load_extension('harpoon')
+telescope.load_extension("advanced_git_search")
 
 easypick.setup({
   pickers = {

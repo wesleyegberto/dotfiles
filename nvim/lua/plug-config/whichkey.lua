@@ -123,6 +123,7 @@ wk.register({
     ['dc'] = { ':DiffviewClose<CR>'        , 'close diff view' },
     ['v'] = { ':Gvdiffsplit<CR>'           , 'diff vsplit' },
     ['h'] = { ':Ghdiffsplit<CR>'           , 'diff split' },
+    ['/'] = { ':AdvancedGitSearch<CR>'     , 'advanced search' },
   },
 }, { prefix = "<leader>" })
 

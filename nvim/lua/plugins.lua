@@ -63,6 +63,7 @@ require('paq') {
   {'tveskag/nvim-blame-line'};
   {'sindrets/diffview.nvim'};
   {'akinsho/git-conflict.nvim'};
+  {'aaronhallaert/advanced-git-search.nvim'};
 
   -- === LSP ===
   {'neovim/nvim-lspconfig'}; -- plugin to facilitate the configuration for LSP

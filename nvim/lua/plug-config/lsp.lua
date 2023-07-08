@@ -154,7 +154,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'pyright', 'omnisharp', 'tsserver', 'angularls', 'html' }
+local servers = { 'pyright', 'omnisharp', 'tsserver', 'angularls', 'html', 'lua' }
 
 mason_lsconfig.setup {
   ensure_installed = servers

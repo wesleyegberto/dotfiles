@@ -30,7 +30,3 @@ require('jabs').setup {
 }
 
 require('spectre').setup()
-
-vim.cmd [[
-:EnableStripWhitespaceOnSave
-]]
