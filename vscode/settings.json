@@ -22,6 +22,7 @@
   "csharpfixformat.style.spaces.beforeParenthesis": false,
   "csharpfixformat.sort.usings.enabled": true,
   "csharp.format.enable": true,
+  "omnisharp.useModernNet": false,
   "csharpfixformat.sort.usings.order": "",
   "extensions.ignoreRecommendations": true,
   "workbench.iconTheme": "material-icon-theme",
@@ -678,7 +679,7 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -746,7 +747,7 @@
   "pasteImage.defaultName": "",
   "typescript.inlayHints.parameterNames.enabled": "none",
   "editor.guides.bracketPairs": false,
-  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.colorTheme": "Gruvbox Dark (Hard)",
   "java.codeGeneration.hashCodeEquals.useJava7Objects": true,
   "java.import.gradle.enabled": false,
   "java.import.gradle.wrapper.enabled": false,
@@ -807,8 +808,8 @@
   "gitlens.telemetry.enabled": false,
   "git.openRepositoryInParentFolders": "always",
   "diffEditor.ignoreTrimWhitespace": false,
-  "window.zoomLevel": -1,
   "boot-java.rewrite.reconcile": true,
   "errorLens.enabled": true,
-  "errorLens.excludeWorkspaces": []
+  "errorLens.excludeWorkspaces": [],
+  "window.zoomLevel": -1
 }

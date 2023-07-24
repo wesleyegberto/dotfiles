@@ -30,8 +30,18 @@
         "when": "!filesExplorerFocus"
     },
     {
+        "key": "cmd+k cmd+c",
+        "when": "explorerViewletVisible",
+        "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    {
         "key": "cmd+k cmd+f",
         "command": "workbench.view.search"
+    },
+    {
+        "key": "cmd+k cmd+c",
+        "when": "searchViewletVisible",
+        "command": "search.action.clearSearchResults"
     },
     {
         "key": "cmd+k cmd+g",
@@ -973,6 +983,10 @@
         "key": "cmd+h",
         "command": "-testing.toggleTestingPeekHistory",
         "when": "testing.isPeekVisible"
+    },
+    {
+        "key": "cmd+k cmd+\\",
+        "command": "-workbench.action.splitEditorUp"
     },
     // }}}
 ]
