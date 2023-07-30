@@ -60,7 +60,15 @@ vim.o.foldenable = true                                     -- don't fold by def
 
 -- Toggle invisible characters
 vim.wo.list = true
-vim.o.listchars = [[tab:→ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.]]
+vim.opt.listchars = {
+  space = '⋅',
+  trail = '⋅',
+  nbsp = '⋅',
+  extends = '❯',
+  precedes = '❮',
+  tab = '→ ',
+  -- eol = '⤶',
+}
 vim.o.showbreak = '↪'
 
 -- Scroll

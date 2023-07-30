@@ -104,7 +104,7 @@ set foldnestmax=10                                           " deepest fold is 1
 
 " Toggle invisible characters
 set list
-set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,extends:#,nbsp:.
+set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,nbsp:⋅
 set showbreak=↪
 
 " Scroll
