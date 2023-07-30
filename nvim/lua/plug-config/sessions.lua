@@ -1,6 +1,5 @@
 -- === rmagatti/auto-session ===
-
-local opts = {
+require('auto-session').setup({
   log_level = 'info',
   auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
   auto_session_enabled = true,
@@ -8,6 +7,4 @@ local opts = {
   auto_save_enabled = true,
   auto_restore_enabled = true,
   auto_session_suppress_dirs = { '~/', '~/Downloads', '~/Documents' }
-}
-
-require('auto-session').setup(opts)
+})

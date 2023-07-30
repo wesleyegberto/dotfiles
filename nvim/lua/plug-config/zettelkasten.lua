@@ -4,8 +4,6 @@ local map = vim.api.nvim_set_keymap
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-local options = { noremap = true }
-
 local home = vim.fn.expand("~/notes")
 
 require('telekasten').setup({

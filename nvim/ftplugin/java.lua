@@ -18,8 +18,7 @@ require('telescope').load_extension('langtools')
 require('telescope._extensions.langtools').setup({ language = 'java' })
 
 local function setup_keymaps()
-  opts = { noremap = true }
-  silentOpts = { noremap = true, silent=true }
+  local opts = { noremap = true }
 
   map('n', '<Leader>pm', ':Telescope langtools picker<CR>', opts)
   map('n', '<Leader>pc', ':Telescope langtools clean<CR>', opts)

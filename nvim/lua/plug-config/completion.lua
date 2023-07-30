@@ -1,4 +1,3 @@
-local map = vim.api.nvim_set_keymap
 local cmp = require'cmp'
 
 local luasnip = require'luasnip'

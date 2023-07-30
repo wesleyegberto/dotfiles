@@ -20,8 +20,7 @@ local mason_lsconfig = require'mason-lspconfig'
 mason_lsconfig.setup()
 
 local function setup_keymaps()
-  opts = { noremap = true }
-  silentOpts = { noremap = true, silent=true }
+  local opts = { noremap = true }
 
   vim.cmd [[
     augroup lsp_document_highlight
@@ -154,7 +153,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'pyright', 'omnisharp', 'tsserver', 'angularls', 'html', 'lua' }
+local servers = { 'pyright', 'omnisharp', 'tsserver', 'angularls', 'html', 'lua_ls' }
 
 mason_lsconfig.setup {
   ensure_installed = servers

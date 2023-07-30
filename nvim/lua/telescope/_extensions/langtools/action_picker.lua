@@ -1,5 +1,3 @@
-local map = vim.api.nvim_set_keymap
-
 local pickers = require('telescope.pickers')
 local sorters = require('telescope.sorters')
 local finders = require('telescope.finders')
