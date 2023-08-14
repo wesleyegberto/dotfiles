@@ -125,6 +125,8 @@ if [[ "$ARCH" == 'amd64' ]]; then
     hdiutil attach Docker.dmg
     /Volumes/Docker/Docker.app/Contents/MacOS/install
     hdiutil detach /Volumes/Docker
+    # disabled in Docker Desktop by default
+    sudo ln -s ~/.docker/run/docker.sock /var/run/docker.sock
 fi
 
 brew install lazygit

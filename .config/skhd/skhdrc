@@ -85,4 +85,6 @@ shift + alt - 5 : yabai -m window --space 5
 cmd + ctrl + alt - t : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 # Brave
 cmd + ctrl + alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
+# Arc
+cmd + ctrl + alt - a : /Applications/Arc.app/Contents/MacOS/Arc
 
