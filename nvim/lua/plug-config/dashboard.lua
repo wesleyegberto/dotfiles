@@ -74,7 +74,7 @@ db.setup({
       {
         icon = '  ',
         desc = 'Update Plugins',
-        action = ':PaqSync',
+        action = ':PackerUpdate',
         key = 'p'
       }
     }

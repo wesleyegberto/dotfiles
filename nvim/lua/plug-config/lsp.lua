@@ -1,7 +1,7 @@
 --- Neovm LSP
 local map = vim.api.nvim_set_keymap
 
-local lspconfig = require'lspconfig'
+local lspconfig = require('lspconfig')
 
 local home = os.getenv('HOME')
 
@@ -16,7 +16,7 @@ require('mason').setup({
   }
 })
 
-local mason_lsconfig = require'mason-lspconfig'
+local mason_lsconfig = require('mason-lspconfig')
 mason_lsconfig.setup()
 
 local function setup_keymaps()
@@ -129,7 +129,8 @@ local function init_lsp_tools()
     }
   })
 
-  require("LspUI").setup()
+  -- require("LspUI").setup({})
+
   require 'lsp_signature'.setup({
     bind = true,
     handler_opts = {
@@ -147,6 +148,8 @@ end
 
 local on_attach = function(_, bufnr)
   require'lsp-lens'.setup({})
+
+  require("LspUI").setup({})
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   require('lsp_signature').on_attach()
@@ -204,8 +207,6 @@ require("mason-nvim-dap").setup({
   ensure_installed = { "javadbg", "javatest" }
 })
 
--- Make the LSP client use FZF instead of the quickfix list
--- require'lspfuzzy'.setup{}
 init_lsp_tools()
 
 setup_keymaps()

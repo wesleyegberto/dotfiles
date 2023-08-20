@@ -152,9 +152,9 @@ echo "\\n\\n=== Installing Neovim providers ==="
 pip3 install --user --upgrade neovim
 npm install -g neovim
 
-echo "\\n\\n=== Installing Paq-Nvim ==="
-if [[ ! -d "$HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim" ]]; then
-    git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
+echo "\\n\\n=== Installing Packer ==="
+if [[ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]]; then
+    git clone https://github.com/wbthomason/packer.nvim "$HOME"/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
 if [[ "$ARCH" == 'x86_64' ]]; then

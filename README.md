@@ -77,13 +77,13 @@ For Neovim 0.4, see [this branch](https://github.com/wesleyegberto/dotfiles/tree
 
 **Neovim 0.5+ with Lua**
 
-Install Paq plugin manager:
+Install Packer plugin manager:
 
-`git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim`
+`git clone https://github.com/wbthomason/packer.nvim "$HOME"/.local/share/nvim/site/pack/packer/start/packer.nvim`
 
 Copy the content of file `init.lua` to `~/.config/nvim/init.lua`.
 
-Then install the plugins by running: `vim +PaqInstall +qall`.
+Then install the plugins by running: `vim +PackerUpdate +qall`.
 
 ##### Dependencies
 

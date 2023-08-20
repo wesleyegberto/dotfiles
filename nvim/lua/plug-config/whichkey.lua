@@ -42,7 +42,7 @@ wk.setup {
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
-  triggers = "auto",
+  -- triggers = "auto",
   triggers = "<leader>"
 }
 
@@ -101,6 +101,16 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
+-- use `dd` to toggle search result items
+wk.register({
+  k = {
+    name = 'Spectre',
+    ['f'] = { ':lua require("spectre").open()<CR>'                          , 'open finder' },
+    ['w'] = { ':lua require("spectre").open_visual({select_word=true})<CR>' , 'search selected word' },
+    ['s'] = { ':require("spectre").open_visual()<CR>'                       , 'search word' },
+    ['b'] = { ':lua require("spectre").open_file_search()<CR>'              , 'search in file' },
+  },
+}, { prefix = "<leader>" })
 
 wk.register({
   g = {
@@ -191,6 +201,7 @@ wk.register({
     ['T'] = { ":lua require('telekasten').goto_today()<CR>", 'Go to today' },
     ['W'] = { ":lua require('telekasten').goto_thisweek()<CR>", 'Go to week' },
     ['t'] = { ":lua require('telekasten').toggle_todo()<CR>", 'Toggle todo' },
+    ['m'] = { ":lua require('telekasten').browse_media()<CR>", 'Browser media' },
 
     ['g'] = { ":lua require('telekasten').search_notes()<CR>", 'Search notes' },
     ['n'] = { ":lua require('telekasten').new_note()<CR>", 'New note' },
@@ -205,7 +216,6 @@ wk.register({
     ['i'] = { ":lua require('telekasten').paste_img_and_link()<CR>", 'Paste img and link' },
     ['p'] = { ":lua require('telekasten').preview_img()<CR>", 'Preview img' },
 
-    ['m'] = { ":lua require('telekasten').browse_media()<CR>", 'Browser media' },
     ['a'] = { ":lua require('telekasten').show_tags()<CR>", 'Show tags' },
     ['#'] = {  ":lua require('telekasten').show_tags()<CR>", 'Show tags' },
 
@@ -213,7 +223,7 @@ wk.register({
     ['C'] = { ":CalendarT<CR>", 'Show fullscreen calendar' },
     ['r'] = { ":lua require('telekasten').rename_note()<CR>", 'Rename note' },
     -- on hesitation, bring up the panel
-    ['r'] = { ":lua require('telekasten').panel()<CR>", 'Show panel' },
+    ['P'] = { ":lua require('telekasten').panel()<CR>", 'Show panel' },
   }
 }, { prefix = "<leader>"})
 

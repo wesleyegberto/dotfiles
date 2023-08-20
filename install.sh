@@ -56,10 +56,10 @@ fi
 
 if test "$( command -v nvim )"; then
   echo "Cloning Neovim plugin manager"
-  if [[ ! -d $HOME/.local/share/nvim/site/pack/paqs/opt/paq-nvim ]]; then
-      git clone https://github.com/savq/paq-nvim.git "$HOME"/.local/share/nvim/site/pack/paqs/opt/paq-nvim
+  if [[ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]]; then
+    git clone https://github.com/wbthomason/packer.nvim "$HOME"/.local/share/nvim/site/pack/packer/start/packer.nvim
   fi
 
   echo "Installing Vim plugins"
-  nvim +PaqInstall +PaqUpdate +PaqClean +qall
+  nvim +PackerUpdate +qall
 fi

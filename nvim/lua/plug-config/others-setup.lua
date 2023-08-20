@@ -11,6 +11,7 @@ require('indent-o-matic').setup({
 
 require('nvim-autopairs').setup()
 require('nvim-surround').setup()
+require('match-up').setup({})
 
 require('jabs').setup {
   position = 'center',

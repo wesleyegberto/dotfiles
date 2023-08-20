@@ -84,7 +84,13 @@ require('nvim-treesitter.configs').setup({
     },
     -- windwp/nvim-ts-autotag
     autotag = {
-        enable = false,
+        enable = true,
+    },
+    -- andymass/matchup.vim
+    matchup = {
+        enable = true,
+        disable = {},
+        disable_virtual_text = false
     },
     -- nvim-treesitter/playground
     playground = {

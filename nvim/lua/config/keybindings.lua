@@ -164,7 +164,7 @@ map('n', '<Leader>y', ':NvimTreeFocus<CR>', silentOptions)
 -- }}}
 
 
--- -- === phaazon/hop.nvim === {{{
+-- === phaazon/hop.nvim === {{{
 map('n', '<Leader><Leader>?', ':HopWord<CR>', silentOptions)
 map('n', '<Leader><Leader>f', ':HopChar1AC<CR>', silentOptions)
 map('n', '<Leader><Leader>F', ':HopChar1BC<CR>', silentOptions)
@@ -182,20 +182,10 @@ map('n', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
 -- map('v', '<Leader><Leader>C', ':HopChar2BC<CR>', silentOptions)
 -- map('v', '<Leader><Leader>j', ':HopLineStartAC<CR>', silentOptions)
 -- map('v', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
--- -- }}}
-
-
--- === nvim-pack/nvim-spectre ===
-map('n', '<leader>kf', 'lua require("spectre").open()<CR>', silentOptions)
--- search current word
-map('n', '<leader>kw', 'lua require("spectre").open_visual({select_word=true})<CR>', silentOptions)
-map('v', '<leader>ks', 'lua require("spectre").open_visual()<CR>', silentOptions)
--- search in current file
-map('n', '<leader>kb', 'lua require("spectre").open_file_search()<CR>', silentOptions)
 -- }}}
 
 
--- === nvim-pack/nvim-spectre ===
+-- === kevinhwang91/nvim-ufo ===
 vim.keymap.set('n', 'zh', function()
   local winid = require('ufo').peekFoldedLinesUnderCursor()
   if not winid then

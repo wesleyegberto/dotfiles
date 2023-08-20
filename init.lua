@@ -9,7 +9,7 @@
 -- #########################################################################
 
 -- Plugin installations
--- `vim +PaqInstall +PaqUpdate +PaqClean +qall`
+-- `vim +PackerUpdate +qall`
 
 -- disable netrw
 vim.g.loaded_netrw = 1

@@ -1,125 +1,125 @@
-vim.cmd 'packadd paq-nvim'
+vim.cmd 'packadd packer.nvim'
 
-require('paq') {
-  {'savq/paq-nvim'};
+require('packer').startup(function(use)
+  use {'wbthomason/packer.nvim'}
 
   -- APIs for Lua (used by many plugins)
-  {'nvim-lua/plenary.nvim'};
-  {'nvim-lua/popup.nvim'};
+  use {'nvim-lua/plenary.nvim'}
+  use {'nvim-lua/popup.nvim'}
 
   -- display keymaps available
-  {'folke/which-key.nvim'};
+  use {'folke/which-key.nvim'}
 
-  {'glepnir/dashboard-nvim'};
-  {'glepnir/galaxyline.nvim'};
+  use {'glepnir/dashboard-nvim'}
+  use {'glepnir/galaxyline.nvim'}
 
   -- === file navigaton ===
   -- tree explorer
-  {'kyazdani42/nvim-web-devicons'};
-  {'kyazdani42/nvim-tree.lua'};
+  use {'kyazdani42/nvim-web-devicons'}
+  use {'kyazdani42/nvim-tree.lua'}
 
-  {'voldikss/vim-floaterm'};
-  {'ThePrimeagen/harpoon'};
-  -- {'chentoast/marks.nvim'}
-  {'matbme/JABS.nvim'};
+  use {'voldikss/vim-floaterm'}
+  use {'ThePrimeagen/harpoon'}
+  -- use {'chentoast/marks.nvim'}
+  use {'matbme/JABS.nvim'}
 
-  {'nvim-telescope/telescope.nvim'};
-  {'nvim-telescope/telescope-fzf-native.nvim'}; -- better performance to sort
-  {'nvim-telescope/telescope-ui-select.nvim'};
-  {'nvim-telescope/telescope-project.nvim'};
-  {'axkirillov/easypick.nvim'}; -- to create pickers from terminal commands
+  use {'nvim-telescope/telescope.nvim'}
+  use {'nvim-telescope/telescope-fzf-native.nvim'}; -- better performance to sor
+  use {'nvim-telescope/telescope-ui-select.nvim'}
+  use {'nvim-telescope/telescope-project.nvim'}
+  use {'axkirillov/easypick.nvim'}; -- to create pickers from terminal command
 
-  {'junegunn/fzf', run = vim.fn['fzf#install']};
-  {'junegunn/fzf.vim'};
+  use {'junegunn/fzf', run = vim.fn['fzf#install']}
+  use {'junegunn/fzf.vim'}
 
   -- === buffer navigation ===
-  {'famiu/bufdelete.nvim'};
+  use {'famiu/bufdelete.nvim'}
 
   -- jump to any place in the buffer
-  {'phaazon/hop.nvim'};
+  use {'phaazon/hop.nvim'}
   -- plugin to facilitate navigation
-  {'tpope/vim-unimpaired'};
+  use {'tpope/vim-unimpaired'}
+  -- plugin to facilitate navigation between surroundings ({}, (), if/endif, so on)
+  use {'andymass/vim-matchup'}
 
   -- === editing ===
-  {'Darazaki/indent-o-matic'}; -- detect indentation
-  {'nvim-pack/nvim-spectre'}; -- search/replace
+  use {'Darazaki/indent-o-matic'}; -- detect indentatio
+  use {'nvim-pack/nvim-spectre'}; -- search/replac
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
-  {'kylechui/nvim-surround'};
+  use {'kylechui/nvim-surround'}
   -- autoclose and actions to insert spaces or new line between {}, (), []
-  {'windwp/nvim-autopairs'};
+  use {'windwp/nvim-autopairs'}
   -- adds more text objects to be used as targets in motions
-  {'wellle/targets.vim'};
-  {'mg979/vim-visual-multi'}; -- sublime-like multiple cursor editor
-  {'ntpeters/vim-better-whitespace'}; -- highlight trailing whitespaces
-  {'numToStr/Comment.nvim'};
+  use {'wellle/targets.vim'}
+  use {'mg979/vim-visual-multi'} -- sublime-like multiple cursor editor
+  use {'ntpeters/vim-better-whitespace'} -- highlight trailing whitespace
+  use {'numToStr/Comment.nvim'}
 
   -- code folding
-  {'kevinhwang91/promise-async'};
-  {'kevinhwang91/nvim-ufo'};
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   -- === git ===
-  {'tpope/vim-fugitive'};
-  {'airblade/vim-gitgutter'};
-  {'tveskag/nvim-blame-line'};
-  {'sindrets/diffview.nvim'};
-  {'akinsho/git-conflict.nvim'};
-  {'aaronhallaert/advanced-git-search.nvim'};
+  use {'tpope/vim-fugitive'}
+  use {'airblade/vim-gitgutter'}
+  use {'tveskag/nvim-blame-line'}
+  use {'sindrets/diffview.nvim'}
+  use {'akinsho/git-conflict.nvim'}
+  use {'aaronhallaert/advanced-git-search.nvim'}
 
   -- === LSP ===
-  {'neovim/nvim-lspconfig'}; -- plugin to facilitate the configuration for LSP
-  {'jinzhongjia/LspUI.nvim'};
-  {'williamboman/mason.nvim'};
-  {'williamboman/mason-lspconfig.nvim'};
-  {'onsails/lspkind-nvim'};
-  {'ray-x/lsp_signature.nvim'}; -- method signature
-  {'VidocqH/lsp-lens.nvim'}; -- show references
-  {'DNLHC/glance.nvim'}; -- window preview
-  {'folke/trouble.nvim'}; -- panel for diagnostics
-  {'vim-test/vim-test'};
-  {'kevinhwang91/nvim-bqf'}; -- improves quick-fix list (float window, search), use `zf` to search
-  {'gennaro-tedesco/nvim-jqx'}; -- JSON/YML formatter and querier (JqxList and JqxQuery)
+  use {'neovim/nvim-lspconfig'} -- plugin to facilitate the configuration for LSP
+  use {'jinzhongjia/LspUI.nvim', branch = 'v2'}
+  use {'williamboman/mason.nvim'}
+  use {'williamboman/mason-lspconfig.nvim'}
+  use {'onsails/lspkind-nvim'}
+  use {'ray-x/lsp_signature.nvim'} -- method signature
+  use {'VidocqH/lsp-lens.nvim'} -- show references
+  use {'DNLHC/glance.nvim'} -- window preview
+  use {'folke/trouble.nvim'} -- panel for diagnostics
+  use {'vim-test/vim-test'}
+  use {'kevinhwang91/nvim-bqf'} -- improves quick-fix list (float window, search), use `zf` to search
 
-  {'mfussenegger/nvim-jdtls'}; -- java
-  {'mfussenegger/nvim-dap'}; -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
-  {'jay-babu/mason-nvim-dap.nvim'};
-  {'rcarriga/nvim-dap-ui'}; -- UI for debug
-  {'theHamsta/nvim-dap-virtual-text'};
-  {'OmniSharp/omnisharp-vim'}; -- csharp (run `:OmniSharpInstall`)
-  {'Hoffs/omnisharp-extended-lsp.nvim'}; -- lib decompiler for C#
-  {'jose-elias-alvarez/typescript.nvim'}; -- lib decompiler for TS
-  {'windwp/nvim-ts-autotag'}; -- auto close tags
+  use {'mfussenegger/nvim-jdtls'} -- java
+  use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
+  use {'jay-babu/mason-nvim-dap.nvim'}
+  use {'rcarriga/nvim-dap-ui'} -- UI for debug
+  use {'theHamsta/nvim-dap-virtual-text'}
+  use {'OmniSharp/omnisharp-vim'} -- csharp (run `:OmniSharpInstall`)
+  use {'Hoffs/omnisharp-extended-lsp.nvim'} -- lib decompiler for C#
+  use {'jose-elias-alvarez/typescript.nvim'} -- lib decompiler for TS
+  use {'windwp/nvim-ts-autotag'} -- auto close tags
 
   -- better syntax highlighter and more
-  {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end}; -- fix highlight error
-  {'ThePrimeagen/refactoring.nvim'};
+  use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end} -- fix highlight error
+  use {'ThePrimeagen/refactoring.nvim'}
 
   -- === snippet engine ===
-  {'hrsh7th/nvim-cmp'};
-  {'hrsh7th/cmp-nvim-lsp'};
-  {'hrsh7th/cmp-buffer'};
-  {'hrsh7th/cmp-path'};
-  {'L3MON4D3/LuaSnip'};
-  {'saadparwaiz1/cmp_luasnip'};
-  {'rafamadriz/friendly-snippets'};
-  -- {'smjonas/snippet-converter.nvim'}; -- snippet converter
+  use {'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'hrsh7th/cmp-buffer'}
+  use {'hrsh7th/cmp-path'}
+  use {'L3MON4D3/LuaSnip'}
+  use {'saadparwaiz1/cmp_luasnip'}
+  use {'rafamadriz/friendly-snippets'}
+  -- use {'smjonas/snippet-converter.nvim'} -- snippet converter
 
   -- === tmux ===
-  {'benmills/vimux'}; -- tmux integration
-  {'christoomey/vim-tmux-navigator'}; -- navigate between open tabs with C-h C-j C-k C-k
-  {'camgraff/telescope-tmux.nvim'}; -- search tmux sessions, windows and tabs
+  use {'benmills/vimux'} -- tmux integration
+  use {'christoomey/vim-tmux-navigator'} -- navigate between open tabs with C-h C-j C-k C-k
+  use {'camgraff/telescope-tmux.nvim'} -- search tmux sessions, windows and tabs
 
   -- === colorscheme ===
-  {'ellisonleao/gruvbox.nvim'};
-  {'luisiacc/gruvbox-baby'};
-  {'Mofiqul/dracula.nvim'};
-  {'navarasu/onedark.nvim'};
-  {'JoosepAlviste/palenightfall.nvim'};
-  {'folke/tokyonight.nvim'};
-  {'ryanoasis/vim-devicons'};
+  use {'ellisonleao/gruvbox.nvim'}
+  use {'luisiacc/gruvbox-baby'}
+  use {'Mofiqul/dracula.nvim'}
+  use {'navarasu/onedark.nvim'}
+  use {'JoosepAlviste/palenightfall.nvim'}
+  use {'folke/tokyonight.nvim'}
+  use {'ryanoasis/vim-devicons'}
 
   -- === session management ===
-  {'rmagatti/auto-session'};
+  use {'rmagatti/auto-session'}
 
-  {'renerocksai/telekasten.nvim'};
-  {'renerocksai/calendar-vim'};
-}
+  use {'renerocksai/telekasten.nvim'}
+  use {'renerocksai/calendar-vim'}
+end)
