@@ -1,5 +1,5 @@
 -- === kyazdani42/nvim-tree.lua ===
-require'nvim-web-devicons'.setup {
+require('nvim-web-devicons').setup {
   default = true;
 }
 
@@ -80,7 +80,7 @@ local function on_attach(bufnr)
 end
 
 
-require'nvim-tree'.setup {
+require('nvim-tree').setup {
    on_attach = on_attach,
    hijack_cursor = true,
    hijack_unnamed_buffer_when_opening = true,

@@ -1,5 +1,5 @@
-local pickers = require'telescope._extensions.langtools.action_picker'
-local custom_actions = require'telescope._extensions.langtools.custom_actions'
+local pickers = require('telescope._extensions.langtools.action_picker')
+local custom_actions = require('telescope._extensions.langtools.custom_actions')
 
 local dotnet_options = {
   { action = 'dotnet clean',              text = 'Clean' },

@@ -80,11 +80,11 @@ local function setup_keymaps()
   end)
 end
 
-local jdtls = require'jdtls'
+local jdtls = require('jdtls')
 
 local function setup_dap()
-  local dap = require'dap'
-  local dapui = require'dapui'
+  local dap = require('dap')
+  local dapui = require('dapui')
 
   dapui.setup()
   jdtls.setup_dap({ hotcodereplace = 'auto' })
@@ -189,8 +189,8 @@ local config = {
     jdtls.setup.add_commands()
     vim.cmd [[
       augroup lsp_jdtls
-        command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
-        command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)
+        command! -buffer -nargs=? -complete=custom,v:lua.require('jdtls')._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
+        command! -buffer -nargs=? -complete=custom,v:lua.require('jdtls')._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)
         command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
         command! -buffer JdtBytecode lua require('jdtls').javap()
         command! -buffer JdtJshell lua require('jdtls').jshell()

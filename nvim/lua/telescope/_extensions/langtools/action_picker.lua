@@ -4,7 +4,7 @@ local finders = require('telescope.finders')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 
-local custom_actions = require'telescope._extensions.langtools.custom_actions'
+local custom_actions = require('telescope._extensions.langtools.custom_actions')
 
 local function create_picker(tool_name, tool_options, opts)
   opts = opts or {}

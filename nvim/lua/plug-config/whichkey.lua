@@ -97,11 +97,14 @@ wk.register({
     ['X'] = { ':Telescope tmux sessions<CR>'              , 'Tmux sessions' },
     ['/'] = { ':Telescope search_history<CR>'             , 'Commands' },
     ['?'] = { ':Telescope help_tags<CR>'                  , 'Help' },
-    ['P'] = { [[:lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>]], 'Find projects' },
+    ['P'] = { [[:lua require('telescope').extensions.project.project{ display_type = 'full' }<CR>]], 'Find projects' },
   },
 }, { prefix = "<leader>" })
 
+-- use `<CR>` to open file from current items
 -- use `dd` to toggle search result items
+-- use `<leader>rc` to run the replace the current items
+-- use `<leader>R` to replace all result items
 wk.register({
   k = {
     name = 'Spectre',

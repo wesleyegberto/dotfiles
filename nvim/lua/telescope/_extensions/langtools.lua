@@ -3,7 +3,7 @@ if not has_telescope then
   error('This plugin requires nvim-telescope/telescope.nvim')
 end
 
-local main = require'telescope._extensions.langtools.main'
+local main = require('telescope._extensions.langtools.main')
 
 return telescope.register_extension {
   setup = main.setup,

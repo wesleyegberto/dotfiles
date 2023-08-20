@@ -147,7 +147,7 @@ end
 
 
 local on_attach = function(_, bufnr)
-  require'lsp-lens'.setup({})
+  require('lsp-lens').setup({})
 
   require("LspUI").setup({})
 

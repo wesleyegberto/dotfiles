@@ -32,7 +32,7 @@ local function run_action(option)
   if option.format_args ~= nil then
     command = command .. option.format_args()
   end
-  -- require'custom/utils'.dump(command)
+  -- require('custom/utils').dump(command)
   if has_floaterm then
     run_floaterm(command, option.text)
   elseif has_toggleterm then
