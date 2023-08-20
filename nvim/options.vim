@@ -82,6 +82,7 @@ set expandtab!                                               " by default not ex
 set tabstop=4                                                " a tab is two spaces (or set this to 4)
 set shiftwidth=4
 set softtabstop=4
+set shiftround                                               " round wrong identation to shiftwidth
 set lazyredraw                                               " don't redraw while executing macros
 set smartindent
 set colorcolumn=20

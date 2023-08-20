@@ -39,6 +39,7 @@ vim.o.expandtab = false                                      -- by default not e
 vim.o.tabstop = 4                                            -- a tab is two spaces (or vim.o.this to 4)
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
+vim.o.shiftround = true                                      -- round wrong identation to shiftwidth
 vim.o.lazyredraw = true                                      -- don't redraw while executing macros
 vim.o.smartindent = true
 
