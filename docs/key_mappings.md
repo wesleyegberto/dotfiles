@@ -521,6 +521,7 @@ Actions:
 
 <Leader>cal      " action for current line
 <Leader>cas      " action for selected content in Visual Mode
+<Leader>cam      " action menu with preview
 ```
 
 Tests:

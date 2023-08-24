@@ -76,8 +76,9 @@ require('packer').startup(function(use)
   use {'VidocqH/lsp-lens.nvim'} -- show references
   use {'DNLHC/glance.nvim'} -- window preview
   use {'folke/trouble.nvim'} -- panel for diagnostics
-  use {'vim-test/vim-test'}
+  use {'vim-test/vim-test'} -- run tests
   use {'kevinhwang91/nvim-bqf'} -- improves quick-fix list (float window, search), use `zf` to search
+  use {'aznhe21/actions-preview.nvim'}
 
   use {'mfussenegger/nvim-jdtls'} -- java
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)

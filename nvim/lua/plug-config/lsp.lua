@@ -2,6 +2,7 @@
 local map = vim.api.nvim_set_keymap
 
 local lspconfig = require('lspconfig')
+local lsp_actions_preview = require("actions-preview")
 
 local home = os.getenv('HOME')
 
@@ -65,12 +66,16 @@ local function setup_keymaps()
   map('n', '<C-\\>', '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
   map('i', '<C-\\>', '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
 
+  -- code action
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+  vim.keymap.set({ "v", "n" }, "<leader>cam", lsp_actions_preview.code_actions)
 
+  -- code format
   map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
   map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
+  -- diagnostics
   map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   map('n', '<leader>cdp', ':Telescope lsp_workspace_diagnostics<CR>', opts)
   map('n', '<leader>cdt', ':TroubleToggle<CR>', opts)
@@ -84,35 +89,35 @@ end
 
 local function init_lsp_tools()
   require('lspkind').init({
-      mode = 'symbol_text',
-      preset = 'default',
-      symbol_map = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "פּ",
-        Event = "",
-        Operator = "",
-        TypeParameter = ""
-      },
+    mode = 'symbol_text',
+    preset = 'default',
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
   })
 
   -- window preview enhancements
@@ -143,6 +148,21 @@ local function init_lsp_tools()
 
   require('trouble').setup()
 
+  lsp_actions_preview.setup {
+    telescope = {
+      sorting_strategy = "ascending",
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.8,
+        height = 0.9,
+        prompt_position = "top",
+        preview_cutoff = 20,
+        preview_height = function(_, _, max_lines)
+          return max_lines - 15
+        end,
+      },
+    },
+  }
 end
 
 
@@ -166,8 +186,8 @@ mason_lsconfig.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+  dynamicRegistration = false,
+  lineFoldingOnly = true
 }
 
 for _, lsp in ipairs(servers) do
@@ -181,9 +201,9 @@ end
 
 require("typescript").setup({
   disable_commands = false, -- prevent the plugin from creating Vim commands
-  debug = false, -- enable debug logging for commands
+  debug = false,            -- enable debug logging for commands
   go_to_source_definition = {
-    fallback = true, -- fall back to standard LSP definition on failure
+    fallback = true,        -- fall back to standard LSP definition on failure
   },
   server = {
     on_attach = on_attach
@@ -210,4 +230,3 @@ require("mason-nvim-dap").setup({
 init_lsp_tools()
 
 setup_keymaps()
-
