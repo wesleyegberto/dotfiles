@@ -134,7 +134,7 @@ local function init_lsp_tools()
     }
   })
 
-  -- require("LspUI").setup({})
+  require("LspUI").setup({})
 
   require 'lsp_signature'.setup({
     bind = true,
@@ -168,8 +168,6 @@ end
 
 local on_attach = function(_, bufnr)
   require('lsp-lens').setup({})
-
-  require("LspUI").setup({})
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   require('lsp_signature').on_attach()

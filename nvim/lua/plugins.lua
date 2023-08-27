@@ -24,10 +24,10 @@ require('packer').startup(function(use)
   use {'matbme/JABS.nvim'}
 
   use {'nvim-telescope/telescope.nvim'}
-  use {'nvim-telescope/telescope-fzf-native.nvim'}; -- better performance to sor
+  use {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sor
   use {'nvim-telescope/telescope-ui-select.nvim'}
   use {'nvim-telescope/telescope-project.nvim'}
-  use {'axkirillov/easypick.nvim'}; -- to create pickers from terminal command
+  use {'axkirillov/easypick.nvim'} -- to create pickers from terminal command
 
   use {'junegunn/fzf', run = vim.fn['fzf#install']}
   use {'junegunn/fzf.vim'}
@@ -43,8 +43,8 @@ require('packer').startup(function(use)
   use {'andymass/vim-matchup'}
 
   -- === editing ===
-  use {'Darazaki/indent-o-matic'}; -- detect indentatio
-  use {'nvim-pack/nvim-spectre'}; -- search/replac
+  use {'Darazaki/indent-o-matic'} -- detect indentatio
+  use {'nvim-pack/nvim-spectre'} -- search/replace
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
   use {'kylechui/nvim-surround'}
   -- autoclose and actions to insert spaces or new line between {}, (), []
@@ -68,7 +68,7 @@ require('packer').startup(function(use)
 
   -- === LSP ===
   use {'neovim/nvim-lspconfig'} -- plugin to facilitate the configuration for LSP
-  use {'jinzhongjia/LspUI.nvim', branch = 'v2'}
+  use {'jinzhongjia/LspUI.nvim', branch = "legacy"}
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
   use {'onsails/lspkind-nvim'}
@@ -79,6 +79,8 @@ require('packer').startup(function(use)
   use {'vim-test/vim-test'} -- run tests
   use {'kevinhwang91/nvim-bqf'} -- improves quick-fix list (float window, search), use `zf` to search
   use {'aznhe21/actions-preview.nvim'}
+
+  use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
   use {'mfussenegger/nvim-jdtls'} -- java
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)

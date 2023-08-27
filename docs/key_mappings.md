@@ -595,3 +595,9 @@ F12              " step out
 <C-p>            " previous item
 ```
 
+## Shortcut:
+
+**Format JSON**
+
+Select the JSON and execute: `!jq` to replace the selected content with the output from JQ.
+
