@@ -80,12 +80,12 @@ luasnip_loader.lazy_load({
   paths = {
     '~/.config/nvim/snippets/java',
     -- '~/.config/nvim/snippets/java-tests',
+    '~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-0.0.6',
     '~/.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.5',
     '~/.vscode/extensions/johnpapa.angular2-13.0.0',
     '~/.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',
     '~/.vscode/extensions/mikael.angular-beastcode-10.0.3',
     '~/.vscode/extensions/lunuan.kubernetes-templates-1.3.1',
-    '~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-0.0.6',
   }
 })
 
