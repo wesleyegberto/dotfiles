@@ -89,6 +89,7 @@ alias kpodrsc="kubectl get po --all-namespaces -o=jsonpath=\"{range .items[*]}{.
 
 alias kscaleup="kubectl scale --replicas=1 deploy"
 alias kscaledown="kubectl scale --replicas=0 deploy"
+alias krestart="kubectl rollout restart deploy"
 
 alias kpodimg="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{\", \"}{end}{end}' | sort"
 alias kpodvrs="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{end}{end}' | grep"

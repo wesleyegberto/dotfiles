@@ -81,5 +81,10 @@ klogsf          " FZF pods and show logs
 
 ksh             " connect with bash to pod name
 kshf            " FZF pods and connect with sh
+
+krestart        " rollout restart given deployment
+
+kscaledown      " scale replica=0 given deployment
+kscaleup        " scale replica=1 given deployment
 ```
 
