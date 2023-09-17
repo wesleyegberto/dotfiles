@@ -19,21 +19,36 @@ telescope.setup {
       'shorten'
     },
     initial_mode = 'insert',
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    set_env = { COLORTERM = 'truecolor' }, -- default = nil,
     vimgrep_arguments = vimgrep_arguments,
+    -- searching
+    file_ignore_patterns = {
+      ".git/",
+      "%.jpg",
+      "%.jpeg",
+      "%.png",
+      "%.svg",
+      "%.otf",
+      "%.ttf",
+      "%.ipynb",
+      "__pycache__",
+      "node_modules",
+    },
+    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    -- mapping
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
         ['<C-o>'] = function()
-            return
         end,
         ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
         ['<C-s>'] = actions.send_selected_to_qflist,
         ['<C-q>'] = actions.send_to_qflist,
       }
-    }
+    },
+
   },
   pickers = {
     buffers = {
@@ -48,10 +63,10 @@ telescope.setup {
     },
   },
   extensions = {
-   project = {
+    project = {
       base_dirs = {
-        {path = '~/projects/github', max_depth = 3},
-        {'~/projects/globalpoints/git', max_depth = 4}
+        { path = '~/projects/github',    max_depth = 3 },
+        { '~/projects/globalpoints/git', max_depth = 4 }
       },
       hidden_files = false
     },
@@ -59,7 +74,7 @@ telescope.setup {
       require("telescope.themes").get_dropdown {}
     },
     advanced_git_search = {
-        -- fugitive or diffview
+      -- fugitive or diffview
       diff_plugin = "fugitive",
       -- customize git in previewer
       -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
@@ -73,13 +88,29 @@ telescope.setup {
       telescope_theme = {
         -- e.g. realistic example
         show_custom_functions = {
-            layout_config = { width = 0.4, height = 0.4 },
+          layout_config = { width = 0.4, height = 0.4 },
         },
       }
-    }
+    },
+    frecency = {
+      show_scores = false,
+      show_unindexed = false,
+      ignore_patterns = {
+        "*.git/*",
+        "*/tmp/*",
+        "*/node_modules/*",
+        "*/vendor/*",
+      },
+      -- workspaces = {
+      --   ["nvim"] = os.getenv("HOME_DIR") .. ".config/nvim",
+      --   ["dots"] = os.getenv("HOME_DIR") .. ".dotfiles",
+      --   ["project"] = os.getenv("PROJECT_DIR"),
+      -- },
+    },
   },
 }
 
+telescope.load_extension("frecency")
 telescope.load_extension('ui-select')
 telescope.load_extension('project')
 telescope.load_extension('harpoon')
@@ -95,4 +126,3 @@ easypick.setup({
     },
   }
 })
-

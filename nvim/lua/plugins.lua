@@ -27,6 +27,7 @@ require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sor
   use {'nvim-telescope/telescope-ui-select.nvim'}
   use {'nvim-telescope/telescope-project.nvim'}
+  use {'nvim-telescope/telescope-frecency.nvim', requires = { 'kkharji/sqlite.lua' }}
   use {'axkirillov/easypick.nvim'} -- to create pickers from terminal command
 
   use {'junegunn/fzf', run = vim.fn['fzf#install']}
