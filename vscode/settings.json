@@ -7,23 +7,9 @@
     "editor.tabSize": 4,
     "editor.defaultFormatter": "redhat.java"
   },
-  "[csharp]": {
-    "files.encoding": "utf8",
-    "editor.trimAutoWhitespace": true,
-    "files.trimTrailingWhitespace": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-dotnettools.csharp"
-  },
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.scrollBeyondLastLine": false,
   "editor.wordWrapColumn": 120,
-  "csharpfixformat.style.spaces.afterBracket": false,
-  "csharpfixformat.style.spaces.beforeParenthesis": false,
-  "csharpfixformat.sort.usings.enabled": true,
-  "csharp.format.enable": true,
-  "omnisharp.useModernNet": false,
-  "csharpfixformat.sort.usings.order": "",
   "extensions.ignoreRecommendations": true,
   "workbench.iconTheme": "material-icon-theme",
   "git.enableSmartCommit": true,
@@ -216,6 +202,14 @@
       "before": ["<", "<"],
       "commands": ["editor.action.outdentLines"]
     },
+    {
+      "before": ["[", "<space>"],
+      "commands": ["editor.action.insertLineBefore"]
+    },
+    {
+      "before": ["]", "<space>"],
+      "commands": ["editor.action.insertLineAfter"]
+    },
 
     // marks
     {
@@ -388,12 +382,16 @@
       "when": "editorTextFocus && !editorReadonly"
     },
     {
-      "before": ["<leader>", "c", "a", "l"],
-      "commands": ["editor.action.sourceAction"]
-    },
-    {
       "before": ["<leader>", "c", "q", "f"],
       "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "a", "l"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "a", "s"],
+      "commands": ["editor.action.sourceAction"]
     },
     {
       "before": ["<leader>", "c", "r", "n"],
@@ -461,11 +459,18 @@
     },
     {
       "before": ["<leader>", "c", "q", "f"],
-      "commands": ["editor.action.quickFix"]
+      "commands": ["editor.action.quickFix"],
+      "when": "editorTextFocus && !editorReadonly"
     },
     {
       "before": ["<leader>", "c", "a", "l"],
-      "commands": ["editor.action.sourceAction"]
+      "commands": ["editor.action.quickFix"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "c", "a", "s"],
+      "commands": ["editor.action.sourceAction"],
+      "when": "editorTextFocus && !editorReadonly"
     },
     {
       "before": ["<leader>", "w", "m"],
@@ -506,10 +511,6 @@
   "spring.initializr.defaultArtifactId": "simple-app",
   "spring.initializr.defaultLanguage": "Java",
   "comments.openView": "never",
-  "omnisharp.enableRoslynAnalyzers": true,
-  "csharp.suppressDotnetRestoreNotification": true,
-  "csharp.suppressProjectJsonWarning": true,
-  "omnisharp.useEditorFormattingSettings": true,
   "workbench.colorCustomizations": {
     "terminal.background": "#000",
     "terminal.selectionBackground": "#ccc",
@@ -529,7 +530,6 @@
   "zenMode.hideStatusBar": false,
   "zenMode.restore": true,
   "files.trimTrailingWhitespace": true,
-  "omnisharp.enableEditorConfigSupport": true,
   "workbench.editor.scrollToSwitchTabs": false,
   "editor.gotoLocation.alternativeImplementationCommand": "editor.action.goToReferences",
   "editor.autoClosingOvertype": "always",
@@ -592,8 +592,6 @@
     ]
   },
   "vsnotes.defaultNotePath": "~/projects/github/personal/notes",
-  "omnisharp.autoStart": false,
-  "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
   "workbench.editor.highlightModifiedTabs": true,
   "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font Mono'",
   "python.languageServer": "Microsoft",
@@ -704,7 +702,7 @@
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 16,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "security.workspace.trust.enabled": false,
   "vim.smartRelativeLine": true,
   "terminal.integrated.inheritEnv": false,
@@ -733,13 +731,9 @@
   ],
   "markdown-preview-enhanced.previewTheme": "github-light.css",
   "git.autofetch": "all",
-  "window.nativeTabs": true,
   "editor.inlineSuggest.enabled": true,
   "terminal.explorerKind": "external",
   "breadcrumbs.enabled": false,
-  "razor.format.enable": false,
-  "razor.disabled": true,
-  "csharp.semanticHighlighting.enabled": true,
   "workbench.editor.showTabs": false,
   "java.maven.downloadSources": true,
   "pasteImage.path": "${currentFileDir}/img",
@@ -811,5 +805,35 @@
   "boot-java.rewrite.reconcile": true,
   "errorLens.enabled": true,
   "errorLens.excludeWorkspaces": [],
-  "window.zoomLevel": -1
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+  "[csharp]": {
+    "files.encoding": "utf8",
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "csharp.suppressDotnetInstallWarning": true,
+  "csharp.format.enable": true,
+  "dotnet.server.useOmnisharp": true,
+  "omnisharp.dotNetCliPaths": [
+    "$HOME/.dotnet/"
+  ],
+  "csharp.semanticHighlighting.enabled": true,
+  "razor.format.enable": false,
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+  "omnisharp.useEditorFormattingSettings": true,
+  "omnisharp.autoStart": false,
+  "omnisharp.useModernNet": false,
+  "omnisharp.sdkPath": "/Users/wesley/.dotnet/sdk/6.0.413",
+  "omnisharp.sdkVersion": "6.0.413",
+  "omnisharp.disableMSBuildDiagnosticWarning": true,
+  "omnisharp.organizeImportsOnFormat": true,
+  "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
+  "omnisharp.sdkIncludePrereleases": false,
+  "window.zoomLevel": -1,
+  "workbench.tree.indent": 10,
+  "diffEditor.hideUnchangedRegions.enabled": true
 }

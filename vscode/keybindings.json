@@ -81,6 +81,11 @@
     // }}}
 
     // === Sidebar - File Explorer === {{{
+    // {
+    //     "key": "ctrl+m",
+    //     "command": "editor.action.showContextMenu",
+    //     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    // },
     {
         "key": "cmd+n",
         "command": "explorer.newFile",
