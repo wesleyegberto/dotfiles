@@ -35,10 +35,9 @@ require('spectre').setup()
 -- :ColorizerToggle
 require 'colorizer'.setup {
   'css';
+  'html';
   'javascript';
-  'lua';
-  html = {
-    mode = 'foreground';
+  lua = {
+    names = false
   },
-  names = false;
 }
