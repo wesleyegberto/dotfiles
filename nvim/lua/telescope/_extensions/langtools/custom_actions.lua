@@ -1,5 +1,5 @@
 local has_floaterm = vim.api.nvim_eval('exists(":Floaterm")')
-local has_toggleterm = vim.api.nvim_eval('exists(":Floaterm")')
+local has_toggleterm = vim.api.nvim_eval('exists(":Toggleterm")')
 
 local function run_floaterm(command, title)
   vim.api.nvim_command(
@@ -27,19 +27,30 @@ local function run_vimterm(command, title)
   )
 end
 
-local function run_action(option)
-  local command = option.action
-  if option.format_args ~= nil then
-    command = command .. option.format_args()
-  end
-  -- require('custom/utils').dump(command)
+local function run_command(command, title)
   if has_floaterm then
-    run_floaterm(command, option.text)
+    run_floaterm(command, title)
   elseif has_toggleterm then
-    run_toggleterm(command, option.text)
+    run_toggleterm(command, title)
   else
-    run_vimterm(command, option.text)
+    run_vimterm(command, title)
   end
 end
 
-return { run_action = run_action }
+local function run_action(option)
+  local command = option.action
+
+  if option.action_setup ~= nil then
+    command = option.action_setup()
+  end
+
+  if option.format_args ~= nil then
+    command = command .. option.format_args()
+  end
+
+  require('custom/utils').dump(command)
+
+  run_command(command, option.text)
+end
+
+return { run_action, run_command }

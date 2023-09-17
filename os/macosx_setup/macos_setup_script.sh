@@ -102,6 +102,7 @@ npm install -g n
 echo "\\n\\n === Dev Utils ==="
 brew install autojump
 brew install httpie
+brew install xmlstarlet # XML tool
 brew install jq jo fx rq # JSON tools
 brew install --cask quicklook-json # JSON tools
 brew install xsv # CSV tools

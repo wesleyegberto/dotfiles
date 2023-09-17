@@ -32,3 +32,13 @@ require('jabs').setup {
 
 require('spectre').setup()
 
+-- :ColorizerToggle
+require 'colorizer'.setup {
+  'css';
+  'javascript';
+  'lua';
+  html = {
+    mode = 'foreground';
+  },
+  names = false;
+}

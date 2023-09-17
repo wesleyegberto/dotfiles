@@ -145,10 +145,11 @@ wk.register({
   S = {
     name = 'Dashboard',
     [';'] = { ':Dashboard<CR>'     , 'start screen' },
-    ['f'] = { ':SearchSession<CR>' , 'search session' },
-    ['a'] = { ':Autosession<CR>'   , 'auto session' },
-    ['s'] = { ':SaveSession<CR>'   , 'save session' },
-    ['l'] = { ':RestoreSession<CR>', 'load session (PWD)' },
+    ['f'] = { ':Autosession search<CR>' , 'search session' },
+    ['s'] = { ':SessionSave<CR>'   , 'save session' },
+    ['l'] = { ':SessionRestore<CR>', 'load session (PWD)' },
+    ['d'] = { ':SessionDelete<CR>'   , 'delete session' },
+    ['D'] = { ':Autosession delete<CR>'   , 'find to delete session' },
   },
 }, { prefix = "<leader>" })
 

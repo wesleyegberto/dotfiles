@@ -134,7 +134,9 @@ local function init_lsp_tools()
     }
   })
 
-  require("LspUI").setup({})
+  require("LspUI").setup({
+    prompt = false
+  })
 
   require 'lsp_signature'.setup({
     bind = true,

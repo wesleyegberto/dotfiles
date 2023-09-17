@@ -112,6 +112,7 @@ require('packer').startup(function(use)
   use {'camgraff/telescope-tmux.nvim'} -- search tmux sessions, windows and tabs
 
   -- === colorscheme ===
+  use {'norcalli/nvim-colorizer.lua'}; -- show colors
   use {'ellisonleao/gruvbox.nvim'}
   use {'luisiacc/gruvbox-baby'}
   use {'Mofiqul/dracula.nvim'}
@@ -119,6 +120,8 @@ require('packer').startup(function(use)
   use {'JoosepAlviste/palenightfall.nvim'}
   use {'folke/tokyonight.nvim'}
   use {'ryanoasis/vim-devicons'}
+  -- use {"wesleyegberto/nebula.nvim", requires = { "rktjmp/lush.nvim" }}
+  use {'~/projects/github/open-sources/nebula.nvim', requires = { "rktjmp/lush.nvim" }}
 
   -- === session management ===
   use {'rmagatti/auto-session'}
