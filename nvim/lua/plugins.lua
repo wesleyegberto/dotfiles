@@ -94,7 +94,8 @@ require('packer').startup(function(use)
   use {'windwp/nvim-ts-autotag'} -- auto close tags
 
   -- better syntax highlighter and more
-  use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd 'TSUpdate' end} -- fix highlight error
+  use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end} -- fix highlight error
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
   use {'ThePrimeagen/refactoring.nvim'}
 
   -- === snippet engine ===

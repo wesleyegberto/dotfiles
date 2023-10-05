@@ -1,6 +1,6 @@
 require('nvim-treesitter.configs').setup({
     -- nvim-treesitter/nvim-treesitter (self config)
-    ensure_installed = { 'java', 'python', 'c_sharp', 'typescript', 'javascript', 'lua', 'html' },
+    ensure_installed = { 'java', 'python', 'c_sharp', 'typescript', 'javascript', 'lua', 'html', 'markdown', 'markdown_inline' },
     highlight = {
         enable = true,
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -36,6 +36,12 @@ require('nvim-treesitter.configs').setup({
                 ['ic'] = '@class.inner',
                 ['al'] = '@loop.outer',
                 ['il'] = '@loop.inner',
+                ["ai"] = "@conditional.outer",
+                ["ii"] = "@conditional.inner",
+                ["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
+                ["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
+                ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
+                ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
                 ['aa'] = '@parameter.outer',
                 ['ia'] = '@parameter.inner',
 
@@ -67,18 +73,26 @@ require('nvim-treesitter.configs').setup({
             goto_next_start = {
                 [']f'] = '@function.outer',
                 [']]'] = '@class.outer',
+                ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+                ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
             },
             goto_next_end = {
                 [']F'] = '@function.outer',
                 [']['] = '@class.outer',
+                ["]S"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+                ["]Z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
             },
             goto_previous_start = {
                 ['[f'] = '@function.outer',
                 ['[['] = '@class.outer',
+                ["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+                ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
             },
             goto_previous_end = {
                 ['[F'] = '@function.outer',
                 ['[]'] = '@class.outer',
+                ["[S"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+                ["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
             },
         },
     },
@@ -105,6 +119,17 @@ require('nvim-treesitter.configs').setup({
         -- highlight_current_scope = { enable = false },
     },
 })
+
+local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+-- vim way: ; goes to the direction you were moving.
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
 -- code folding
 require('ufo').setup({

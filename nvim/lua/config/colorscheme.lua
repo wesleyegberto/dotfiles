@@ -50,9 +50,10 @@ require("tokyonight").setup({
   }
 })
 
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme nebula')
 
---- colors
+--[[
+-- colors
 vim.cmd [[
 " popup
 hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White
