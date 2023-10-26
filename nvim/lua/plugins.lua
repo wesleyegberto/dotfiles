@@ -69,7 +69,7 @@ require('packer').startup(function(use)
 
   -- === LSP ===
   use {'neovim/nvim-lspconfig'} -- plugin to facilitate the configuration for LSP
-  use {'jinzhongjia/LspUI.nvim', branch = "legacy"}
+  use {'jinzhongjia/LspUI.nvim', branch = 'legacy'}
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
   use {'onsails/lspkind-nvim'}
@@ -93,9 +93,10 @@ require('packer').startup(function(use)
   use {'jose-elias-alvarez/typescript.nvim'} -- lib decompiler for TS
   use {'windwp/nvim-ts-autotag'} -- auto close tags
 
-  -- better syntax highlighter and more
+  -- better syntax highlighter, textobjects and navigation using treesitter
   use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end} -- fix highlight error
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  use {'ziontee113/syntax-tree-surfer'}
   use {'ThePrimeagen/refactoring.nvim'}
 
   -- === snippet engine ===
