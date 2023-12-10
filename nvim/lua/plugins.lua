@@ -130,5 +130,5 @@ require('packer').startup(function(use)
   use {'rmagatti/auto-session'}
 
   use {'renerocksai/telekasten.nvim'}
-  use {'renerocksai/calendar-vim'}
+  -- use {'renerocksai/calendar-vim'}
 end)
