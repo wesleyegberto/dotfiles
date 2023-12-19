@@ -23,7 +23,7 @@ fi
 
 if test ! "$( command -v brew )"; then
     echo "Installing homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -116,6 +116,7 @@ brew install procs # modern `ps`
 brew install bench
 brew install graphviz
 brew install stern
+brew install oxide # z navigatornode -
 
 if [[ "$ARCH" == 'x86_64' ]]; then
     brew install --cask docker-toolbox
@@ -141,6 +142,7 @@ echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript
 npm install -g vtop csvtojson # diff-so-fancy removed to use `delta`
 npm install --global fkill-cli
+npm install -g @angular/cli@16
 
 echo "\\n\\n=== Installing Neovim & VS Code & Sublime-Text ==="
 brew install --HEAD luajit
@@ -218,5 +220,6 @@ echo "\\n\\n=== Starting Yabai and SKH ==="
 brew services start yabai
 brew services restart yabai
 
+skhd --start-service
 brew services start skhd
 
