@@ -59,16 +59,16 @@ echo "Enable full keyboard access for all controls"
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-echo "Disable automatic capitalization as it’s annoying when typing code"
+echo "Disable automatic capitalization as it's annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
-echo "Disable smart dashes as they’re annoying when typing code"
+echo "Disable smart dashes as they're annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-echo "Disable automatic period substitution as it’s annoying when typing code"
+echo "Disable automatic period substitution as it's annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
-echo "Disable smart quotes as they’re annoying when typing code"
+echo "Disable smart quotes as they're annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 echo "Disable auto-correct"
@@ -77,7 +77,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 echo "\\n\\n=== Safari options ==="
 
-echo "Enable Safari’s debug menu"
+echo "Enable Safari's debug menu"
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo "Enabling Safari developer options"
@@ -89,7 +89,7 @@ defaults write -g WebKitDeveloperExtras -bool true
 echo "Enabling \"Do Not Track\" on Safari"
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
-echo "Set Safari’s home page to about:blank for faster loading"
+echo "Set Safari's home page to about:blank for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
 
 echo "\\n\\n=== Monitor options ==="
@@ -152,7 +152,7 @@ echo "\\n\\n=== Dock options ==="
 echo "Dimming hidden Dock icons"
 defaults write com.apple.dock showhidden -bool true
 
-echo "Don’t show recent applications in Dock"
+echo "Don't show recent applications in Dock"
 defaults write com.apple.dock show-recents -bool false
 
 echo "Autohiding dock"
