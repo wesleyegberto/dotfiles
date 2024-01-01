@@ -31,6 +31,11 @@ nnoremap <silent> <Leader>bp :bprevious<CR>
 nnoremap <silent> <Leader>b
 nnoremap <silent> <Leader>bd :bd<CR>
 
+" just put a ; at the end of line
+nnoremap <silent> ; m`A;<Esc>``
+" delete without copy
+nnoremap <silent> dD "_dd
+
 " paste over selection without yank it:
 " paste and stay at the end of selection
 vnoremap p "_dP

@@ -36,6 +36,11 @@ map('n', '<Leader>bn', ':bnext<CR>', silentOptions)
 map('n', '<Leader>bd', ':bd<CR>', silentOptions)
 map('n', '<Leader>bk', ':bw<CR>', silentOptions)
 
+-- just put a ; at the end of line
+map('n', ';', 'm`A;<Esc>``', silentOptions)
+-- delete without copy
+map('n', 'dD', '"_dd', silentOptions)
+
 -- paste over selection without yank it:
 map('v', 'p', '"_dP', options) -- paste and stay at the end of selection
 map('v', 'P', '"_dP`[', options) -- paste and go to beginning of selection
@@ -84,8 +89,8 @@ map('i', ')', ')<C-g>u', options)
 -- map('n', '<expr> j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options)
 -- map('n', '<expr> k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', options)
 vim.cmd([[
-map('n', '<expr> j', '(v:count > 5 ? "m'" . v:count : "") . "j"', options)
-map('n', '<expr> k', '(v:count > 5 ? "m'" . v:count : "") . "k"', options)
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 ]])
 
 -- insert mode shortcut to move the cursor

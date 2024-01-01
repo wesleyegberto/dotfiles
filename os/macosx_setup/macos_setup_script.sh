@@ -217,6 +217,7 @@ echo "\\n\\n=== Cleaning up ==="
 brew cleanup cask
 
 echo "\\n\\n=== Starting Yabai and SKH ==="
+yabay --start-service
 brew services start yabai
 brew services restart yabai
 
