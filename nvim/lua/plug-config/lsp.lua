@@ -40,9 +40,6 @@ local function setup_keymaps()
 
   map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
-  map('n', '[g', ':LspUI diagnostic prev<CR>', opts)
-  map('n', ']g', ':LspUI diagnostic next<CR>', opts)
-
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   map('n', 'gD', "<cmd>Glance definitions<CR>", opts)
   map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -76,9 +73,15 @@ local function setup_keymaps()
   map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   -- diagnostics
+  map('n', '[g', ':LspUI diagnostic prev<CR>', opts)
+  map('n', ']g', ':LspUI diagnostic next<CR>', opts)
+  map('n', '[G', ':lua require("trouble").previous({skip_groups = true, jump = true})<CR>', opts)
+  map('n', ']G', ':lua require("trouble").next({skip_groups = true, jump = true})<CR>', opts)
+
   map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  map('n', '<leader>cdp', ':Telescope lsp_workspace_diagnostics<CR>', opts)
   map('n', '<leader>cdt', ':TroubleToggle<CR>', opts)
+  map('n', '<leader>cdw', ':TroubleToggle workspace_diagnostics:<CR>', opts)
+  map('n', '<leader>cdx', ':TroubleToggle quickfix<CR>', opts)
 
   -- vim-test
   map('n', '<leader>rta', ':TestSuite<CR>', opts)

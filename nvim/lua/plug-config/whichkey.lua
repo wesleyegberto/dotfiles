@@ -80,7 +80,7 @@ wk.register({
     name = 'Telescope',
     ['_'] = { ':Telescope<CR>'                            , 'Open Telescope' },
     [';'] = { ':Telescope commands<CR>'                   , 'Commands' },
-    ['w'] = { ':Windows<CR>'                              , 'Windows' },
+    ['vw'] = { ':Windows<CR>'                             , 'View Window' },
     ['f'] = { ':Telescope find_files<CR>'                 , 'File' },
     ['b'] = { ':Telescope buffers<CR>'                    , 'Buffers' },
     ['L'] = { ':Telescope current_buffer_fuzzy_find<CR>'  , 'Buffer line' },
@@ -97,6 +97,7 @@ wk.register({
     ['X'] = { ':Telescope tmux sessions<CR>'              , 'Tmux sessions' },
     ['/'] = { ':Telescope search_history<CR>'             , 'Commands' },
     ['?'] = { ':Telescope help_tags<CR>'                  , 'Help' },
+    ['w'] = { ':Telescope grep_string<CR>'                , 'Word under cursor' },
     ['P'] = { [[:lua require('telescope').extensions.project.project{ display_type = 'full' }<CR>]], 'Find projects' },
   },
 }, { prefix = "<leader>" })

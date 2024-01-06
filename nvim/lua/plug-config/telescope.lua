@@ -10,7 +10,7 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
-telescope.setup {
+telescope.setup({
   defaults = {
     prompt_prefix = ">",
     selection_caret = "> ",
@@ -108,7 +108,7 @@ telescope.setup {
       -- },
     },
   },
-}
+})
 
 telescope.load_extension("frecency")
 telescope.load_extension('ui-select')

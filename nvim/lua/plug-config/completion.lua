@@ -82,6 +82,7 @@ luasnip_loader.lazy_load({
     -- '~/.config/nvim/snippets/java-tests',
     '~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-0.0.6',
     '~/.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.5',
+    '~/.vscode/extensions/wesleyegberto.vscode-java-spring-devtools-0.0.1',
     '~/.vscode/extensions/johnpapa.angular2-13.0.0',
     '~/.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',
     '~/.vscode/extensions/mikael.angular-beastcode-10.0.3',
