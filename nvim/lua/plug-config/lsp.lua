@@ -6,6 +6,8 @@ local lsp_actions_preview = require("actions-preview")
 
 local home = os.getenv('HOME')
 
+require('fidget').setup({})
+
 require('mason').setup({
   ui = {
     border = 'rounded',

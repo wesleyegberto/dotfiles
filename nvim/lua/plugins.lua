@@ -68,6 +68,7 @@ require('packer').startup(function(use)
   use {'aaronhallaert/advanced-git-search.nvim'}
 
   -- === LSP ===
+  use {'j-hui/fidget.nvim'} -- LSP notifications
   use {'neovim/nvim-lspconfig'} -- plugin to facilitate the configuration for LSP
   use {'jinzhongjia/LspUI.nvim', branch = 'legacy'}
   use {'williamboman/mason.nvim'}
