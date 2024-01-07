@@ -49,7 +49,6 @@ local function setup_keymaps()
   map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
   map('n', 'gR', '<cmd>Glance references<CR>', opts)
 
-
   map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
   map('n', '<Leader>cfm', ':Telescope lsp_document_symbols<CR>', opts)
   map('n', '<Leader>cfi', ':Telescope lsp_incoming_calls<CR>', opts)
@@ -65,12 +64,12 @@ local function setup_keymaps()
 
   -- code action
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+  map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.keymap.set({ "v", "n" }, "<leader>cam", lsp_actions_preview.code_actions)
 
   -- code format
   map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
-  map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+  map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
 
   -- diagnostics
   map('n', '[g', ':LspUI diagnostic prev<CR>', opts)
