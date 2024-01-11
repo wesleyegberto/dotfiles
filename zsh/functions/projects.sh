@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# Try to compile any project that I usually work with
+build() {
+    if [ -f pom.xml ]; then # Java project
+        mvn clean compile
+
+    elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
+        dotnet clean
+        dotnet build
+
+    elif [ -f package.json ]; then # Node project
+        cat package.json | jq '.scripts | to_entries | .[] | " \(.key) -> \(.value) "' | fzf | awk '{print $2}' | xargs npm run
+
+    else
+        echo "There is no project to build"
+    fi
+}
+
 # Try to run any project that I usually work with
 run() {
     if [ -f run_dev.sh ]; then
@@ -11,11 +28,11 @@ run() {
     elif [ -f pom.xml ]; then # Java project
         mvn spring-boot:run
 
-    elif [ -f package.json ]; then # Node project
-        cat package.json | jq '.scripts | to_entries | .[] | " \(.key) -> \(.value) "' | fzf | awk '{print $2}' | xargs npm run
-
     elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
         dotnet watch run
+
+    elif [ -f package.json ]; then # Node project
+        cat package.json | jq '.scripts | to_entries | .[] | " \(.key) -> \(.value) "' | fzf | awk '{print $2}' | xargs npm run
 
     else
         echo "There is no project to run"

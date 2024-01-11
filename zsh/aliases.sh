@@ -4,6 +4,9 @@
 alias vim="nvim"
 alias v="nvim"
 
+alias dotfiles="cd ~/.dotfiles/ && vim ."
+alias notes="cd ~/notes/ && vim ."
+
 # Lazy
 alias cd..='cd ..'
 alias ..='cd ..'
