@@ -16,10 +16,10 @@ require('nvim-treesitter.configs').setup({
     incremental_selection = {
         enable = true,
         keymaps = {
-            init_selection = '<leader>si',
-            node_incremental = '<leader>sn',
-            node_decremental = '<leader>sN',
-            scope_incremental = '<leader>sc',
+            init_selection = '<Leader>si',
+            node_incremental = '<Leader>sn',
+            node_decremental = '<Leader>sN',
+            scope_incremental = '<Leader>sc',
         },
     },
     -- nvim-treesitter/nvim-treesitter-textobjects
@@ -130,6 +130,11 @@ vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
 vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
 vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
 vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+
+local opts = { noremap = true, silent=true }
+
+vim.api.nvim_set_keymap('n', '<Leader>sf', ':lua require("tsht").nodes()<CR>', opts)
+vim.api.nvim_set_keymap('v', '<Leader>sf', ':lua require("tsht").nodes()<CR>', opts)
 
 -- code folding
 require('ufo').setup({

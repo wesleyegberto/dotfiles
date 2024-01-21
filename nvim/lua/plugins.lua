@@ -84,6 +84,7 @@ require('packer').startup(function(use)
 
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
+  -- use {'nvim-java/nvim-java'}
   use {'mfussenegger/nvim-jdtls'} -- java
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
   use {'jay-babu/mason-nvim-dap.nvim'}
@@ -98,6 +99,8 @@ require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end} -- fix highlight error
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
   use {'ziontee113/syntax-tree-surfer'}
+  -- region selection using treesitter and hop
+  use {'mfussenegger/nvim-treehopper'}
   use {'ThePrimeagen/refactoring.nvim'}
 
   -- === snippet engine ===
