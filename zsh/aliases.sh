@@ -50,6 +50,7 @@ alias tksv="tmux kill-server"
 
 # Git aliases
 alias g="git"
+alias lg="lazygit"
 alias ungit="find . -name '.git' -exec rm -rf {} \;" # Remove git from a project
 alias gst="git status"
 alias gsa="git status -uall"

@@ -1,3 +1,6 @@
+# Reference:
+# /opt/homebrew/opt/yabai/share/yabai/examples/skhdrc
+
 # === Yabai service ===
 ctrl + alt - q : brew services stop yabai
 ctrl + alt - s : brew services start yabai
@@ -5,8 +8,8 @@ ctrl + alt - r : brew services restart yabai
 
 
 # === Displays ===
-cmd + alt - left: yabai -m display --focus west
-cmd + alt - right: yabai -m display --focus east
+cmd + alt - left : yabai -m display --focus west
+cmd + alt - right : yabai -m display --focus east
 
 # move window to display left and right
 cmd + ctrl + alt - left : yabai -m window --display west; yabai -m display --focus west;

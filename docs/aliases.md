@@ -67,6 +67,8 @@ g af            " FZF files to add
 
 g cg            " grep files to checkout
 g cf            " FZF files to checkout
+
+lg              " lazygit
 ```
 
 ## Kubernetes and Docker
