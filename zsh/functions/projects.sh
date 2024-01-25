@@ -17,6 +17,21 @@ build() {
     fi
 }
 
+tests() {
+    if [ -f pom.xml ]; then # Java project
+        mvn test
+
+    elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
+        dotnet test
+
+    elif [ -f package.json ]; then # Node project
+        npm test
+
+    else
+        echo "There is no project to test"
+    fi
+}
+
 # Try to run any project that I usually work with
 run() {
     if [ -f run_dev.sh ]; then
