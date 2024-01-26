@@ -91,3 +91,7 @@ cmd + ctrl + alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Br
 # Arc
 cmd + ctrl + alt - a : /Applications/Arc.app/Contents/MacOS/Arc
 
+# Obsidian
+cmd + ctrl + alt - o : /Applications/Obsidian.app/Contents/MacOS/Obsidian
+
+

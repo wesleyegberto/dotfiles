@@ -526,7 +526,6 @@
   "vim.easymotion": true,
   "update.mode": "start",
   "zenMode.hideLineNumbers": false,
-  "zenMode.hideTabs": false,
   "zenMode.hideStatusBar": false,
   "zenMode.restore": true,
   "files.trimTrailingWhitespace": true,
@@ -591,7 +590,6 @@
       }
     ]
   },
-  "vsnotes.defaultNotePath": "~/projects/github/personal/notes",
   "workbench.editor.highlightModifiedTabs": true,
   "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font Mono'",
   "python.languageServer": "Microsoft",
@@ -654,15 +652,12 @@
   "java.project.importOnFirstTimeStartup": "automatic",
   "vim.useSystemClipboard": true,
   "workbench.startupEditor": "none",
-  "workbench.activityBar.visible": true,
   "markdown.replaceSmartQuotes": true,
   "code-runner.enableAppInsights": false,
   "dotnet-test-explorer.enableTelemetry": false,
   "workbench.preferredHighContrastColorTheme": "Gruvbox Dark (Hard)",
   "workbench.preferredDarkColorTheme": "Gruvbox Dark (Hard)",
   "typescriptHero.imports.multiLineWrapThreshold": 120,
-  "customizeUI.activityBar": "bottom",
-  "customizeUI.titleBar": "inline",
   "java.test.report.showAfterExecution": "always",
   "editor.formatOnSaveMode": "modifications",
   "editor.autoIndent": "brackets",
@@ -683,15 +678,11 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "java.completion.importOrder": ["com", "java", "javax", "org", "br"],
-  "customizeUI.fontSizeMap": {
-    "14px": "12px",
-    "tab-title": "12px"
-  },
   "javaTests.template.createTestCaseForEachMethod": "Yes",
   "javaTests.template.mockConstructorParameters": "Yes",
   "javaTests.template.ignoreStaticMethodsInTestCase": "No",
   "javaTests.file.openLocation": "currentGroup",
-  "spring.initializr.defaultJavaVersion": "11",
+  "spring.initializr.defaultJavaVersion": "17",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
@@ -702,7 +693,7 @@
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 16,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "security.workspace.trust.enabled": false,
   "vim.smartRelativeLine": true,
   "terminal.integrated.inheritEnv": false,
@@ -734,7 +725,7 @@
   "editor.inlineSuggest.enabled": true,
   "terminal.explorerKind": "external",
   "breadcrumbs.enabled": false,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "java.maven.downloadSources": true,
   "pasteImage.path": "${currentFileDir}/img",
   "pasteImage.showFilePathConfirmInputBox": true,
@@ -753,7 +744,6 @@
   "editor.bracketPairColorization.enabled": false,
   "git.enableStatusBarSync": false,
   "workbench.editor.languageDetection": false,
-  "workbench.editor.untitled.hint": "hidden",
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "git.mergeEditor": false,
   "[scss]": {
@@ -801,7 +791,6 @@
   "telemetry.telemetryLevel": "off",
   "gitlens.telemetry.enabled": false,
   "git.openRepositoryInParentFolders": "always",
-  "diffEditor.ignoreTrimWhitespace": false,
   "boot-java.rewrite.reconcile": true,
   "errorLens.enabled": true,
   "errorLens.excludeWorkspaces": [],
@@ -833,7 +822,35 @@
   "omnisharp.organizeImportsOnFormat": true,
   "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
   "omnisharp.sdkIncludePrereleases": false,
-  "window.zoomLevel": -1,
   "workbench.tree.indent": 10,
-  "diffEditor.hideUnchangedRegions.enabled": true
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.activityBar.location": "top",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "sonarlint.rules": {
+    "java:S2139": {
+      "level": "off"
+    },
+    "java:S1192": {
+      "level": "off"
+    }
+  },
+  "java.completion.favoriteStaticMembers": [
+    "org.hamcrest.Matchers.*",
+    "org.hamcrest.MatcherAssert.assertThat",
+    "org.junit.Assert.*",
+    "org.junit.Assume.*",
+    "org.junit.jupiter.api.*",
+    "org.junit.jupiter.api.Assertions.*",
+    "org.junit.jupiter.api.Assertions.assertEquals",
+    "org.junit.jupiter.api.Assumptions.*",
+    "org.junit.jupiter.api.DynamicContainer.*",
+    "org.junit.jupiter.api.DynamicTest.*",
+    "org.mockito.Mockito.*",
+    "org.mockito.ArgumentMatchers.*",
+    "org.mockito.Answers.*",
+    "java.util.stream.Collectors"
+  ],
+  "window.zoomLevel": -1,
+  "codesnap.containerPadding": "5em",
+  "sonarlint.focusOnNewCode": true
 }
