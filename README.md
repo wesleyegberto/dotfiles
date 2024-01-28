@@ -102,7 +102,7 @@ Then install the plugins by running: `vim +PackerUpdate +qall`.
 
 ### NeoVim
 
-I'm using Neovim 0.8+ configured with Lua.
+I'm using Neovim 0.9+ configured with Lua.
 NeoVim plugins installed is listed [here](nvim/.config/nvim/lua/plugins.lua).
 
 ### VS Code
@@ -126,7 +126,9 @@ Here are my configs:
 * Fonts:
   * [MS Cascadia Code](https://github.com/microsoft/cascadia-code)
   * [Jetbrains Mono](https://www.jetbrains.com/lp/mono/)
-* [macOS setup inspiration](https://github.com/mathiasbynens/dotfiles)
+* Inspirations:
+  * [macOS setup](https://github.com/mathiasbynens/dotfiles)
+  * [semanticart dotfiles](https://github.com/semanticart/neovim-config)
 * Tutorials:
   * [Configure Neovim using Lua](https://icyphox.sh/blog/nvim-lua/)
   * [Write init.lua](https://oroques.dev/notes/neovim-init/)
