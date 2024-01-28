@@ -103,7 +103,7 @@ echo "\\n\\n === Dev Utils ==="
 brew install autojump
 brew install httpie
 brew install xmlstarlet # XML tool
-brew install jq jo fx rq # JSON tools
+brew install jq jo fx rq # JSON tools (fx allow to use JS to query)
 brew install --cask quicklook-json # JSON tools
 brew install xsv # CSV tools
 brew install --cask quicklook-csv # CSV tools

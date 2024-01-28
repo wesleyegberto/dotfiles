@@ -224,8 +224,8 @@ wk.register({
     ['a'] = { ":lua require('telekasten').show_tags()<CR>", 'Show tags' },
     ['#'] = {  ":lua require('telekasten').show_tags()<CR>", 'Show tags' },
 
-    ['c'] = { ":lua require('telekasten').show_calendar()<CR>", 'Show calendar' },
-    ['C'] = { ":CalendarT<CR>", 'Show fullscreen calendar' },
+    -- ['c'] = { ":lua require('telekasten').show_calendar()<CR>", 'Show calendar' },
+    -- ['C'] = { ":CalendarT<CR>", 'Show fullscreen calendar' },
     ['r'] = { ":lua require('telekasten').rename_note()<CR>", 'Rename note' },
     -- on hesitation, bring up the panel
     ['P'] = { ":lua require('telekasten').panel()<CR>", 'Show panel' },
