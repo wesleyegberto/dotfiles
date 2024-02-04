@@ -12,7 +12,9 @@ local options = { noremap = true }
 local silentOptions = { noremap = true, silent=true }
 
 -- save buffer
+map('n', '<D-s>', ':w<CR>', options)
 map('n', '<C-s>', ':w<CR>', options)
+map('i', '<D-s>', '<Esc>:w<CR>a', options)
 map('i', '<C-s>', '<Esc>:w<CR>a', options)
 map('v', '<C-s>', '<Esc>:w<CR>', options)
 

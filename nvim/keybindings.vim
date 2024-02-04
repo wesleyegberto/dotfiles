@@ -5,7 +5,9 @@
 let g:mapleader = " "
 
 " save buffer
+nmap <D-s> :w<CR>
 nmap <C-s> :w<CR>
+imap <D-s> <Esc>:w<CR>a
 imap <C-s> <Esc>:w<CR>a
 vmap <C-s> <Esc>:w<CR>
 
