@@ -33,12 +33,9 @@ alias cleanup_serverless='tree -adfi -P "*.serverless$" --matchdirs | grep -e /.
 alias cleanup_jupyter='tree -adfi -P "*.ipynb_checkpoints$" --matchdirs | grep -e /.ipynb_checkpoints$ | xargs rm -rf'
 
 
-# Time tracker (https://tailordev.github.io/Watson/)
-alias track="watson"
-
 # Tmux aliases
 alias td="tmux has-session -t default & tmux attach -t default || tmux new-session -s default"
-alias ide="tmux new-session -s ide"
+alias ide="tcode"
 
 alias tls='tmux ls'
 alias tat="tmux attach -t"
