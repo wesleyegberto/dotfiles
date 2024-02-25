@@ -49,7 +49,7 @@ yabai -m rule --add app="^Slack$" space=1_misc
 yabai -m rule --add app="Obsidian" space=3_work
 
 # === disable specific apps ===
-yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Raycast Settings$" manage=off
 yabai -m rule --add app="^TextEdit$" manage=off
@@ -57,4 +57,5 @@ yabai -m rule --add app="^TextEdit$" manage=off
 
 # yabai -m space --focus 1_misc
 # yabai -m space --focus 3_code
+
 

@@ -221,6 +221,10 @@ yabay --start-service
 brew services start yabai
 brew services restart yabai
 
+brew tap FelixKratz/formulae
+brew install borders
+brew services start borders
+
 skhd --start-service
 brew services start skhd
 
