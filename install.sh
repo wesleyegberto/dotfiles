@@ -49,6 +49,8 @@ mkdir -p $HOME/.config/yabai
 ln -s $DOTFILES/.config/yabai/yabairc $HOME/.config/yabai/yabairc
 mkdir -p $HOME/.config/skhd
 ln -s $DOTFILES/.config/skhd/skhdrc $HOME/.config/skhd/skhdrc
+mkdir -p $HOME/.config/borders
+ln -s $DOTFILES/.config/borders/borderssrc $HOME/.config/borders/borderssrc
 
 if [[ $(uname -s) = "Darwin" ]]; then
   sh ./os/macosx_setup/macos_setup_script.sh
