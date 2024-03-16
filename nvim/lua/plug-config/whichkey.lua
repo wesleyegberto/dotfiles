@@ -98,7 +98,7 @@ wk.register({
     ['/'] = { ':Telescope search_history<CR>'             , 'Commands' },
     ['?'] = { ':Telescope help_tags<CR>'                  , 'Help' },
     ['w'] = { ':Telescope grep_string<CR>'                , 'Word under cursor' },
-    ['P'] = { [[:lua require('telescope').extensions.project.project{ display_type = 'full' }<CR>]], 'Find projects' },
+    ['P'] = { ':CdProject<CR>'                            , 'Find projects' },
   },
 }, { prefix = "<leader>" })
 
@@ -195,7 +195,14 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
-
+wk.register({
+  P = {
+    name = 'Projects',
+    ['M'] = { ':CdProject<CR>', 'Switch to another project' },
+    ['a'] = { ':CdProjectAdd<CR>', 'Added project to list' },
+    ['b'] = { ':CdProjectBack<CR>', 'Switch back to previous project' },
+  }
+}, { prefix = "<leader>" })
 
 wk.register({
   z = {
@@ -230,6 +237,6 @@ wk.register({
     -- on hesitation, bring up the panel
     ['P'] = { ":lua require('telekasten').panel()<CR>", 'Show panel' },
   }
-}, { prefix = "<leader>"})
+}, { prefix = "<leader>" })
 
 

@@ -63,13 +63,6 @@ telescope.setup({
     },
   },
   extensions = {
-    project = {
-      base_dirs = {
-        { path = '~/projects/github',    max_depth = 3 },
-        { '~/projects/globalpoints/git', max_depth = 4 }
-      },
-      hidden_files = false
-    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {}
     },
@@ -112,7 +105,6 @@ telescope.setup({
 
 telescope.load_extension("frecency")
 telescope.load_extension('ui-select')
-telescope.load_extension('project')
 telescope.load_extension('harpoon')
 telescope.load_extension("advanced_git_search")
 
