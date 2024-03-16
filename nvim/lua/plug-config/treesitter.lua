@@ -139,7 +139,7 @@ vim.api.nvim_set_keymap('v', '<Leader>sf', ':lua require("tsht").nodes()<CR>', o
 -- code folding
 require('ufo').setup({
     open_fold_hl_timeout = 250,
-    close_fold_kinds = {'imports', 'comment'},
+    close_fold_kinds_for_ft = {'imports', 'comment'},
     provider_selector = function(bufnr, filetype, buftype)
         return {'treesitter', 'indent'}
     end,

@@ -75,9 +75,10 @@ require('packer').startup(function(use)
   use {'williamboman/mason-lspconfig.nvim'}
   use {'onsails/lspkind-nvim'}
   use {'ray-x/lsp_signature.nvim'} -- method signature
-  use {'VidocqH/lsp-lens.nvim'} -- show references
+  use {'VidocqH/lsp-lens.nvim'} -- show refernces
   use {'DNLHC/glance.nvim'} -- window preview
   use {'folke/trouble.nvim'} -- panel for diagnostics
+  use {'artemave/workspace-diagnostics.nvim'}
   use {'vim-test/vim-test'} -- run tests
   use {'kevinhwang91/nvim-bqf'} -- improves quick-fix list (float window, search), use `zf` to search
   use {'aznhe21/actions-preview.nvim'}
@@ -119,7 +120,7 @@ require('packer').startup(function(use)
   use {'camgraff/telescope-tmux.nvim'} -- search tmux sessions, windows and tabs
 
   -- === colorscheme ===
-  use {'norcalli/nvim-colorizer.lua'}; -- show colors
+  use {'norcalli/nvim-colorizer.lua'} -- show colors
   use {'ellisonleao/gruvbox.nvim'}
   use {'luisiacc/gruvbox-baby'}
   use {'Mofiqul/dracula.nvim'}
