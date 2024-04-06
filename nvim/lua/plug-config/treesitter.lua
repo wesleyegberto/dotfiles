@@ -133,6 +133,7 @@ vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
 local opts = { noremap = true, silent=true }
 
+-- select Treesitter node
 vim.api.nvim_set_keymap('n', '<Leader>sf', ':lua require("tsht").nodes()<CR>', opts)
 vim.api.nvim_set_keymap('v', '<Leader>sf', ':lua require("tsht").nodes()<CR>', opts)
 

@@ -144,8 +144,7 @@ wk.register({
 
 wk.register({
   S = {
-    name = 'Dashboard',
-    [';'] = { ':Dashboard<CR>'     , 'start screen' },
+    name = 'Session',
     ['f'] = { ':Autosession search<CR>' , 'search session' },
     ['s'] = { ':SessionSave<CR>'   , 'save session' },
     ['l'] = { ':SessionRestore<CR>', 'load session (PWD)' },
@@ -223,7 +222,7 @@ wk.register({
     ['b'] = { ":lua require('telekasten').show_backlinks()<CR>", 'Show backlinks' },
 
     ['y'] = { ":lua require('telekasten').yank_notelink()<CR>", 'Yank note link' },
-    ['I'] = { ":lua require('telekasten').insert_link({ i=true })<CR>", 'Insert link' },
+    --['I'] = { ":lua require('telekasten').insert_link({ i=true })<CR>", 'Insert link' },
     ['I'] = { ":lua require('telekasten').insert_img_link({ i=true })<CR>", 'Insert img link' },
     ['i'] = { ":lua require('telekasten').paste_img_and_link()<CR>", 'Paste img and link' },
     ['p'] = { ":lua require('telekasten').preview_img()<CR>", 'Preview img' },

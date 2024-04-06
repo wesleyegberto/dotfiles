@@ -34,6 +34,5 @@ require('plug-config/treesitter')
 require('plug-config/refactoring')
 require('plug-config/zettelkasten')
 require('plug-config/projects')
-require('plug-config/dashboard')
 require('plug-config/whichkey')
 

@@ -10,7 +10,6 @@ require('packer').startup(function(use)
   -- display keymaps available
   use {'folke/which-key.nvim'}
 
-  use {'glepnir/dashboard-nvim'}
   use {'glepnir/galaxyline.nvim'}
 
   -- === file navigaton ===

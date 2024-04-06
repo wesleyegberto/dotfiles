@@ -336,6 +336,8 @@ Buffer content:
 <Leader><Esc>    " clear searching results
 [i               " show first occurrence of current word
 [I               " show all occurrences of current word
+
+<Leader>sf       " select tresitter node
 ```
 
 Harpoon:

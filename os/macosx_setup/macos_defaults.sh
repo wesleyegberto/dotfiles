@@ -14,6 +14,8 @@ echo "===================="
 echo " macOS Defautls     "
 echo "===================="
 
+launchctl limit maxfiles 10240 200000
+
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 echo "Upping bluetooth audio quality (try 40 or 80)"
