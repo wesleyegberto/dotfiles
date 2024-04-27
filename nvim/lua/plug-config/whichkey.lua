@@ -82,6 +82,7 @@ wk.register({
     [';'] = { ':Telescope commands<CR>'                   , 'Commands' },
     ['vw'] = { ':Windows<CR>'                             , 'View Window' },
     ['f'] = { ':Telescope find_files<CR>'                 , 'File' },
+    ['F'] = { ':Telescope frecency<CR>'                   , 'Frequency' },
     ['b'] = { ':Telescope buffers<CR>'                    , 'Buffers' },
     ['L'] = { ':Telescope current_buffer_fuzzy_find<CR>'  , 'Buffer line' },
     ['gs'] = { ':Telescope git_status<CR>'                , 'Modifiled git files' },
