@@ -16,8 +16,8 @@ vim.o.backup = false                                         -- some servers hav
 vim.o.hidden = true                                          -- to allow switch between buffers without save
 
 -- Split the window and put to right/below
-vim.o.splitright=1
-vim.o.splitbelow=1
+vim.o.splitright=true
+vim.o.splitbelow=tru
 
 vim.o.cmdheight=1                                            -- better display for messages
 

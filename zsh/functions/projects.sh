@@ -60,21 +60,39 @@ cleanup_java_ide() {
         .classpath .project .settings .idea .vscode
 }
 
-# Usage: `new_spring_boot <Project_Name> [<Group_Id>]`
+# Usage: `new_spring_boot <Project_Name> [<Group_Id>] [<List_Dependencies]`
 new_spring_boot() {
     local API_NAME
     local GROUP_ID
 
     API_NAME="$1"
     GROUP_ID="$2"
+    DEPENDENCIES="$3"
     if [ -z "$GROUP_ID" ]; then
-    GROUP_ID="com.github.wesleyegberto"
+        GROUP_ID="com.github.wesleyegberto"
+    fi
+    if [ -z "$DEPENDENCIES" ]; then
+        DEPENDENCIES="devtools,web,validation,data-jpa,postgresql,kafka,kafka-streams"
     fi
 
-    curl https://start.spring.io/starter.zip -d javaVersion=11 \
+    curl https://start.spring.io/starter.zip -d type=maven-project -d javaVersion=21 \
         -d dependencies=devtools,web -d packageName=$GROUP_ID -d groupId=$GROUP_ID \
         -d artifactId="$API_NAME" -d name="$API_NAME" \
+        -d dependencies="$DEPENDENCIES" \
         | tar -xvf -
     rm -rf .mvn/ mvnw mvnw.cmd HELP.md
+}
+
+# Jupyter Lab
+jupyterlab() {
+    export PYTHON_ENV="$HOME/pythonenv/jupyterlab"
+    source $PYTHON_ENV/bin/activate
+    $PYTHON_ENV/bin/jupyter lab
+}
+
+jupyterlab_pip3() {
+    export PYTHON_ENV="$HOME/pythonenv/jupyterlab"
+    source $PYTHON_ENV/bin/activate
+    pip3 install $@
 }
 

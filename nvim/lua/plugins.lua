@@ -9,6 +9,7 @@ require('packer').startup(function(use)
 
   -- display keymaps available
   use {'folke/which-key.nvim'}
+  use {'FeiyouG/commander.nvim'}
 
   use {'glepnir/galaxyline.nvim'}
 
@@ -19,7 +20,6 @@ require('packer').startup(function(use)
 
   use {'voldikss/vim-floaterm'}
   use {'ThePrimeagen/harpoon'}
-  -- use {'chentoast/marks.nvim'}
   use {'matbme/JABS.nvim'}
 
 
@@ -113,7 +113,6 @@ require('packer').startup(function(use)
   use {'L3MON4D3/LuaSnip'}
   use {'saadparwaiz1/cmp_luasnip'}
   use {'rafamadriz/friendly-snippets'}
-  -- use {'smjonas/snippet-converter.nvim'} -- snippet converter
 
   -- === tmux ===
   use {'benmills/vimux'} -- tmux integration
@@ -136,5 +135,4 @@ require('packer').startup(function(use)
   use {'rmagatti/auto-session'}
 
   use {'renerocksai/telekasten.nvim'}
-  -- use {'renerocksai/calendar-vim'}
 end)
