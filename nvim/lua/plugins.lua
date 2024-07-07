@@ -91,6 +91,7 @@ require('packer').startup(function(use)
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
   use {'jay-babu/mason-nvim-dap.nvim'}
   use {'rcarriga/nvim-dap-ui'} -- UI for debug
+  use {'nvim-neotest/nvim-nio'}
   use {'theHamsta/nvim-dap-virtual-text'}
   use {'OmniSharp/omnisharp-vim'} -- csharp (run `:OmniSharpInstall`)
   use {'Hoffs/omnisharp-extended-lsp.nvim'} -- lib decompiler for C#

@@ -117,12 +117,13 @@ end
 local devtools_dir = home .. "/dev-tools/ide"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home .. '/workspace/' .. project_name
+local config
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 -- Dowload JDTLS at https://download.eclipse.org/jdtls/milestones/?d
-local config = {
+config = {
   cmd = {
     'java', -- or '/path/to/java17/bin/java'
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
