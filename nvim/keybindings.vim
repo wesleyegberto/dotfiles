@@ -45,6 +45,8 @@ vnoremap p "_dP
 vnoremap P "_dP`[
 " yank until end of line
 nnoremap Y y$
+" undo
+nnoremap D-z :undo
 " redo
 nnoremap U <C-r>
 

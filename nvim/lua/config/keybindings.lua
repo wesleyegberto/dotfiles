@@ -48,6 +48,8 @@ map('v', 'p', '"_dP', options) -- paste and stay at the end of selection
 map('v', 'P', '"_dP`[', options) -- paste and go to beginning of selection
 -- yank until end of line
 map('n', 'Y', 'y$', options)
+-- undo
+map('n', 'D-z', ':undo', options)
 -- redo
 map('n', 'U', '<C-r>', options)
 
