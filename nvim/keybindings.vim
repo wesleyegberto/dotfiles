@@ -47,6 +47,7 @@ vnoremap P "_dP`[
 nnoremap Y y$
 " undo
 nnoremap D-z :undo
+inoremap D-z :undo
 " redo
 nnoremap U <C-r>
 
