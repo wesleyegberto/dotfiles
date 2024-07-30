@@ -33,7 +33,7 @@ brew install wget tree
 brew install fd fzf the_silver_searcher ripgrep gnu-sed
 
 echo "\\n\\n === Automation tools ==="
-brew install --cask alfred
+# brew install --cask alfred
 brew install --cask raycast
 
 # window management
@@ -41,6 +41,11 @@ brew install koekeishiya/formulae/yabai # daemon for macOS 11+
 brew install rectangle
 # global key bindinds
 brew install koekeishiya/formulae/skhd
+
+# status bar
+brew tap FelixKratz/formulae
+brew install sketchybar
+brew install --cask font-hack-nerd-font
 
 echo "\\n\\n === Kitty & Tmux & Oh-My-Zsh ==="
 /bin/bash -c "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
@@ -213,18 +218,16 @@ brew install --cask dbeaver-community
 
 brew install --cask soapui
 
-echo "\\n\\n=== Cleaning up ==="
-brew cleanup cask
-
-echo "\\n\\n=== Starting Yabai and SKH ==="
+echo "\\n\\n=== Starting Yabai, SKH and Sketchybar ==="
 yabai --start-service
 brew services start yabai
 brew services restart yabai
 
-brew tap FelixKratz/formulae
-brew install borders
-brew services start borders
-
 skhd --start-service
 brew services start skhd
+
+brew services start sketchybar
+
+echo "\\n\\n=== Cleaning up ==="
+brew cleanup cask
 
