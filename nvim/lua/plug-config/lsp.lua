@@ -3,6 +3,7 @@ local map = vim.api.nvim_set_keymap
 
 local lspconfig = require('lspconfig')
 local lsp_actions_preview = require("actions-preview")
+local navbuddy = require("nvim-navbuddy")
 
 local home = os.getenv('HOME')
 
@@ -51,8 +52,9 @@ local function setup_keymaps()
   map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
   map('n', 'gR', '<cmd>Glance references<CR>', opts)
 
+  map('n', '<Leader>cfm', ':Navbuddy<CR>', opts)
+  map('n', '<Leader>cfs', ':Telescope lsp_document_symbols<CR>', opts)
   map('n', '<Leader>cft', ':Telescope lsp_dynamic_workspace_symbols<CR>', opts)
-  map('n', '<Leader>cfm', ':Telescope lsp_document_symbols<CR>', opts)
   map('n', '<Leader>cfi', ':Telescope lsp_incoming_calls<CR>', opts)
   map('n', '<Leader>cfo', ':Telescope lsp_outgoing_calls<CR>', opts)
 
@@ -177,6 +179,8 @@ local on_attach = function(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   require('lsp_signature').on_attach()
+
+  navbuddy.attach(client, bufnr)
 
   require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 end

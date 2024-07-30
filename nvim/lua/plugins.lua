@@ -76,7 +76,8 @@ require('packer').startup(function(use)
   use {'williamboman/mason-lspconfig.nvim'}
   use {'onsails/lspkind-nvim'}
   use {'ray-x/lsp_signature.nvim'} -- method signature
-  use {'VidocqH/lsp-lens.nvim'} -- show refernces
+  use {'VidocqH/lsp-lens.nvim'} -- show references
+  use {'SmiteshP/nvim-navbuddy', requires = { 'SmiteshP/nvim-navic', 'MunifTanjim/nui.nvim' } } -- document members popup
   use {'DNLHC/glance.nvim'} -- window preview
   use {'folke/trouble.nvim'} -- panel for diagnostics
   use {'artemave/workspace-diagnostics.nvim'}
