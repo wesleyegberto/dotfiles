@@ -41,7 +41,7 @@ sketchybar --add item logo left \
 
 
 # Space Indicators
-SPACE_ICONS=("" "" "󱓧" "4" "5")
+SPACE_ICONS=("" "" "󱓧" "󰚗" "")
 for i in "${!SPACE_ICONS[@]}"
 do
   # https://eastmanreference.com/complete-list-of-applescript-key-codes
