@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+POPUP_SCRIPT="sketchybar -m --set \$NAME popup.drawing=toggle"
+
 next() {
   osascript -e 'tell application "Spotify" to play next track'
 }
@@ -48,16 +50,18 @@ update() {
   args=()
   if [ $PLAYING -eq 0 ]; then
     if [ "$ARTIST" == "" ]; then
-      args+=(--set spotify.name label="$TRACK 󰠃 $ALBUM" drawing=on)
+      args+=(--set spotify.name label="$TRACK 󰠃 $ALBUM" label.drawing=on click_script="$POPUP_SCRIPT")
     else
-      args+=(--set spotify.name label="$TRACK 󰠃 $ARTIST" drawing=on)
+      args+=(--set spotify.name label="$TRACK 󰠃 $ARTIST" label.drawing=on click_script="$POPUP_SCRIPT")
     fi
+
     args+=(--set spotify.play icon=󰏤 \
            --set spotify.shuffle icon.highlight=$SHUFFLE \
            --set spotify.repeat icon.highlight=$REPEAT)
   else
-    args+=(--set spotify.name drawing=off \
-           --set spotify.name popup.drawing=off \
+    args+=(--set spotify.name label.drawing=off \
+                              popup.drawing=off \
+                              click_script="osascript -e 'tell application \"Spotify\" to playpause'" \
            --set spotify.play icon=)
   fi
   sketchybar -m "${args[@]}"

@@ -1,23 +1,23 @@
 #!/usr/bin/env sh
 
-SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
-POPUP_SCRIPT="sketchybar -m --set \$NAME popup.drawing=toggle"
-
-sketchybar -m --add    event           spotify_change $SPOTIFY_EVENT \
+sketchybar -m --add    event           spotify_change "com.spotify.client.PlaybackStateChanged" \
            --add       item            spotify.name right \
-           --set       spotify.name    click_script="$POPUP_SCRIPT" \
+           --set       spotify.name    icon="" \
+                                       icon.color=$LABEL_COLOR \
                                        label.color=$LABEL_COLOR \
-                                       icon.drawing=off \
+                                       label.drawing=off \
                                        background.color=$BACKGROUND_COLOR \
                                        popup.align=center \
                                        popup.horizontal=on \
-                                       popup.background.color=$BACKGROUND_COLOR \
+                                       popup.blur_radius=10 \
+                                       popup.height=25 \
                                        popup.background.border_width=2 \
                                        popup.background.border_color=$LABEL_COLOR \
+                                       popup.background.color=$BACKGROUND_COLOR \
                                        popup.background.corner_radius=5 \
-                                       popup.background.height=20 \
                                        popup.background.padding_left=4 \
                                        popup.background.padding_right=4 \
+                                       click_script="osascript -e 'tell application \"Spotify\" to playpause'" \
            \
            --add       item            spotify.back popup.spotify.name \
            --set       spotify.back    icon=󰒮 \
@@ -35,7 +35,6 @@ sketchybar -m --add    event           spotify_change $SPOTIFY_EVENT \
                                        icon.padding_left=5 \
                                        icon.padding_right=5 \
                                        icon.color=$LABEL_COLOR \
-                                       background.color=$BACKGROUND_COLOR \
                                        updates=on \
                                        label.drawing=off \
                                        script="$PLUGIN_DIR/spotify.sh" \
@@ -47,7 +46,6 @@ sketchybar -m --add    event           spotify_change $SPOTIFY_EVENT \
                                        icon.padding_left=5 \
                                        icon.padding_right=5 \
                                        icon.color=$LABEL_COLOR \
-                                       background.color=$BACKGROUND_COLOR \
                                        label.drawing=off \
                                        script="$PLUGIN_DIR/spotify.sh" \
            --subscribe spotify.next    mouse.clicked \
@@ -58,7 +56,6 @@ sketchybar -m --add    event           spotify_change $SPOTIFY_EVENT \
                                        icon.padding_left=5 \
                                        icon.padding_right=5 \
                                        icon.color=$LABEL_COLOR \
-                                       background.color=$BACKGROUND_COLOR \
                                        label.drawing=off \
                                        script="$PLUGIN_DIR/spotify.sh" \
            --subscribe spotify.shuffle mouse.clicked \
@@ -69,16 +66,7 @@ sketchybar -m --add    event           spotify_change $SPOTIFY_EVENT \
                                        icon.padding_left=5 \
                                        icon.padding_right=5 \
                                        icon.color=$LABEL_COLOR \
-                                       background.color=$BACKGROUND_COLOR \
                                        label.drawing=off \
                                        script="$PLUGIN_DIR/spotify.sh" \
-           --subscribe spotify.repeat  mouse.clicked \
-           \
-           --add item spotify right \
-           --set spotify \
-                 icon="" \
-                 label.drawing=off \
-                 icon.color=$LABEL_COLOR \
-                 background.color=$BACKGROUND_COLOR \
-                 click_script="osascript -e 'tell application \"Spotify\" to playpause'"
+           --subscribe spotify.repeat  mouse.clicked
 
