@@ -106,6 +106,9 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 
 echo "\\n\\n=== Finder options ==="
 
+echo "Disable animations"
+defaults write com.apple.finder DisableAllAnimations -bool true
+
 echo "Show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 

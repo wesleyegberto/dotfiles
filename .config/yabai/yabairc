@@ -1,16 +1,25 @@
-# doc: https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc
+# Doc: https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc
+# Restart: yabai --restart-service
+
 # default layout (can be bsp, stack or float)
-yabai -m config layout bsp
+yabai -m config layout stack
 
 # new window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child
 
 # padding set to 12px
-yabai -m config top_padding 50
+yabai -m config top_padding 10
 yabai -m config bottom_padding 10
 yabai -m config left_padding 10
 yabai -m config right_padding 10
 yabai -m config window_gap 10
+
+qty_screen=$(system_profiler SPDisplaysDataType | grep "Display Type" | wc -l | xargs echo)
+
+if [[ qty_screen -gt 1 ]]; then
+    yabai -m config --space 1 top_padding 47
+    yabai -m config --space 2 top_padding 47
+fi
 
 # === mouse settings ===
 # center mouse on window with focus
@@ -33,20 +42,21 @@ yabai -m config normal_window_border_color 0x00FFFFFF
 yabai -m config active_window_border_color 0x50ff8a65
 
 # === Spaces ===
-yabai -m space 1 --label 1_misc
-yabai -m space 2 --label 2_work
-yabai -m space 3 --label 3_code
+yabai -m space 1 --label misc
+yabai -m space 2 --label code
+yabai -m space 3 --label obsidian
 
 # Move spaces to correct displays
-yabai -m space 1_misc --display 1
-yabai -m space 2_work --display 1
-yabai -m space 3_code --display 2
+yabai -m space misc --display 1
+yabai -m space code --display 2
+yabai -m space obsidian --display 3
 
 # === rules ===
-yabai -m rule --add app="^kitty$" manage=on space=2_code
-yabai -m rule --add app="^Spotify$" manage=off space=1_misc
-yabai -m rule --add app="^Slack$" space=1_misc
-yabai -m rule --add app="Obsidian" space=3_work
+yabai -m rule --add app="^Spotify$" space=misc
+yabai -m rule --add app="^Slack$" space=misc
+yabai -m rule --add app="^kitty$" space=code
+yabai -m rule --add app="^Code$" space=code
+yabai -m rule --add app="Obsidian" space=obsidian
 
 # === disable specific apps ===
 yabai -m rule --add app="^System Settings$" manage=off
@@ -54,8 +64,8 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Raycast Settings$" manage=off
 yabai -m rule --add app="^TextEdit$" manage=off
 
+# === Sketchybar events ===
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change &> /dev/null"
 
-# yabai -m space --focus 1_misc
-# yabai -m space --focus 3_code
-
-
+# yabai -m space --focus misc

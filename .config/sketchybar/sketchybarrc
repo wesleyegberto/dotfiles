@@ -1,9 +1,9 @@
 # Icons: https://www.nerdfonts.com/cheat-sheet
+# chmod +x ~/.config/sketchybar/plugins/*.sh
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
-ITEM_DIR="$DOTFILES/.config/sketchybar/items"
 
-BACKGROUND_COLOR="0xff92B3F5"
+BACKGROUND_COLOR="0xff9013fe"
 LABEL_COLOR="0xff010101"
 
 ### Bar Appearance ###
@@ -41,33 +41,45 @@ sketchybar --add item logo left \
 
 
 # Space Indicators
-SPACE_ICONS=("1" "2" "3" "4" "5")
+SPACE_ICONS=("" "" "󱓧" "4" "5")
 for i in "${!SPACE_ICONS[@]}"
 do
+  # https://eastmanreference.com/complete-list-of-applescript-key-codes
+  key_code="$((18+$i))"
   sid="$(($i+1))"
+
   space=(
     space="$sid"
     icon="${SPACE_ICONS[i]}"
     icon.padding_left=7
     icon.padding_right=7
-    background.color=0x40ffffff
+    background.color=$BACKGROUND_COLOR
     background.corner_radius=5
-    background.height=25
     label.drawing=off
     script="$PLUGIN_DIR/space.sh"
-    click_script="yabai -m space --focus $sid"
+    click_script="osascript -e 'tell application \"System Events\" to key code $key_code using {control down, command down}'"
   )
-  sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
+  sketchybar --add space space."$sid" left \
+             --set space."$sid" "${space[@]}" \
+             --subscribe space_change
 done
 
-sketchybar --add item chevron left \
-           --set chevron icon= label.drawing=off \
-           --add item front_app left \
-           --set front_app icon.drawing=off \
-                 label.color=$LABEL_COLOR \
-                 background.color=$BACKGROUND_COLOR \
-                 script="$PLUGIN_DIR/front_app.sh" \
-           --subscribe front_app front_app_switched
+sketchybar -m --add item yabai_mode left \
+              --set yabai_mode update_freq=10 \
+                    script="$PLUGIN_DIR/yabai_mode.sh" \
+                    click_script="$PLUGIN_DIR/yabai_mode_click.sh" \
+              --subscribe yabai_mode space_change \
+              \
+              --add event window_focus \
+              --add event title_change \
+              --add item title left \
+              --set title \
+                    label.color=$LABEL_COLOR \
+                    label.padding_right=14 \
+                    background.color=$BACKGROUND_COLOR \
+                    script="$PLUGIN_DIR/window_title.sh" \
+              --subscribe title window_focus front_app_switched space_change title_change
+
 
 ### Adding Right Items ###
 
@@ -78,6 +90,8 @@ sketchybar --add item clock right \
                  background.color=$BACKGROUND_COLOR \
                  update_freq=30 \
                  script="$PLUGIN_DIR/clock.sh" \
+                 click_script="osascript -e 'tell app \"Calendar\" to activate'" \
+           \
            --add item battery right \
            --set battery update_freq=120 \
                  icon.color=$LABEL_COLOR \
@@ -85,15 +99,17 @@ sketchybar --add item clock right \
                  background.color=$BACKGROUND_COLOR \
                  script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change \
-           --add item spotify right \
-           --set spotify \
-                 icon="" \
+           \
+           --add item mic right \
+           --set mic update_freq=30 \
                  label.drawing=off \
                  icon.color=$LABEL_COLOR \
+                 label.color=$LABEL_COLOR \
                  background.color=$BACKGROUND_COLOR \
-                 click_script="osascript -e 'tell application \"Spotify\" to playpause'"
+                 script="$PLUGIN_DIR/mic.sh" \
+                 click_script="$PLUGIN_DIR/mic_click.sh"
 
-# source "$PLUGIN_DIR/spotify.sh"
+source "$PLUGIN_DIR/spotify_item.sh"
 
 ### Force all scripts to run the first time (never do this in a script) ###
 sketchybar --update
