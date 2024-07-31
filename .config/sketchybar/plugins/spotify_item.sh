@@ -80,6 +80,5 @@ sketchybar -m --add    event           spotify_change $SPOTIFY_EVENT \
                  label.drawing=off \
                  icon.color=$LABEL_COLOR \
                  background.color=$BACKGROUND_COLOR \
-                 script="$PLUGIN_DIR/spotify_item.sh" \
                  click_script="osascript -e 'tell application \"Spotify\" to playpause'"
 
