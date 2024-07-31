@@ -1,5 +1,6 @@
 # Icons: https://www.nerdfonts.com/cheat-sheet
 # chmod +x ~/.config/sketchybar/plugins/*.sh
+# sketchybar --reload
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 

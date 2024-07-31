@@ -54,7 +54,7 @@ ln -s $DOTFILES/.config/borders/borderssrc $HOME/.config/borders/borderssrc
 
 mkdir -p $HOME/.config/sketchybar/plugins
 ln -s $DOTFILES/.config/sketchybar/sketchybarrc $HOME/.config/sketchybar/sketchybarrc
-ln -s $DOTFILES/.config/sketchybar/plugins ~/.config/sketchybar/plugins
+ln -s $DOTFILES/.config/sketchybar/plugins ~/.config/sketchybar
 
 if [[ $(uname -s) = "Darwin" ]]; then
   sh ./os/macosx_setup/macos_setup_script.sh
