@@ -99,6 +99,9 @@ vim.cmd [[
 set diffopt+=linematch:60
 ]]
 
+vim.opt.titlestring = '%{expand("%:P")}'
+vim.opt.title = true
+
 -- #########################################################
 -- # Custom configuration
 -- #########################################################
@@ -125,6 +128,7 @@ let g:strip_whitespace_on_save=1
 vim.cmd [[
 filetype plugin indent on
 
+" autocmd BufRead,BufEnter * let &titlestring = expand("%:P")
 autocmd BufNewFile,BufRead *.cs set ft=csharp
 autocmd BufNewFile,BufRead *.cshtml set ft=html
 ]]

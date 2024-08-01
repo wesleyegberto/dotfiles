@@ -140,6 +140,8 @@ set updatetime=1000                                          " You will have bad
 set shortmess+=c                                             " don't give |ins-completion-menu| messages
 set signcolumn=yes                                           " always show signcolumns
 
+set titlestring="%{expand('%:P')}"
+set title
 
 if $TERM_PROGRAM =~# 'iTerm'
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -160,6 +162,8 @@ if has('nvim')
 endif
 
 filetype plugin indent on                                    " load identation by file type
+
+" autocmd BufEnter * let &titlestring = expand("%:P")
 autocmd BufNewFile,BufRead *.cs set ft=csharp
 autocmd BufNewFile,BufRead *.cshtml set ft=html
 
