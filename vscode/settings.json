@@ -13,6 +13,7 @@
   "extensions.ignoreRecommendations": true,
   "workbench.iconTheme": "material-icon-theme",
   "git.enableSmartCommit": true,
+  "scm.showHistoryGraph": false,
   "git.ignoreLegacyWarning": true,
   "java.errors.incompleteClasspath.severity": "ignore",
   "editor.fontFamily": "'Cascadia Code',' +Powerline+Awesome Regular','Fira Mono for Powerline'",
@@ -58,7 +59,6 @@
   "editor.fontLigatures": true,
   "terminal.external.osxExec": "kitty.app",
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.enableBell": true,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "workbench.fontAliasing": "auto",
   "vim.neovimPath": "/usr/local/bin/nvim",
@@ -532,7 +532,6 @@
   "workbench.editor.scrollToSwitchTabs": false,
   "editor.gotoLocation.alternativeImplementationCommand": "editor.action.goToReferences",
   "editor.autoClosingOvertype": "always",
-  "java.semanticHighlighting.enabled": true,
   "editor.smoothScrolling": true,
   "scm.diffDecorationsGutterWidth": 5,
   "git.supportCancellation": true,
@@ -657,7 +656,6 @@
   "dotnet-test-explorer.enableTelemetry": false,
   "workbench.preferredHighContrastColorTheme": "Gruvbox Dark (Hard)",
   "workbench.preferredDarkColorTheme": "Gruvbox Dark (Hard)",
-  "typescriptHero.imports.multiLineWrapThreshold": 120,
   "java.test.report.showAfterExecution": "always",
   "editor.formatOnSaveMode": "modifications",
   "editor.autoIndent": "brackets",
@@ -693,7 +691,7 @@
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 16,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "security.workspace.trust.enabled": false,
   "vim.smartRelativeLine": true,
   "terminal.integrated.inheritEnv": false,
@@ -832,6 +830,9 @@
     },
     "java:S1192": {
       "level": "off"
+    },
+    "csharpsquid:S6667": {
+      "level": "off"
     }
   },
   "java.completion.favoriteStaticMembers": [
@@ -850,7 +851,14 @@
     "org.mockito.Answers.*",
     "java.util.stream.Collectors"
   ],
-  "window.zoomLevel": -1,
   "codesnap.containerPadding": "5em",
-  "sonarlint.focusOnNewCode": true
+  "sonarlint.focusOnNewCode": true,
+  "window.zoomLevel": -1,
+  "accessibility.signals.terminalBell": {
+    "sound": "on"
+  },
+  "terminal.integrated.enableVisualBell": true,
+  "prettier.enable": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false
 }
