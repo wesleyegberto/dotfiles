@@ -38,6 +38,7 @@ brew install --cask raycast
 
 # window management
 brew install koekeishiya/formulae/yabai # daemon for macOS 11+
+brew install --cask nikitabobko/tap/aerospace@0.12.0 # tailing window like i3
 brew install rectangle
 # global key bindinds
 brew install koekeishiya/formulae/skhd

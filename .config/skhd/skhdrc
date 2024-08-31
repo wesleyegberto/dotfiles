@@ -2,8 +2,8 @@
 # /opt/homebrew/opt/yabai/share/yabai/examples/skhdrc
 
 # === Yabai service ===
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service
 ctrl + alt - r : yabai --restart-service
 
 

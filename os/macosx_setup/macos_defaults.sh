@@ -151,6 +151,9 @@ echo "Enable snap-to-grid for icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy name" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" ~/Library/Preferences/com.apple.finder.plist
 
+echo "Enable drag and drop with ctrl+cmd"
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
 
 echo "\\n\\n=== Dock options ==="
 
