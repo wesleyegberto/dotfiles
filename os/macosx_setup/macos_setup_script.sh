@@ -220,14 +220,14 @@ brew install --cask dbeaver-community
 brew install --cask soapui
 
 echo "\\n\\n=== Starting Yabai, SKH and Sketchybar ==="
-yabai --start-service
-brew services start yabai
-brew services restart yabai
+# yabai --start-service
+# brew services start yabai
+# brew services restart yabai
 
-skhd --start-service
-brew services start skhd
+# skhd --start-service
+# brew services start skhd
 
-brew services start sketchybar
+# brew services start sketchybar
 
 echo "\\n\\n=== Cleaning up ==="
 brew cleanup cask

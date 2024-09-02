@@ -109,6 +109,13 @@ sketchybar --add item clock right \
                  background.color=$BACKGROUND_COLOR \
                  script="$PLUGIN_DIR/mic.sh" \
                  click_script="$PLUGIN_DIR/mic_click.sh"
+           # --add item spotify right \
+           # --set spotify \
+           #       icon="" \
+           #       label.drawing=off \
+           #       icon.color=$LABEL_COLOR \
+           #       background.color=$BACKGROUND_COLOR \
+           #       click_script="osascript -e 'tell application \"Spotify\" to playpause'"
 
 source "$PLUGIN_DIR/spotify_item.sh"
 

@@ -1,10 +1,9 @@
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-
 after-login-command = []
 
 after-startup-command = []
 
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -30,7 +29,8 @@ key-mapping.preset = 'qwerty'
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
-outer.top = [{ monitor.'LG ULTRAWIDE' = 45}, 5]
+# outer.top = [{ monitor.'LG ULTRAWIDE' = 45 }, 5]
+outer.top = [{ monitor.'LG ULTRAWIDE' = 30 }, { monitor.'Built-in Retina Display' = 10 }, 5]
 outer.right =      5
 outer.bottom =     5
 outer.left =       5
@@ -80,7 +80,7 @@ cmd-alt-shift-j = 'move down'
 cmd-alt-shift-k = 'move up'
 cmd-alt-shift-l = 'move right'
 
-cmd-enter = 'fullscreen'
+cmd-alt-enter = 'fullscreen'
 
 cmd-alt-shift-minus = 'resize smart -50'
 cmd-alt-shift-equal = 'resize smart +50'
