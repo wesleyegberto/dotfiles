@@ -30,7 +30,8 @@ key-mapping.preset = 'qwerty'
 inner.horizontal = 5
 inner.vertical =   5
 # outer.top = [{ monitor.'LG ULTRAWIDE' = 45 }, 5]
-outer.top = [{ monitor.'LG ULTRAWIDE' = 30 }, { monitor.'Built-in Retina Display' = 10 }, 5]
+# outer.top = [{ monitor.'LG ULTRAWIDE' = 5 }, { monitor.'Built-in Retina Display' = 10 }, 5]
+outer.top =        5
 outer.right =      5
 outer.bottom =     5
 outer.left =       5
@@ -91,15 +92,15 @@ cmd-ctrl-alt-shift-k = ['join-with up', 'mode main']
 cmd-ctrl-alt-shift-l = ['join-with right', 'mode main']
 
 # === Workspaces ===
-cmd-alt-1 = 'workspace 1'
-cmd-alt-2 = 'workspace 2'
-cmd-alt-3 = 'workspace 3'
-cmd-alt-4 = 'workspace 4'
+cmd-ctrl-1 = 'workspace 1'
+cmd-ctrl-2 = 'workspace 2'
+cmd-ctrl-3 = 'workspace 3'
+cmd-ctrl-4 = 'workspace 4'
 
-cmd-alt-shift-1 = 'move-node-to-workspace 1'
-cmd-alt-shift-2 = 'move-node-to-workspace 2'
-cmd-alt-shift-3 = 'move-node-to-workspace 3'
-cmd-alt-shift-4 = 'move-node-to-workspace 4'
+cmd-ctrl-shift-1 = 'move-node-to-workspace 1'
+cmd-ctrl-shift-2 = 'move-node-to-workspace 2'
+cmd-ctrl-shift-3 = 'move-node-to-workspace 3'
+cmd-ctrl-shift-4 = 'move-node-to-workspace 4'
 
 # === Monitors ===
 cmd-ctrl-h = 'focus-monitor left'
