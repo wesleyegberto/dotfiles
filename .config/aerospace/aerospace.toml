@@ -97,10 +97,10 @@ cmd-ctrl-2 = 'workspace 2'
 cmd-ctrl-3 = 'workspace 3'
 cmd-ctrl-4 = 'workspace 4'
 
-cmd-ctrl-shift-1 = 'move-node-to-workspace 1'
-cmd-ctrl-shift-2 = 'move-node-to-workspace 2'
-cmd-ctrl-shift-3 = 'move-node-to-workspace 3'
-cmd-ctrl-shift-4 = 'move-node-to-workspace 4'
+cmd-alt-shift-1 = 'move-node-to-workspace 1'
+cmd-alt-shift-2 = 'move-node-to-workspace 2'
+cmd-alt-shift-3 = 'move-node-to-workspace 3'
+cmd-alt-shift-4 = 'move-node-to-workspace 4'
 
 # === Monitors ===
 cmd-ctrl-h = 'focus-monitor left'
