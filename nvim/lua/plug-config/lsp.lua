@@ -186,7 +186,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'pyright', 'omnisharp', 'tsserver', 'angularls', 'html', 'lua_ls' }
+local servers = { 'pyright', 'omnisharp', 'ts_ls', 'angularls', 'html', 'lua_ls' }
 
 mason_lsconfig.setup {
   ensure_installed = servers
@@ -201,7 +201,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 for _, lsp in ipairs(servers) do
-  if lsp ~= ('omnisharp' and 'tsserver') then
+  if lsp ~= ('omnisharp' and 'ts_ls') then
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
