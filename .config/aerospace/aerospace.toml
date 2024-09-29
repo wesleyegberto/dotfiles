@@ -1,7 +1,6 @@
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
-
-after-startup-command = []
+# after-login-command = []
+# after-startup-command = []
 
 start-at-login = true
 
@@ -19,13 +18,6 @@ key-mapping.preset = 'qwerty'
 
 # on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
-# Gaps between windows (inner-*) and between monitor edges (outer-*).
-# Possible values:
-# - Constant:     gaps.outer.top = 8
-# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
-#                 In this example, 24 is a default value when there is no match.
-#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
-#                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
@@ -42,6 +34,14 @@ r = ['flatten-workspace-tree', 'mode main']
 t = ['layout floating tiling', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
+[mode.resize.binding]
+h = 'resize width -50'
+l = 'resize width +50'
+j = 'resize height +50'
+k = 'resize height -50'
+enter = 'mode main'
+esc = 'mode main'
+
 [mode.main.binding]
 # All possible keys:
 # - Letters.        a, b, c, ..., z
@@ -53,8 +53,6 @@ backspace = ['close-all-windows-but-current', 'mode main']
 # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
 #                   keypadMinus, keypadMultiply, keypadPlus
 # - Arrows.         left, down, up, right
-
-# All possible modifiers: cmd, alt, ctrl, shift
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
@@ -125,6 +123,7 @@ cmd-ctrl-alt-o = 'exec-and-forget open -n /Applications/Obsidian.app/Contents/Ma
 
 # === Modes ===
 alt-shift-semicolon = 'mode service'
+alt-shift-r = 'mode resize'
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
@@ -148,4 +147,7 @@ run = 'move-node-to-workspace 2'
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 2'
 
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace 3'
 
