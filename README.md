@@ -25,8 +25,8 @@ My scripts and dotfiles for Zsh, Tmux, NeoVim, Git.
 ## My Setup
 
 * Bash: I'm using Kitty + Oh-My-Zsh + Tmux.
-* Fonts: Microsoft Cascadia Code with ligatures on iTerm2, VS Code, so on.
-* Windows manager: [Amethyst](https://ianyh.com/amethyst/).
+* Fonts: Microsoft Cascadia Code with ligatures on Kitty, Neovim, VS Code, so on.
+* Windows manager: [Aerospace](https://github.com/nikitabobko/AeroSpace).
 
 Aliases & Key mappings:
 
@@ -71,12 +71,6 @@ Copy the content of file `tmux/.tmux.conf` to `~/.tmux.conf`.
 Install NeoVim following [this steps](https://github.com/neovim/neovim/wiki/Installing-Neovim):
 `brew install neovim`
 
-**Neovim 0.4**
-
-For Neovim 0.4, see [this branch](https://github.com/wesleyegberto/dotfiles/tree/neovim-0.4).
-
-**Neovim 0.5+ with Lua**
-
 Install Packer plugin manager:
 
 `git clone https://github.com/wbthomason/packer.nvim "$HOME"/.local/share/nvim/site/pack/packer/start/packer.nvim`
@@ -85,7 +79,7 @@ Copy the content of file `init.lua` to `~/.config/nvim/init.lua`.
 
 Then install the plugins by running: `vim +PackerUpdate +qall`.
 
-##### Dependencies
+#### Dependencies
 
 * FZF:
   * `brew install fd fzf the_silver_searcher ripgrep`
@@ -102,8 +96,8 @@ Then install the plugins by running: `vim +PackerUpdate +qall`.
 
 ### NeoVim
 
-I'm using Neovim 0.9+ configured with Lua.
-NeoVim plugins installed is listed [here](nvim/.config/nvim/lua/plugins.lua).
+I'm using Neovim 0.10+ configured with Lua.
+NeoVim plugins installed is listed [here](nvim/lua/plugins.lua).
 
 ### VS Code
 
