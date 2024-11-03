@@ -310,7 +310,6 @@ C-b              " fuzzy finder for buffers
 <Leader>fgC      " find git commit in current buffer
 
 <Leader>fm       " find mark
-
 <Leader>ft       " find tag
 <Leader>fT       " find tag in current buffer
 
@@ -338,6 +337,11 @@ Buffer content:
 [I               " show all occurrences of current word
 
 <Leader>sf       " select tresitter node
+
+zm               " fold most inner open scope
+zM               " fold all scopes
+zr               " unfold most inner open scope
+zR               " unfold all scopes
 ```
 
 Harpoon:

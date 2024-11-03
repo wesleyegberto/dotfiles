@@ -98,7 +98,8 @@ wk.add({
 wk.add({
   { '<leader>f',   group = 'Telescope' },
   { '<leader>f_',  ':Telescope<CR>',                             desc = 'Open Telescope' },
-  { '<leader>f;',  ':Telescope commands<CR>',                    desc = 'Commands' },
+  { '<leader>f;',  ':Telescope commands<CR>',                    desc = 'Telescope Commands' },
+  { '<leader>fc',  ':lua require("toolbox").show_picker()<CR>',  desc = 'Toolbox Commands' },
   { '<leader>fvw', ':Windows<CR>',                               desc = 'View Window' },
   { '<leader>ff',  ':Telescope find_files<CR>',                  desc = 'File' },
   { '<leader>fF',  ':Telescope frecency<CR>',                    desc = 'Frequency' },

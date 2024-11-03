@@ -9,9 +9,8 @@ require('packer').startup(function(use)
 
   -- display keymaps available
   use {'folke/which-key.nvim'}
-  use {'FeiyouG/commander.nvim'}
 
-  use {'glepnir/galaxyline.nvim'}
+  use {'DanWlker/toolbox.nvim'}
 
   -- === file navigaton ===
   -- tree explorer
@@ -21,7 +20,6 @@ require('packer').startup(function(use)
   use {'voldikss/vim-floaterm'}
   use {'ThePrimeagen/harpoon'}
   use {'matbme/JABS.nvim'}
-
 
   use {'nvim-telescope/telescope.nvim'}
   use {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sor
@@ -36,6 +34,7 @@ require('packer').startup(function(use)
 
   -- === buffer navigation ===
   use {'famiu/bufdelete.nvim'}
+  use {'glepnir/galaxyline.nvim'}
 
   -- jump to any place in the buffer
   use {'phaazon/hop.nvim'}

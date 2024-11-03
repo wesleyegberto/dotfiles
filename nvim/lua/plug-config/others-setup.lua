@@ -34,10 +34,54 @@ require('spectre').setup()
 
 -- :ColorizerToggle
 require 'colorizer'.setup {
-  'css';
-  'html';
-  'javascript';
+  'css',
+  'html',
+  'javascript',
   lua = {
     names = false
   },
 }
+
+-- Commands
+require('toolbox').setup({
+  commands = {
+    {
+      name = 'Copy relative path to clipboard',
+      execute = function()
+        local path = vim.fn.expand '%'
+        vim.fn.setreg('+', path)
+      end,
+    },
+    {
+      name = 'Copy absolute path to clipboard',
+      execute = function()
+        local path = vim.fn.expand '%:p'
+        vim.fn.setreg('+', path)
+      end,
+    },
+    {
+      name = 'Copy Vim table to clipboard',
+      execute = function(v)
+        vim.fn.setreg('+', vim.inspect(v))
+      end,
+    },
+    {
+      name = 'Print Vim table',
+      execute = function(v)
+        print(vim.inspect(v))
+      end,
+    },
+    {
+      name = 'Format JSON',
+      execute = "%!jq '.'",
+    },
+    {
+      name = 'Reload plugin',
+      execute = function(name)
+        package.loaded[name] = nil
+        require(name).setup()
+      end,
+    },
+  },
+  config = true
+})
