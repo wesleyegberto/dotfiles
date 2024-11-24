@@ -43,26 +43,6 @@ enter = 'mode main'
 esc = 'mode main'
 
 [mode.main.binding]
-# All possible keys:
-# - Letters.        a, b, c, ..., z
-# - Numbers.        0, 1, 2, ..., 9
-# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-# - F-keys.         f1, f2, ..., f20
-# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon, backtick,
-#                   leftSquareBracket, rightSquareBracket, space, enter, esc, backspace, tab
-# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-#                   keypadMinus, keypadMultiply, keypadPlus
-# - Arrows.         left, down, up, right
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-# alt-enter = '''exec-and-forget osascript -e '
-# tell application "Terminal"
-#     do script
-#     activate
-# end tell'
-# '''
-
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
@@ -110,23 +90,19 @@ cmd-ctrl-shift-l = 'move-node-to-monitor right'
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# === Applications ===
-
-# Kitty
-cmd-ctrl-alt-t = 'exec-and-forget open -n /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~'
-# Brave
-cmd-ctrl-alt-b = 'exec-and-forget open -n /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser'
-# Arc
-cmd-ctrl-alt-a = 'exec-and-forget open -n /Applications/Arc.app/Contents/MacOS/Arc'
-# Obsidian
-cmd-ctrl-alt-o = 'exec-and-forget open -n /Applications/Obsidian.app/Contents/MacOS/Obsidian & exit'
-
 # === Modes ===
 alt-shift-semicolon = 'mode service'
 alt-shift-r = 'mode resize'
+alt-shift-enter = 'mode apps'
 
-# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-#s = ['layout sticky tiling', 'mode main']
+# === Applications ===
+[mode.apps.binding]
+alt-t = ['exec-and-forget open -n /Applications/kitty.app', 'mode main']
+alt-b = ['exec-and-forget open -n /Applications/Brave\ Browser.app', 'mode main']
+alt-a = ['exec-and-forget open -n /Applications/Arc.app', 'mode main']
+alt-o = ['exec-and-forget open -n /Applications/Obsidian.app', 'mode main']
+enter = 'mode main'
+esc = 'mode main'
 
 # === Move Apps ===
 
