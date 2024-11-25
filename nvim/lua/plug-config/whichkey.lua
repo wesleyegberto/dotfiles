@@ -187,7 +187,7 @@ wk.add({
   { '<leader>tj', ':FloatermNew java<CR>',            desc = 'jshell' },
   { '<leader>tn', ':FloatermNew node<CR>',            desc = 'node' },
   { '<leader>tN', ':FloatermNew lazynpm<CR>',         desc = 'lazynpm' },
-  { '<leader>tp', ':FloatermNew python<CR>',          desc = 'python' },
+  { '<leader>tp', ':FloatermNew python3<CR>',          desc = 'python' },
   { '<leader>tr', ':FloatermNew ranger<CR>',          desc = 'ranger' },
   { '<leader>th', ':FloatermNew htop<CR>',            desc = 'htop' },
   { '<leader>ty', ':FloatermNew ytop<CR>',            desc = 'ytop' },
