@@ -38,9 +38,7 @@ require('packer').startup(function(use)
 
   -- jump to any place in the buffer
   use {'phaazon/hop.nvim'}
-  -- plugin to facilitate navigation
-  use {'tpope/vim-unimpaired'}
-  -- plugin to facilitate navigation between surroundings ({}, (), if/endif, so on)
+  -- plugin to facilitate % navigation between surroundings ({}, (), if/endif, so on)
   use {'andymass/vim-matchup'}
 
   -- === editing ===
@@ -48,6 +46,8 @@ require('packer').startup(function(use)
   use {'nvim-pack/nvim-spectre'} -- search/replace
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
   use {'kylechui/nvim-surround'}
+  -- mappings for better editing and navigation with (), [], {}, "", '', functions, args so on
+  use {'echasnovski/mini.ai'}
   -- autoclose and actions to insert spaces or new line between {}, (), []
   use {'windwp/nvim-autopairs'}
   -- adds more text objects to be used as targets in motions
@@ -95,6 +95,7 @@ require('packer').startup(function(use)
   use {'theHamsta/nvim-dap-virtual-text'}
   use {'OmniSharp/omnisharp-vim'} -- csharp (run `:OmniSharpInstall`)
   use {'Hoffs/omnisharp-extended-lsp.nvim'} -- lib decompiler for C#
+  -- use {'MoaidHathot/dotnet.nvim'}
   use {'jose-elias-alvarez/typescript.nvim'} -- lib decompiler for TS
   use {'windwp/nvim-ts-autotag'} -- auto close tags
 
