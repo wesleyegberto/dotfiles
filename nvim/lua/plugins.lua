@@ -86,17 +86,22 @@ require('packer').startup(function(use)
 
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
-  -- use {'nvim-java/nvim-java'}
-  use {'mfussenegger/nvim-jdtls'} -- java
+  -- debugging
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
   use {'jay-babu/mason-nvim-dap.nvim'}
   use {'rcarriga/nvim-dap-ui'} -- UI for debug
   use {'nvim-neotest/nvim-nio'}
   use {'theHamsta/nvim-dap-virtual-text'}
+  -- java
+  -- use {'nvim-java/nvim-java'}
+  use {'mfussenegger/nvim-jdtls'} -- java
+  -- csharp
   use {'OmniSharp/omnisharp-vim'} -- csharp (run `:OmniSharpInstall`)
   use {'Hoffs/omnisharp-extended-lsp.nvim'} -- lib decompiler for C#
-  -- use {'MoaidHathot/dotnet.nvim'}
+  use {'GustavEikaas/easy-dotnet.nvim'}
+  -- typescript
   use {'jose-elias-alvarez/typescript.nvim'} -- lib decompiler for TS
+
   use {'windwp/nvim-ts-autotag'} -- auto close tags
 
   -- better syntax highlighter, textobjects and navigation using treesitter

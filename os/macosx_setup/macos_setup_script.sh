@@ -104,6 +104,7 @@ if test ! "$( command -v node )"; then
     brew install node
 fi
 npm install -g n
+npm install -g neovim
 
 echo "\\n\\n === Dev Utils ==="
 brew install autojump
@@ -122,7 +123,7 @@ brew install procs # modern `ps`
 brew install bench
 brew install graphviz
 brew install stern
-brew install oxide # z navigatornode -
+brew install oxide # z navigator -
 
 if [[ "$ARCH" == 'x86_64' ]]; then
     brew install --cask docker-toolbox
