@@ -53,4 +53,7 @@ local function run_action(option)
   run_command(command, option.text)
 end
 
-return { run_action, run_command }
+return {
+  run_action = run_action,
+  run_command = run_command
+}
