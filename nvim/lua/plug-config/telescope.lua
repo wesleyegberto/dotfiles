@@ -63,6 +63,7 @@ telescope.setup({
     },
   },
   extensions = {
+    fzf = {},
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {}
     },
@@ -85,28 +86,14 @@ telescope.setup({
         },
       }
     },
-    frecency = {
-      show_scores = false,
-      show_unindexed = false,
-      ignore_patterns = {
-        "*.git/*",
-        "*/tmp/*",
-        "*/node_modules/*",
-        "*/vendor/*",
-      },
-      -- workspaces = {
-      --   ["nvim"] = os.getenv("HOME_DIR") .. ".config/nvim",
-      --   ["dots"] = os.getenv("HOME_DIR") .. ".dotfiles",
-      --   ["project"] = os.getenv("PROJECT_DIR"),
-      -- },
-    },
   },
 })
 
-telescope.load_extension("frecency")
+telescope.load_extension("fzf")
 telescope.load_extension('ui-select')
 telescope.load_extension('harpoon')
 telescope.load_extension("advanced_git_search")
+telescope.load_extension('live_multigrep')
 
 easypick.setup({
   pickers = {

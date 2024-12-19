@@ -102,13 +102,13 @@ wk.add({
   { '<leader>fc',  ':lua require("toolbox").show_picker()<CR>',  desc = 'Toolbox Commands' },
   { '<leader>fvw', ':Windows<CR>',                               desc = 'View Window' },
   { '<leader>ff',  ':Telescope find_files<CR>',                  desc = 'File' },
-  { '<leader>fF',  ':Telescope frecency<CR>',                    desc = 'Frequency' },
   { '<leader>fb',  ':Telescope buffers<CR>',                     desc = 'Buffers' },
   { '<leader>fL',  ':Telescope current_buffer_fuzzy_find<CR>',   desc = 'Buffer line' },
   { '<leader>fm',  ':Telescope marks<CR>',                       desc = 'Marks' },
   { '<leader>ft',  ':Telescope tags<CR>',                        desc = 'Tags' },
   { '<leader>fT',  ':Telescope current_buffer_tags<CR>',         desc = 'Buffer tags' },
   { '<leader>fr',  ':Telescope live_grep<CR>',                   desc = 'With rg' },
+  { '<leader>fR',  ':Telescope live_multigrep<CR>',              desc = 'With rg and file' },
   { '<leader>fS',  ':Telescope session-lens search_session<CR>', desc = 'Sessions' },
   { '<leader>fX',  ':Telescope tmux sessions<CR>',               desc = 'Tmux sessions' },
   { '<leader>fw',  ':Telescope grep_string<CR>',                 desc = 'Word under cursor' },
@@ -122,6 +122,7 @@ wk.add({
   { '<leader>fgm', ':Easypick conflicts<CR>',                    desc = 'Git conflicts' },
   { '<leader>fgc', ':Telescope git_commits<CR>',                 desc = 'Commit' },
   { '<leader>fgC', ':Telescope git_bcommits<CR>',                desc = 'Buffer commit' },
+  { '<leader>fg/', ':AdvancedGitSearch<CR>',                     desc = 'Advanced Search' },
 })
 
 -- use `<CR>` to open file from current items

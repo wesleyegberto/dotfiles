@@ -22,8 +22,7 @@ require('packer').startup(function(use)
   use {'matbme/JABS.nvim'}
 
   use {'nvim-telescope/telescope.nvim'}
-  use {'nvim-telescope/telescope-fzf-native.nvim'} -- better performance to sor
-  use {'nvim-telescope/telescope-frecency.nvim', requires = { 'kkharji/sqlite.lua' }}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- better performance to search
   use {'nvim-telescope/telescope-ui-select.nvim'}
   use {'axkirillov/easypick.nvim'} -- to create pickers from terminal command
 
