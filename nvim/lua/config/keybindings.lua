@@ -11,6 +11,10 @@ vim.g.mapleader = ' '
 local options = { noremap = true }
 local silentOptions = { noremap = true, silent=true }
 
+map('n', '<Space><Space>x', '<cmd>source %<CR>', options)
+map('n', '<Space>x', ':.lua<CR>', options)
+map('v', '<Space>x', ':lua<CR>', options)
+
 -- save buffer
 map('n', '<D-s>', ':w<CR>', options)
 map('n', '<C-s>', ':w<CR>', options)
@@ -115,19 +119,19 @@ map('c', '<C-e>', '<End>', options)
 
 -- in macOS: ∆ is <M-j>; ˚ is <M-k>; Ô is <M-J>;  is <M-K>; Ó is <M-H>; Ò is <M-L>
 -- if has('osx')
-  -- <M-j> and <M-k> to move line up and down
-  map('n', '∆', ':m .+1<CR>==', silentOptions)
-  map('n', '˚', ':m .-2<CR>==', silentOptions)
-  map('i', '∆', '<Esc>:m .+1<CR>==gi', silentOptions)
-  map('i', '˚', '<Esc>:m .-2<CR>==gi', silentOptions)
-  map('v', '∆', ':m \'>+1<CR>gv=gv', silentOptions)
-  map('v', '˚', ':m \'<-2<CR>gv=gv', silentOptions)
+-- <M-j> and <M-k> to move line up and down
+map('n', '∆', ':m .+1<CR>==', silentOptions)
+map('n', '˚', ':m .-2<CR>==', silentOptions)
+map('i', '∆', '<Esc>:m .+1<CR>==gi', silentOptions)
+map('i', '˚', '<Esc>:m .-2<CR>==gi', silentOptions)
+map('v', '∆', ':m \'>+1<CR>gv=gv', silentOptions)
+map('v', '˚', ':m \'<-2<CR>gv=gv', silentOptions)
 
-  -- Use alt + hjkl to resize windows
-  -- map('n', 'Ô', ':resize -5<CR>', silentOptions)
-  -- map('n', '', ':resize +5<CR>', silentOptions)
-  -- map('n', 'Ó', ':vertical resize -5<CR>', silentOptions)
-  -- map('n', 'Ò', ':vertical resize +5<CR>', silentOptions)
+-- Use alt + hjkl to resize windows
+-- map('n', 'Ô', ':resize -5<CR>', silentOptions)
+-- map('n', '', ':resize +5<CR>', silentOptions)
+-- map('n', 'Ó', ':vertical resize -5<CR>', silentOptions)
+-- map('n', 'Ò', ':vertical resize +5<CR>', silentOptions)
 
 -- else
 --   -- <M-j> and <M-k> to move line up and down
@@ -150,14 +154,6 @@ map('c', '<C-e>', '<End>', options)
 -- #########################################################
 -- # Plugins configuration
 -- #########################################################
-
-
--- === tpope/vim-unimpaired === {{{
-map('n', '<M-Up>', '<Plug>unimpairedMoveUp', options)
-map('n', '<M-Down>', '<Plug>unimpairedMoveDown', options)
--- }}}
-
-
 -- === nvim-lua/telescope === {{{
 map('n', '<C-p>', ':Telescope find_files<CR>', silentOptions)
 -- }}}

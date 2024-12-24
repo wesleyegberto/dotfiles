@@ -41,7 +41,7 @@ require('packer').startup(function(use)
   use {'andymass/vim-matchup'}
 
   -- === editing ===
-  use {'Darazaki/indent-o-matic'} -- detect indentatio
+  use {'Darazaki/indent-o-matic'} -- detect indentation
   use {'nvim-pack/nvim-spectre'} -- search/replace
   -- mappings to easily delete, change and add such surroundings in {}, (), [], "", ''
   use {'kylechui/nvim-surround'}
@@ -105,8 +105,8 @@ require('packer').startup(function(use)
 
   -- better syntax highlighter, textobjects and navigation using treesitter
   use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end} -- fix highlight error
+  -- new motions: af, if, ac, ic, as, is
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
-  use {'ziontee113/syntax-tree-surfer'}
   -- region selection using treesitter and hop
   use {'mfussenegger/nvim-treehopper'}
   use {'ThePrimeagen/refactoring.nvim'}
