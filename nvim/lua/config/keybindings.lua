@@ -11,10 +11,6 @@ vim.g.mapleader = ' '
 local options = { noremap = true }
 local silentOptions = { noremap = true, silent=true }
 
-map('n', '<Space><Space>x', '<cmd>source %<CR>', options)
-map('n', '<Space>x', ':.lua<CR>', options)
-map('v', '<Space>x', ':lua<CR>', options)
-
 -- save buffer
 map('n', '<D-s>', ':w<CR>', options)
 map('n', '<C-s>', ':w<CR>', options)
