@@ -10,4 +10,5 @@ nnoremap <silent> <Leader>pm  :Telescope langtools picker<CR>
 nnoremap <silent> <Leader>pb  :Telescope langtools build<CR>
 nnoremap <silent> <Leader>pta :Telescope langtools test<CR>
 nnoremap <silent> <Leader>ptf :Telescope langtools test_file<CR>
+nnoremap <silent> <Leader>ptl :Telescope langtools test_last_file<CR>
 

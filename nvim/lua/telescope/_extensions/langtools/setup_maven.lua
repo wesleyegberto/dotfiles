@@ -1,13 +1,17 @@
 local pickers = require('telescope._extensions.langtools.action_picker')
 local custom_actions = require('telescope._extensions.langtools.custom_actions')
 
+local last_file = ''
+
 local function create_test_current_file_args()
   local bufname = vim.fn.bufname()
   bufname:gsub("(/src/test/java)|(.java)", "")
   bufname, _ = bufname:gsub("(src/test/java/)", "")
   bufname, _ = bufname:gsub("(.java)", "")
   bufname, _ = bufname:gsub("(/)", ".")
-  return bufname
+
+  last_file = bufname
+  return last_file
 end
 
 local maven_actions = {
@@ -15,7 +19,8 @@ local maven_actions = {
   { action = 'mvn compile',      text = 'Build' },
   { action = 'mvn package',      text = 'Package' },
   { action = 'mvn test',         text = 'Test' },
-  { action = 'mvn test -Dtest=', text = 'Test_Current_File', format_args = create_test_current_file_args }
+  { action = 'mvn test -Dtest=', text = 'Test_Current_File', format_args = create_test_current_file_args },
+  { action = 'mvn test -Dtest=', text = 'Test_Last_File', format_args = function() return last_file end }
 }
 
 local M = {
@@ -25,6 +30,7 @@ local M = {
   package = function() custom_actions.run_action(maven_actions[3]) end,
   test = function() custom_actions.run_action(maven_actions[4]) end,
   test_file = function() custom_actions.run_action(maven_actions[5]) end,
+  test_last_file = function() custom_actions.run_action(maven_actions[6]) end,
 }
 
 return M

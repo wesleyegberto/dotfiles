@@ -26,6 +26,7 @@ local function setup_keymaps()
   map('n', '<Leader>pp', ':Telescope langtools package<CR>', opts)
   map('n', '<Leader>pta', ':Telescope langtools test<CR>', opts)
   map('n', '<Leader>ptf', ':Telescope langtools test_file<CR>', opts)
+  map('n', '<Leader>ptl', ':Telescope langtools test_last_file<CR>', opts)
 
   -- source
   map('n', '<Leader>cso', '<cmd>lua require"jdtls".organize_imports()<CR>', opts)
