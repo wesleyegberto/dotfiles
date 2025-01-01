@@ -34,6 +34,10 @@ local function setup(config)
   elseif LangTools.config.language == 'node' then
     local node_options = require('telescope._extensions.langtools.setup_node')
     copy_attr_to_module(node_options)
+
+  elseif LangTools.config.language == 'python' then
+    local node_options = require('telescope._extensions.langtools.setup_python')
+    copy_attr_to_module(node_options)
   end
 end
 
