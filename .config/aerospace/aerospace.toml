@@ -16,7 +16,7 @@ default-root-container-orientation = 'horizontal'
 
 key-mapping.preset = 'qwerty'
 
-# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [gaps]
 inner.horizontal = 5
