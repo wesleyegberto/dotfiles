@@ -11,7 +11,6 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 30
 
 default-root-container-layout = 'tiles'
-
 default-root-container-orientation = 'horizontal'
 
 key-mapping.preset = 'qwerty'
@@ -21,8 +20,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
-# outer.top = [{ monitor.'LG ULTRAWIDE' = 45 }, 5]
-# outer.top = [{ monitor.'LG ULTRAWIDE' = 5 }, { monitor.'Built-in Retina Display' = 10 }, 5]
 outer.top =        5
 outer.right =      5
 outer.bottom =     5
@@ -45,6 +42,17 @@ esc = 'mode main'
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
+
+# === Monitors ===
+cmd-ctrl-h = 'focus-monitor prev'
+cmd-ctrl-l = 'focus-monitor next'
+cmd-ctrl-left = 'focus-monitor prev'
+cmd-ctrl-right = 'focus-monitor next'
+
+cmd-ctrl-shift-h = 'move-node-to-monitor prev'
+cmd-ctrl-shift-l = 'move-node-to-monitor next'
+cmd-ctrl-shift-left = 'move-node-to-monitor prev'
+cmd-ctrl-shift-right = 'move-node-to-monitor next'
 
 # === Windows ===
 cmd-alt-t = 'layout floating tiling'
@@ -69,30 +77,20 @@ cmd-ctrl-alt-shift-j = ['join-with down', 'mode main']
 cmd-ctrl-alt-shift-k = ['join-with up', 'mode main']
 cmd-ctrl-alt-shift-l = ['join-with right', 'mode main']
 
+alt-tab = 'focus-back-and-forth'
+
 # === Workspaces ===
 cmd-ctrl-1 = 'workspace 1'
 cmd-ctrl-2 = 'workspace 2'
 cmd-ctrl-3 = 'workspace 3'
 cmd-ctrl-4 = 'workspace 4'
 
+cmd-ctrl-tab = 'workspace-back-and-forth'
+
 cmd-alt-shift-1 = 'move-node-to-workspace 1'
 cmd-alt-shift-2 = 'move-node-to-workspace 2'
 cmd-alt-shift-3 = 'move-node-to-workspace 3'
 cmd-alt-shift-4 = 'move-node-to-workspace 4'
-
-# === Monitors ===
-cmd-ctrl-h = 'focus-monitor prev'
-cmd-ctrl-l = 'focus-monitor next'
-cmd-ctrl-left = 'focus-monitor prev'
-cmd-ctrl-right = 'focus-monitor next'
-
-cmd-ctrl-shift-h = 'move-node-to-monitor prev'
-cmd-ctrl-shift-l = 'move-node-to-monitor next'
-cmd-ctrl-shift-left = 'move-node-to-monitor prev'
-cmd-ctrl-shift-right = 'move-node-to-monitor next'
-
-alt-tab = 'workspace-back-and-forth'
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # === Modes ===
 alt-shift-semicolon = 'mode service'
@@ -109,8 +107,6 @@ enter = 'mode main'
 esc = 'mode main'
 
 # === Move Apps ===
-
-# Show IDs: aerospace list-apps
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 1'
