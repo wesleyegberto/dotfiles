@@ -1,4 +1,4 @@
-# Doc: https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc
+Doc: https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc
 # Restart: yabai --restart-service
 
 # default layout (can be bsp, stack or float)

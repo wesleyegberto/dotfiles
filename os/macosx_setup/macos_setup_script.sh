@@ -37,16 +37,10 @@ echo "\\n\\n === Automation tools ==="
 brew install --cask raycast
 
 # window management
-brew install koekeishiya/formulae/yabai # daemon for macOS 11+
 brew install --cask nikitabobko/tap/aerospace@0.12.0 # tailing window like i3
 brew install rectangle
 # global key bindinds
-brew install koekeishiya/formulae/skhd
-
-# status bar
-brew tap FelixKratz/formulae
-brew install sketchybar
-brew install --cask font-hack-nerd-font
+# brew install koekeishiya/formulae/skhd
 
 echo "\\n\\n === Kitty & Tmux & Oh-My-Zsh ==="
 /bin/bash -c "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
@@ -220,15 +214,9 @@ brew install --cask dbeaver-community
 
 brew install --cask soapui
 
-echo "\\n\\n=== Starting Yabai, SKH and Sketchybar ==="
-# yabai --start-service
-# brew services start yabai
-# brew services restart yabai
-
+# echo "\\n\\n=== Starting SKHD ==="
 # skhd --start-service
 # brew services start skhd
-
-# brew services start sketchybar
 
 echo "\\n\\n=== Cleaning up ==="
 brew cleanup cask

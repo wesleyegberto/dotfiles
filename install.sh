@@ -44,16 +44,9 @@ ln -s $DOTFILES/nvim/keybindings.vim $HOME/.config/nvim/keybindings.vim
 ln -s $DOTFILES/init.lua $HOME/.config/nvim/init.lua
 ln -s $DOTFILES/vscode.vimrc $HOME/vscode.vimrc
 
-echo "Copying Aerospace, Yabai, Skhd and Sketchybar"
+echo "Copying Aerospace"
 mkdir -p $HOME/.config/aerospace
 ln -s $DOTFILES/.config/aerospace/aerospace.toml $HOME/.config/aerospace/aerospace.toml
-mkdir -p $HOME/.config/yabai
-ln -s $DOTFILES/.config/yabai/yabairc $HOME/.config/yabai/yabairc
-mkdir -p $HOME/.config/skhd
-ln -s $DOTFILES/.config/skhd/skhdrc $HOME/.config/skhd/skhdrc
-mkdir -p $HOME/.config/sketchybar/plugins
-ln -s $DOTFILES/.config/sketchybar/sketchybarrc $HOME/.config/sketchybar/sketchybarrc
-ln -s $DOTFILES/.config/sketchybar/plugins ~/.config/sketchybar
 
 if [[ $(uname -s) = "Darwin" ]]; then
   sh ./os/macosx_setup/macos_setup_script.sh
