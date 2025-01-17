@@ -11,9 +11,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export EDITOR="vim"
-export KUBE_EDITOR="vim"
-export MANPAGER='nvim +Man!'
+export EDITOR="nvim --clean"
+export KUBE_EDITOR="nvim --clean"
+# export MANPAGER='nvim +Man!'
 
 export TERM="xterm-256color"
 # export TERM="xterm-kitty"
