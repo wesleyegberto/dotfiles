@@ -163,11 +163,11 @@ config = {
         runtimes = {
           {
             name = 'JavaSE-11',
-            path = '/Users/wesley/.jabba/jdk/microsoft@11.0/Contents/Home'
+            path = home .. '/.jabba/jdk/microsoft@11.0/Contents/Home'
           },
           {
             name = 'JavaSE-17',
-            path = '/Users/wesley/.jabba/jdk/openjdk@17.0.2/Contents/Home'
+            path = home .. '/.jabba/jdk/openjdk@17.0.2/Contents/Home'
           }
         }
       }
