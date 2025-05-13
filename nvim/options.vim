@@ -125,6 +125,7 @@ set wildignore+=*/tmp/*,*.o,*.obj,*.so
 
 " Highlight the content to replace before doing it without spliting
 " set inccommand=nosplit
+" set winborder=rounded
 
 " Note that neovim does not support `popuphidden` or `popup` yet:
 " https://github.com/neovim/neovim/issues/10996

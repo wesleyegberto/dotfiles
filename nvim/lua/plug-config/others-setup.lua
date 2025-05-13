@@ -1,3 +1,5 @@
+require('harpoon'):setup()
+
 require('bqf').setup()
 
 require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }

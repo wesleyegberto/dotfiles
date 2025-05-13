@@ -16,7 +16,7 @@ require('mason').setup({
       package_installed = "✅",
       package_pending = "⏳",
       package_uninstalled = "☑️"
-    }
+    },
   }
 })
 
@@ -151,7 +151,9 @@ local function init_lsp_tools()
     },
     max_height = 15,
     max_width = 120,
-    timer_interval = 100
+    timer_interval = 100,
+    hint_enable = true,
+    hint_prefix = " ",
   })
 
   require('trouble').setup()

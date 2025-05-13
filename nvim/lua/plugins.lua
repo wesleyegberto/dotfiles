@@ -18,7 +18,7 @@ require('packer').startup(function(use)
   use {'kyazdani42/nvim-tree.lua'}
 
   use {'voldikss/vim-floaterm'}
-  use {'ThePrimeagen/harpoon'}
+  use {'ThePrimeagen/harpoon', branch = 'harpoon2'}
   use {'matbme/JABS.nvim'}
 
   use {'nvim-telescope/telescope.nvim'}
@@ -84,6 +84,8 @@ require('packer').startup(function(use)
   use {'aznhe21/actions-preview.nvim'}
 
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
+
+  use {'github/copilot.vim'}
 
   -- debugging
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)

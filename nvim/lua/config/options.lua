@@ -89,6 +89,7 @@ vim.o.wildignore = vim.o.wildignore .. '*/tmp/*,*.o,*.obj,*.so'
 
 -- Highlight the content to replace before doing it without spliting
 -- vim.o.inccommand = 'nosplit'
+-- vim.o.winborder = 'rounded'
 
 -- You will likely want to reduce updatetime which affects CursorHold (note: this setting is global and should be set only once)
 vim.o.updatetime = 1000                                      -- You will have bad experience for diagnostic messages when it's default 4000

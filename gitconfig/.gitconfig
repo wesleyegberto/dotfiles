@@ -17,7 +17,6 @@
     sta = status -su
     fa = fetch --all
 
-    lg = log --decorate --graph --pretty=format:\"%Cgreen%h%Creset %s %Cblue(%an)%Creset\"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     changelog = log --pretty=format:\" * %s\"
     sg = diff --staged
@@ -30,7 +29,8 @@
     la = "!git config -l | grep alias | cut -c 7-"
 
     # log graph
-    l = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    l = log --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
     # show what I did yesterday
     yesterday = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 00:00AM\"  --before=\"today 00:00AM\" --author=\"`git config --get user.name`\"'"

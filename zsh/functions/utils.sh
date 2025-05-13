@@ -21,3 +21,10 @@ rss() {
     RSS=`bc <<< "scale=1; ${RSS}/1024"`
     echo "RSS memory (PID: ${PID}): ${RSS}M"
 }
+
+# Usage: `random_password 12`
+random_password() {
+  LENGTH="${1:-8}"
+  LC_ALL=C tr -dc 'A-Za-z0-9' < /dev/urandom | head -c "${LENGTH}"
+}
+
