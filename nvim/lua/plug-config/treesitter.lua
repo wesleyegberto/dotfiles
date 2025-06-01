@@ -3,7 +3,7 @@ require('nvim-treesitter.configs').setup({
     ensure_installed = { 'java', 'python', 'c_sharp', 'typescript', 'javascript', 'lua', 'html', 'markdown', 'markdown_inline' },
     highlight = {
         enable = true,
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.;
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
@@ -24,6 +24,34 @@ require('nvim-treesitter.configs').setup({
     },
     -- nvim-treesitter/nvim-treesitter-textobjects
     textobjects = {
+        move = {
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+                [']]'] = '@element',
+                [']f'] = '@function.outer',
+                ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+                ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+            },
+            goto_next_end = {
+                [']['] = '@element',
+                [']F'] = '@function.outer',
+                ["]S"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+                ["]Z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+            },
+            goto_previous_start = {
+                ['[['] = '@element',
+                ['[f'] = '@function.outer',
+                ["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+                ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
+            },
+            goto_previous_end = {
+                ['[]'] = '@element',
+                ['[F'] = '@function.outer',
+                ["[S"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+                ["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
+            },
+        },
         select = {
             enable = true,
             -- Automatically jump forward to textobj, similar to targets.vim
@@ -44,55 +72,19 @@ require('nvim-treesitter.configs').setup({
                 ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
                 ['aa'] = '@parameter.outer',
                 ['ia'] = '@parameter.inner',
-
-                -- Or you can define your own textobjects like this
-                -- ["iF"] = {
-                --     python = "(function_definition) @function",
-                --     cpp = "(function_definition) @function",
-                --     c = "(function_definition) @function",
-                --     java = "(method_declaration) @function",
-                -- },
             },
         },
         swap = {
             enable = true,
             swap_next = {
-                ['<leader><M-a>'] = '@parameter.inner',
-                ['<leader><M-f>'] = '@function.outer',
-                ['<leader><M-e>'] = '@element',
+                ['<leader>csa'] = '@parameter.inner',
+                ['<leader>csf'] = '@function.outer',
+                ['<leader>cse'] = '@element',
             },
             swap_previous = {
-                ['<leader><M-A>'] = '@parameter.inner',
-                ['<leader><M-F>'] = '@function.outer',
-                ['<leader><M-E>'] = '@element',
-            },
-        },
-        move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-                [']f'] = '@function.outer',
-                [']]'] = '@class.outer',
-                ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
-                ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
-            },
-            goto_next_end = {
-                [']F'] = '@function.outer',
-                [']['] = '@class.outer',
-                ["]S"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
-                ["]Z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
-            },
-            goto_previous_start = {
-                ['[f'] = '@function.outer',
-                ['[['] = '@class.outer',
-                ["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
-                ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
-            },
-            goto_previous_end = {
-                ['[F'] = '@function.outer',
-                ['[]'] = '@class.outer',
-                ["[S"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
-                ["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
+                ['<leader>csA'] = '@parameter.inner',
+                ['<leader>csF'] = '@function.outer',
+                ['<leader>csE'] = '@element',
             },
         },
     },
@@ -117,7 +109,7 @@ require('nvim-treesitter.configs').setup({
 })
 
 local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
--- vim way: ; goes to the direction you were moving.
+-- vim way: ; goes to the direction you were moving
 vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
 vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
@@ -130,8 +122,8 @@ vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 local opts = { noremap = true, silent=true }
 
 -- select Treesitter node
-vim.api.nvim_set_keymap('n', '<Leader>sf', ':lua require("tsht").nodes()<CR>', opts)
-vim.api.nvim_set_keymap('v', '<Leader>sf', ':lua require("tsht").nodes()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader><Leader>fn', ':lua require("tsht").nodes()<CR>', opts)
+vim.api.nvim_set_keymap('v', '<Leader><Leader>fn', ':lua require("tsht").nodes()<CR>', opts)
 
 -- code folding
 require('ufo').setup({

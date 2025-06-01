@@ -320,6 +320,14 @@
       "before": ["<leader>", "g", "d", "c"],
       "commands": ["workbench.action.closeActiveEditor"]
     },
+    {
+      "before": ["<leader>", "g", "h", "s"],
+      "commands": ["git.stageSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "h", "p"],
+      "commands": ["gitlens.diffLineWithPrevious"]
+    },
 
     // diagnostic navigation
     {
@@ -654,6 +662,8 @@
   "markdown.replaceSmartQuotes": true,
   "code-runner.enableAppInsights": false,
   "dotnet-test-explorer.enableTelemetry": false,
+  "dotnet.formatting.organizeImportsOnFormat": true,
+  "dotnet.server.useOmnisharp": true,
   "workbench.preferredHighContrastColorTheme": "Gruvbox Dark (Hard)",
   "workbench.preferredDarkColorTheme": "Gruvbox Dark (Hard)",
   "java.test.report.showAfterExecution": "always",
@@ -716,6 +726,10 @@
     {
       "name": "JavaSE-17",
       "path": "/Users/wesley/.jabba/jdk/openjdk@17.0.2/Contents/Home"
+    },
+    {
+      "name": "JavaSE-21",
+      "path": "/Users/wesley/.jabba/jdk/openjdk@21/Contents/Home"
     }
   ],
   "markdown-preview-enhanced.previewTheme": "github-light.css",
@@ -803,7 +817,6 @@
   },
   "csharp.suppressDotnetInstallWarning": true,
   "csharp.format.enable": true,
-  "dotnet.server.useOmnisharp": true,
   "omnisharp.dotNetCliPaths": [
     "$HOME/.dotnet/"
   ],
@@ -860,5 +873,12 @@
   "terminal.integrated.enableVisualBell": true,
   "prettier.enable": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "editor.unicodeHighlight.ambiguousCharacters": false
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "typescript.check.npmIsInstalled": false,
+  "npm.autoDetect": "off",
+  "hexeditor.columnWidth": 16,
+  "hexeditor.showDecodedText": true,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside",
+  "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit"
 }

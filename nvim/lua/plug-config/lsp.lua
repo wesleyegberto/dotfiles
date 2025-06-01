@@ -23,9 +23,14 @@ require('mason').setup({
 local mason_lsconfig = require('mason-lspconfig')
 mason_lsconfig.setup()
 
-local function setup_keymaps()
-  local opts = { noremap = true }
+local opts = { noremap = true }
+map('n', '<leader>ls', ':LspStart<CR>', opts)
+map('n', '<leader>lS', ':LspStop<CR>', opts)
+map('n', '<leader>ll', ':LspLog<CR>', opts)
+map('n', '<leader>li', ':LspInfo<CR>', opts)
+map('n', '<leader>lp', ':Mason<CR>', opts)
 
+local function setup_keymaps()
   vim.cmd [[
     augroup lsp_document_highlight
         autocmd! * <buffer>
@@ -34,12 +39,6 @@ local function setup_keymaps()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
     augroup END
   ]]
-
-  map('n', '<leader>ls', ':LspStart<CR>', opts)
-  map('n', '<leader>lS', ':LspStop<CR>', opts)
-  map('n', '<leader>ll', ':LspLog<CR>', opts)
-  map('n', '<leader>li', ':LspInfo<CR>', opts)
-  map('n', '<leader>lp', ':Mason<CR>', opts)
 
   map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
@@ -224,6 +223,7 @@ require("typescript").setup({
 
 local pid = vim.fn.getpid()
 lspconfig['omnisharp'].setup {
+  -- download omnisharp-osx.tar.gz from https://github.com/OmniSharp/omnisharp-roslyn/releases
   cmd = { home .. '/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) },
   on_attach = on_attach,
   flags = capabilities,

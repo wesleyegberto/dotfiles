@@ -42,6 +42,7 @@ map('n', '<Leader>bk', ':bw<CR>', silentOptions)
 map('n', ';', 'm`A;<Esc>``', silentOptions)
 -- delete without copy
 map('n', 'dD', '"_dd', silentOptions)
+map('v', 'dD', '"_d', silentOptions)
 
 -- paste over selection without yank it:
 map('v', 'p', '"_dP', options) -- paste and stay at the end of selection

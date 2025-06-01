@@ -488,6 +488,11 @@
         "when": "!inEditorsPicker && !inQuickOpen"
     },
     {
+        "key": "ctrl+m",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "!inEditorsPicker && !inQuickOpen"
+    },
+    {
         "key": "ctrl+cmd+p",
         "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
     },

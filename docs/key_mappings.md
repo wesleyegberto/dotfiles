@@ -384,6 +384,45 @@ L                " mapped to $
 ])               " go to enclosing )
 ```
 
+#### Git changes navigation
+
+```
+[c               " go to previous git change
+]c               " go to next git change
+```
+
+#### Diagnostic navigation
+
+```
+[g               " navigate to previous diagnostic (coc-vim)
+]g               " navigate to next diagnostic (coc-vim)
+[l               " navigate to previous diagnostic (syntastic)
+]l               " navigate to next diagnostic (syntastic)
+```
+
+#### Treesitter
+
+```
+]]               " go to next element
+[[               " go to previous element
+]f               " go to next function
+[f               " go to previous function
+]s               " go to next scope
+[s               " go to previous scope
+]z               " go to next fold
+[z               " go to previous fold
+```
+
+### Editing
+
+```
+<M-Up>           " move current line above
+<M-Down>         " move current line bellow
+
+[<Space>         " add blankline before current line
+]<Space>         " add blankline after current line
+```
+
 ### Navigation in Insert and Command Mode
 
 ```
@@ -428,41 +467,6 @@ After `<C-n>`:
 <C-n>            " add a new virtual cursor + selection on the next match
 <C-x>            " skip the next match
 <C-p>            " remove current virtual cursor + selection and go back on previous match
-```
-
-### Git changes navigation
-
-```
-[c               " go to previous git change
-]c               " go to next git change
-```
-
-### Diagnostic navigation
-
-```
-[g               " navigate to previous diagnostic (coc-vim)
-]g               " navigate to next diagnostic (coc-vim)
-[l               " navigate to previous diagnostic (syntastic)
-]l               " navigate to next diagnostic (syntastic)
-```
-
-### Vim-Unimpaired
-
-```
-[e               " Move current line above
-]e               " move current line bellow
-<M-Up>           " move current line above
-<M-Down>         " move current line bellow
-[<Space>         " add blankline before current line
-]<Space>         " add blankline after current line
->p               " paste after linewise, increasing indent
->P               " paste before linewise, increasing indent
-<p               " paste after linewise, decreasing indent
-<P               " paste before linewise, decreasing indent
-=p               " paste after linewise, reindenting
-=P               " paste linewise, reindenting
-[f               " go to the file preceding the current one
-]f               " go to the file succeeding the current one
 ```
 
 ### Vim-Surround
