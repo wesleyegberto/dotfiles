@@ -20,8 +20,8 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.abort(),
     ['<Esc>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true
     }),
     ['<C-n>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -53,7 +53,7 @@ cmp.setup({
       mode = 'symbol',
       maxwidth = 50,
       ellipsis_char = '...',
-      before = function (entry, vim_item)
+      before = function(entry, vim_item)
         return vim_item
       end
     })
@@ -81,8 +81,8 @@ luasnip_loader.lazy_load({
     '~/.config/nvim/snippets/java',
     -- '~/.config/nvim/snippets/java-tests',
     '~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-0.0.6',
-    '~/.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.5',
     '~/.vscode/extensions/wesleyegberto.vscode-java-spring-devtools-0.0.1',
+    '~/.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.5',
     '~/.vscode/extensions/johnpapa.angular2-13.0.0',
     '~/.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',
     '~/.vscode/extensions/mikael.angular-beastcode-10.0.3',
@@ -103,4 +103,22 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 " For changing choices in choiceNodes (not strictly necessary for a basic setup).
 imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+]])
+
+-- === AI completion ===
+-- Copilot
+vim.b.copilot_enabled = false
+vim.g.copilot_no_tab_map = true
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+
+vim.cmd([[
+  let g:copilot_filetypes = {
+    \ '*': v:false,
+    \ 'python': v:true,
+    \ 'lua': v:true,
+    \ 'java': v:true,
+    \ 'javascript': v:true,
+    \ 'typescript': v:true,
+    \ 'csharp': v:true,
+    \ }
 ]])

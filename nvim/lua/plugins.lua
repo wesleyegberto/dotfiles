@@ -85,7 +85,11 @@ require('packer').startup(function(use)
 
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
+  -- === AI ===
   use {'github/copilot.vim'}
+  -- alternative plugin for copilot
+  -- use {'zbirenbaum/copilot.lua'} -- copilot core
+  -- use {'zbirenbaum/copilot-cmp'} -- copilot completion
 
   -- debugging
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
@@ -107,7 +111,7 @@ require('packer').startup(function(use)
 
   -- better syntax highlighter, textobjects and navigation using treesitter
   use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end} -- fix highlight error
-  -- new motions: af, if, ac, ic, as, is
+  -- navigation, swap and editing treesitter
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
   -- region selection using treesitter and hop
   use {'mfussenegger/nvim-treehopper'}
