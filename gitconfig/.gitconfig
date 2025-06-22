@@ -31,6 +31,7 @@
     # log graph
     l = log --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lg = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    ld = log --stat --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
     # show what I did yesterday
     yesterday = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 00:00AM\"  --before=\"today 00:00AM\" --author=\"`git config --get user.name`\"'"
@@ -70,7 +71,7 @@
 [push]
     # push will only do the current branch, not all branches
     default = current
-	autoSetupRemove = true
+    autoSetupRemove = true
 
 [branch]
     # set up 'git pull' to rebase instead of merge

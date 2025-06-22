@@ -14,8 +14,8 @@ require('packer').startup(function(use)
 
   -- === file navigaton ===
   -- tree explorer
-  use {'kyazdani42/nvim-web-devicons'}
-  use {'kyazdani42/nvim-tree.lua'}
+  use {'nvim-tree/nvim-web-devicons'}
+  use {'nvim-tree/nvim-tree.lua'}
 
   use {'voldikss/vim-floaterm'}
   use {'ThePrimeagen/harpoon', branch = 'harpoon2'}
@@ -90,6 +90,10 @@ require('packer').startup(function(use)
   -- alternative plugin for copilot
   -- use {'zbirenbaum/copilot.lua'} -- copilot core
   -- use {'zbirenbaum/copilot-cmp'} -- copilot completion
+
+  -- use {'augmentcode/augment.vim'}
+
+  -- use {'yetone/avante.nvim'} -- Claude
 
   -- debugging
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)

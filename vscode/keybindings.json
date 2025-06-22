@@ -1,13 +1,12 @@
 [
     // === Workspace === {{{
-    // Sidebars
-    // {
-    //     "key": "cmd+k cmd+b",
-    //     "command": "workbench.action.toggleActivityBarVisibility"
-    // },
     {
         "key": "cmd+k cmd+b",
         "command": "workbench.action.toggleSidebarVisibility",
+    },
+    {
+        "key": "cmd+k cmd+shift+b",
+        "command": "workbench.action.toggleAuxiliaryBar",
     },
     {
         "key": "space e",
@@ -997,6 +996,10 @@
     {
         "key": "cmd+k cmd+\\",
         "command": "-workbench.action.splitEditorUp"
+    },
+    {
+        "key": "cmd+k cmd+p",
+        "command": "markdown-preview-enhanced.openPreview"
     },
     // }}}
 ]

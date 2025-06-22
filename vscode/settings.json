@@ -12,8 +12,8 @@
   "editor.wordWrapColumn": 120,
   "extensions.ignoreRecommendations": true,
   "workbench.iconTheme": "material-icon-theme",
-  "git.enableSmartCommit": true,
-  "scm.showHistoryGraph": false,
+"git.enableSmartCommit": true,
+"scm.showHistoryGraph": false,
   "git.ignoreLegacyWarning": true,
   "java.errors.incompleteClasspath.severity": "ignore",
   "editor.fontFamily": "'Cascadia Code',' +Powerline+Awesome Regular','Fira Mono for Powerline'",
@@ -191,8 +191,12 @@
       "commands": ["editor.action.formatDocument"]
     },
     {
-      "before": ["<leader>", "c", "s", "i"],
+      "before": ["<leader>", "c", "s", "i", "t"],
       "commands": ["editor.action.indentationToTabs"]
+    },
+    {
+      "before": ["<leader>", "c", "s", "i", "s"],
+      "commands": ["editor.action.indentationToSpaces"]
     },
     {
       "before": [">", ">"],
@@ -313,6 +317,14 @@
     },
 
     {
+      "before": ["<leader>", "g", ","],
+      "commands": ["gitlens.diffWithPrevious"]
+    },
+    {
+      "before": ["<leader>", "g", "."],
+      "commands": ["gitlens.diffWithNext"]
+    },
+    {
       "before": ["<leader>", "g", "d", "f"],
       "commands": ["gitlens.diffWithPreviousInDiffLeft"]
     },
@@ -383,6 +395,14 @@
     {
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "t"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["g", "T"],
+      "commands": ["editor.action.peekTypeDefinition"]
     },
     {
       "before": ["<leader>", "C"],
@@ -539,7 +559,7 @@
   "files.trimTrailingWhitespace": true,
   "workbench.editor.scrollToSwitchTabs": false,
   "editor.gotoLocation.alternativeImplementationCommand": "editor.action.goToReferences",
-  "editor.autoClosingOvertype": "always",
+"editor.autoClosingOvertype": "always",
   "editor.smoothScrolling": true,
   "scm.diffDecorationsGutterWidth": 5,
   "git.supportCancellation": true,
@@ -662,10 +682,8 @@
   "markdown.replaceSmartQuotes": true,
   "code-runner.enableAppInsights": false,
   "dotnet-test-explorer.enableTelemetry": false,
-  "dotnet.formatting.organizeImportsOnFormat": true,
-  "dotnet.server.useOmnisharp": true,
   "workbench.preferredHighContrastColorTheme": "Gruvbox Dark (Hard)",
-  "workbench.preferredDarkColorTheme": "Gruvbox Dark (Hard)",
+"workbench.preferredDarkColorTheme": "Gruvbox Dark (Hard)",
   "java.test.report.showAfterExecution": "always",
   "editor.formatOnSaveMode": "modifications",
   "editor.autoIndent": "brackets",
@@ -701,7 +719,7 @@
   "editor.fontSize": 15,
   "terminal.integrated.fontSize": 16,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "security.workspace.trust.enabled": false,
   "vim.smartRelativeLine": true,
   "terminal.integrated.inheritEnv": false,
@@ -726,17 +744,12 @@
     {
       "name": "JavaSE-17",
       "path": "/Users/wesley/.jabba/jdk/openjdk@17.0.2/Contents/Home"
-    },
-    {
-      "name": "JavaSE-21",
-      "path": "/Users/wesley/.jabba/jdk/openjdk@21/Contents/Home"
     }
   ],
   "markdown-preview-enhanced.previewTheme": "github-light.css",
   "git.autofetch": "all",
   "editor.inlineSuggest.enabled": true,
   "terminal.explorerKind": "external",
-  "breadcrumbs.enabled": false,
   "workbench.editor.showTabs": "single",
   "java.maven.downloadSources": true,
   "pasteImage.path": "${currentFileDir}/img",
@@ -744,14 +757,14 @@
   "pasteImage.defaultName": "",
   "typescript.inlayHints.parameterNames.enabled": "none",
   "editor.guides.bracketPairs": false,
-  "workbench.colorTheme": "Gruvbox Dark (Hard)",
+  "workbench.colorTheme": "SynthWave '84",
   "java.codeGeneration.hashCodeEquals.useJava7Objects": true,
   "java.import.gradle.enabled": false,
   "java.import.gradle.wrapper.enabled": false,
   "editor.parameterHints.cycle": true,
   "java.inlayHints.parameterNames.enabled": "none",
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "editor.bracketPairColorization.enabled": false,
   "git.enableStatusBarSync": false,
@@ -817,6 +830,7 @@
   },
   "csharp.suppressDotnetInstallWarning": true,
   "csharp.format.enable": true,
+  "dotnet.server.useOmnisharp": true,
   "omnisharp.dotNetCliPaths": [
     "$HOME/.dotnet/"
   ],
@@ -830,7 +844,6 @@
   "omnisharp.sdkPath": "/Users/wesley/.dotnet/sdk/6.0.413",
   "omnisharp.sdkVersion": "6.0.413",
   "omnisharp.disableMSBuildDiagnosticWarning": true,
-  "omnisharp.organizeImportsOnFormat": true,
   "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
   "omnisharp.sdkIncludePrereleases": false,
   "workbench.tree.indent": 10,
@@ -845,6 +858,9 @@
       "level": "off"
     },
     "csharpsquid:S6667": {
+      "level": "off"
+    },
+    "java:S112": {
       "level": "off"
     }
   },
@@ -865,12 +881,12 @@
     "java.util.stream.Collectors"
   ],
   "codesnap.containerPadding": "5em",
-  "sonarlint.focusOnNewCode": true,
-  "window.zoomLevel": -1,
+"sonarlint.focusOnNewCode": true,
+"window.zoomLevel": -1,
   "accessibility.signals.terminalBell": {
     "sound": "on"
   },
-  "terminal.integrated.enableVisualBell": true,
+"terminal.integrated.enableVisualBell": true,
   "prettier.enable": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
@@ -880,5 +896,30 @@
   "hexeditor.showDecodedText": true,
   "hexeditor.defaultEndianness": "little",
   "hexeditor.inspectorType": "aside",
-  "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit"
+  "dotnet.formatting.organizeImportsOnFormat": true,
+  "chat.detectParticipant.enabled": false,
+  "chat.edits2.enabled": false,
+  "chat.extensionTools.enabled": false,
+  "chat.mcp.enabled": false,
+  "inlineChat.holdToSpeech": false,
+  "inlineChat.lineNaturalLanguageHint": false,
+  "accessibility.verbosity.inlineChat": false,
+  "accessibility.verbosity.panelChat": false,
+  "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
+  "containers.images.sortBy": "CreatedTime",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "augment.nextEdit.enableBackgroundSuggestions": false,
+  "augment.nextEdit.showDiffInHover": true,
+  "workbench.editorAssociations": {
+    "*.prompt.md": ""
+  },
+  "markdown.extension.showActionButtons": true,
+  "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
+  "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": false,
+  "markdownShortcuts.bullets.marker": "-",
+  "github.copilot.chat.codesearch.enabled": true,
+  "docker.extension.enableComposeLanguageServer": false
 }

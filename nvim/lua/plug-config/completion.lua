@@ -107,9 +107,9 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 -- === AI completion ===
 -- Copilot
-vim.b.copilot_enabled = false
+vim.b.copilot_enabled = true
 vim.g.copilot_no_tab_map = true
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+vim.keymap.set('i', '<C-k>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
 vim.cmd([[
   let g:copilot_filetypes = {
@@ -120,5 +120,23 @@ vim.cmd([[
     \ 'javascript': v:true,
     \ 'typescript': v:true,
     \ 'csharp': v:true,
+    \ 'shell': v:true,
     \ }
 ]])
+
+-- Augument
+-- vim.cmd([[
+--   let g:augment_disable_completions = v:true
+-- ]])
+
+-- Claude AI (https://github.com/yetone/avante.nvim?tab=readme-ov-file#key-bindings)
+-- views can only be fully collapsed with the global statusline
+-- vim.opt.laststatus = 3
+-- require('avante').setup({
+--   provider = "claude",
+--   suggestion = {
+--     debounce = 1000,
+--     throttle = 1000,
+--   }
+-- })
+

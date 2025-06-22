@@ -81,9 +81,9 @@ local function setup_keymaps()
   map('n', ']G', ':lua require("trouble").next({skip_groups = true, jump = true})<CR>', opts)
 
   map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  map('n', '<leader>cdt', ':TroubleToggle<CR>', opts)
-  map('n', '<leader>cdw', ':TroubleToggle workspace_diagnostics:<CR>', opts)
-  map('n', '<leader>cdx', ':TroubleToggle quickfix<CR>', opts)
+  map('n', '<leader>cdt', ':Trouble<CR>', opts)
+  map('n', '<leader>cdw', ':Trouble diagnostic:<CR>', opts)
+  map('n', '<leader>cdx', ':Trouble quickfix<CR>', opts)
 
   -- vim-test
   map('n', '<leader>rta', ':TestSuite<CR>', opts)

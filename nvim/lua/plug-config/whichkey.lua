@@ -127,13 +127,13 @@ wk.add({
 
 -- use `<CR>` to open file from current items
 -- use `dd` to toggle search result items
--- use `<leader>rc` to run the replace the current items
--- use `<leader>R` to replace all result items
+-- use `<leader>krc` to run the replace the current items
+-- use `<leader>kR` to replace all result items
 wk.add({
   { '<leader>k',  group = 'Spectre' },
-  { '<leader>kf', ':lua require("spectre").open()<CR>',                          desc = 'open finder' },
-  { '<leader>kw', ':lua require("spectre").open_visual({select_word=true})<CR>', desc = 'search selected word' },
-  { '<leader>ks', ':require("spectre").open_visual()<CR>',                       desc = 'search word' },
+  { '<leader>kf', ':lua require("spectre").toggle()<CR>',                        desc = 'toogle finder' },
+  { '<leader>kw', ':lua require("spectre").open_visual({select_word=true})<CR>', desc = 'search word in cursor' },
+  { '<leader>kw', ':lua require("spectre").open_visual()<CR>',  mode = "v",      desc = 'search selected text' },
   { '<leader>kb', ':lua require("spectre").open_file_search()<CR>',              desc = 'search in file' },
 })
 
@@ -146,7 +146,7 @@ wk.add({
   { '<leader>gs',  ':Git d<CR>',                 desc = 'diff view' },
   { '<leader>gS',  ':Git status<CR>',            desc = 'status' },
   { '<leader>gm',  ':GFiles?<CR>',               desc = 'modified files' },
-  { '<leader>ga',  ':Git add<CR>',               desc = 'add' },
+  { '<leader>ga',  ':Git add .<CR>',               desc = 'add' },
   { '<leader>gc',  ':Git commit<CR>',            desc = 'commit' },
   { '<leader>gM',  ':Git merge',                 desc = 'merge' },
   { '<leader>gP',  ':Git push<CR>',              desc = 'push' },

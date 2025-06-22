@@ -103,6 +103,7 @@ alt-t = ['exec-and-forget open -n /Applications/kitty.app', 'mode main']
 alt-b = ['exec-and-forget open -n /Applications/Brave\ Browser.app', 'mode main']
 alt-a = ['exec-and-forget open -n /Applications/Arc.app', 'mode main']
 alt-o = ['exec-and-forget open -n /Applications/Obsidian.app', 'mode main']
+alt-c = ['exec-and-forget open -n /Applications/Visual\ Studio\ Code.app', 'mode main']
 enter = 'mode main'
 esc = 'mode main'
 
@@ -117,6 +118,10 @@ run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]

@@ -136,8 +136,12 @@ config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_*.jar'),
-    '-configuration', devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/config_mac',
+    -- v1.9.0 (JDK 17)
+    -- '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_*.jar'),
+    -- '-configuration', devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/config_mac',
+    -- v1.47.0 (JDK 21)
+    '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server1.47.0-202505151856/plugins/org.eclipse.equinox.launcher_*.jar'),
+    '-configuration', devtools_dir .. '/jdt-language-server/jdt-language-server-1.47.0-202505151856/config_mac',
     '-data', workspace_dir,
   },
   root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', 'pom.xml'}, { upward = true })[1]),
@@ -163,11 +167,20 @@ config = {
         runtimes = {
           {
             name = 'JavaSE-11',
+            path = home .. '/.jabba/jdk/zulujdk@8/Contents/Home'
+          },
+          {
+            name = 'JavaSE-11',
             path = home .. '/.jabba/jdk/microsoft@11.0/Contents/Home'
           },
           {
             name = 'JavaSE-17',
-            path = home .. '/.jabba/jdk/openjdk@17.0.2/Contents/Home'
+            path = home .. '/.jabba/jdk/openjdk@17.0.2/Contents/Home',
+            default = true
+          },
+          {
+            name = 'JavaSE-21',
+            path = home .. '/.jabba/jdk/openjdk@21/Contents/Home'
           }
         }
       }
