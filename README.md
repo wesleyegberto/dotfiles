@@ -97,7 +97,31 @@ Then install the plugins by running: `vim +PackerUpdate +qall`.
 ### NeoVim
 
 I'm using Neovim 0.10+ configured with Lua.
-NeoVim plugins installed is listed [here](nvim/lua/plugins.lua).
+The configuration is structured to be modular and easy to maintain.
+
+Key features of this setup include:
+
+* **LSP Integration**: Comprehensive language support using `nvim-lspconfig`, `mason.nvim` for managing language servers, and enhanced UI through `LspUI`, `fidget.nvim`, and `trouble.nvim`.
+* **Fuzzy Finding**: Extensive use of `telescope.nvim` for finding files, buffers, commands, and more, with custom extensions for Git and language-specific tools.
+* **Syntax and Editing**: Advanced syntax highlighting and text objects with `nvim-treesitter`. Enhanced editing with plugins like `nvim-autopairs`, `nvim-surround`, and `Comment.nvim`.
+* **Debugging**: Integrated debugging support with `nvim-dap` and `nvim-dap-ui`.
+* **Filetype-Specific Configs**: Custom settings and keymaps for languages like Java, C#, Python, and TypeScript located in the `nvim/ftplugin` directory.
+* **Custom Snippets**: A collection of personal snippets for Java and other languages.
+
+The `nvim` directory contains the Neovim configuration.
+Here's a breakdown of its structure and contents:
+
+* `init.lua`: the main entry point for Neovim configuration.
+* `plugins.lua`: manages all the plugins using [Packer](https://github.com/wbthomason/packer.nvim).
+* `lua/`: the core of your Lua-based configuration.
+  * `config/`: contains the base configurations for options, keybindings, and colorscheme.
+  * `plug-config/`: holds the specific configurations for many of the plugins, such as telescope, treesitter, lsp, and completion.
+  * `custom/`: contains custom Lua modules with utility functions and buffer hooks.
+  * `telescope/`: includes custom extensions for Telescope, like k8s.lua for Kubernetes and langtools for language-specific tasks.
+* `ftplugin/`: contains filetype-specific settings. For example, java.lua configures Java-specific options, keymaps, and LSP settings with jdtls. I have similar configurations for C#, JavaScript, Python, and TypeScript.
+* `keybindings.vim` & `options.vim`: Legacy Vimscript configurations for keybindings and options. Used in others softwares that support Neovim-like configuration.
+* `plug-config/omnisharp.vim`: Vimscript-based configuration for the OmniSharp plugin.
+* `snippets/`: contains JSON-defined code snippets for the Java.
 
 ### VS Code
 
