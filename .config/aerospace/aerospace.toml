@@ -17,6 +17,12 @@ key-mapping.preset = 'qwerty'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'secondary'
+
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
@@ -101,7 +107,6 @@ alt-shift-enter = 'mode apps'
 [mode.apps.binding]
 alt-t = ['exec-and-forget open -n /Applications/kitty.app', 'mode main']
 alt-b = ['exec-and-forget open -n /Applications/Brave\ Browser.app', 'mode main']
-alt-a = ['exec-and-forget open -n /Applications/Arc.app', 'mode main']
 alt-o = ['exec-and-forget open -n /Applications/Obsidian.app', 'mode main']
 alt-c = ['exec-and-forget open -n /Applications/Visual\ Studio\ Code.app', 'mode main']
 enter = 'mode main'
@@ -109,11 +114,11 @@ esc = 'mode main'
 
 # === Move Apps ===
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if.app-id = 'com.brave.Browser'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -131,4 +136,8 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 4'
 
