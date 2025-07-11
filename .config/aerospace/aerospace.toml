@@ -98,6 +98,10 @@ cmd-alt-shift-2 = 'move-node-to-workspace 2'
 cmd-alt-shift-3 = 'move-node-to-workspace 3'
 cmd-alt-shift-4 = 'move-node-to-workspace 4'
 
+# === Smart Resize ===
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
 # === Modes ===
 alt-shift-semicolon = 'mode service'
 alt-shift-r = 'mode resize'
