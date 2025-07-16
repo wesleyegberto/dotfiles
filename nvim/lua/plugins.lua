@@ -86,12 +86,13 @@ require('packer').startup(function(use)
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
   -- === AI ===
-  use {'github/copilot.vim'}
+  -- use {'github/copilot.vim'}
+  -- use {'CopilotC-Nvim/CopilotChat.nvim'}
   -- alternative plugin for copilot
   -- use {'zbirenbaum/copilot.lua'} -- copilot core
   -- use {'zbirenbaum/copilot-cmp'} -- copilot completion
 
-  -- use {'augmentcode/augment.vim'}
+  use {'augmentcode/augment.vim'}
 
   -- use {'yetone/avante.nvim'} -- Claude
 
@@ -108,8 +109,6 @@ require('packer').startup(function(use)
   use {'OmniSharp/omnisharp-vim'} -- csharp (run `:OmniSharpInstall`)
   use {'Hoffs/omnisharp-extended-lsp.nvim'} -- lib decompiler for C#
   use {'GustavEikaas/easy-dotnet.nvim'}
-  -- typescript
-  use {'jose-elias-alvarez/typescript.nvim'} -- lib decompiler for TS
 
   use {'windwp/nvim-ts-autotag'} -- auto close tags
 

@@ -123,6 +123,15 @@ local config
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
+
+local bundles = {
+  -- config for debug tool
+  vim.fn.glob(devtools_dir .. '/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', 1),
+}
+vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-test/server/*.jar', 1), '\n'))
+vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-decompiler/server/*.jar', 1), '\n'))
+
+
 -- Dowload JDTLS at https://download.eclipse.org/jdtls/milestones/?d
 config = {
   cmd = {
@@ -198,6 +207,18 @@ config = {
       }
     }
   },
+  init_options = {
+    bundles = bundles,
+    extendedClientCapabilities = extendedClientCapabilities,
+    workspace = {
+      library = {
+        globalLibrary = {
+          location = home .. '/.jabba/jdk/openjdk@21/Contents/Home/lib',
+          name = 'OpenJDK 21'
+        }
+      }
+    }
+  },
   on_attach = function()
     setup_dap()
 
@@ -217,18 +238,6 @@ config = {
   on_init = function(client, _)
     client.notify('workspace/didChangeConfiguration', { settings = config.settings })
   end
-}
-
--- local bundles = {
---   -- config for debug tool
---   vim.fn.glob(devtools_dir .. '/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', 1),
--- }
--- vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-test/server/*.jar', 1), '\n'))
--- vim.list_extend(bundles, vim.split(vim.fn.glob(devtools_dir .. '/vscode-java-decompiler/server/*.jar', 1), '\n'))
-
-config.init_options = {
-  -- bundles = bundles,
-  extendedClientCapabilities = extendedClientCapabilities
 }
 
 jdtls.start_or_attach(config)

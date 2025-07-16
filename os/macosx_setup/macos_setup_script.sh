@@ -117,7 +117,7 @@ brew install procs # modern `ps`
 brew install bench
 brew install graphviz
 brew install stern
-brew install oxide # z navigator -
+brew install zoxide # z navigator -
 
 if [[ "$ARCH" == 'x86_64' ]]; then
     brew install --cask docker-toolbox

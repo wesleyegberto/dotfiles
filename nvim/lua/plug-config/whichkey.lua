@@ -165,6 +165,7 @@ wk.add({
   { '<leader>gdc', ':DiffviewClose<CR>',         desc = 'close diff view' },
   { '<leader>gdv', ':Gvdiffsplit<CR>',           desc = 'diff vsplit' },
   { '<leader>gdh', ':Ghdiffsplit<CR>',           desc = 'diff split' },
+  { '<leader>g,',  ':Gvdiffsplit<CR>',           desc = 'diff vsplit' },
 })
 
 

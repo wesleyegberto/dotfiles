@@ -210,17 +210,6 @@ for _, lsp in ipairs(servers) do
   end
 end
 
-require("typescript").setup({
-  disable_commands = false, -- prevent the plugin from creating Vim commands
-  debug = false,            -- enable debug logging for commands
-  go_to_source_definition = {
-    fallback = true,        -- fall back to standard LSP definition on failure
-  },
-  server = {
-    on_attach = on_attach
-  },
-})
-
 local pid = vim.fn.getpid()
 lspconfig['omnisharp'].setup {
   -- download omnisharp-osx.tar.gz from https://github.com/OmniSharp/omnisharp-roslyn/releases
