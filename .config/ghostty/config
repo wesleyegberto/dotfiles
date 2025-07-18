@@ -1,0 +1,46 @@
+shell-integration=zsh
+confirm-close-surface = false
+window-save-state = never
+
+font-family = Cascadia Code
+theme = Dracula
+font-feature = calt
+font-feature = liga
+font-feature = dlig
+
+# background = #222436
+background-opacity = 1
+foreground = #00ff00
+selection-background = #3654a7
+selection-foreground = #c8d3f5
+selection-invert-fg-bg = true
+cursor-style = block
+cursor-color = #23ff18
+
+# === keybindings ===
+
+keybind = cmd+t=toggle_quick_terminal
+
+# windows
+keybind = ctrl+a>c=new_window
+keybind = ctrl+a>w=close_window
+
+# splits
+keybind = ctrl+a>v=new_split:right
+keybind = ctrl+a>s=new_split:down
+
+keybind = ctrl+a>x=close_surface
+
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>j=goto_split:bottom
+keybind = ctrl+a>k=goto_split:top
+keybind = ctrl+a>l=goto_split:right
+keybind = ctrl+a>p=goto_split:previous
+keybind = ctrl+a>n=goto_split:next
+
+keybind = ctrl+a>shift+h=resize_split:left,50
+keybind = ctrl+a>shift+j=resize_split:down,50
+keybind = ctrl+a>shift+k=resize_split:up,50
+keybind = ctrl+a>shift+l=resize_split:right,50
+
+keybind = ctrl+a>equal=equalize_splits
