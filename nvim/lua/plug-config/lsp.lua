@@ -34,7 +34,7 @@ local function setup_keymaps()
   vim.cmd [[
     augroup lsp_document_highlight
         autocmd! * <buffer>
-        " autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
+        autocmd CursorHold * lua vim.diagnostic.open_float()
         autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
     augroup END
@@ -58,7 +58,7 @@ local function setup_keymaps()
   map('n', '<Leader>cfo', ':Telescope lsp_outgoing_calls<CR>', opts)
 
   map('n', '<leader>crn', ':LspUI rename<CR>', opts)
-  map('n', '<F2>', ':LspUI rename<CR>', opts)
+  -- map('n', '<F2>', ':LspUI rename<CR>', opts)
 
   map('n', 'gh', ':LspUI hover<CR>', opts)
   map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -80,9 +80,10 @@ local function setup_keymaps()
   map('n', '[G', ':lua require("trouble").previous({skip_groups = true, jump = true})<CR>', opts)
   map('n', ']G', ':lua require("trouble").next({skip_groups = true, jump = true})<CR>', opts)
 
-  map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  -- map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>', opts)
+  map('n', '<leader>cdl', ':LspUI diagnostic<CR>', opts)
   map('n', '<leader>cdt', ':Trouble<CR>', opts)
-  map('n', '<leader>cdw', ':Trouble diagnostic:<CR>', opts)
+  map('n', '<leader>cdw', ':Trouble diagnostic<CR>', opts)
   map('n', '<leader>cdx', ':Trouble quickfix<CR>', opts)
 
   -- vim-test

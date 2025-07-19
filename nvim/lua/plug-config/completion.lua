@@ -109,25 +109,31 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 -- Copilot
 vim.b.copilot_enabled = false
 vim.g.copilot_no_tab_map = true
-vim.keymap.set('i', '<C-k>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
-vim.cmd([[
-  let g:copilot_filetypes = {
-    \ '*': v:false,
-    \ 'python': v:true,
-    \ 'lua': v:true,
-    \ 'java': v:true,
-    \ 'javascript': v:true,
-    \ 'typescript': v:true,
-    \ 'csharp': v:true,
-    \ 'shell': v:true,
-    \ }
-]])
+if vim.b.copilot_enabled then
+  vim.keymap.set('i', '<C-y>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+
+  vim.cmd([[
+    let g:copilot_filetypes = {
+      \ '*': v:false,
+      \ 'python': v:true,
+      \ 'lua': v:true,
+      \ 'java': v:true,
+      \ 'javascript': v:true,
+      \ 'typescript': v:true,
+      \ 'csharp': v:true,
+      \ 'shell': v:true,
+      \ }
+  ]])
+end
 
 -- Augument
--- vim.cmd([[
---   let g:augment_disable_completions = v:true
--- ]])
+vim.g.augment_disable_completions = false
+-- vim.g.augment_disable_tab_mapping = true -- until fix C-y mapping
+
+if not vim.g.augment_disable_completions then
+  -- vim.keymap.set('i', '<C-y>', 'augment#Accept()', { expr = true, replace_keycodes = false })
+end
 
 -- Claude AI (https://github.com/yetone/avante.nvim?tab=readme-ov-file#key-bindings)
 -- views can only be fully collapsed with the global statusline

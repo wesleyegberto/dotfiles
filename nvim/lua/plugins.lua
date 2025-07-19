@@ -75,7 +75,7 @@ require('packer').startup(function(use)
   use {'onsails/lspkind-nvim'}
   use {'ray-x/lsp_signature.nvim'} -- method signature
   use {'VidocqH/lsp-lens.nvim'} -- show references
-  use {'SmiteshP/nvim-navbuddy', requires = { 'SmiteshP/nvim-navic', 'MunifTanjim/nui.nvim' } } -- document members popup
+  use {'hasansujon786/nvim-navbuddy', requires = { 'SmiteshP/nvim-navic', 'MunifTanjim/nui.nvim' } } -- document members popup
   use {'DNLHC/glance.nvim'} -- window preview
   use {'folke/trouble.nvim'} -- panel for diagnostics
   use {'artemave/workspace-diagnostics.nvim'}
@@ -91,6 +91,8 @@ require('packer').startup(function(use)
   -- alternative plugin for copilot
   -- use {'zbirenbaum/copilot.lua'} -- copilot core
   -- use {'zbirenbaum/copilot-cmp'} -- copilot completion
+
+  -- use {'NickvanDyke/opencode.nvim'} -- opencode integration
 
   use {'augmentcode/augment.vim'}
 

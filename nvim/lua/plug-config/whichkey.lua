@@ -100,6 +100,7 @@ wk.add({
   { '<leader>f_',  ':Telescope<CR>',                             desc = 'Open Telescope' },
   { '<leader>f;',  ':Telescope commands<CR>',                    desc = 'Telescope Commands' },
   { '<leader>fc',  ':lua require("toolbox").show_picker()<CR>',  desc = 'Toolbox Commands' },
+  { '<leader>fd',  ':Telescope diagnostics<CR>',                 desc = 'Workspace Diagnostics' },
   { '<leader>fvw', ':Windows<CR>',                               desc = 'View Window' },
   { '<leader>ff',  ':Telescope find_files<CR>',                  desc = 'File' },
   { '<leader>fb',  ':Telescope buffers<CR>',                     desc = 'Buffers' },
