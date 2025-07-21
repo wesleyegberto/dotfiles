@@ -118,11 +118,10 @@ end
 local devtools_dir = home .. "/dev-tools/ide"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home .. '/workspace/' .. project_name
-local config
 
+local config
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
-
 
 local bundles = {
   -- config for debug tool
@@ -149,7 +148,7 @@ config = {
     -- '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_*.jar'),
     -- '-configuration', devtools_dir .. '/jdt-language-server/jdt-language-server-1.9.0-202203031534/config_mac',
     -- v1.47.0 (JDK 21)
-    '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server1.47.0-202505151856/plugins/org.eclipse.equinox.launcher_*.jar'),
+    '-jar', vim.fn.glob(devtools_dir .. '/jdt-language-server/jdt-language-server-1.47.0-202505151856/plugins/org.eclipse.equinox.launcher_*.jar', 1),
     '-configuration', devtools_dir .. '/jdt-language-server/jdt-language-server-1.47.0-202505151856/config_mac',
     '-data', workspace_dir,
   },
@@ -174,22 +173,22 @@ config = {
       },
       configuration = {
         runtimes = {
-          {
-            name = 'JavaSE-11',
-            path = home .. '/.jabba/jdk/zulujdk@8/Contents/Home'
-          },
+          -- {
+          --   name = 'JavaSE-8',
+          --   path = home .. '/.jabba/jdk/zulujdk@8/Contents/Home'
+          -- },
           {
             name = 'JavaSE-11',
             path = home .. '/.jabba/jdk/microsoft@11.0/Contents/Home'
           },
           {
             name = 'JavaSE-17',
-            path = home .. '/.jabba/jdk/openjdk@17.0.2/Contents/Home',
-            default = true
+            path = home .. '/.jabba/jdk/openjdk@17.0.2/Contents/Home'
           },
           {
             name = 'JavaSE-21',
-            path = home .. '/.jabba/jdk/openjdk@21/Contents/Home'
+            path = home .. '/.jabba/jdk/openjdk@21/Contents/Home',
+            default = true
           }
         }
       }
@@ -208,12 +207,12 @@ config = {
     }
   },
   init_options = {
-    bundles = bundles,
     extendedClientCapabilities = extendedClientCapabilities,
+    bundles = bundles,
     workspace = {
       library = {
         globalLibrary = {
-          location = home .. '/.jabba/jdk/openjdk@21/Contents/Home/lib',
+          location = home .. '/.jabba/jdk/openjdk@21/Contents/Home',
           name = 'OpenJDK 21'
         }
       }

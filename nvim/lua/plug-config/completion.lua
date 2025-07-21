@@ -80,13 +80,13 @@ luasnip_loader.lazy_load({
   paths = {
     '~/.config/nvim/snippets/java',
     -- '~/.config/nvim/snippets/java-tests',
-    '~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-0.0.7',
-    '~/.vscode/extensions/wesleyegberto.vscode-java-spring-devtools-0.0.1',
-    '~/.vscode/extensions/wesleyegberto.globalpoints-snippets-0.0.5',
-    '~/.vscode/extensions/jorgeserrano.vscode-csharp-snippets-1.1.0',
-    '~/.vscode/extensions/johnpapa.angular2-18.0.2',
-    '~/.vscode/extensions/mikael.angular-beastcode-17.0.4',
-    '~/.vscode/extensions/lunuan.kubernetes-templates-1.3.1',
+    vim.fn.glob('~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-*', 1),
+    vim.fn.glob('~/.vscode/extensions/wesleyegberto.vscode-java-spring-devtools-*', 1),
+    vim.fn.glob('~/.vscode/extensions/wesleyegberto.globalpoints-snippets-*', 1),
+    vim.fn.glob('~/.vscode/extensions/jorgeserrano.vscode-csharp-snippets-*', 1),
+    vim.fn.glob('~/.vscode/extensions/johnpapa.angular2-*', 1),
+    vim.fn.glob('~/.vscode/extensions/mikael.angular-beastcode-*', 1),
+    vim.fn.glob('~/.vscode/extensions/lunuan.kubernetes-templates-*', 1),
   }
 })
 

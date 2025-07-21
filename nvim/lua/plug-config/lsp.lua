@@ -198,12 +198,12 @@ mason_lsconfig.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
+  dynamicRegistration = true,
   lineFoldingOnly = true
 }
 
 for _, lsp in ipairs(servers) do
-  if lsp ~= ('omnisharp' and 'ts_ls') then
+  if lsp ~= 'omnisharp' and lsp ~= 'jdtls' then
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -232,3 +232,4 @@ require("mason-nvim-dap").setup({
 init_lsp_tools()
 
 setup_keymaps()
+
