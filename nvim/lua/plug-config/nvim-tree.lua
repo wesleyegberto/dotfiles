@@ -56,12 +56,15 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '<BS>', api.node.navigate.parent_close, opts('Close Directory'))
   vim.keymap.set('n', '<S-CR>', api.node.navigate.parent_close, opts('Close Directory'))
   vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Open Preview'))
+
   vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
   vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
   vim.keymap.set('n', 'K', api.node.navigate.sibling.first, opts('First Sibling'))
   vim.keymap.set('n', 'J', api.node.navigate.sibling.last, opts('Last Sibling'))
   vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, opts('Toggle Dotfiles'))
+
   vim.keymap.set('n', 'R', api.tree.reload, opts('Refresh'))
+
   vim.keymap.set('n', 'a', api.fs.create, opts('Create'))
   vim.keymap.set('n', 'd', api.fs.remove, opts('Delete'))
   vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
@@ -124,5 +127,5 @@ require('nvim-tree').setup {
 }
 
 -- hide statusline when nvim tree is opened
-vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+-- vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree_1" | set laststatus=0 | else | set laststatus=2 | endif]]
 

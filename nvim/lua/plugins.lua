@@ -144,7 +144,6 @@ require('packer').startup(function(use)
   use {'navarasu/onedark.nvim'}
   use {'JoosepAlviste/palenightfall.nvim'}
   use {'folke/tokyonight.nvim'}
-  use {'ryanoasis/vim-devicons'}
   -- use {"wesleyegberto/nebula.nvim", requires = { "rktjmp/lush.nvim" }}
   use {'~/projects/github/open-sources/nebula.nvim', requires = { "rktjmp/lush.nvim" }}
 

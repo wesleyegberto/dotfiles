@@ -3,7 +3,7 @@
 local wk = require("which-key")
 
 vim.cmd([[
-highlight default link WhichKey          Operator
+highlight default link WhichKey          ErrorMsg
 highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyDesc      Operator
@@ -131,7 +131,7 @@ wk.add({
 -- use `<leader>krc` to run the replace the current items
 -- use `<leader>kR` to replace all result items
 wk.add({
-  { '<leader>k',  group = 'Spectre' },
+  { '<leader>k',  group = 'Spectre', icon = '' },
   { '<leader>kf', ':lua require("spectre").toggle()<CR>',                        desc = 'toogle finder' },
   { '<leader>kw', ':lua require("spectre").open_visual({select_word=true})<CR>', desc = 'search word in cursor' },
   { '<leader>kw', ':lua require("spectre").open_visual()<CR>',  mode = "v",      desc = 'search selected text' },
@@ -147,7 +147,7 @@ wk.add({
   { '<leader>gs',  ':Git d<CR>',                 desc = 'diff view' },
   { '<leader>gS',  ':Git status<CR>',            desc = 'status' },
   { '<leader>gm',  ':GFiles?<CR>',               desc = 'modified files' },
-  { '<leader>ga',  ':Git add .<CR>',               desc = 'add' },
+  { '<leader>ga',  ':Git add .<CR>',             desc = 'add' },
   { '<leader>gc',  ':Git commit<CR>',            desc = 'commit' },
   { '<leader>gM',  ':Git merge',                 desc = 'merge' },
   { '<leader>gP',  ':Git push<CR>',              desc = 'push' },
@@ -190,30 +190,30 @@ wk.add({
   { '<leader>tj', ':FloatermNew java<CR>',            desc = 'jshell' },
   { '<leader>tn', ':FloatermNew node<CR>',            desc = 'node' },
   { '<leader>tN', ':FloatermNew lazynpm<CR>',         desc = 'lazynpm' },
-  { '<leader>tp', ':FloatermNew python3<CR>',          desc = 'python' },
+  { '<leader>tp', ':FloatermNew python3<CR>',         desc = 'python' },
   { '<leader>th', ':FloatermNew htop<CR>',            desc = 'htop' },
   { '<leader>ty', ':FloatermNew ytop<CR>',            desc = 'ytop' },
 })
 
 
 wk.add({
-  { '<leader>m',  group = 'Harpoon' },
-  { '<leader>mM', ':lua require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())<CR>', desc = 'menu' },
-  { '<leader>ma', ':lua require("harpoon"):list():add()<CR>',     desc = 'add file' },
-  { '<leader>md', ':lua require("harpoon"):list():remove()<CR>',  desc = 'remove file' },
-  { '<leader>mp', ':lua require("harpoon"):list():prev()<CR>',    desc = 'prev' },
-  { '<leader>mn', ':lua require("harpoon"):list():next()<CR>',    desc = 'next' },
-  { '<leader>mC', ':lua require("harpoon"):list():clear()<CR>',   desc = 'clear all' },
-  { '<leader>m1', ':lua require("harpoon"):list():select(1)<CR>', desc = 'go to 1' },
-  { '<leader>m2', ':lua require("harpoon"):list():select(2)<CR>', desc = 'go to 2' },
-  { '<leader>m3', ':lua require("harpoon"):list():select(3)<CR>', desc = 'go to 3' },
-  { '<leader>m4', ':lua require("harpoon"):list():select(4)<CR>', desc = 'go to 4' },
-  { '<leader>m5', ':lua require("harpoon"):list():select(5)<CR>', desc = 'go to 5' },
-  { '<leader>m6', ':lua require("harpoon"):list():select(6)<CR>', desc = 'go to 6' },
-  { '<leader>m7', ':lua require("harpoon"):list():select(7)<CR>', desc = 'go to 7' },
-  { '<leader>m8', ':lua require("harpoon"):list():select(8)<CR>', desc = 'go to 8' },
-  { '<leader>m9', ':lua require("harpoon"):list():select(9)<CR>', desc = 'go to 9' },
-  { '<leader>m0', ':lua require("harpoon"):list():select(0)<CR>', desc = 'go to 0' },
+  { '<leader>m',  group = 'Harpoon', icon = '󱡅' },
+  { '<leader>mM', ':lua require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())<CR>', desc = 'menu', icon = '󰍜' },
+  { '<leader>ma', ':lua require("harpoon"):list():add()<CR>',     desc = 'add file', icon = '' },
+  { '<leader>md', ':lua require("harpoon"):list():remove()<CR>',  desc = 'remove file', icon = '' },
+  { '<leader>mp', ':lua require("harpoon"):list():prev()<CR>',    desc = 'prev', icon = '' },
+  { '<leader>mn', ':lua require("harpoon"):list():next()<CR>',    desc = 'next', icon = '' },
+  { '<leader>mC', ':lua require("harpoon"):list():clear()<CR>',   desc = 'clear all', icon = '󰩺' },
+  { '<leader>m1', ':lua require("harpoon"):list():select(1)<CR>', desc = 'go to 1', icon = '󰬺' },
+  { '<leader>m2', ':lua require("harpoon"):list():select(2)<CR>', desc = 'go to 2', icon = '󰬻' },
+  { '<leader>m3', ':lua require("harpoon"):list():select(3)<CR>', desc = 'go to 3', icon = '󰬼' },
+  { '<leader>m4', ':lua require("harpoon"):list():select(4)<CR>', desc = 'go to 4', icon = '󰬽' },
+  { '<leader>m5', ':lua require("harpoon"):list():select(5)<CR>', desc = 'go to 5', icon = '󰬾' },
+  { '<leader>m6', ':lua require("harpoon"):list():select(6)<CR>', desc = 'go to 6', icon = '󰬿' },
+  { '<leader>m7', ':lua require("harpoon"):list():select(7)<CR>', desc = 'go to 7', icon = '󰭀' },
+  { '<leader>m8', ':lua require("harpoon"):list():select(8)<CR>', desc = 'go to 8', icon = '󰭁' },
+  { '<leader>m9', ':lua require("harpoon"):list():select(9)<CR>', desc = 'go to 9', icon = '󰭂' },
+  { '<leader>m0', ':lua require("harpoon"):list():select(0)<CR>', desc = 'go to 0', icon = '󰎣' },
 })
 
 wk.add({
@@ -224,7 +224,7 @@ wk.add({
 })
 
 wk.add({
-  { '<leader>z',  group = 'Second Brain' },
+  { '<leader>z',  group = 'Second Brain', icon = '󰧑' },
   { '<leader>zf', ":lua require('telekasten').find_notes()<CR>",                desc = 'Find notes' },
   { '<leader>zd', ":lua require('telekasten').find_daily_notes()<CR>",          desc = 'Find daily notes' },
   { '<leader>zw', ":lua require('telekasten').find_weekly_notes()<CR>",         desc = 'Find weekly notes' },
@@ -241,7 +241,6 @@ wk.add({
   { '<leader>zb', ":lua require('telekasten').show_backlinks()<CR>",            desc = 'Show backlinks' },
 
   { '<leader>zy', ":lua require('telekasten').yank_notelink()<CR>",             desc = 'Yank note link' },
-  -- {'<leader>zI' , ":lua require('telekasten').insert_link({ i=true })<CR>", desc = 'Insert link' },
   { '<leader>zI', ":lua require('telekasten').insert_img_link({ i=true })<CR>", desc = 'Insert img link' },
   { '<leader>zi', ":lua require('telekasten').paste_img_and_link()<CR>",        desc = 'Paste img and link' },
   { '<leader>zp', ":lua require('telekasten').preview_img()<CR>",               desc = 'Preview img' },
@@ -254,12 +253,21 @@ wk.add({
   { '<leader>zP', ":lua require('telekasten').panel()<CR>",                     desc = 'Show panel' }
 })
 
+wk.add({
+  { '<leader>a', group = 'AI', icon = '', },
+  { '<leader>at', ":Augment chat-toggle<CR>",                   desc = 'Toggle Chat', icon = '' },
+  { '<leader>ac', ":Augment chat<CR>",     mode = { 'n', 'v' }, desc = 'Chat', icon = '󰻞' },
+  { '<leader>aC', ":Augment chat-new<CR>", mode = { 'n', 'v' }, desc = 'New Chat', icon = '󱐒' },
+})
+
 -- Groups for keymaps defined in others configs and plugins
 wk.add({ { '<leader><Space>', group = 'Buf Search' } })
 wk.add({ { '<leader>b', group = 'Buffer' } })
-wk.add({ { '<leader>l', group = 'Mason' } })
-wk.add({ { '<leader>s', group = 'Treesitter Selection' } })
+wk.add({ { '<leader>o', group = 'Options', icon = '󰒓' } })
+wk.add({ { '<leader>l', group = 'Mason', icon = '󰦭' } })
+wk.add({ { '<leader>P', group = 'Project', icon = '' } })
 wk.add({ { '<leader>c', group = 'Code' } })
-wk.add({ { '<leader>r', group = 'Run Test' } })
+wk.add({ { '<leader>r', group = 'Run Test', icon = '󰤑' } })
+wk.add({ { '<leader>s', group = 'Treesitter Selection', icon = '' } })
 wk.add({ { '<leader>h', group = 'Git Hunk' } })
 
