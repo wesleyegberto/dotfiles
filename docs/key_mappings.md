@@ -107,16 +107,19 @@ Help: `<Leader>?`
 <Leader>$           " rename session
 <Leader>C-f         " find session
 <Leader>s           " choose session
+<Leader>C-m         " choose session
 <Leader>d           " detach from session
 
 <Leader>)           " next session
 <Leader>(           " previous session
-<Leader>L           " go to last active session
+<Leader>S-l         " go to last active session
+<Leader>C-l         " go to last active session
 ```
 
 ### Window
 
 ```
+<Leader><           " window menu
 <Leader>C-c         " create new window
 <Leader>,           " rename window
 <Leader>w           " choose window
@@ -132,6 +135,7 @@ Help: `<Leader>?`
 ### Panes
 
 ```
+<Leader>>           " pane menu
 <Leader>|           " split pane vertically
 <Leader>-           " split pane horizontally
 <Leader>;           " go to last active pane

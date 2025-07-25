@@ -34,7 +34,7 @@ local function setup_keymaps()
   vim.cmd [[
     augroup lsp_document_highlight
         autocmd! * <buffer>
-        autocmd CursorHold * lua vim.diagnostic.open_float()
+        " autocmd CursorHold * lua vim.diagnostic.open_float()
         autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
     augroup END
@@ -175,16 +175,16 @@ local function init_lsp_tools()
   }
 end
 
-
 local on_attach = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
   require('lsp-lens').setup({})
 
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   require('lsp_signature').on_attach()
 
-  navbuddy.attach(client, bufnr)
-
   require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+
+  navbuddy.attach(client, bufnr)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -203,27 +203,29 @@ capabilities.textDocument.foldingRange = {
 }
 
 for _, lsp in ipairs(servers) do
-  if lsp ~= 'omnisharp' and lsp ~= 'jdtls' then
-    lspconfig[lsp].setup {
+  if lsp == 'omnisharp' then
+    local pid = vim.fn.getpid()
+    vim.lsp.config('omnisharp', {
+      -- download omnisharp-osx.tar.gz from https://github.com/OmniSharp/omnisharp-roslyn/releases
+      cmd = { home .. '/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) },
       on_attach = on_attach,
       capabilities = capabilities,
-    }
+      flags = capabilities,
+      handlers = {
+        ["textDocument/definition"] = require('omnisharp_extended').handler,
+      },
+      enable_roslyn_analyzers = true,
+      organize_imports_on_format = true,
+      analyze_open_documents_only = true,
+    })
+  elseif lsp ~= 'jdtls' then
+    vim.lsp.config(lsp, {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
   end
+  vim.lsp.enable(lsp)
 end
-
-local pid = vim.fn.getpid()
-lspconfig['omnisharp'].setup {
-  -- download omnisharp-osx.tar.gz from https://github.com/OmniSharp/omnisharp-roslyn/releases
-  cmd = { home .. '/.cache/omnisharp-vim/omnisharp-roslyn/run', '--languageserver', '--hostPID', tostring(pid) },
-  on_attach = on_attach,
-  flags = capabilities,
-  handlers = {
-    ["textDocument/definition"] = require('omnisharp_extended').handler,
-  },
-  enable_roslyn_analyzers = true,
-  organize_imports_on_format = true,
-  analyze_open_documents_only = true,
-}
 
 require("mason-nvim-dap").setup({
   ensure_installed = { "javadbg", "javatest" }
