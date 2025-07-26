@@ -148,9 +148,11 @@ tcode() {
     if ! tmux has-session -t $session; then
         tmux new-session -ds $session -c $folder
         tmux new-window -t $session:2
+        tmux new-window -t $session:3
 
         tmux rename-window -t $session:1 'src'
         tmux rename-window -t $session:2 'run'
+        tmux rename-window -t $session:3 'ai'
 
         tmux send-keys -t $session:1 vim\ . Enter
     fi

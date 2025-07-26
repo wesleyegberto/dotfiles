@@ -173,6 +173,8 @@ local function init_lsp_tools()
       },
     },
   }
+
+  navbuddy.setup()
 end
 
 local on_attach = function(client, bufnr)

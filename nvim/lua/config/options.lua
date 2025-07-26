@@ -119,14 +119,29 @@ u.create_augroup('numbertoggle', {
 -- }}}
 
 -- === ntpeters/vim-better-whitespace === {{{
-vim.cmd[[
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-]]
+vim.g.better_whitespace_enabled = 1
+vim.g.strip_whitespace_on_save = 1
+-- }}}
+
+-- === preservim/vimux === {{{
+vim.g.VimuxHeight = '30%'
+vim.g.VimuxOrientation = 'h'
 -- }}}
 
 
 vim.cmd [[
+" inside tmux
+if exists('$TMUX') && $TERM != 'xterm-kitty'
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
+
+" inside neovim
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+end
+
 filetype plugin indent on
 
 " autocmd BufRead,BufEnter * let &titlestring = expand("%:P")
