@@ -60,7 +60,7 @@ cmp.setup({
   }
 })
 
-luasnip.filetype_extend("java", { "java-testing" })
+-- luasnip.filetype_extend("java", { "java-testing" })
 
 luasnip_loader.lazy_load({
   includes = {
@@ -79,7 +79,7 @@ luasnip_loader.lazy_load({
 luasnip_loader.lazy_load({
   paths = {
     '~/.config/nvim/snippets/java',
-    -- '~/.config/nvim/snippets/java-tests',
+    vim.fn.glob('~/.vscode/extensions/wesleyegberto.vscode-java-tests-*', 1),
     vim.fn.glob('~/.vscode/extensions/wesleyegberto.vscode-java-cloud-native-*', 1),
     vim.fn.glob('~/.vscode/extensions/wesleyegberto.vscode-java-spring-devtools-*', 1),
     vim.fn.glob('~/.vscode/extensions/wesleyegberto.globalpoints-snippets-*', 1),
