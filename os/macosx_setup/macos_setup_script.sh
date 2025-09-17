@@ -141,7 +141,7 @@ npm install -g tldr
 
 echo "\\n\\n=== Installing NPM packages ==="
 npm install -g typescript
-npm install -g vtop csvtojson # diff-so-fancy removed to use `delta`
+npm install -g vtop csvtojson
 npm install --global fkill-cli
 npm install -g @angular/cli@16
 

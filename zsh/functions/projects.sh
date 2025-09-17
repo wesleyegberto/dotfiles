@@ -17,21 +17,6 @@ build() {
     fi
 }
 
-tests() {
-    if [ -f pom.xml ]; then # Java project
-        mvn test
-
-    elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
-        dotnet test
-
-    elif [ -f package.json ]; then # Node project
-        npm test
-
-    else
-        echo "There is no project to test"
-    fi
-}
-
 # Try to run any project that I usually work with
 run() {
     if [ -f run_dev.sh ]; then
@@ -43,14 +28,30 @@ run() {
     elif [ -f pom.xml ]; then # Java project
         mvn spring-boot:run
 
+    elif [ -f package.json ]; then # Node project
+        # cat package.json | jq '.scripts | to_entries | .[] | "\(.key) -> \(.value)"' | fzf | awk '{print $2}' | xargs npm run
+        npm run start
+
     elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
         dotnet watch run
 
-    elif [ -f package.json ]; then # Node project
-        cat package.json | jq '.scripts | to_entries | .[] | " \(.key) -> \(.value) "' | fzf | awk '{print $2}' | xargs npm run
-
     else
         echo "There is no project to run"
+    fi
+}
+
+tests() {
+    if [ -f pom.xml ]; then # Java project
+        mvn test
+
+    elif [ -f package.json ]; then # Node project
+        npm test
+
+    elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
+        dotnet test
+
+    else
+        echo "There is no project to test"
     fi
 }
 
