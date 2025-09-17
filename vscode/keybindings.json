@@ -545,7 +545,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+b shift+\\",
+        "key": "ctrl+b v",
         "command": "workbench.action.terminal.split",
         "when": "terminalFocus"
     },
@@ -615,6 +615,31 @@
     //     "when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
     // },
     {
+        "key": "ctrl+b n",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+b p",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+b l",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+b o",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+b ;",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
         "key": "ctrl+b 1",
         "command": "workbench.action.terminal.focusAtIndex1"
     },
@@ -649,21 +674,6 @@
     {
         "key": "ctrl+b 9",
         "command": "workbench.action.terminal.focusAtIndex9"
-    },
-    {
-        "key": "ctrl+b o",
-        "command": "workbench.action.terminal.focusNextPane",
-        "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+b ;",
-        "command": "workbench.action.terminal.focusPreviousPane",
-        "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+b shift+\\",
-        "command": "workbench.action.terminal.split",
-        "when": "terminalFocus && terminalProcessSupported"
     },
     /// }}}
 
@@ -1000,6 +1010,16 @@
     {
         "key": "cmd+k cmd+p",
         "command": "markdown-preview-enhanced.openPreview"
+    },
+    {
+        "key": "alt+.",
+        "command": "-gitlens.diffWithNext",
+        "when": "editorTextFocus && gitlens:enabled && config.gitlens.keymap == 'alternate' && resourceScheme =~ /^(gitlens|git|pr)$/"
+    },
+    {
+        "key": "alt+,",
+        "command": "-gitlens.diffWithPrevious",
+        "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:tracked'"
     },
     // }}}
 ]

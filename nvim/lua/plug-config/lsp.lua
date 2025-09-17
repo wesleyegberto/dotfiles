@@ -1,7 +1,6 @@
 --- Neovm LSP
 local map = vim.api.nvim_set_keymap
 
-local lspconfig = require('lspconfig')
 local lsp_actions_preview = require("actions-preview")
 local navbuddy = require("nvim-navbuddy")
 
@@ -42,10 +41,11 @@ local function setup_keymaps()
 
   map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
+  -- code navigation
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  map('n', 'gD', "<cmd>Glance definitions<CR>", opts)
+  map('n', 'gD', '<cmd>Glance definitions<CR>', opts)
   map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  map('n', 'gI', "<cmd>Glance implementations<CR>", opts)
+  map('n', 'gI', '<cmd>Glance implementations<CR>', opts)
   map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   map('n', 'gT', '<cmd>Glance type_definitions<CR>', opts)
   map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
@@ -57,33 +57,33 @@ local function setup_keymaps()
   map('n', '<Leader>cfi', ':Telescope lsp_incoming_calls<CR>', opts)
   map('n', '<Leader>cfo', ':Telescope lsp_outgoing_calls<CR>', opts)
 
-  map('n', '<leader>crn', ':LspUI rename<CR>', opts)
-  -- map('n', '<F2>', ':LspUI rename<CR>', opts)
-
-  map('n', 'gh', ':LspUI hover<CR>', opts)
+  -- code hover and signature help
+  map('n', 'gh',         '<cmd>lua vim.lsp.buf.hover({ border = "rounded" })<CR>', opts)
+  map('n', '<S-K>',      '<cmd>lua vim.lsp.buf.hover({ border = "rounded" })<CR>', opts)
   map('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  map('n', '<C-\\>', '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
-  map('i', '<C-\\>', '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
+  map('n', '<C-\\>',     '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
+  map('i', '<C-\\>',     '<cmd>lua require("lsp_signature").toggle_float_win()<CR>', opts)
 
   -- code action
   map('n', '<leader>cal', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map('v', '<leader>cas', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.keymap.set({ "v", "n" }, "<leader>cam", lsp_actions_preview.code_actions)
+  vim.keymap.set({ 'v', 'n' }, '<leader>cam', lsp_actions_preview.code_actions)
+
+  map('n', '<leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
   -- code format
   map('n', '<leader>csf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
   map('v', '<leader>csf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
 
   -- diagnostics
-  map('n', '[g', ':LspUI diagnostic prev<CR>', opts)
-  map('n', ']g', ':LspUI diagnostic next<CR>', opts)
+  map('n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  map('n', ']g', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   map('n', '[G', ':lua require("trouble").previous({skip_groups = true, jump = true})<CR>', opts)
   map('n', ']G', ':lua require("trouble").next({skip_groups = true, jump = true})<CR>', opts)
 
-  -- map('n', '<leader>cdl', '<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>', opts)
-  map('n', '<leader>cdl', ':LspUI diagnostic<CR>', opts)
+  map('n', '<leader>cdl', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   map('n', '<leader>cdt', ':Trouble<CR>', opts)
-  map('n', '<leader>cdw', ':Trouble diagnostic<CR>', opts)
+  map('n', '<leader>cdw', ':Trouble diagnostics<CR>', opts)
   map('n', '<leader>cdx', ':Trouble quickfix<CR>', opts)
 
   -- vim-test
@@ -140,10 +140,6 @@ local function init_lsp_tools()
     }
   })
 
-  require("LspUI").setup({
-    prompt = false
-  })
-
   require 'lsp_signature'.setup({
     bind = true,
     handler_opts = {
@@ -186,7 +182,9 @@ local on_attach = function(client, bufnr)
 
   require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
-  navbuddy.attach(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    navbuddy.attach(client, bufnr)
+  end
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -198,11 +196,9 @@ mason_lsconfig.setup {
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.documentSymbol.dynamicRegistration = true
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = true,
-  lineFoldingOnly = true
-}
+capabilities.textDocument.foldingRange.lineFoldingOnly = true
 
 for _, lsp in ipairs(servers) do
   if lsp == 'omnisharp' then
@@ -220,6 +216,11 @@ for _, lsp in ipairs(servers) do
       organize_imports_on_format = true,
       analyze_open_documents_only = true,
     })
+  -- elseif lsp == 'angularls' then
+  --   vim.lsp.config(lsp, {
+  --     on_attach = on_attach,
+  --     capabilities = capabilities,
+  --   })
   elseif lsp ~= 'jdtls' then
     vim.lsp.config(lsp, {
       on_attach = on_attach,
@@ -228,6 +229,8 @@ for _, lsp in ipairs(servers) do
   end
   vim.lsp.enable(lsp)
 end
+
+vim.diagnostic.config({ virtual_text = true })
 
 require("mason-nvim-dap").setup({
   ensure_installed = { "javadbg", "javatest" }

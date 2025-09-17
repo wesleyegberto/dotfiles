@@ -69,7 +69,6 @@ require('packer').startup(function(use)
   -- === LSP ===
   use {'j-hui/fidget.nvim'} -- LSP notifications
   use {'neovim/nvim-lspconfig'} -- plugin to facilitate the configuration for LSP
-  use {'jinzhongjia/LspUI.nvim'}
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
   use {'onsails/lspkind-nvim'}
@@ -151,4 +150,5 @@ require('packer').startup(function(use)
   use {'rmagatti/auto-session'}
 
   use {'renerocksai/telekasten.nvim'}
+  -- use {'obsidian-nvim/obsidian.nvim'}
 end)
