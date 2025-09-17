@@ -11,6 +11,7 @@ end
 local maven_actions = {
   { action = 'npm rimaf',     text = 'Clean' },
   { action = 'npm run build', text = 'Build' },
+  { action = 'npm publish',   text = 'Publish' },
   { action = 'npm test',      text = 'Test' },
   { action = 'npm test ',     text = 'Test_Current_File', format_args = create_test_current_file_args },
   { action = 'npm test',      text = 'Test_Last_File', format_args = function() return last_file end }
@@ -21,9 +22,10 @@ local M = {
   clean = function() custom_actions.run_action(maven_actions[1]) end,
   build = function() custom_actions.run_action(maven_actions[2]) end,
   package = function() custom_actions.run_action(maven_actions[2]) end,
-  test = function() custom_actions.run_action(maven_actions[3]) end,
-  test_file = function() custom_actions.run_action(maven_actions[4]) end,
-  test_last_file = function() custom_actions.run_action(maven_actions[5]) end,
+  deploy = function() custom_actions.run_action(maven_actions[3]) end,
+  test = function() custom_actions.run_action(maven_actions[4]) end,
+  test_file = function() custom_actions.run_action(maven_actions[5]) end,
+  test_last_file = function() custom_actions.run_action(maven_actions[6]) end,
 }
 
 return M
