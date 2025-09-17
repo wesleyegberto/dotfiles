@@ -1,34 +1,34 @@
 -- === kyazdani42/nvim-tree.lua ===
 require('nvim-web-devicons').setup {
-  default = true;
+  default = true,
 }
 
 -- vim.cmd('highlight NvimTreeFolderIcon guibg=blue')
 
 local nvim_tree_icons = {
-   default = "",
-   symlink = "",
-   git = {
-      untracked = '?',
-      unstaged = '~',
-      staged = '+',
-      unmerged = '!',
-      renamed = "➜",
-      deleted = "✗",
-      ignored = "◌",
-   },
-   folder = {
-      -- disable indent_markers option to get arrows working or if you want both arrows and indent then just add the
-      -- arrow icons in front of the default and opened folders below!
-      -- arrow_open = "",
-      -- arrow_closed = "",
-      default = "",
-      open = "",
-      empty = "", -- 
-      empty_open = "",
-      symlink = "",
-      symlink_open = "",
-   },
+  default = "",
+  symlink = "",
+  git = {
+    untracked = '?',
+    unstaged = '~',
+    staged = '+',
+    unmerged = '!',
+    renamed = "➜",
+    deleted = "✗",
+    ignored = "◌",
+  },
+  folder = {
+    -- disable indent_markers option to get arrows working or if you want both arrows and indent then just add the
+    -- arrow icons in front of the default and opened folders below!
+    -- arrow_open = "",
+    -- arrow_closed = "",
+    default = "",
+    open = "",
+    empty = "", -- 
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
+  },
 }
 
 local function on_attach(bufnr)
@@ -82,50 +82,89 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
+local function label(path)
+  path = path:gsub(os.getenv 'HOME', '~', 1)
+  return path:gsub('([a-zA-Z])[a-z0-9]+', '%1') ..
+      (path:match '[a-zA-Z]([a-z0-9]*)$' or '')
+end
+
+local HEIGHT_RATIO = 0.8
+local WIDTH_RATIO = 0.8
+
+local function float_window()
+  local screen_w = vim.opt.columns:get()
+  local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+  local window_w = screen_w * WIDTH_RATIO
+  local window_h = screen_h * HEIGHT_RATIO
+  local window_w_int = math.floor(window_w)
+  local window_h_int = math.floor(window_h)
+  local center_x = (screen_w - window_w) / 2
+  local center_y = ((vim.opt.lines:get() - window_h) / 2)
+      - vim.opt.cmdheight:get()
+  return {
+    border = 'rounded',
+    relative = 'editor',
+    row = center_y,
+    col = center_x,
+    width = window_w_int,
+    height = window_h_int,
+  }
+end
 
 require('nvim-tree').setup {
-   on_attach = on_attach,
-   hijack_cursor = true,
-   hijack_unnamed_buffer_when_opening = true,
-   -- lsp_diagnostics = true,
-   update_focused_file = {
-      enable = true
-   },
-   view = {
-      adaptive_size = false,
-      width = 50,
-      side = 'left'
-   },
-   renderer = {
-     icons = {
-         show = {
-            file = true,
-            folder = true,
-            git = true,
-            folder_arrow = false
-         },
-         glyphs = nvim_tree_icons
+  on_attach = on_attach,
+  hijack_cursor = true,
+  hijack_unnamed_buffer_when_opening = true,
+  -- lsp_diagnostics = true,
+  update_focused_file = {
+    enable = true
+  },
+  view = {
+    -- sidebar
+    -- side = 'left',
+    -- width = 50,
+    -- adaptive_size = false,
+    --
+    -- floating
+    float = {
+      enable = true,
+      open_win_config = float_window
+    },
+    width = function()
+      return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+    end,
+  },
+  renderer = {
+    root_folder_label = label,
+    group_empty = label,
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        git = true,
+        folder_arrow = false
       },
-     indent_markers = {
-       enable = true,
-       icons = {
-         corner = "└",
-         edge = "│ ",
-         none = "  ",
+      glyphs = nvim_tree_icons
+    },
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└",
+        edge = "│ ",
+        none = "  ",
       },
-     },
-      highlight_opened_files = "all"
-   },
-   git = {
-     enable = true,
-     ignore = true
-   },
-   filters = {
-     dotfiles = false,
-     custom = {'^.git$', 'node_modules', '^.cache$', '.vscode'}
-   }
+    },
+    highlight_opened_files = "all"
+  },
+  git = {
+    enable = true,
+    ignore = true
+  },
+  filters = {
+    dotfiles = false,
+    custom = { '^.git$', 'node_modules', '^.cache$', '.vscode' }
+  }
 }
 
 -- hide statusline when nvim tree is opened
 -- vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree_1" | set laststatus=0 | else | set laststatus=2 | endif]]
-

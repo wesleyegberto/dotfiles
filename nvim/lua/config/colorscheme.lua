@@ -68,3 +68,13 @@ highlight clear LineNr
 highlight clear CursorLineNr
 ]]
 
+-- transparency
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+
+  hi Pmenu      ctermbg=Darkgray  guibg=Drakgray  ctermfg=White guifg=White
+]]
+
