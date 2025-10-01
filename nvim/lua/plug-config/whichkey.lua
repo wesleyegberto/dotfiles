@@ -12,7 +12,7 @@ highlight default link WhichKeyDesc      Operator
 -- use the default settings
 wk.setup {
   preset = 'modern',
-  delay = 1000,
+  delay = 500,
   notify = false,
   plugins = {
     marks = false,         -- shows a list of your marks on ' and `
@@ -255,9 +255,20 @@ wk.add({
 
 wk.add({
   { '<leader>a', group = 'AI', icon = '', },
-  { '<leader>at', ":Augment chat-toggle<CR>",                   desc = 'Toggle Chat', icon = '' },
-  { '<leader>ac', ":Augment chat<CR>",     mode = { 'n', 'v' }, desc = 'Chat', icon = '󰻞' },
-  { '<leader>aC', ":Augment chat-new<CR>", mode = { 'n', 'v' }, desc = 'New Chat', icon = '󱐒' },
+  -- Sidekick
+  { '<leader>at', ":lua require('sidekick.cli').toggle()<CR>",                   desc = 'Toggle Chat', icon = '' },
+  { '<leader>af', ":lua require('sidekick.cli').focus()<CR>",                    desc = 'Toggle Chat', icon = '' },
+  { '<leader>ag', ":lua require('sidekick.cli').focus({ name = 'gemini' })<CR>", desc = 'Toggle Chat', icon = '' },
+  { '<leader>ap', ":lua require('sidekick.cli').select_prompt()<CR>",            desc = 'Select Prompt', icon = '󰻞' },
+  -- Next edit suggestion
+  { '<leader>asn', ":lua require('sidekick.nes').jump()<CR>",                    desc = 'Next suggestion', icon = '' },
+  { '<leader>asa', ":lua require('sidekick.nes').apply()<CR>",                   desc = 'Accept suggestion', icon = '' },
+  { '<leader>asu', ":lua require('sidekick.nes').update()<CR>",                  desc = 'Update suggestions', icon = '' },
+  { '<leader>asc', ":lua require('sidekick.nes').clear()<CR>",                   desc = 'Clear', icon = '' },
+  -- Augument
+  -- { '<leader>at', ":Augment chat-toggle<CR>",                   desc = 'Toggle Chat', icon = '' },
+  -- { '<leader>ac', ":Augment chat<CR>",     mode = { 'n', 'v' }, desc = 'Chat', icon = '󰻞' },
+  -- { '<leader>aC', ":Augment chat-new<CR>", mode = { 'n', 'v' }, desc = 'New Chat', icon = '󱐒' },
 })
 
 -- Groups for keymaps defined in others configs and plugins

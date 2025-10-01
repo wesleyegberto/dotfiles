@@ -105,44 +105,36 @@ imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 ]])
 
+
 -- === AI completion ===
--- Copilot
-vim.b.copilot_enabled = false
-vim.g.copilot_no_tab_map = true
+if vim.g.sidekick_nes ~= false then
+  sidekick = require("sidekick")
 
-if vim.b.copilot_enabled then
-  vim.keymap.set('i', '<C-y>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+  sidekick.setup({
+    cli = {
+      mux = {
+        enabled = false,
+        backend = 'tmux'
+      },
+      win = {
+        keys = {
+          stopinsert = { "<esc>", "stopinsert", mode = "t" }, -- enter normal mode
+          hide_n     = { "q", "hide", mode = "n" }, -- hide from normal mode
+          win_c      = { "<c-w>c", "hide" }, -- hide from terminal mode
+          win_p      = { "<c-w>p", "blur" }, -- leave the cli window
+          win_w      = { "<c-w>w", "blur" }, -- leave the cli window
+          blur       = { "<c-o>", "blur" }, -- leave the cli window
+          prompt     = { "<c-p>", "prompt" }, -- insert prompt or context
+        },
+      },
+    },
+  })
 
-  vim.cmd([[
-    let g:copilot_filetypes = {
-      \ '*': v:false,
-      \ 'python': v:true,
-      \ 'lua': v:true,
-      \ 'java': v:true,
-      \ 'javascript': v:true,
-      \ 'typescript': v:true,
-      \ 'csharp': v:true,
-      \ 'shell': v:true,
-      \ }
-  ]])
+  -- smart next edit suggestion
+  vim.keymap.set('n', '<Tab>', function()
+    if not require("sidekick").nes_jump_or_apply() then
+      return '<Tab>'
+    end
+  end)
 end
-
--- Augument
-vim.g.augment_disable_completions = false
--- vim.g.augment_disable_tab_mapping = true -- until fix C-y mapping
-
-if not vim.g.augment_disable_completions then
-  -- vim.keymap.set('i', '<C-y>', 'augment#Accept()', { expr = true, replace_keycodes = false })
-end
-
--- Claude AI (https://github.com/yetone/avante.nvim?tab=readme-ov-file#key-bindings)
--- views can only be fully collapsed with the global statusline
--- vim.opt.laststatus = 3
--- require('avante').setup({
---   provider = "claude",
---   suggestion = {
---     debounce = 1000,
---     throttle = 1000,
---   }
--- })
 

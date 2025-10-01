@@ -232,6 +232,22 @@ gls.right[6] = {
     highlight = {colors.blue, colors.lightbg}
   }
 }
+gls.right[7] = {
+  ai_tool = {
+    provider = function()
+      local status = require("sidekick.status").get()
+
+      if status then
+        return status.kind == "Error" and "DiagnosticError" or status.busy and "DiagnosticWarn" or "Special"
+      end
+      return "OFF"
+    end,
+    separator = "  ",
+    separator_highlight = {colors.lightbg, colors.lightbg},
+    highlight = {colors.blue, colors.lightbg}
+  }
+}
+
 
 gls.short_line_left[1] = {
   BufferType = {

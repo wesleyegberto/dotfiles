@@ -84,18 +84,8 @@ require('packer').startup(function(use)
 
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
-  -- === AI ===
-  -- use {'github/copilot.vim'}
-  -- use {'CopilotC-Nvim/CopilotChat.nvim'}
-  -- alternative plugin for copilot
-  -- use {'zbirenbaum/copilot.lua'} -- copilot core
-  -- use {'zbirenbaum/copilot-cmp'} -- copilot completion
-
-  -- use {'NickvanDyke/opencode.nvim'} -- opencode integration
-
-  use {'augmentcode/augment.vim'}
-
-  -- use {'yetone/avante.nvim'} -- Claude
+  -- AI
+  use {'folke/sidekick.nvim'}
 
   -- debugging
   use {'mfussenegger/nvim-dap'} -- debugger (https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/)
