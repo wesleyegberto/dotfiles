@@ -11,7 +11,7 @@ font-feature = dlig
 background = #222436
 background-opacity = 1
 
-background-image = ~/Pictures/Wallpapers/Landscapes/tokyo-1.png
+background-image = ~/.dotfiles/wallpapers/Tokyo-8.jpg
 background-image-position = center
 background-image-fit = cover
 background-image-opacity = 0.1

@@ -101,10 +101,11 @@ The configuration is structured to be modular and easy to maintain.
 
 Key features of this setup include:
 
-* **LSP Integration**: Comprehensive language support using `nvim-lspconfig`, `mason.nvim` for managing language servers, and enhanced UI through `LspUI`, `fidget.nvim`, and `trouble.nvim`.
+* **LSP Integration**: Comprehensive language support using `nvim-lspconfig`, `mason.nvim` for managing language servers, and enhanced UI through `navbuddy`, `lspkind`, `lsp_signature`, `lsp-lens`, `fidget.nvim`, and `trouble.nvim`.
 * **Fuzzy Finding**: Extensive use of `telescope.nvim` for finding files, buffers, commands, and more, with custom extensions for Git and language-specific tools.
 * **Syntax and Editing**: Advanced syntax highlighting and text objects with `nvim-treesitter`. Enhanced editing with plugins like `nvim-autopairs`, `nvim-surround`, and `Comment.nvim`.
 * **Debugging**: Integrated debugging support with `nvim-dap` and `nvim-dap-ui`.
+* **AI**: `sidekick` as AI CLI integration tool enabling a full Neovim experience.
 * **Filetype-Specific Configs**: Custom settings and keymaps for languages like Java, C#, Python, and TypeScript located in the `nvim/ftplugin` directory.
 * **Custom Snippets**: A collection of personal snippets for Java and other languages.
 
