@@ -257,8 +257,8 @@ wk.add({
   { '<leader>a', group = 'AI', icon = '', },
   -- Sidekick
   { '<leader>at', ":lua require('sidekick.cli').toggle()<CR>",                   desc = 'Toggle Chat', icon = '' },
-  { '<leader>af', ":lua require('sidekick.cli').focus()<CR>",                    desc = 'Toggle Chat', icon = '' },
-  { '<leader>ag', ":lua require('sidekick.cli').focus({ name = 'gemini' })<CR>", desc = 'Toggle Chat', icon = '' },
+  { '<leader>af', ":lua require('sidekick.cli').focus()<CR>",                    desc = 'Focus Chat', icon = '' },
+  { '<leader>ag', ":lua require('sidekick.cli').focus({ name = 'gemini' })<CR>", desc = 'Gemini Chat', icon = '' },
   { '<leader>ap', ":lua require('sidekick.cli').select_prompt()<CR>",            desc = 'Select Prompt', icon = '󰻞' },
   -- Next edit suggestion
   { '<leader>asn', ":lua require('sidekick.nes').jump()<CR>",                    desc = 'Next suggestion', icon = '' },

@@ -42,9 +42,9 @@ brew install rectangle
 # global key bindinds
 # brew install koekeishiya/formulae/skhd
 
-echo "\\n\\n === Kitty & Tmux & Oh-My-Zsh ==="
+echo "\\n\\n === Kitty & Ghostty & Tmux & Oh-My-Zsh ==="
 /bin/bash -c "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
-
+brew install ghostty
 brew install tmux
 
 brew install zsh
@@ -145,12 +145,13 @@ npm install -g vtop csvtojson
 npm install --global fkill-cli
 npm install -g @angular/cli@16
 
-echo "\\n\\n=== Installing Neovim & VS Code & Sublime-Text ==="
+echo "\\n\\n=== Installing Neovim & VS Code & Sublime-Text & Opencode & Gemini ==="
 brew install --HEAD luajit
 brew install neovim
 brew install sublime-text
 brew install --cask visual-studio-code
-brew install --cask visual-studio-code-insider
+curl -fsSL https://opencode.ai/install | bash
+npm install -g @google/gemini-cli
 
 echo "\\n\\n=== Installing Neovim providers ==="
 pip3 install --user --upgrade neovim
@@ -170,14 +171,14 @@ fi
 echo "\\n\\n=== Installing Java ==="
 if [[ "$ARCH" == 'x86_64' ]]; then
     sdk install java 11
-    sdk install java 17
-    sdk default java 17
+    sdk install java 21
+    sdk default java 21
 fi
 if [[ "$ARCH" == 'amd64' ]]; then
     # JDK 8: https://www.azul.com/downloads/?version=java-8-lts&os=macos&architecture=arm-64-bit&package=jdk#zulu
     # OpenJ9: https://developer.ibm.com/languages/java/semeru-runtimes/downloads/
     jabba install microsoft@11
-    jabba install openjdk@17
+    jabba install openjdk@21
 fi
 
 echo "\\nInstalling Java tools"

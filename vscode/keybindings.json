@@ -528,6 +528,20 @@
         "when": "!terminalFocus"
     },
     {
+        "key": "F1",
+        "command": "workbench.action.togglePanel",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "F1",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "F4",
+        "command": "workbench.action.terminal.newInActiveWorkspace"
+    },
+    {
         "key": "ctrl+b c",
         "command": "workbench.action.terminal.newInActiveWorkspace"
     },
@@ -621,6 +635,16 @@
     },
     {
         "key": "ctrl+b p",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "F3",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "F2",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalProcessSupported"
     },

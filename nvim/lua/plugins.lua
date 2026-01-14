@@ -71,16 +71,21 @@ require('packer').startup(function(use)
   use {'neovim/nvim-lspconfig'} -- plugin to facilitate the configuration for LSP
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
+
   use {'onsails/lspkind-nvim'}
   use {'ray-x/lsp_signature.nvim'} -- method signature
   use {'VidocqH/lsp-lens.nvim'} -- show references
   use {'hasansujon786/nvim-navbuddy', requires = { 'SmiteshP/nvim-navic', 'MunifTanjim/nui.nvim' } } -- document members popup
+
   use {'DNLHC/glance.nvim'} -- window preview
-  use {'folke/trouble.nvim'} -- panel for diagnostics
-  use {'artemave/workspace-diagnostics.nvim'}
-  use {'vim-test/vim-test'} -- run tests
   use {'kevinhwang91/nvim-bqf'} -- improves quick-fix list (float window, search), use `zf` to search
   use {'aznhe21/actions-preview.nvim'}
+  use {'antosha417/nvim-lsp-file-operations'}
+
+  use {'folke/trouble.nvim'} -- panel for diagnostics
+  use {'artemave/workspace-diagnostics.nvim'}
+
+  use {'vim-test/vim-test'} -- run tests
 
   use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
 
@@ -109,6 +114,7 @@ require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
   -- region selection using treesitter and hop
   use {'mfussenegger/nvim-treehopper'}
+
   use {'ThePrimeagen/refactoring.nvim'}
 
   -- === snippet engine ===

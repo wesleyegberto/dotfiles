@@ -6,8 +6,6 @@ local navbuddy = require("nvim-navbuddy")
 
 local home = os.getenv('HOME')
 
-require('fidget').setup({})
-
 require('mason').setup({
   ui = {
     border = 'rounded',
@@ -23,12 +21,28 @@ local mason_lsconfig = require('mason-lspconfig')
 mason_lsconfig.setup()
 
 local opts = { noremap = true }
+map('n', '<leader>lp', ':Mason<CR>', opts)
 map('n', '<leader>ls', ':LspStart<CR>', opts)
 map('n', '<leader>lS', ':LspStop<CR>', opts)
+map('n', '<leader>lr', ':LspRestart<CR>', opts)
 map('n', '<leader>ll', ':LspLog<CR>', opts)
 map('n', '<leader>li', ':LspInfo<CR>', opts)
-map('n', '<leader>lp', ':Mason<CR>', opts)
 
+-- diagnostic signs
+local severity = vim.diagnostic.severity
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = {
+    text = {
+      [severity.ERROR] = " ",
+      [severity.WARN] = " ",
+      [severity.HINT] = "󰠠 ",
+      [severity.INFO] = " ",
+    },
+  },
+})
+
+-- LSP setup
 local function setup_keymaps()
   vim.cmd [[
     augroup lsp_document_highlight
@@ -48,7 +62,8 @@ local function setup_keymaps()
   map('n', 'gI', '<cmd>Glance implementations<CR>', opts)
   map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   map('n', 'gT', '<cmd>Glance type_definitions<CR>', opts)
-  map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+  -- map('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   map('n', 'gR', '<cmd>Glance references<CR>', opts)
 
   map('n', '<Leader>cfm', ':Navbuddy<CR>', opts)
@@ -94,36 +109,39 @@ local function setup_keymaps()
 end
 
 local function init_lsp_tools()
+  -- notifications
+  require('fidget').setup({})
+
   require('lspkind').init({
-    mode = 'symbol_text',
-    preset = 'default',
-    symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "פּ",
-      Event = "",
-      Operator = "",
-      TypeParameter = ""
-    },
+   mode = 'symbol_text',
+   preset = 'default',
+   symbol_map = {
+     Text = "",
+     Method = "",
+     Function = "",
+     Constructor = "",
+     Field = "ﰠ",
+     Variable = "",
+     Class = "ﴯ",
+     Interface = "",
+     Module = "",
+     Property = "ﰠ",
+     Unit = "塞",
+     Value = "",
+     Enum = "",
+     Keyword = "",
+     Snippet = "",
+     Color = "",
+     File = "",
+     Reference = "",
+     Folder = "",
+     EnumMember = "",
+     Constant = "",
+     Struct = "פּ",
+     Event = "",
+     Operator = "",
+     TypeParameter = ""
+   },
   })
 
   -- window preview enhancements
@@ -153,6 +171,8 @@ local function init_lsp_tools()
   })
 
   require('trouble').setup()
+
+  require('lsp-file-operations').setup()
 
   lsp_actions_preview.setup {
     telescope = {
@@ -194,10 +214,16 @@ mason_lsconfig.setup {
   ensure_installed = servers
 }
 
--- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.documentSymbol.dynamicRegistration = true
+
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  vim.lsp.protocol.make_client_capabilities(),
+  require("cmp_nvim_lsp").default_capabilities(),
+  require'lsp-file-operations'.default_capabilities()
+)
+
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.documentSymbol.dynamicRegistration = true
 capabilities.textDocument.foldingRange.lineFoldingOnly = true
 
 for _, lsp in ipairs(servers) do
@@ -216,21 +242,15 @@ for _, lsp in ipairs(servers) do
       organize_imports_on_format = true,
       analyze_open_documents_only = true,
     })
-  -- elseif lsp == 'angularls' then
-  --   vim.lsp.config(lsp, {
-  --     on_attach = on_attach,
-  --     capabilities = capabilities,
-  --   })
   elseif lsp ~= 'jdtls' then
     vim.lsp.config(lsp, {
       on_attach = on_attach,
       capabilities = capabilities,
     })
   end
+
   vim.lsp.enable(lsp)
 end
-
-vim.diagnostic.config({ virtual_text = true })
 
 require("mason-nvim-dap").setup({
   ensure_installed = { "javadbg", "javatest" }

@@ -187,6 +187,10 @@
 
     // source file
     {
+      "before": ["<leader>", "o", "w"],
+      "commands": ["editor.action.toggleWordWrap"]
+    },
+    {
       "before": ["<leader>", "c", "s", "f"],
       "commands": ["editor.action.formatDocument"]
     },
@@ -635,43 +639,6 @@
   "eslint.run": "onSave",
   "eslint.validate": ["javascript"],
   "editor.rulers": [
-    // {
-    //   "column": 27,
-    //   "color": "#ff00FF"
-    // },
-    // {
-    //   "column": 35,
-    //   "color": "#ff00FF"
-    // },
-    // {
-    //   "column": 77,
-    //   "color": "#ff0000"
-    // },
-    // {
-    //   "column": 1,
-    //   "color": "#ff0000"
-    // },
-    // {
-    //   "column": 15,
-    //   "color": "#ff0000"
-    // },
-    // {
-    //   "column": 105,
-    //   "color": "#ff00FF"
-    // },
-    // {
-    //   "column": 113,
-    //   "color": "#00ff00"
-    // },
-    // VR - Distribuição Pontos - Valor
-    // {
-    //   "column": 25,
-    //   "color": "#ff0000"
-    // },
-    // {
-    //   "column": 35,
-    //   "color": "#ff0000"
-    // },
     120
   ],
   "prettier.arrowParens": "avoid",
@@ -772,7 +739,7 @@
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "git.mergeEditor": false,
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "json.format.enable": false,
   "json.schemaDownload.enable": false,
@@ -900,7 +867,6 @@
   "chat.detectParticipant.enabled": false,
   "chat.edits2.enabled": false,
   "chat.extensionTools.enabled": false,
-  "chat.mcp.enabled": false,
   "inlineChat.holdToSpeech": false,
   "inlineChat.lineNaturalLanguageHint": false,
   "accessibility.verbosity.inlineChat": false,
@@ -921,5 +887,27 @@
   "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": false,
   "markdownShortcuts.bullets.marker": "-",
   "github.copilot.chat.codesearch.enabled": true,
-  "docker.extension.enableComposeLanguageServer": false
+  "docker.extension.enableComposeLanguageServer": false,
+  "vim.joinspaces": false,
+  "augment.disableFocusOnAugmentPanel": true,
+  "explorer.confirmPasteNative": false,
+  "chat.mcp.access": "none",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
+  "chat.viewSessions.orientation": "stacked",
+  "chat.useAgentSkills": true,
+  "chat.useNestedAgentsMdFiles": true
 }

@@ -191,6 +191,10 @@ config = {
             name = 'JavaSE-21',
             path = home .. '/.jabba/jdk/openjdk@21/Contents/Home',
             default = true
+          },
+          {
+            name = 'JavaSE-25',
+            path = home .. '/.jabba/jdk/openjdk@25/Contents/Home'
           }
         }
       }

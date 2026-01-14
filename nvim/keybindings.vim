@@ -14,8 +14,10 @@ vmap <C-s> <Esc>:w<CR>
 " unhighlight the search result
 nnoremap <silent> <Leader><Esc> :nohl<CR>
 
-" toggle wrap
-nnoremap <silent> <Leader>ow :set wrap!<CR>
+if !exists('g:vscode')
+  " toggle wrap
+  nnoremap <silent> <Leader>ow :set wrap!<CR>
+endif
 
 
 " change vertical split to horizontal
