@@ -19,8 +19,8 @@ echo "Copying Kitty conf"
 mkdir -p $HOME/.config/kitty
 [ -f $HOME/.config/kitty/kitty.conf ] && mv $HOME/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf_backup
 [ -f $HOME/.config/kitty/current-theme.conf ] && mv $HOME/.config/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf_backup
-ln -s $DOTFILES/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
-ln -s $DOTFILES/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf
+ln -s $DOTFILES/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+ln -s $DOTFILES/.config/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf
 
 echo "Copying .zshrc"
 [ -f $HOME/.zshrc ] && mv $HOME/.zshrc $HOME/.zshrc_backup
