@@ -69,7 +69,8 @@ wk.setup {
 
 wk.add({
   { '<leader>w',   group = 'Windows' },
-  { '<leader>ww',  '<C-w>w',         desc = 'other-window' },
+  { '<leader>wm',  ':Maximize<CR>',  desc = 'toggle Maximize' },
+  { '<leader>ww',  '<C-w>w',         desc = 'other window' },
   { '<leader>wq',  '<C-w>q',         desc = 'quit window' },
   { '<leader>wc',  '<C-w>c',         desc = 'close window' }, -- vim.fn.expand('%')
   { '<leader>wd',  ':Bdelete<CR>',   desc = 'close buffer' },

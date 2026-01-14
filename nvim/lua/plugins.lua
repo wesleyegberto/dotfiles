@@ -17,6 +17,8 @@ require('packer').startup(function(use)
   use {'nvim-tree/nvim-web-devicons'}
   use {'nvim-tree/nvim-tree.lua'}
 
+  use {'declancm/maximize.nvim'}
+
   use {'voldikss/vim-floaterm'}
   use {'ThePrimeagen/harpoon', branch = 'harpoon2'}
   use {'matbme/JABS.nvim'}

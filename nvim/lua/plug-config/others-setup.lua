@@ -1,3 +1,5 @@
+require('maximize').setup()
+
 require('harpoon'):setup()
 
 require('bqf').setup()

@@ -23,6 +23,8 @@ map('n', '<Leader><Esc>', ':nohlsearch<CR>', options)
 -- toggle wrap
 map('n', '<Leader>ow', ':set wrap!<CR>', silentOptions)
 
+-- maximize
+map('n', '<C-w>m', ':Maximize<CR>', silentOptions)
 -- flip
 map('n', '<Leader>wfv', '<C-w>t<C-w>H', silentOptions) -- change vertical split to horizontal
 map('n', '<Leader>wfh', '<C-w>t<C-w>K', silentOptions) -- change horizontal split to vertical
