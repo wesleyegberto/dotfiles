@@ -257,15 +257,16 @@ wk.add({
 wk.add({
   { '<leader>a', group = 'AI', icon = '', },
   -- Sidekick
-  { '<leader>at', ":lua require('sidekick.cli').toggle()<CR>",                   desc = 'Toggle Chat', icon = '' },
-  { '<leader>af', ":lua require('sidekick.cli').focus()<CR>",                    desc = 'Focus Chat', icon = '' },
-  { '<leader>ag', ":lua require('sidekick.cli').focus({ name = 'gemini' })<CR>", desc = 'Gemini Chat', icon = '' },
-  { '<leader>ap', ":lua require('sidekick.cli').select_prompt()<CR>",            desc = 'Select Prompt', icon = '󰻞' },
+  { '<leader>at', ":lua require('sidekick.cli').toggle({ filter = { installed = true } })<CR>", desc = 'Toggle Chat', icon = '' },
+  { '<leader>af', ":lua require('sidekick.cli').focus({ filter = { installed = true } })<CR>",  desc = 'Focus Chat', icon = '' },
+  { '<leader>ag', ":lua require('sidekick.cli').focus({ name = 'gemini' })<CR>",                desc = 'Gemini Chat', icon = '' },
+  { '<leader>ap', ":lua require('sidekick.cli').prompt()<CR>",                                  desc = 'Prompts', icon = '󰻞' },
   -- Next edit suggestion
-  { '<leader>asn', ":lua require('sidekick.nes').jump()<CR>",                    desc = 'Next suggestion', icon = '' },
-  { '<leader>asa', ":lua require('sidekick.nes').apply()<CR>",                   desc = 'Accept suggestion', icon = '' },
-  { '<leader>asu', ":lua require('sidekick.nes').update()<CR>",                  desc = 'Update suggestions', icon = '' },
-  { '<leader>asc', ":lua require('sidekick.nes').clear()<CR>",                   desc = 'Clear', icon = '' },
+  { '<leader>asn', ":lua require('sidekick.nes').jump()<CR>",                                   desc = 'Next suggestion', icon = '' },
+  { '<leader>asa', ":lua require('sidekick.nes').apply()<CR>",                                  desc = 'Accept suggestion', icon = '' },
+  { '<leader>asu', ":lua require('sidekick.nes').update()<CR>",                                 desc = 'Update suggestions', icon = '' },
+  { '<leader>asc', ":lua require('sidekick.nes').clear()<CR>",                                  desc = 'Clear', icon = '' },
+  { '<leader>ast', ":lua require('sidekick.nes').toggle()<CR>",                                 desc = 'Toggle', icon = '' },
   -- Augument
   -- { '<leader>at', ":Augment chat-toggle<CR>",                   desc = 'Toggle Chat', icon = '' },
   -- { '<leader>ac', ":Augment chat<CR>",     mode = { 'n', 'v' }, desc = 'Chat', icon = '󰻞' },
@@ -284,4 +285,7 @@ wk.add({ { '<leader>d', group = 'Debug', icon = '' } })
 wk.add({ { '<leader>r', group = 'Run Test', icon = '󰤑' } })
 wk.add({ { '<leader>s', group = 'Treesitter Selection', icon = '' } })
 wk.add({ { '<leader>h', group = 'Git Hunk' } })
+wk.add({ { '<leader>ac', group = 'AI Complete' } })
+wk.add({ { '<leader>as', group = 'AI Suggestion' } })
+
 

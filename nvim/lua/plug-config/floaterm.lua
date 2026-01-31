@@ -1,5 +1,6 @@
 -- === fvoldikss/vim-floatermloatterm ===
 
+vim.api.nvim_set_keymap('i', '<F1>', '<cmd>FloatermToggle<CR>', { noremap = true })
 vim.g.floaterm_keymap_toggle = '<F1>'
 vim.g.floaterm_keymap_prev = '<F2>'
 vim.g.floaterm_keymap_next = '<F3>'

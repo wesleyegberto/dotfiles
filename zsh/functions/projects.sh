@@ -87,13 +87,27 @@ new_spring_boot() {
 # Jupyter Lab
 jupyterlab() {
     export PYTHON_ENV="$HOME/pythonenv/jupyterlab"
-    source $PYTHON_ENV/bin/activate
-    $PYTHON_ENV/bin/jupyter lab
+    if [[ ! -d "$PYTHON_ENV" ]]; then
+        mkdir -p "$PYTHON_ENV"
+        python3 -m venv "$PYTHON_ENV"
+    fi
+    source "$PYTHON_ENV"/bin/activate
+    "$PYTHON_ENV"/bin/jupyter lab
 }
 
-jupyterlab_pip3() {
-    export PYTHON_ENV="$HOME/pythonenv/jupyterlab"
-    source $PYTHON_ENV/bin/activate
-    pip3 install $@
+# setup a global env to use in python3
+pyenv() {
+    export PYTHON_ENV="$HOME/pythonenv/global"
+    if [[ ! -d "$PYTHON_ENV" ]]; then
+        mkdir -p "$PYTHON_ENV"
+        python3 -m venv "$PYTHON_ENV"
+    fi
+    source "$PYTHON_ENV/bin/activate"
+}
+
+# install python dependency in env
+pyenv_pip3() {
+    source "$PYTHON_ENV/bin/activate"
+    pip3 install "$@"
 }
 
