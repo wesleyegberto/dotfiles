@@ -99,6 +99,7 @@ cmd-alt-shift-3 = 'move-node-to-workspace 3'
 cmd-alt-shift-4 = 'move-node-to-workspace 4'
 
 # === Smart Resize ===
+alt-shift-0 = 'balance-sizes'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
