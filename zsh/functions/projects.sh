@@ -35,6 +35,9 @@ run() {
     elif [ -f $(ls | grep -E "^.*\.[sln|csproj]$") ]; then # .Net project
         dotnet watch run
 
+    elif [ -f $(ls | grep -E "docker-compose.ya?ml") ]; then # .Net project
+        docker compose up
+
     else
         echo "There is no project to run"
     fi

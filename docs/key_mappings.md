@@ -154,6 +154,16 @@ Help: `<Leader>?`
 <Leader> x           " close current pane
 ```
 
+### Tools
+
+```
+<Leader> C-t         " TODO note
+<Leader> C-g         " Lazygit
+<Leader> C-v         " Neovim
+<Leader> C-s         " VSCode
+<Leader> C-i         " AI CLI (Gemini or Claude Code)
+```
+
 ### Misc
 
 ```

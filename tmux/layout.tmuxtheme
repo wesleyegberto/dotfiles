@@ -43,13 +43,13 @@ set -g status-left-fg "${light}"
 set -g status-left-length 40
 set -g @prefix_highlight_fg 'white' # default is 'colour231'
 set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
-set -g status-left "#[fg=${dark_1},bg=${most_left_bg},bold] #S #[fg=${most_left_bg},bg=${light},nobold]#[fg=${dark},bg=${light}] #(whoami) #[fg=${light},bg=${dark_2_bg}]#[fg=${light},bg=${dark_2_bg}] #I:#P #{prefix_highlight} #[fg=${dark_2_bg},bg=${dark},nobold]"
+set -g status-left "#[fg=${dark_1},bg=${most_left_bg},bold] #S #[fg=${most_left_bg},bg=${light},nobold]#[fg=${dark},bg=${light}] #I:#P #[fg=${light},bg=${dark_2_bg}]"
 
 # Right side of status bar
 set -g status-right-bg "${dark_1}"
 set -g status-right-fg "${light}"
 set -g status-right-length 150
-set -g status-right "#[fg=${dark_2_fg},bg=${dark_2_bg}]#[fg=${dark_2_bg},bg=${dark_2_fg}] %d-%b-%y %H:%M #[fg=${most_right_bg},bg=${dark_2_fg}]#[fg=${most_right_fg},bg=${most_right_bg},bold] #H "
+set -g status-right "#[fg=${dark_2_fg},bg=${dark_2_bg}]#[fg=${dark_2_bg},bg=${dark_2_fg}] %d-%b-%y %H:%M "
 
 # Window status
 set -g window-status-format "#[fg=${light}]#[bg=${dark}]  #I:#W#F  "
@@ -95,7 +95,7 @@ set -g message-command-fg black
 set -g mode-bg "${light_purple}"
 set -g mode-fg "${light_purple_text}"
 
-
 # modes
 setw -g clock-mode-colour '${light_purple}'
 setw -g mode-style 'fg=${yellow} bg=${red} bold'
+

@@ -1,6 +1,7 @@
 shell-integration = zsh
 confirm-close-surface = false
 window-save-state = never
+window-inherit-working-directory = true
 
 font-family = Cascadia Code
 theme = Dracula
@@ -14,7 +15,7 @@ background-opacity = 1
 background-image = ~/.dotfiles/wallpapers/Tokyo-8.jpg
 background-image-position = center
 background-image-fit = cover
-background-image-opacity = 0.1
+background-image-opacity = 0.05
 
 foreground = #00ff00
 selection-background = #3654a7
