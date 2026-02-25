@@ -98,9 +98,9 @@ require('packer').startup(function(use)
   -- use {'zbirenbaum/copilot.lua'} -- copilot core
   -- use {'zbirenbaum/copilot-cmp'} -- copilot completion
 
-  use {'folke/sidekick.nvim'}
+  use {'augmentcode/augment.vim'}
 
-  -- use {'augmentcode/augment.vim'}
+  use {'folke/sidekick.nvim'}
 
   use {'ThePrimeagen/99'}
 

@@ -3,8 +3,6 @@ require('nvim-web-devicons').setup {
   default = true,
 }
 
--- vim.cmd('highlight NvimTreeFolderIcon guibg=blue')
-
 local nvim_tree_icons = {
   default = "",
   symlink = "",
@@ -82,34 +80,31 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
-local function label(path)
-  path = path:gsub(os.getenv 'HOME', '~', 1)
-  return path:gsub('([a-zA-Z])[a-z0-9]+', '%1') ..
-      (path:match '[a-zA-Z]([a-z0-9]*)$' or '')
+local function root_label(path)
+  return path:match '[^/]+$'
 end
 
-local HEIGHT_RATIO = 0.8
-local WIDTH_RATIO = 0.8
-
-local function float_window()
-  local screen_w = vim.opt.columns:get()
-  local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-  local window_w = screen_w * WIDTH_RATIO
-  local window_h = screen_h * HEIGHT_RATIO
-  local window_w_int = math.floor(window_w)
-  local window_h_int = math.floor(window_h)
-  local center_x = (screen_w - window_w) / 2
-  local center_y = ((vim.opt.lines:get() - window_h) / 2)
-      - vim.opt.cmdheight:get()
-  return {
-    border = 'rounded',
-    relative = 'editor',
-    row = center_y,
-    col = center_x,
-    width = window_w_int,
-    height = window_h_int,
-  }
-end
+-- local HEIGHT_RATIO = 0.8
+-- local WIDTH_RATIO = 0.2
+-- local function float_window()
+--   local screen_w = vim.opt.columns:get()
+--   local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+--   local window_w = screen_w * WIDTH_RATIO
+--   local window_h = screen_h * HEIGHT_RATIO
+--   local window_w_int = math.floor(window_w)
+--   local window_h_int = math.floor(window_h)
+--   local center_x = (screen_w - window_w) / 2
+--   local center_y = ((vim.opt.lines:get() - window_h) / 2)
+--       - vim.opt.cmdheight:get()
+--   return {
+--     border = 'rounded',
+--     relative = 'editor',
+--     row = center_y,
+--     col = center_x,
+--     width = window_w_int,
+--     height = window_h_int,
+--   }
+-- end
 
 require('nvim-tree').setup {
   on_attach = on_attach,
@@ -121,22 +116,23 @@ require('nvim-tree').setup {
   },
   view = {
     -- sidebar
-    -- side = 'left',
-    -- width = 50,
-    -- adaptive_size = false,
+    side = 'left',
+    width = 70,
+    adaptive_size = false,
     --
     -- floating
-    float = {
-      enable = true,
-      open_win_config = float_window
-    },
-    width = function()
-      return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-    end,
+    -- float = {
+    --   enable = true,
+    --   open_win_config = float_window
+    -- },
+    -- width = function()
+    --   return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+    -- end,
   },
   renderer = {
-    root_folder_label = label,
-    group_empty = label,
+    root_folder_label = root_label,
+    -- group_empty = label,
+    group_empty = true,
     icons = {
       show = {
         file = true,
