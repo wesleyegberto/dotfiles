@@ -161,7 +161,7 @@ if vim.g.sidekick_nes ~= false then
     if not sidekick.nes_jump_or_apply() then
       return "<C-e>"
     end
-  end)
+  end, { desc = "AI jump or apply" })
 end
 
 -- 99
@@ -176,14 +176,15 @@ _99.setup({
     path = "/tmp/" .. basename .. ".99.debug",
     print_on_error = true,
   },
-  model = "github-copilot/gpt-4o",
+  provider = _99.Providers.GeminiCLIProvider,
+  -- model is optional, overrides the provider's default
+  model = "auto",
+  -- model = "github-copilot/gpt-4o",
   --- A new feature that is centered around tags
   completion = {
-    --- A list of folders where you have your own SKILL.md
-    --- Expected format:
-    --- /path/to/dir/<skill_name>/SKILL.md
+    --- A list of folders where you have the skills folders with SKILL.md
     custom_rules = {
-      "projects/github/personal/tools/gemini-cli-tools/skills/",
+      os.getenv('AGENT_DIR') .. "/skills/"
     },
     source = "cmp",
   },
@@ -193,9 +194,12 @@ _99.setup({
     "AGENTS.md",
   },
 })
-vim.keymap.set("n", "<leader>acl", function() _99.view_logs() end, { desc = "99: View Logs" })
-vim.keymap.set("n", "<leader>acp", function() _99.visual_prompt() end, { desc = "99: Custom prompt" })
-vim.keymap.set("v", "<leader>acp", function() _99.visual_prompt() end, { desc = "99: Custom prompt" })
-vim.keymap.set("v", "<leader>acf", function() _99.fill_in_function_prompt() end, { desc = "99: Fill in function with prompt" })
-vim.keymap.set("v", "<leader>acF", function() _99.visual() end, { desc = "99: Fill in function" })
-vim.keymap.set("v", "<leader>acS", function() _99.stop_all_requests() end, { desc = "99: Stop all requests" })
+
+vim.keymap.set("n", "<leader>aP", function() require('99.extensions.telescope').select_provider() end, { desc = "99: Select Provider" })
+vim.keymap.set("n", "<leader>aM", function() require('99.extensions.telescope').select_model() end, { desc = "99: Select Model" })
+vim.keymap.set("n", "<leader>acl", function() _99.view_logs() end, { desc = "99: View logs" })
+vim.keymap.set("n", "<leader>acs", function() _99.search() end, { desc = "99: Search" })
+vim.keymap.set("n", "<leader>acp", function() _99.visual() end, { desc = "99: Custom prompt" })
+vim.keymap.set("v", "<leader>acp", function() _99.visual() end, { desc = "99: Custom prompt" })
+vim.keymap.set("n", "<leader>acX", function() _99.stop_all_requests() end, { desc = "99: Stop all requests" })
+

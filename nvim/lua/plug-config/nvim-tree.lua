@@ -159,6 +159,10 @@ require('nvim-tree').setup {
   filters = {
     dotfiles = false,
     custom = { '^.git$', 'node_modules', '^.cache$', '.vscode' }
+  },
+  live_filter = {
+    prefix = "[FILTER]: ",
+    always_show_folders = false, -- Turn into false from true by default
   }
 }
 

@@ -110,10 +110,10 @@ alt-shift-enter = 'mode apps'
 
 # === Applications ===
 [mode.apps.binding]
-alt-t = ['exec-and-forget open -n /Applications/kitty.app', 'mode main']
+alt-t = ['exec-and-forget open -n /Applications/Ghostty.app', 'mode main']
 alt-b = ['exec-and-forget open -n /Applications/Brave\ Browser.app', 'mode main']
 alt-o = ['exec-and-forget open -n /Applications/Obsidian.app', 'mode main']
-alt-c = ['exec-and-forget open -n /Applications/Visual\ Studio\ Code.app', 'mode main']
+alt-s = ['exec-and-forget open -n /Applications/Visual\ Studio\ Code.app', 'mode main']
 enter = 'mode main'
 esc = 'mode main'
 
@@ -145,4 +145,3 @@ run = 'move-node-to-workspace 3'
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
 run = 'move-node-to-workspace 4'
-

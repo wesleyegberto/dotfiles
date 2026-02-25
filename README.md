@@ -28,8 +28,8 @@ These dotfiles configure various aspects of my system, including:
 
 *   **Shell:** Zsh with Oh-My-Zsh and Zplugin
 *   **Terminal:** Kitty and Ghostty
-*   **Editor:** Neovim (Lua-based) and VS Code (with Vim extension)
-*   **AI:** Opencode and Gemini
+*   **Editor:** Neovim and VS Code (with Vim extension)
+*   **AI:** sidekick, 99, Opencode and Gemini
 *   **Version Control:** Git
 *   **Multiplexer:** Tmux
 *   **Window Manager:** Aerospace (macOS)
