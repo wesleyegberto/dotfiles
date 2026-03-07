@@ -34,6 +34,9 @@ keybind = cmd+t=toggle_quick_terminal
 keybind = ctrl+a>c=new_window
 keybind = ctrl+a>w=close_window
 
+# tab
+keybind = ctrl+a>t=new_tab
+
 # splits
 keybind = ctrl+a>v=new_split:right
 keybind = ctrl+a>s=new_split:down

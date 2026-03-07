@@ -145,12 +145,15 @@ npm install -g vtop csvtojson
 npm install --global fkill-cli
 npm install -g @angular/cli@16
 
-echo "\\n\\n=== Installing Neovim & VS Code & Sublime-Text & Opencode & Gemini ==="
+echo "\\n\\n=== Installing Neovim & VS Code & Sublime-Text ==="
 brew install --HEAD luajit
 brew install neovim
 brew install sublime-text
 brew install --cask visual-studio-code
+
+echo "\\n\\n=== Opencode & Claude Code & Gemini ==="
 curl -fsSL https://opencode.ai/install | bash
+curl -fsSL https:‌//claude‌.ai/install.sh | bash
 npm install -g @google/gemini-cli
 
 echo "\\n\\n=== Installing Neovim providers ==="

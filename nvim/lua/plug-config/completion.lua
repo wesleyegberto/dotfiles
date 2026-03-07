@@ -176,15 +176,19 @@ _99.setup({
     path = "/tmp/" .. basename .. ".99.debug",
     print_on_error = true,
   },
-  provider = _99.Providers.GeminiCLIProvider,
-  -- model is optional, overrides the provider's default
-  model = "auto",
+  -- Claude Code
+  provider = _99.Providers.ClaudeCodeProvider,
+  model = "claude-sonnet-4-5",
+  -- Gemini
+  -- provider = _99.Providers.GeminiCLIProvider,
+  -- model = "auto",
+  -- Copilot
   -- model = "github-copilot/gpt-4o",
   --- A new feature that is centered around tags
   completion = {
     --- A list of folders where you have the skills folders with SKILL.md
     custom_rules = {
-      os.getenv('AGENT_DIR') .. "/skills/"
+      (os.getenv('AGENT_DIR') or "") .. "/skills/"
     },
     source = "cmp",
   },
