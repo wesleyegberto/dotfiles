@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # FZF
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
@@ -12,15 +12,42 @@ tm() {
     session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
+# Setup a session with code setup (session and project directory use current dir by default)
+# usage: `tcode <SESSION_NAME> <PROJECT_DIR>`
+tcode() {
+    local session folder
+    session=$1
+    folder=$2
+
+    if [[ -z $session ]]; then
+        session=$(basename "$PWD")
+    fi
+
+    if [[ -z $folder ]]; then
+        folder=$PWD
+    fi
+
+    if ! tmux has-session -t "$session"; then
+        tmux new-session -ds "$session" -n "src" -c "$folder"
+        tmux new-window -t "$session:2" -n "ai" -c "$folder"
+        tmux new-window -t "$session:3" -n "run" -c "$folder"
+
+        tmux send-keys -t "$session:1" "vim ." C-m
+        tmux send-keys -t "$session:2" "claude" C-m
+
+        tmux select-window -t "$session:1"
+    fi
+    tmux attach-session -t "$session"
+}
 
 # Creates a Tmux session using current dirname as session name
 tcd() {
-    tmux new-session -s $(basename "$PWD")
+    tmux new-session -s "$(basename "$PWD")"
 }
 
 # Creates a Tmux session using a selected folder from given path
 tfd() {
-    tmux new-session -s $(ls $1 | fzf)
+    tmux new-session -s "$(ls $1 | fzf)"
 }
 
 # Open a given folder in Tmux and use its name as session name
@@ -55,23 +82,9 @@ tmf() {
     fi
 }
 
-# Kill a Tmux session using FZF
-tmuxkillfzf () {
-    local sessions
-    sessions="$(tmux ls|fzf --exit-0 --multi)" || return $?
-    local i
-    for i in "${(f@)sessions}"
-    do
-        [[ $i =~ '([^:]*):.*' ]] && {
-            echo "Killing $match[1]"
-            tmux kill-session -t "$match[1]"
-        }
-    done
-}
-
 
 # ftpane - switch pane (@george-b)
-# In tmux.conf: bind-key 0 run "tmux split-window -l 12 'bash -ci tsp'"
+# In tmux.conf: bind-key 0 run `tmux split-window -l 12 "bash -ci tsp"`
 tsp() {
     local panes current_window current_pane target target_window target_pane
     panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
@@ -130,31 +143,17 @@ tc() {
     done
 }
 
-# Setup a session with code setup (session and project directory use current dir by default)
-# usage: `tcode <SESSION_NAME> <PROJECT_DIR>`
-tcode() {
-    local session folder
-    session=$1
-    folder=$2
-
-    if [[ -z $session ]]; then
-        session=$(basename "$PWD")
-    fi
-
-    if [[ -z $folder ]]; then
-        folder=$PWD
-    fi
-
-    if ! tmux has-session -t $session; then
-        tmux new-session -ds $session -c $folder
-        tmux new-window -t $session:2
-        tmux new-window -t $session:3
-
-        tmux rename-window -t $session:1 'src'
-        tmux rename-window -t $session:2 'run'
-        tmux rename-window -t $session:3 'ai'
-
-        tmux send-keys -t $session:1 vim\ . Enter
-    fi
-    tmux attach-session -t $session
+# Kill a Tmux session using FZF
+tmuxkillfzf () {
+    local sessions
+    sessions="$(tmux ls|fzf --exit-0 --multi)" || return $?
+    local i
+    for i in "${(f@)sessions}"
+    do
+        [[ $i =~ '([^:]*):.*' ]] && {
+            echo "Killing $match[1]"
+            tmux kill-session -t "$match[1]"
+        }
+    done
 }
+
