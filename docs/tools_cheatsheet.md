@@ -46,10 +46,3 @@ POST request:
 ab_post_test http://httpbin.org/post payload.json 5000 10
 ```
 
-## Misc
-
-Count the [LOC](https://github.com/cgag/loc):
-
-```bash
-loc --files src
-```

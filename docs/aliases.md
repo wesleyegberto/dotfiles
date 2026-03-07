@@ -8,6 +8,13 @@ ffd             " find directory by name
 fif             " find file with content
 ```
 
+## AI Assist
+
+```
+aiwork <branch_name> [main] " creates a new worktree and starts a new Tmux session with tcode setup
+aiwork-clean                " remove the current worktree and deletes Tmux session
+```
+
 ## Tmux
 
 ### Aliases

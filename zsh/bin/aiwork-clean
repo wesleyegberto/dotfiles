@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Script to safely clean up a git worktree
+
+CURRENT_DIR=$(pwd)
+DIR_NAME=$(basename "$CURRENT_DIR")
+
+# 1. Verify if it's a Git repository
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+	echo "❌ Aborting: Current directory is not a Git repository."
+	exit 1
+fi
+
+# 2. Verify if it's a worktree
+MAIN_PATH=$(git worktree list --porcelain | head -n 1 | sed 's/^worktree //')
+if [ "$CURRENT_DIR" = "$MAIN_PATH" ]; then
+	echo "❌ Aborting: Current directory is the main repository, not a worktree."
+	exit 1
+fi
+
+if ! git worktree list --porcelain | grep -q "^worktree $CURRENT_DIR$"; then
+	echo "❌ Aborting: Current directory was not identified as a worktree."
+	exit 1
+fi
+
+# 3. Check for pending changes (not committed)
+if [ -n "$(git status --porcelain)" ]; then
+	echo "❌ Aborting: There are pending changes to commit."
+	git status -s
+	exit 1
+fi
+
+# 4. Check for pending pushes
+# First check: Does git status report the branch as ahead?
+if git status -sb | grep -q "\[ahead "; then
+	echo "❌ Aborting: Current branch has commits pending push."
+	git status -sb | head -n 1
+	exit 1
+fi
+
+# Second check: If no upstream is set, check if it has unique commits relative to main branches
+if ! git rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1; then
+	CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+	# Common base branches to compare against
+	for BASE in "origin/main" "origin/master" "main" "master"; do
+		if git rev-parse --verify "$BASE" >/dev/null 2>&1 && [ "$CURRENT_BRANCH" != "$BASE" ]; then
+			AHEAD_COUNT=$(git rev-list --count "$BASE"..HEAD 2>/dev/null)
+			if [ -n "$AHEAD_COUNT" ] && [ "$AHEAD_COUNT" -gt 0 ]; then
+				echo "❌ Aborting: Branch '$CURRENT_BRANCH' has no upstream and is $AHEAD_COUNT commit(s) ahead of $BASE."
+				exit 1
+			fi
+			break
+		fi
+	done
+fi
+
+# 5. Tmux: Check if the session should be terminated
+SESSION_TO_KILL=""
+if [ -n "$TMUX" ]; then
+	CURRENT_SESSION=$(tmux display-message -p '#S')
+	if [ "$CURRENT_SESSION" = "$DIR_NAME" ]; then
+		SESSION_TO_KILL=$CURRENT_SESSION
+	fi
+fi
+
+echo "Removing worktree '$DIR_NAME' at $CURRENT_DIR..."
+
+# 6. Remove the worktree
+
+if git worktree remove "$CURRENT_DIR"; then
+	git worktree prune
+	echo "🧹 Worktree successfully removed."
+
+	# Go up one level to avoid the shell being "stuck" in a removed directory
+	cd ..
+
+	# 7. Terminate Tmux session if necessary
+	if [ -n "$SESSION_TO_KILL" ]; then
+		echo "🧹 Cleaning up Tmux session '$SESSION_TO_KILL'..."
+		tmux kill-session -t "$SESSION_TO_KILL"
+	fi
+else
+	echo "❌ Error removing the worktree. Check if files are in use or system locks."
+	exit 1
+fi
