@@ -16,7 +16,7 @@
     {
         "key": "space e",
         "command": "workbench.view.explorer",
-        "when": "!terminalFocus && !editorFocus && !inputFocus && !filesExplorerFocus"
+        "when": "!terminalFocus && !editorFocus && !inputFocus && !filesExplorerFocus && !chatInputHasFocus && !claudeVSCodeSidebarSecondary.active"
     },
     {
         "key": "cmd+k cmd+e",
