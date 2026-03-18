@@ -30,10 +30,7 @@ These dotfiles configure various aspects of my system, including:
 *   **Window Manager:** Aerospace (macOS)
 *   **Fonts:** Microsoft Cascadia Code with ligatures
 
-Aliases & Key mappings:
-
-* [Terminal aliases](./docs/aliases.md)
-* [Key mappings](./docs/key_mappings.md)
+Keybindings and aliases is documented [here](./docs/shortcuts.md).
 
 ## Quick Installation
 
