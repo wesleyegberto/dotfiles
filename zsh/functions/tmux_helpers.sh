@@ -40,12 +40,12 @@ tcode() {
     tmux attach-session -t "$session"
 }
 
-# Creates a Tmux session using current dirname as session name
+# Tmux Current Dir - Creates a Tmux session using current dirname as session name
 tcd() {
     tmux new-session -s "$(basename "$PWD")"
 }
 
-# Creates a Tmux session using a selected folder from given path
+# Tmux Fuzzy Dir - Creates a Tmux session using a selected folder from given path
 tfd() {
     tmux new-session -s "$(ls $1 | fzf)"
 }
@@ -105,7 +105,7 @@ tsp() {
 }
 
 
-# Boost Productivity with tmux
+# Tmux Connect - Boost Productivity with tmux
 # http://www.huyng.com/posts/productivity-boost-with-tmux-iterm2-workspaces/
 tc() {
     local PS3 options SESSION_NAME

@@ -35,9 +35,18 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '.git' --exc
 # start tmux on startup
 # if [ -z $TMUX ]
 # then
-#   # TODO: start only when there is any previous connection
-#   tmux has-session -t default & tmux attach -t default || tmux new-session -s default
+  # tmux has-session -t default 2>/dev/null && \
+  #     [ "$(tmux display-message -p -t default '#{session_attached}')" -eq 0 ] && \
+  #     tmux attach -t default || \
+  #     tmux new-session -s default
 # fi
+
+
+# Função que roda antes de exibir o prompt
+precmd() {
+  # Define o título do painel do tmux para "Terminal"
+  print -Pn "\e]2;Terminal\a"
+}
 
 ########################################################
 # Theme Configuration
