@@ -49,7 +49,7 @@ else
     TITLE="Claude Code"
 fi
 
-MESSAGE="Session ${SESSION_ID:-unknown} has stopped. Check the terminal for details."
+MESSAGE="Claude has stopped. Check the terminal for details."
 
 # ─── macOS notification ───────────────────────────────────────────────────────
 
