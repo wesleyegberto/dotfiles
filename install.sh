@@ -9,6 +9,9 @@ if [[ ! -f $HOME/.dotfiles ]]; then
   ln -s $(pwd) $HOME/.dotfiles/
 fi
 
+mkdir -p $HOME/.config/uv
+ln -s $DOTFILES/uv/uv.toml $HOME/.config/uv/uv.toml
+
 echo "Copying .gitconfig"
 [ -f $HOME/.gitconfig ] && mv $HOME/.gitconfig $HOME/.gitconfig_backup
 [ -f $HOME/.gitignore_global ] && mv $HOME/.gitignore_global $HOME/.gitignore_global
@@ -17,10 +20,12 @@ ln -s $DOTFILES/gitconfig/.gitignore_global $HOME/.gitignore_global
 
 echo "Copying Kitty conf"
 mkdir -p $HOME/.config/kitty
-[ -f $HOME/.config/kitty/kitty.conf ] && mv $HOME/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf_backup
-[ -f $HOME/.config/kitty/current-theme.conf ] && mv $HOME/.config/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf_backup
 ln -s $DOTFILES/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 ln -s $DOTFILES/.config/kitty/current-theme.conf $HOME/.config/kitty/current-theme.conf
+
+echo "Copying Ghostty"
+mkdir -p $HOME/.config/ghostty
+ln -s $DOTFILES/.config/ghostty/config $HOME/.config/ghostty/config
 
 echo "Copying .zshrc"
 [ -f $HOME/.zshrc ] && mv $HOME/.zshrc $HOME/.zshrc_backup
@@ -30,7 +35,7 @@ echo "Copying .tmux.conf"
 [ -f $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.tmux.conf_backup
 ln -s $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 
-echo "Copying .vimrc"
+echo "Copying Neovim"
 [ -f $HOME/.vimrc ] && mv $HOME/.vimrc $HOME/.vimrc_backup
 [ -f $HOME/.config/nvim/init.vim ] && mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim_backup
 

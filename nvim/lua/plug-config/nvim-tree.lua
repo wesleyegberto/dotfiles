@@ -117,7 +117,7 @@ require('nvim-tree').setup {
   view = {
     -- sidebar
     side = 'left',
-    width = 70,
+    width = 50,
     adaptive_size = false,
     --
     -- floating

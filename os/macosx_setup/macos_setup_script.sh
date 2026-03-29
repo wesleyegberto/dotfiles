@@ -84,6 +84,7 @@ echo "\\n\\n === Git ==="
 brew install git
 brew install git-delta # git diff
 brew install gh
+gh extension install agynio/gh-pr-review
 git config --global --add --bool push.autoSetupRemove true
 
 echo "\\n\\n=== Installing langs tools ==="
@@ -144,6 +145,7 @@ npm install -g typescript
 npm install -g vtop csvtojson
 npm install --global fkill-cli
 npm install -g @angular/cli@16
+npm install -g @playwright/cli@latest
 
 echo "\\n\\n=== Installing Neovim & VS Code & Sublime-Text ==="
 brew install --HEAD luajit
@@ -155,6 +157,11 @@ echo "\\n\\n=== Opencode & Claude Code & Gemini ==="
 curl -fsSL https://opencode.ai/install | bash
 curl -fsSL https:‌//claude‌.ai/install.sh | bash
 npm install -g @google/gemini-cli
+
+pip install "headroom-ai[all]"
+brew install rtk
+# rtk init -g
+# rtk init -g --gemini
 
 echo "\\n\\n=== Installing Neovim providers ==="
 pip3 install --user --upgrade neovim

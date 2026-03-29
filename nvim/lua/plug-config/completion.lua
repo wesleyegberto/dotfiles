@@ -178,7 +178,7 @@ _99.setup({
   },
   -- Claude Code
   provider = _99.Providers.ClaudeCodeProvider,
-  model = "claude-sonnet-4-5",
+  model = "claude-sonnet-4-6",
   -- Gemini
   -- provider = _99.Providers.GeminiCLIProvider,
   -- model = "auto",

@@ -43,7 +43,8 @@ set -g status-left-fg "${light}"
 set -g status-left-length 40
 set -g @prefix_highlight_fg 'white' # default is 'colour231'
 set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
-set -g status-left "#[fg=${dark_1},bg=${most_left_bg},bold] #S #[fg=${most_left_bg},bg=${light},nobold]#[fg=${dark},bg=${light}] #I:#P #[fg=${light},bg=${dark_2_bg}]"
+
+set -g status-left "#[fg=${dark_1},bg=${most_left_bg},bold] #S #[fg=${most_left_bg},bg=${light},nobold]#[fg=${dark},bg=${light}]  #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD 2>/dev/null || echo \"-\") #[fg=${light},bg=${light_purple},nobold]#[fg=${light_purple_text},bg=${light_purple}] #I:#P #[fg=${light_purple},bg=${dark_2_bg}]"
 
 # Right side of status bar
 set -g status-right-bg "${dark_1}"

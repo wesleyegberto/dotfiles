@@ -120,11 +120,9 @@ source "$DOTFILES/zsh/functions/containerization.sh"
 source "$DOTFILES/zsh/functions/git_helpers.sh"
 source "$DOTFILES/zsh/functions/projects.sh"
 
-export PATH=$PATH:$DOTFILES/zsh/bin
+source "$DOTFILES/zsh/tools/wtm.sh"
 
-########################################################
-# Aliases
-########################################################
+export PATH=$PATH:$DOTFILES/zsh/tools
 
 source "$DOTFILES/zsh/aliases.sh"
 

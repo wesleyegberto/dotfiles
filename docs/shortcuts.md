@@ -825,10 +825,24 @@ Format: `cs<CHAR_TO_REPLACE><NEW_CHAR>`
 
 ### Aliases - AI Assist
 
+> `aiwork` is script to allow start git worktree within a new Tmux session to implement a new feature.
+
 | Alias | Usage | Description |
 |-------|-------|-------------|
 | `aiwork` | `aiwork <branch_name> [main]` | Create a new git worktree and start a Tmux session with `tcode` setup |
 | `aiwork-clean` | `aiwork-clean` | Remove current worktree and delete the Tmux session |
+
+> `wtm` — Worktree Tmux Manager. Integrates git worktrees with tmux sessions (windows: `src` → nvim, `ai` → claude, `run` → shell).
+
+| Command | Usage | Description |
+|---------|-------|-------------|
+| `wtm` | `wtm` | Open tmux session picker (alias for `wtm sw`) |
+| `wtm new` | `wtm new <branch> [base]` | Create worktree + tmux session for `<branch>` (optionally from `base`) |
+| `wtm ls` | `wtm ls` | List all worktrees with session status (attached/detached/none) |
+| `wtm sw` | `wtm sw` | Open tmux session picker (`choose-tree`) |
+| `wtm claude` | `wtm claude [session]` | Switch to the `ai` (Claude) window of a session |
+| `wtm done` | `wtm done` | Remove current worktree and kill its tmux session (run inside the worktree) |
+| `wtm rm` | `wtm rm [branch]` | Remove a worktree and its session via fzf picker or by branch name |
 
 ---
 
