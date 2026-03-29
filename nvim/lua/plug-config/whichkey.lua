@@ -273,10 +273,6 @@ wk.add({
   { '<leader>asu', ":lua require('sidekick.nes').update()<CR>",                                 desc = 'Update suggestions', icon = '' },
   { '<leader>asc', ":lua require('sidekick.nes').clear()<CR>",                                  desc = 'Clear', icon = '' },
   { '<leader>ast', ":lua require('sidekick.nes').toggle()<CR>",                                 desc = 'Toggle', icon = '' },
-  -- Augument
-  -- { '<leader>at', ":Augment chat-toggle<CR>",                   desc = 'Toggle Chat', icon = '' },
-  -- { '<leader>ac', ":Augment chat<CR>",     mode = { 'n', 'v' }, desc = 'Chat', icon = '󰻞' },
-  -- { '<leader>aC', ":Augment chat-new<CR>", mode = { 'n', 'v' }, desc = 'New Chat', icon = '󱐒' },
 })
 
 -- Groups for keymaps defined in others configs and plugins

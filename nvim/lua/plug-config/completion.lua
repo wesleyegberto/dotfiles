@@ -107,12 +107,12 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 -- === AI completion ===
 -- Copilot
-vim.g.copilot_enabled = false
+vim.g.copilot_enabled = true
 
-if vim.g.copilot_enabled then
-  vim.g.copilot_no_tab_map = true
+-- if vim.g.copilot_enabled then
+  -- vim.g.copilot_no_tab_map = true
 
-  vim.keymap.set("i", "<C-e>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+  -- vim.keymap.set("i", "<Tab>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
   -- vim.cmd([[
   --   let g:copilot_filetypes = {
@@ -126,11 +126,7 @@ if vim.g.copilot_enabled then
   --     \ 'shell': v:true,
   --     \ }
   -- ]])
-end
-
--- Augument
-vim.g.augment_disable_completions = false
-vim.g.augment_disable_tab_mapping = false -- until fix C-e mapping
+-- end
 
 -- Sidekick
 if vim.g.sidekick_nes ~= false then
@@ -159,7 +155,7 @@ if vim.g.sidekick_nes ~= false then
   -- smart next edit suggestion
   vim.keymap.set("n", "<C-e>", function()
     if not sidekick.nes_jump_or_apply() then
-      return "<C-e>"
+      return "<Tab>"
     end
   end, { desc = "AI jump or apply" })
 end
