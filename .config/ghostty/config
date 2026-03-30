@@ -30,6 +30,9 @@ keybind = ctrl+a>ctrl+r=reload_config
 
 keybind = cmd+t=toggle_quick_terminal
 
+# keybind = shift+enter=text:\n
+keybind = shift+enter=text:\\\n\r
+
 # windows
 keybind = ctrl+a>c=new_window
 keybind = ctrl+a>w=close_window
