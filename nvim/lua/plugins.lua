@@ -28,8 +28,6 @@ require('packer').startup(function(use)
   use {'nvim-telescope/telescope-ui-select.nvim'}
   use {'axkirillov/easypick.nvim'} -- to create pickers from terminal command
 
-  use {'LintaoAmons/cd-project.nvim'}
-
   use {'junegunn/fzf', run = vim.fn['fzf#install']}
   use {'junegunn/fzf.vim'}
 
@@ -119,7 +117,7 @@ require('packer').startup(function(use)
   use {'windwp/nvim-ts-autotag'} -- auto close tags
 
   -- better syntax highlighter, textobjects and navigation using treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end} -- fix highlight error
+  use {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd ':TSUpdate' end}
   -- navigation, swap and editing treesitter
   use {'nvim-treesitter/nvim-treesitter-textobjects'}
   -- region selection using treesitter and hop
@@ -155,6 +153,7 @@ require('packer').startup(function(use)
   -- === session management ===
   use {'rmagatti/auto-session'}
 
+  -- === second brain ===
   use {'renerocksai/telekasten.nvim'}
   -- use {'obsidian-nvim/obsidian.nvim'}
 end)

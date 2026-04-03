@@ -99,7 +99,6 @@ if test ! "$( command -v node )"; then
     brew install node
 fi
 npm install -g n
-npm install -g neovim
 
 echo "\\n\\n === Dev Utils ==="
 brew install autojump
@@ -152,6 +151,8 @@ brew install --HEAD luajit
 brew install neovim
 brew install sublime-text
 brew install --cask visual-studio-code
+# open tree-sitter repo to install the CLI from there
+open https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md
 
 echo "\\n\\n=== Opencode & Claude Code & Gemini ==="
 curl -fsSL https://opencode.ai/install | bash
@@ -162,10 +163,6 @@ pip install "headroom-ai[all]"
 brew install rtk
 # rtk init -g
 # rtk init -g --gemini
-
-echo "\\n\\n=== Installing Neovim providers ==="
-pip3 install --user --upgrade neovim
-npm install -g neovim
 
 echo "\\n\\n=== Installing Packer ==="
 if [[ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]]; then
