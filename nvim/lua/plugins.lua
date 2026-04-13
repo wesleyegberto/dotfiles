@@ -19,6 +19,8 @@ require('packer').startup(function(use)
 
   use {'declancm/maximize.nvim'}
 
+  use {'nvim-lualine/lualine.nvim'}
+
   use {'voldikss/vim-floaterm'}
   use {'ThePrimeagen/harpoon', branch = 'harpoon2'}
   use {'matbme/JABS.nvim'}
@@ -33,7 +35,6 @@ require('packer').startup(function(use)
 
   -- === buffer navigation ===
   use {'famiu/bufdelete.nvim'}
-  use {'glepnir/galaxyline.nvim'}
 
   -- jump to any place in the buffer
   use {'phaazon/hop.nvim'}
