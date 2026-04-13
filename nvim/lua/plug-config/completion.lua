@@ -44,7 +44,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "buffer", option = { keyword_length = 5 } },
+    { name = "buffer",  option = { keyword_length = 5 } },
     { name = "luasnip" },
     { name = "path" },
   }),
@@ -107,26 +107,26 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 -- === AI completion ===
 -- Copilot
-vim.g.copilot_enabled = true
+vim.g.copilot_enabled = false
 
--- if vim.g.copilot_enabled then
+if vim.g.copilot_enabled then
   -- vim.g.copilot_no_tab_map = true
 
   -- vim.keymap.set("i", "<Tab>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
-  -- vim.cmd([[
-  --   let g:copilot_filetypes = {
-  --     \ '*': v:false,
-  --     \ 'python': v:true,
-  --     \ 'lua': v:true,
-  --     \ 'java': v:true,
-  --     \ 'javascript': v:true,
-  --     \ 'typescript': v:true,
-  --     \ 'csharp': v:true,
-  --     \ 'shell': v:true,
-  --     \ }
-  -- ]])
--- end
+  vim.cmd([[
+    let g:copilot_filetypes = {
+      \ '*': v:false,
+      \ 'python': v:true,
+      \ 'lua': v:true,
+      \ 'java': v:true,
+      \ 'javascript': v:true,
+      \ 'typescript': v:true,
+      \ 'csharp': v:true,
+      \ 'shell': v:true,
+      \ }
+  ]])
+end
 
 -- Sidekick
 if vim.g.sidekick_nes ~= false then
@@ -141,19 +141,19 @@ if vim.g.sidekick_nes ~= false then
       win = {
         keys = {
           stopinsert = { "<esc>", "stopinsert", mode = "t" }, -- enter normal mode
-          hide_n = { "q", "hide", mode = "n" }, -- hide from normal mode
-          win_c = { "<c-w>c", "hide" }, -- hide from terminal mode
-          win_p = { "<c-w>p", "blur" }, -- leave the cli window
-          win_w = { "<c-w>w", "blur" }, -- leave the cli window
-          blur = { "<c-o>", "blur" }, -- leave the cli window
-          prompt = { "<c-p>", "prompt" }, -- insert prompt or context
+          hide_n = { "q", "hide", mode = "n" },               -- hide from normal mode
+          win_c = { "<c-w>c", "hide" },                       -- hide from terminal mode
+          win_p = { "<c-w>p", "blur" },                       -- leave the cli window
+          win_w = { "<c-w>w", "blur" },                       -- leave the cli window
+          blur = { "<c-o>", "blur" },                         -- leave the cli window
+          prompt = { "<c-p>", "prompt" },                     -- insert prompt or context
         },
       },
     },
   })
 
   -- smart next edit suggestion
-  vim.keymap.set("n", "<C-e>", function()
+  vim.keymap.set("n", "<Tab>", function()
     if not sidekick.nes_jump_or_apply() then
       return "<Tab>"
     end
@@ -195,11 +195,12 @@ _99.setup({
   },
 })
 
-vim.keymap.set("n", "<leader>aP", function() require('99.extensions.telescope').select_provider() end, { desc = "99: Select Provider" })
-vim.keymap.set("n", "<leader>aM", function() require('99.extensions.telescope').select_model() end, { desc = "99: Select Model" })
+vim.keymap.set("n", "<leader>aP", function() require('99.extensions.telescope').select_provider() end,
+  { desc = "99: Select Provider" })
+vim.keymap.set("n", "<leader>aM", function() require('99.extensions.telescope').select_model() end,
+  { desc = "99: Select Model" })
 vim.keymap.set("n", "<leader>acl", function() _99.view_logs() end, { desc = "99: View logs" })
 vim.keymap.set("n", "<leader>acs", function() _99.search() end, { desc = "99: Search" })
 vim.keymap.set("n", "<leader>acp", function() _99.visual() end, { desc = "99: Custom prompt" })
 vim.keymap.set("v", "<leader>acp", function() _99.visual() end, { desc = "99: Custom prompt" })
 vim.keymap.set("n", "<leader>acX", function() _99.stop_all_requests() end, { desc = "99: Stop all requests" })
-

@@ -3,7 +3,7 @@ confirm-close-surface = false
 window-save-state = never
 window-inherit-working-directory = true
 
-font-family = Cascadia Code
+font-family = CaskaydiaCove Nerd Font
 theme = Dracula
 font-feature = calt
 font-feature = liga

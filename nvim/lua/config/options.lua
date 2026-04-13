@@ -76,8 +76,8 @@ vim.o.showbreak = '↪'
 vim.opt.scrolloff = 3
 
 -- Autocomplete menu
--- vim.o.completeopt = 'menuone,longest,preview'                -- simple autocomplete for anything
-vim.o.completeopt = 'menuone,noselect'                -- simple autocomplete for anything
+vim.o.autocomplete = false
+vim.o.completeopt = 'menu,menuone,noselect,nearest'          -- simple autocomplete for anything
 vim.o.previewheight = 5                                      -- preview window height for viewing documentation
 vim.o.wildmenu = true                                        -- default true
 vim.o.wildmode = 'list:longest,full'                         -- autocomplete for paths and files
@@ -102,6 +102,9 @@ set diffopt+=linematch:60
 
 vim.opt.titlestring = '%{expand("%:P")}'
 vim.opt.title = true
+
+-- LSP
+
 
 -- #########################################################
 -- # Custom configuration

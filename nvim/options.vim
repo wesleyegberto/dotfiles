@@ -112,8 +112,7 @@ set showbreak=↪
 set scrolloff=3
 
 " Autocomplete menu
-set completeopt=menuone,longest,preview                      " simple autocomplete for anything
-set completeopt=menuone,noselect                             " simple autocomplete for anything
+set completeopt=menu,menuone,noselect,nearest                " simple autocomplete for anything
 set previewheight=5                                          " preview window height for viewing documentation
 set wildmenu
 set wildmode=list:longest,full                               " autocomplete for paths and files

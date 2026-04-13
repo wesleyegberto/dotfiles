@@ -32,6 +32,7 @@ map('n', '<leader>li', ':LspInfo<CR>', opts)
 local severity = vim.diagnostic.severity
 vim.diagnostic.config({
   virtual_text = true,
+  -- virtual_lines = { only_current = true },
   signs = {
     text = {
       [severity.ERROR] = " ",
