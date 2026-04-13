@@ -1,68 +1,60 @@
-# Dracula Color Pallette
-# light='#f8f8f2'
-# dark='#44475a'
-# dark_1='#282a36'
-# light_purple='#bd93f9'
-# light_purple_text='#44475a'
-# dark_2_bg='#6272a4'
-# dark_2_fg='#44475a'
-# most_left_bg='#50fa7b'
-# most_right_bg='#ffb86c'
-# most_right_fg='#282a36'
+bar_bg='#282c34'     # background geral da barra
+bar_fg='#afd700'     # foreground geral + bg do bloco left_2 (branch)
 
-# Tokyonight Color Pallette
-light='#82aaff'
-dark='#3b4261'
-dark_1='#565f89'
-light_purple='#bb9af7'
-light_purple_text='#414868'
-most_left_bg='#50fa7b'
-most_right_bg='#24283b'
-most_right_fg='#82aaff'
-dark_2_bg='#3b4261'
-dark_2_fg='#82aaff'
+left_1_bg='#0087d7'  # bg bloco: sessão
+left_1_fg='#081633'  # fg texto: sessão (também bg padrão das seções left/right)
+left_3_bg='#d16d9e'  # bg bloco: painel / janela ativa
+left_3_fg='#081633'  # fg texto: painel
 
-red='#ff5555'
-yellow='#f1fa8c'
+center_fg='#darkblue'
 
-set-option -g pane-border-style "fg=${light}"
+right_1_bg='#081633' # bg bloco: data/hora
+right_1_fg='#0087d7' # fg texto: data/hora
+
+right_2_bg='#0087d7' # bg bloco: reservado
+right_2_fg='#081633' # fg texto: reservado
+
+red='#ec5f67'
+yellow='#fabd2f'
+
+set-option -g pane-border-style "fg=${bar_fg}"
 
 # message styling
-set -g message-style "bg=${dark} fg=${light}"
+set -g message-style "bg=${bar_bg} fg=${bar_fg}"
 
 # status bar
-set -g status-style "bg=${dark} fg=${light}"
+set -g status-style "bg=${bar_bg} fg=${bar_fg}"
 
 # Basic status bar colors
-set -g status-fg "${light}"
-set -g status-bg "${dark}"
+set -g status-fg "${bar_fg}"
+set -g status-bg "${bar_bg}"
 
 # Left side of status bar
-set -g status-left-bg "${dark_1}"
-set -g status-left-fg "${light}"
+set -g status-left-bg "${left_1_fg}"
+set -g status-left-fg "${bar_fg}"
 set -g status-left-length 40
 set -g @prefix_highlight_fg 'white' # default is 'colour231'
 set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
 
-set -g status-left "#[fg=${dark_1},bg=${most_left_bg},bold] #S #[fg=${most_left_bg},bg=${light},nobold]#[fg=${dark},bg=${light}]  #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD 2>/dev/null || echo \"-\") #[fg=${light},bg=${light_purple},nobold]#[fg=${light_purple_text},bg=${light_purple}] #I:#P #[fg=${light_purple},bg=${dark_2_bg}]"
+set -g status-left "#[fg=${left_1_fg},bg=${left_1_bg},bold] #S #[fg=${left_1_bg},bg=${bar_fg},nobold]#[fg=${bar_bg},bg=${bar_fg}]  #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD 2>/dev/null || echo \"-\") #[fg=${bar_fg},bg=${left_3_bg},nobold]#[fg=${left_3_fg},bg=${left_3_bg}] #I:#P #[fg=${left_3_bg},bg=${bar_bg}]"
 
 # Right side of status bar
-set -g status-right-bg "${dark_1}"
-set -g status-right-fg "${light}"
+set -g status-right-bg "${left_1_fg}"
+set -g status-right-fg "${bar_fg}"
 set -g status-right-length 150
-set -g status-right "#[fg=${dark_2_fg},bg=${dark_2_bg}]#[fg=${dark_2_bg},bg=${dark_2_fg}] %d-%b-%y %H:%M "
+set -g status-right "#[fg=${right_1_fg},bg=${bar_bg}]#[fg=${right_1_bg},bg=${right_1_fg}] %d-%b-%y %H:%M "
 
 # Window status
-set -g window-status-format "#[fg=${light}]#[bg=${dark}]  #I:#W#F  "
-set -g window-status-current-format "#[fg=${dark},bg=${light_purple}]|#[fg=${dark_1},nobold] #I:#W#F #[fg=${dark},bg=${light_purple},nobold]|"
+set -g window-status-format "#[fg=${bar_fg}]#[bg=${bar_bg}]  #I:#W#F  "
+set -g window-status-current-format "#[fg=${bar_bg},bg=${left_3_bg}]|#[fg=${center_fg},nobold] #I:#W#F #[fg=${bar_bg},bg=${left_3_bg},nobold]|"
 
 # Current window status
-set -g window-status-current-bg "${light_purple}"
-set -g window-status-current-fg "${dark_2_bg}"
+set -g window-status-current-bg "${left_3_bg}"
+set -g window-status-current-fg "${right_1_bg}"
 
 # Window with activity status
-set -g window-status-activity-bg "${light}" # fg and bg are flipped here due to
-set -g window-status-activity-fg "${dark}" # a bug in tmux
+set -g window-status-activity-bg "${bar_fg}" # fg and bg are flipped here due to
+set -g window-status-activity-fg "${bar_bg}" # a bug in tmux
 
 # Window separator
 set -g window-status-separator ""
@@ -71,32 +63,31 @@ set -g window-status-separator ""
 set -g status-justify centre
 
 # Pane border
-set -g pane-border "fg=${dark} bg=default"
+set -g pane-border "fg=${bar_bg} bg=default"
 
 # Active pane border
-set -g pane-active-border "fg=${most_left_bg} bg=default"
+set -g pane-active-border "fg=${left_1_bg} bg=default"
 
 # Pane number indicator
-set -g display-panes-colour "${dark}"
-set -g display-panes-active-colour "${light}"
+set -g display-panes-colour "${bar_bg}"
+set -g display-panes-active-colour "${bar_fg}"
 
-set -g window-style "fg=${light} bg=default"
+set -g window-style "fg=${bar_fg} bg=default"
 set -g window-active-style "fg=#ffffff bg=default"
-set -g window-status-bell-style "fg=${dark_1} bg=${red} bold"
+set -g window-status-bell-style "fg=${left_1_fg} bg=${red} bold"
 
 # Clock mode
-set -g clock-mode-colour "${light_purple}"
+set -g clock-mode-colour "${left_3_bg}"
 set -g clock-mode-style 24
 
 # Command message
-set -g message-command-bg "${dark}"
+set -g message-command-bg "${bar_bg}"
 set -g message-command-fg black
 
 # Mode
-set -g mode-bg "${light_purple}"
-set -g mode-fg "${light_purple_text}"
+set -g mode-bg "${left_3_bg}"
+set -g mode-fg "${left_3_fg}"
 
 # modes
-setw -g clock-mode-colour '${light_purple}'
-setw -g mode-style 'fg=${yellow} bg=${red} bold'
-
+setw -g clock-mode-colour "${left_3_bg}"
+setw -g mode-style "fg=${yellow} bg=${red} bold"
