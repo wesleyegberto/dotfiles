@@ -150,5 +150,6 @@ filetype plugin indent on
 " autocmd BufRead,BufEnter * let &titlestring = expand("%:P")
 autocmd BufNewFile,BufRead *.cs set ft=csharp
 autocmd BufNewFile,BufRead *.cshtml set ft=html
+autocmd BufNewFile,BufRead *.tmuxtheme set ft=tmux.conf
 ]]
 

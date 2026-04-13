@@ -3,7 +3,9 @@ bar_fg='#afd700'     # foreground geral + bg do bloco left_2 (branch)
 
 left_1_bg='#0087d7'  # bg bloco: sessão
 left_1_fg='#081633'  # fg texto: sessão (também bg padrão das seções left/right)
-left_3_bg='#d16d9e'  # bg bloco: painel / janela ativa
+left_2_bg='#d16d9e'
+left_2_fg='#081633'
+left_3_bg='#afd700'  # bg bloco: painel / janela ativa
 left_3_fg='#081633'  # fg texto: painel
 
 center_fg='#darkblue'
@@ -36,7 +38,7 @@ set -g status-left-length 40
 set -g @prefix_highlight_fg 'white' # default is 'colour231'
 set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
 
-set -g status-left "#[fg=${left_1_fg},bg=${left_1_bg},bold] #S #[fg=${left_1_bg},bg=${bar_fg},nobold]#[fg=${bar_bg},bg=${bar_fg}]  #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD 2>/dev/null || echo \"-\") #[fg=${bar_fg},bg=${left_3_bg},nobold]#[fg=${left_3_fg},bg=${left_3_bg}] #I:#P #[fg=${left_3_bg},bg=${bar_bg}]"
+set -g status-left "#[fg=${left_1_fg},bg=${left_1_bg},bold] #S #[fg=${left_1_bg},bg=${left_2_bg},nobold]#[fg=${left_2_fg},bg=${left_2_bg}] #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD 2>/dev/null || echo \"-\") #[fg=${left_2_bg},bg=${left_3_bg},nobold]#[fg=${left_3_fg},bg=${left_3_bg}] #I:#P #[fg=${left_3_bg},bg=${bar_bg}]"
 
 # Right side of status bar
 set -g status-right-bg "${left_1_fg}"
@@ -46,7 +48,7 @@ set -g status-right "#[fg=${right_1_fg},bg=${bar_bg}]#[fg=${right_1_bg},bg=${
 
 # Window status
 set -g window-status-format "#[fg=${bar_fg}]#[bg=${bar_bg}]  #I:#W#F  "
-set -g window-status-current-format "#[fg=${bar_bg},bg=${left_3_bg}]|#[fg=${center_fg},nobold] #I:#W#F #[fg=${bar_bg},bg=${left_3_bg},nobold]|"
+set -g window-status-current-format "#[fg=${bar_bg},bg=${left_3_bg}]#[fg=${center_fg},nobold] #I:#W#F #[fg=${bar_bg},bg=${left_3_bg},nobold]"
 
 # Current window status
 set -g window-status-current-bg "${left_3_bg}"
