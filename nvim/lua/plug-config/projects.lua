@@ -12,10 +12,3 @@ require('auto-session').setup({
   auto_session_suppress_dirs = { '~/', '~/Downloads', '~/Documents' }
 })
 
-require('cd-project').setup({
-  projects_config_filepath = vim.fs.normalize(vim.fn.stdpath("config") .. "/.cd-project.nvim.json"),
-  project_dir_pattern = { ".git", ".gitignore", "pom.xml", "package.json", "*.csproj" },
-  choice_format = "both",
-  projects_picker = "telescope",
-})
-
