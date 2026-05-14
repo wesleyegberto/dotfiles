@@ -171,24 +171,19 @@ map('n', '<Leader>y', ':NvimTreeFocus<CR>', silentOptions)
 -- }}}
 
 
--- === phaazon/hop.nvim === {{{
-map('n', '<Leader><Leader>?', ':HopWord<CR>', silentOptions)
-map('n', '<Leader><Leader>f', ':HopChar1AC<CR>', silentOptions)
-map('n', '<Leader><Leader>F', ':HopChar1BC<CR>', silentOptions)
-map('n', '<Leader><Leader>c', ':HopChar2AC<CR>', silentOptions)
-map('n', '<Leader><Leader>C', ':HopChar2BC<CR>', silentOptions)
-map('n', '<Leader><Leader>w', ':HopWordAC<CR>', silentOptions)
-map('n', '<Leader><Leader>b', ':HopWordBC<CR>', silentOptions)
-map('n', '<Leader><Leader>l', ':HopLine<CR>', silentOptions)
-map('n', '<Leader><Leader>j', ':HopLineStartAC<CR>', silentOptions)
-map('n', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
-
--- map('v', '<Leader><Leader>f', ':HopWordAC<CR>', silentOptions)
--- map('v', '<Leader><Leader>F', ':HopWordBC<CR>', silentOptions)
--- map('v', '<Leader><Leader>c', ':HopChar2AC<CR>', silentOptions)
--- map('v', '<Leader><Leader>C', ':HopChar2BC<CR>', silentOptions)
--- map('v', '<Leader><Leader>j', ':HopLineStartAC<CR>', silentOptions)
--- map('v', '<Leader><Leader>k', ':HopLineStartBC<CR>', silentOptions)
+-- === andyg/leap.nvim === {{{
+vim.keymap.set({'n','v','x','o'}, '<Leader><Leader>s', '<Plug>(leap)', silentOptions)
+vim.keymap.set({'n','v','x','o'}, '<Leader><Leader>f', '<Plug>(leap)', silentOptions)
+vim.keymap.set({'n','v'}, '<Leader><Leader>S', '<Plug>(leap-from-window)', silentOptions)
+vim.keymap.set({'n','v','x','o'}, '<Leader><Leader>l', function()
+  local line = vim.fn.line('.')
+  local top, bot = math.max(1, line - 3), line + 3
+  require('leap').leap {
+    pattern = '\\v(%<'..top..'l|%>'..bot..'l)$',
+    windows = { vim.fn.win_getid() },
+    opts = { safe_labels = '' }
+  }
+end, silentOptions)
 -- }}}
 
 

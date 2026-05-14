@@ -21,7 +21,7 @@
   - [Tabs & Buffers Navigation](#tabs--buffers-navigation)
   - [Search & Telescope](#search--telescope)
   - [Folding](#folding)
-  - [Motion Plugins (Hop)](#motion-plugins-hop)
+  - [Motion Plugins (Leap)](#motion-plugins-leap)
   - [File Tree (nvim-tree)](#file-tree-nvim-tree)
   - [Harpoon](#harpoon)
   - [Git](#git)
@@ -372,22 +372,15 @@
 
 ---
 
-### Motion Plugins (Hop)
+### Motion Plugins (Leap)
 
-> Prefix: `<Leader><Leader>`
+> Prefix: `<Leader><Leader>` | Leap: busca bidirecional por 2 chars
 
-| Shortcut | Action |
-|----------|--------|
-| `<Leader><Leader>?` | Hop to word |
-| `<Leader><Leader>f` | Hop char → forward |
-| `<Leader><Leader>F` | Hop char → backward |
-| `<Leader><Leader>c` | Hop 2 chars → forward |
-| `<Leader><Leader>C` | Hop 2 chars → backward |
-| `<Leader><Leader>w` | Hop word → forward |
-| `<Leader><Leader>b` | Hop word → backward |
-| `<Leader><Leader>l` | Hop to line |
-| `<Leader><Leader>j` | Hop line start → down |
-| `<Leader><Leader>k` | Hop line start → up |
+| Shortcut | Modes | Action |
+|----------|-------|--------|
+| `<Leader><Leader>s` / `<Leader><Leader>f` | N/V/O | Leap → busca 2 chars (bidirecional) |
+| `<Leader><Leader>S` | N | Leap → pular de outra janela |
+| `<Leader><Leader>l` | N/V/O | Leap → pular para linha visível |
 
 ---
 

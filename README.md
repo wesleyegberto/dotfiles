@@ -62,7 +62,7 @@ The `install.sh` script automates the symlinking of configuration files and the 
     *   Create symlinks for `.gitconfig`, `.zshrc`, `.tmux.conf`, Kitty, Ghostty, and Neovim configurations.
     *   Backup existing configuration files before creating symlinks.
     *   Run macOS-specific setup scripts, if on a Darwin system, to install all tools needed.
-    *   Install Neovim's Packer plugin manager and then all Neovim plugins.
+    *   Bootstrap [lazy.nvim](https://github.com/folke/lazy.nvim) (auto-installed on first launch) and sync all Neovim plugins.
 
 ## Neovim Configuration (Lua-based)
 
@@ -82,9 +82,9 @@ My Neovim setup (version 0.11+) is entirely configured with Lua, emphasizing mod
 
 The `nvim/` directory is structured as follows:
 
-*   `init.lua`: Main entry point for Neovim configuration.
-*   `plugins.lua`: Manages all plugins using [Packer](https://github.com/wbthomason/packer.nvim).
+*   `init.lua`: Main entry point — bootstraps [lazy.nvim](https://github.com/folke/lazy.nvim) and loads all plugin specs.
 *   `lua/`: Core Lua configurations.
+    *   `plugins/`: Plugin specs organized by domain (ui, navigation, editor, git, lsp, completion, treesitter, dap, languages, tmux, ai, tools).
     *   `config/`: Base settings (options, keybindings, colorscheme).
     *   `plug-config/`: Specific plugin configurations (telescope, treesitter, lsp, completion).
     *   `custom/`: Utility functions and buffer hooks.

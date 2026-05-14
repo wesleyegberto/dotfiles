@@ -58,11 +58,6 @@ if [[ $(uname -s) = "Darwin" ]]; then
 fi
 
 if test "$( command -v nvim )"; then
-  echo "Cloning Neovim plugin manager"
-  if [[ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]]; then
-    git clone https://github.com/wbthomason/packer.nvim "$HOME"/.local/share/nvim/site/pack/packer/start/packer.nvim
-  fi
-
-  echo "Installing Vim plugins"
-  nvim +PackerUpdate +qall
+  echo "Installing Neovim plugins (lazy.nvim bootstraps automatically on first launch)"
+  nvim --headless "+Lazy! sync" +qa
 fi

@@ -8,31 +8,41 @@
 -- # VIM Setup in Lua                                                      #
 -- #########################################################################
 
--- Plugin installations
--- `vim +PackerUpdate +qall`
-
--- disable netrw
+-- disable netrw (must be before nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('plugins')
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    'git', 'clone', '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- General settings
 require('config/options')
 require('config/keybindings')
-require('config/colorscheme')
 
--- Plugins configuration
-require('plug-config/others-setup')
-require('plug-config/nvim-tree')
-require('plug-config/floaterm')
-require('plug-config/telescope')
-require('plug-config/lualine')
-require('plug-config/lsp')
-require('plug-config/completion')
-require('plug-config/treesitter')
-require('plug-config/refactoring')
-require('plug-config/zettelkasten')
-require('plug-config/projects')
-require('plug-config/whichkey')
+-- Load plugins (specs in lua/plugins/*.lua)
+require('lazy').setup('plugins', {
+  defaults = { lazy = false },
+  install = { colorscheme = { 'tokyonight', 'gruvbox' } },
+  checker = { enabled = false },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'gzip', 'matchit', 'matchparen', 'netrwPlugin',
+        'tarPlugin', 'tohtml', 'tutor', 'zipPlugin',
+      },
+    },
+  },
+})
+
+-- Colorscheme (after plugins are loaded)
+require('config/colorscheme')
 
