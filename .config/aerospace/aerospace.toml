@@ -1,8 +1,11 @@
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-# after-login-command = []
-# after-startup-command = []
+config-version = 2
 
 start-at-login = true
+auto-reload-config = false
+
+# after-login-command = []
+# after-startup-command = []
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -17,140 +20,143 @@ key-mapping.preset = 'qwerty'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# === Move Apps ===
+on-window-detected = [
+    {
+        if = 'test %{app-bundle-id} = com.brave.Browser',
+        run = ['move-node-to-workspace 1'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.google.Chrome',
+        run = ['move-node-to-workspace 1'],
+    },
+    {
+        if = 'test %{app-bundle-id} = net.kovidgoyal.kitty',
+        run = ['move-node-to-workspace 2'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.mitchellh.ghostty',
+        run = ['move-node-to-workspace 2'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.microsoft.VSCode',
+        run = ['move-node-to-workspace 2'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.insomnia.app',
+        run = ['move-node-to-workspace 2'],
+    },
+    {
+        if = 'test %{app-bundle-id} = md.obsidian',
+        run = ['move-node-to-workspace 3'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.microsoft.teams2',
+        run = ['move-node-to-workspace 4'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.tinyspeck.slackmacgap',
+        run = ['move-node-to-workspace 4'],
+    },
+]
+
 [workspace-to-monitor-force-assignment]
-1 = 'main'
-2 = 'main'
-3 = 'main'
-4 = 'secondary'
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'secondary'
 
 [gaps]
-inner.horizontal = 5
-inner.vertical =   5
-outer.top =        5
-outer.right =      5
-outer.bottom =     5
-outer.left =       5
+    inner.horizontal = 5
+    inner.vertical =   5
+    outer.top =        5
+    outer.right =      5
+    outer.bottom =     5
+    outer.left =       5
 
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main']
-t = ['layout floating tiling', 'mode main']
-backspace = ['close-all-windows-but-current', 'mode main']
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']
+    t = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
 
 [mode.resize.binding]
-h = 'resize width -50'
-l = 'resize width +50'
-j = 'resize height +50'
-k = 'resize height -50'
-enter = 'mode main'
-esc = 'mode main'
+    h = 'resize width -50'
+    l = 'resize width +50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+    enter = 'mode main'
+    esc = 'mode main'
 
 [mode.main.binding]
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
 
-# === Monitors ===
-cmd-ctrl-h = 'focus-monitor prev'
-cmd-ctrl-l = 'focus-monitor next'
-cmd-ctrl-left = 'focus-monitor prev'
-cmd-ctrl-right = 'focus-monitor next'
+    # === Monitors ===
+    cmd-ctrl-h = 'focus-monitor prev'
+    cmd-ctrl-l = 'focus-monitor next'
+    cmd-ctrl-left = 'focus-monitor prev'
+    cmd-ctrl-right = 'focus-monitor next'
 
-cmd-ctrl-shift-h = 'move-node-to-monitor prev'
-cmd-ctrl-shift-l = 'move-node-to-monitor next'
-cmd-ctrl-shift-left = 'move-node-to-monitor prev'
-cmd-ctrl-shift-right = 'move-node-to-monitor next'
+    cmd-ctrl-shift-h = 'move-node-to-monitor prev'
+    cmd-ctrl-shift-l = 'move-node-to-monitor next'
+    cmd-ctrl-shift-left = 'move-node-to-monitor prev'
+    cmd-ctrl-shift-right = 'move-node-to-monitor next'
 
-# === Windows ===
-cmd-alt-t = 'layout floating tiling'
+    # === Windows ===
+    cmd-alt-t = 'layout floating tiling'
 
-cmd-alt-h = 'focus left'
-cmd-alt-j = 'focus down'
-cmd-alt-k = 'focus up'
-cmd-alt-l = 'focus right'
+    cmd-alt-h = 'focus left'
+    cmd-alt-j = 'focus down'
+    cmd-alt-k = 'focus up'
+    cmd-alt-l = 'focus right'
 
-cmd-alt-shift-h = 'move left'
-cmd-alt-shift-j = 'move down'
-cmd-alt-shift-k = 'move up'
-cmd-alt-shift-l = 'move right'
+    cmd-alt-shift-h = 'move left'
+    cmd-alt-shift-j = 'move down'
+    cmd-alt-shift-k = 'move up'
+    cmd-alt-shift-l = 'move right'
 
-cmd-alt-enter = 'fullscreen'
+    cmd-alt-enter = 'fullscreen'
 
-cmd-alt-shift-minus = 'resize smart -50'
-cmd-alt-shift-equal = 'resize smart +50'
+    cmd-alt-shift-minus = 'resize smart -50'
+    cmd-alt-shift-equal = 'resize smart +50'
 
-cmd-ctrl-alt-shift-h = ['join-with left', 'mode main']
-cmd-ctrl-alt-shift-j = ['join-with down', 'mode main']
-cmd-ctrl-alt-shift-k = ['join-with up', 'mode main']
-cmd-ctrl-alt-shift-l = ['join-with right', 'mode main']
+    cmd-ctrl-alt-shift-h = ['join-with left', 'mode main']
+    cmd-ctrl-alt-shift-j = ['join-with down', 'mode main']
+    cmd-ctrl-alt-shift-k = ['join-with up', 'mode main']
+    cmd-ctrl-alt-shift-l = ['join-with right', 'mode main']
 
-alt-tab = 'focus-back-and-forth'
+    alt-tab = 'focus-back-and-forth'
 
-# === Workspaces ===
-cmd-ctrl-1 = 'workspace 1'
-cmd-ctrl-2 = 'workspace 2'
-cmd-ctrl-3 = 'workspace 3'
-cmd-ctrl-4 = 'workspace 4'
+    # === Workspaces ===
+    cmd-ctrl-1 = 'workspace 1'
+    cmd-ctrl-2 = 'workspace 2'
+    cmd-ctrl-3 = 'workspace 3'
+    cmd-ctrl-4 = 'workspace 4'
 
-cmd-ctrl-tab = 'workspace-back-and-forth'
+    cmd-ctrl-tab = 'workspace-back-and-forth'
 
-cmd-alt-shift-1 = 'move-node-to-workspace 1'
-cmd-alt-shift-2 = 'move-node-to-workspace 2'
-cmd-alt-shift-3 = 'move-node-to-workspace 3'
-cmd-alt-shift-4 = 'move-node-to-workspace 4'
+    cmd-alt-shift-1 = 'move-node-to-workspace 1'
+    cmd-alt-shift-2 = 'move-node-to-workspace 2'
+    cmd-alt-shift-3 = 'move-node-to-workspace 3'
+    cmd-alt-shift-4 = 'move-node-to-workspace 4'
 
-# === Smart Resize ===
-alt-shift-0 = 'balance-sizes'
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+    # === Smart Resize ===
+    alt-shift-0 = 'balance-sizes'
+    alt-shift-minus = 'resize smart -50'
+    alt-shift-equal = 'resize smart +50'
 
-# === Modes ===
-alt-shift-semicolon = 'mode service'
-alt-shift-r = 'mode resize'
-alt-shift-enter = 'mode apps'
+    # === Modes ===
+    alt-shift-semicolon = 'mode service'
+    alt-shift-r = 'mode resize'
+    alt-shift-enter = 'mode apps'
 
 # === Applications ===
 [mode.apps.binding]
-alt-t = ['exec-and-forget open -n /Applications/Ghostty.app', 'mode main']
-alt-b = ['exec-and-forget open -n /Applications/Brave\ Browser.app', 'mode main']
-alt-o = ['exec-and-forget open -n /Applications/Obsidian.app', 'mode main']
-alt-s = ['exec-and-forget open -n /Applications/Visual\ Studio\ Code.app', 'mode main']
-enter = 'mode main'
-esc = 'mode main'
-
-# === Move Apps ===
-[[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.insomnia.app'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace 4'
+    alt-t = ['exec-and-forget open -n /Applications/Ghostty.app', 'mode main']
+    alt-b = ['exec-and-forget open -n /Applications/Brave\ Browser.app', 'mode main']
+    alt-o = ['exec-and-forget open -n /Applications/Obsidian.app', 'mode main']
+    alt-s = ['exec-and-forget open -n /Applications/Visual\ Studio\ Code.app', 'mode main']
+    enter = 'mode main'
+    esc = 'mode main'
 
