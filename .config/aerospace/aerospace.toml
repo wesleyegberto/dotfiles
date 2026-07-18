@@ -58,6 +58,14 @@ on-window-detected = [
         if = 'test %{app-bundle-id} = com.tinyspeck.slackmacgap',
         run = ['move-node-to-workspace 4'],
     },
+    {
+        if = 'test %{app-bundle-id} = com.apple.finder',
+        run = ['layout floating'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.apple.TextEdit',
+        run = ['layout floating'],
+    }
 ]
 
 [workspace-to-monitor-force-assignment]
