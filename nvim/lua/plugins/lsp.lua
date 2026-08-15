@@ -22,11 +22,11 @@ return {
       local map = vim.api.nvim_set_keymap
       local opts = { noremap = true }
       map('n', '<leader>lp', ':Mason<CR>',      opts)
-      map('n', '<leader>ls', ':LspStart<CR>',   opts)
-      map('n', '<leader>lS', ':LspStop<CR>',    opts)
-      map('n', '<leader>lr', ':LspRestart<CR>', opts)
-      map('n', '<leader>ll', ':LspLog<CR>',     opts)
-      map('n', '<leader>li', ':LspInfo<CR>',    opts)
+      map('n', '<leader>ls', ':lua lua.lsp.start_client()<CR>',   opts)
+      map('n', '<leader>lS', ':lsp stop<CR>',    opts)
+      map('n', '<leader>lr', ':lsp restart<CR>', opts)
+      map('n', '<leader>ll', ':lua vim.cmd.tabnew { vim.lsp.log.get_filename() }<CR>',     opts)
+      map('n', '<leader>li', ':checkhealth vim.lsp<CR>',    opts)
     end,
     config = function()
       local map = vim.api.nvim_set_keymap
