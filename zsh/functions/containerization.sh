@@ -20,6 +20,10 @@ function drm() {
   [ -n "$cid" ] && docker rm "$cid"
 }
 
+kproxy() {
+  k proxy --accept-hosts host.docker.internal,127.0.0.1
+}
+
 # Connect to a pod using shell
 # Usage: `ksh dev my-prod-id`
 ksh() {
@@ -83,5 +87,21 @@ klogsf() {
   podName=$(echo "$podLine" | choose 1)
 
   kubectl logs -n "$namespace" -f "$podName"
+}
+
+# Remove a docker image
+# Usage: `krmi <image_name>`
+krmi() {
+  if [ -z "$1" ]; then
+      echo "Usage: $0 <image-name>"
+      exit 1
+  fi
+
+  local app_name
+  app_name=$1
+  echo "Removing image *$app_name*"
+
+  docker ps -a | grep "$app_name" | awk '{print $1}' | xargs docker rm
+  docker images --format table | grep "$app_name" | awk '{print $3}' | xargs docker rmi --force
 }
 
