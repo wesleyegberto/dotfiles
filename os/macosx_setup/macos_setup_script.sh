@@ -193,6 +193,9 @@ DEV_TOOLS="$HOME/dev-tools/ide/jdt-language-server"
 mkdir -p $DEV_TOOLS
 cd $DEV_TOOLS
 
+# Netflix JA tool
+curl -fsSL https://raw.githubusercontent.com/Netflix/ja/main/install.sh | bash -s -- --standalone
+
 wget https://download.eclipse.org/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz
 
 if [[ ! -d "$DEV_TOOLS/java-debug" ]]; then
