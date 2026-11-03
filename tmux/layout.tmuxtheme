@@ -76,6 +76,10 @@ set -g display-panes-active-colour "${bar_fg}"
 
 set -g window-style "fg=${bar_fg} bg=default"
 set -g window-active-style "fg=#ffffff bg=default"
+
+# Popup (tmux >= 3.8 default is bg=themedarkgrey)
+set -g popup-style "fg=#ffffff bg=default"
+set -g popup-border-style "fg=${bar_fg} bg=default"
 set -g window-status-bell-style "fg=${left_1_fg} bg=${red} bold"
 
 # Clock mode
