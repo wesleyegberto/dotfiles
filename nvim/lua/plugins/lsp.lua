@@ -64,13 +64,25 @@ return {
       })
 
       local function setup_keymaps()
-        vim.cmd [[
-          augroup lsp_document_highlight
-              autocmd! * <buffer>
-              autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-              autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-          augroup END
-        ]]
+        -- Enable document highlight only if the attached LSP supports it
+        vim.api.nvim_create_autocmd('LspAttach', {
+          group = vim.api.nvim_create_augroup('lsp_document_highlight_attach', { clear = true }),
+          callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if not client or not client.server_capabilities.documentHighlightProvider then
+              return
+            end
+            local group = vim.api.nvim_create_augroup('lsp_document_highlight_' .. args.buf, { clear = true })
+            vim.api.nvim_create_autocmd('CursorHoldI', {
+              group = group, buffer = args.buf,
+              callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd('CursorMoved', {
+              group = group, buffer = args.buf,
+              callback = vim.lsp.buf.clear_references,
+            })
+          end,
+        })
 
         map('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
